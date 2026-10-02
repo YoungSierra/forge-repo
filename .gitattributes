@@ -1,0 +1,63 @@
+# ─── Fin de línea ────────────────────────────────────────────────────────────
+# Normalizado, para que un repo compartido entre Windows y macOS no muestre el archivo entero
+# como modificado cada vez que lo abre el otro.
+* text=auto
+
+*.md    text eol=lf
+*.csv   text eol=lf
+*.json  text eol=lf
+*.yaml  text eol=lf
+*.yml   text eol=lf
+
+# ─── Git LFS ─────────────────────────────────────────────────────────────────
+# Todo lo binario va por LFS. Un .fbx o una textura 4K dentro del historial normal de git lo
+# engordan para siempre: git guarda cada versión entera, no la diferencia, y el repo ya no
+# adelgaza aunque se borre el archivo.
+#
+# ANTES DE CLONAR: hay que tener `git lfs install` hecho una vez en la máquina. Sin eso se
+# descargan punteros de texto en vez de los archivos, y parece que el repo está roto.
+#
+# OJO CON LA CUOTA: GitHub da 1 GB de almacenamiento LFS y 1 GB de tráfico al mes en el plan
+# gratis. Una entrega completa con texturas y audio lo pasa, así que antes de la primera entrega
+# grande hay que decidir quién paga el data pack o dónde se alojan los pesados.
+
+# Modelos
+*.fbx   filter=lfs diff=lfs merge=lfs -text
+*.glb   filter=lfs diff=lfs merge=lfs -text
+*.gltf  filter=lfs diff=lfs merge=lfs -text
+*.obj   filter=lfs diff=lfs merge=lfs -text
+
+# Texturas e imágenes
+*.png   filter=lfs diff=lfs merge=lfs -text
+*.jpg   filter=lfs diff=lfs merge=lfs -text
+*.jpeg  filter=lfs diff=lfs merge=lfs -text
+*.tga   filter=lfs diff=lfs merge=lfs -text
+*.tif   filter=lfs diff=lfs merge=lfs -text
+*.tiff  filter=lfs diff=lfs merge=lfs -text
+*.exr   filter=lfs diff=lfs merge=lfs -text
+*.psd   filter=lfs diff=lfs merge=lfs -text
+*.psb   filter=lfs diff=lfs merge=lfs -text
+
+# Audio
+*.wav   filter=lfs diff=lfs merge=lfs -text
+*.mp3   filter=lfs diff=lfs merge=lfs -text
+*.ogg   filter=lfs diff=lfs merge=lfs -text
+*.aif   filter=lfs diff=lfs merge=lfs -text
+*.aiff  filter=lfs diff=lfs merge=lfs -text
+
+# Vídeo
+*.mp4   filter=lfs diff=lfs merge=lfs -text
+*.mov   filter=lfs diff=lfs merge=lfs -text
+*.webm  filter=lfs diff=lfs merge=lfs -text
+
+# Fuentes
+*.ttf   filter=lfs diff=lfs merge=lfs -text
+*.otf   filter=lfs diff=lfs merge=lfs -text
+
+# Fuentes de autoría (viven en Source/)
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.spp   filter=lfs diff=lfs merge=lfs -text
+*.sbs   filter=lfs diff=lfs merge=lfs -text
+*.sbsar filter=lfs diff=lfs merge=lfs -text
+*.zip   filter=lfs diff=lfs merge=lfs -text
+*.rar   filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,45 @@
+# Lo que la guía dice que NO se entrega (sección 1). Si algo de esto llega al repo, V57 lo borra
+# antes de importar, así que es mejor que no entre.
+
+# Unity: lo genera V57, no el proveedor
+*.meta
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+Logs/
+UserSettings/
+ProjectSettings/
+Packages/
+*.csproj
+*.unityproj
+*.sln
+*.user
+*.booproj
+*.pidb
+*.suo
+*.unitypackage
+
+# Basura de los sistemas de archivos
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Temporales de las herramientas de autoría
+*.blend[0-9]
+*.blend[0-9][0-9]
+*.autosave
+*.tmp
+*~
+
+# Los nombres que la guía prohíbe —«temp», «copy», «New Folder»— NO se ignoran a propósito.
+#
+# Un patrón como `*copy*` se tragaría `Copyright.md` sin decir nada, y un archivo que desaparece en
+# silencio es peor que uno mal nombrado: el mal nombrado se ve y se corrige. Esos nombres los caza
+# el checklist de la sección 8 antes del tag, que es donde alguien los está mirando.

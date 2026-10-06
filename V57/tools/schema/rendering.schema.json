@@ -1,0 +1,62 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/rendering.schema.json",
+  "title": "V57 rendering",
+  "description": "Pipeline, palette (TDD §8 + ADD color_palette), budgets (§11.6), post.",
+  "type": "object",
+  "properties": {
+    "pipeline": {
+      "enum": [
+        "URP",
+        "HDRP",
+        "Built-in"
+      ]
+    },
+    "palette": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "hex": {
+            "type": "string",
+            "pattern": "^#[0-9A-F]{6}$"
+          },
+          "role": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "status": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "hex",
+          "role",
+          "status"
+        ]
+      }
+    },
+    "budgets": {
+      "type": "object"
+    },
+    "post": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "pipeline",
+    "palette",
+    "budgets",
+    "post"
+  ],
+  "additionalProperties": false
+}

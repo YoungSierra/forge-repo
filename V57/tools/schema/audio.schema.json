@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/audio.schema.json",
+  "title": "V57 audio",
+  "description": "Audio events (AudioParameters.md, ADD, disk) + middleware.",
+  "type": "object",
+  "properties": {
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "event": {
+            "type": "string"
+          },
+          "file": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "volume": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "loop": {
+            "type": "boolean"
+          }
+        },
+        "required": [
+          "event",
+          "file",
+          "volume",
+          "loop"
+        ]
+      }
+    },
+    "middleware": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "events",
+    "middleware",
+    "notes"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,102 @@
+using System;
+using System.IO;
+using UnityEngine;
+using V57.GoldPath;
+
+namespace V57.Assembly.Data
+{
+    /// <summary>
+    /// Loads <c>Docs/Generated/json/*.json</c> (written by V57 intake) into JsonUtility DTOs.
+    /// Null members are stripped first (<see cref="JsonPreprocessor"/>). Missing or invalid files yield null
+    /// plus an entry in <see cref="LastLoadProblems"/>; callers must handle null.
+    /// </summary>
+    public static class GeneratedData
+    {
+        #region Fields
+
+        private static readonly string[] QuotedScalarKeys = { "follow" };
+        private static bool _loaded;
+        private static PackageDto _package;
+        private static AssetManifestDto _assetManifest;
+        private static ScenesDto _scenes;
+        private static UiDto _ui;
+        private static CameraDto _camera;
+        private static string _lastLoadProblems = string.Empty;
+
+        #endregion
+
+        #region Public Methods
+
+        public static PackageDto Package => EnsureLoaded(ref _package);
+
+        public static AssetManifestDto AssetManifest => EnsureLoaded(ref _assetManifest);
+
+        public static ScenesDto Scenes => EnsureLoaded(ref _scenes);
+
+        public static UiDto Ui => EnsureLoaded(ref _ui);
+
+        public static CameraDto Camera => EnsureLoaded(ref _camera);
+
+        /// <summary>Semicolon-separated problems from the last <see cref="Reload"/>.</summary>
+        public static string LastLoadProblems => _lastLoadProblems;
+
+        public static void Reload()
+        {
+            _lastLoadProblems = string.Empty;
+            _package = Load<PackageDto>("package");
+            _assetManifest = Load<AssetManifestDto>("asset_manifest");
+            _scenes = Load<ScenesDto>("scenes");
+            _ui = Load<UiDto>("ui");
+            _camera = Load<CameraDto>("camera");
+            _loaded = true;
+        }
+
+        public static string PathOf(string name)
+        {
+            return Path.Combine(AssemblyPaths.GeneratedJsonDirectory, name + ".json");
+        }
+
+        /// <summary>Loads one generated file; returns null when absent or invalid.</summary>
+        public static T Load<T>(string name) where T : class
+        {
+            string path = PathOf(name);
+            if (!File.Exists(path))
+            {
+                AddProblem($"{name}.json not found");
+                return null;
+            }
+
+            try
+            {
+                string json = JsonPreprocessor.Process(File.ReadAllText(path), QuotedScalarKeys);
+                return JsonUtility.FromJson<T>(json);
+            }
+            catch (Exception exception) when (exception is ArgumentException || exception is IOException)
+            {
+                AddProblem($"{name}.json unreadable: {exception.Message}");
+                return null;
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private static T EnsureLoaded<T>(ref T field) where T : class
+        {
+            if (!_loaded)
+            {
+                Reload();
+            }
+
+            return field;
+        }
+
+        private static void AddProblem(string problem)
+        {
+            _lastLoadProblems = string.IsNullOrEmpty(_lastLoadProblems) ? problem : _lastLoadProblems + "; " + problem;
+        }
+
+        #endregion
+    }
+}

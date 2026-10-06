@@ -1,0 +1,14 @@
+{
+  "name": "com.v57.assembly",
+  "version": "0.1.0",
+  "displayName": "V57 Assembly",
+  "description": "V57 GameForge assembly tools: import rules, materials, atlases, visual prefabs, placeholders, level scenes and hierarchy diff (Editor), plus the Gold Path driver and scene markers (Runtime).",
+  "unity": "6000.0",
+  "dependencies": {
+    "com.unity.inputsystem": "1.11.0"
+  },
+  "keywords": ["v57", "gameforge", "assembly", "goldpath"],
+  "author": {
+    "name": "V57 GameForge"
+  }
+}

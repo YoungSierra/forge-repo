@@ -1,0 +1,340 @@
+# =============================================================================
+# SDD feature/system spec template
+# -----------------------------------------------------------------------------
+# Copy to:
+#   V57/specs/<slug>/features/<snake_case_name>.yaml   — gameplay modules, UI features
+#   V57/specs/<slug>/systems/<snake_case_name>.yaml    — cross-cutting systems
+#
+# type (required): exactly one of:
+#   - feature   — player-facing module aligned with CONTEXT.md "Feature"
+#   - system    — backend/cross-cutting aligned with CONTEXT.md "System"
+#   - mechanic  — small reusable rule set; prefer feature/system if it becomes a module
+#
+# dependencies (required): list of objects with:
+#   - kind: feature | system | mechanic
+#   - id:   string matching module or spec name in CONTEXT.md (PascalCase or agreed id)
+#   - minVersion: optional semver string (omit or null if not versioned)
+#
+# components[].files[]: paths to generated .cs (and .cs only).
+# designerAssetSuggestedPath: Unity asset path — instances are created via Unity MCP
+#   (Unity.RunCommand / Unity.ManageAsset + AssetDatabase), not by hand in the Inspector. See V57/docs/mcp/UNITY_MCP_REQUIREMENT.md.
+#
+# specVersion: bump when this file’s contract changes.
+#
+# acceptanceCriteria (required): testable, observable behaviors; each id traceable to
+#   tests or PlayMode checks. See validationGates and V57/agents/skills/commands/spec/unity-spec-skill.md § Definition of Done.
+# =============================================================================
+
+specVersion: "1.1"
+
+name: FeatureName
+type: feature
+
+description: |
+  Brief description of what this feature does and why it exists.
+  Can span multiple lines.
+
+version: 1.0.0
+lastModified: YYYY-MM-DD
+author: AuthorName
+
+# Required: declare integration points. Use CONTEXT.md as source of truth for ids.
+dependencies:
+  - kind: system
+    id: GameStateSystem
+  - kind: system
+    id: AudioSystem
+    minVersion: null
+  - kind: feature
+    id: PlayerMovement
+  - kind: system
+    id: InventorySystem
+    minVersion: "1.2.0"
+
+# Preconditions that must be met before this feature works
+preconditions:
+  - Player must have a Health component
+  - Game must be in Playing state
+  - Audio system initialized
+
+# Main components that make up this feature
+components:
+  - name: FeatureNameController
+    type: MonoBehaviour
+    responsibilities:
+      - Manage feature lifecycle (Init, Update, Destroy)
+      - Coordinate between sub-components
+      - Expose public API for other systems
+    dependencies:
+      - GameStateManager
+      - EventBus
+    files:
+      - path: Assets/_Game/Scripts/Features/FeatureName/FeatureNameController.cs
+        class: FeatureNameController
+    events:
+      - name: OnFeatureInitialized
+        type: Action
+        payload: null
+      - name: OnFeatureCompleted
+        type: Action<FeatureResult>
+        payload: FeatureResult
+
+  - name: FeatureNameData
+    type: ScriptableObject
+    responsibilities:
+      - Store configuration values
+      - Balance parameters
+    files:
+      - path: Assets/_Game/Scripts/Features/FeatureName/FeatureNameData.cs
+        class: FeatureNameData
+    createAssetMenu:
+      menuName: Game/Data/Feature Name
+      fileName: FeatureNameData
+    designerAssetSuggestedPath: Assets/ScriptableObjects/Data/FeatureName/FeatureNameData.asset
+    fields:
+      - name: duration
+        type: float
+        default: 5.0
+        range: [0.1, 60.0]
+      - name: damageMultiplier
+        type: float
+        default: 1.5
+        range: [0.1, 10.0]
+
+  - name: FeatureNameState
+    type: enum
+    values:
+      - Inactive
+      - Active
+      - Cooldown
+      - Disabled
+    files:
+      - path: Assets/_Game/Scripts/Features/FeatureName/FeatureNameState.cs
+        class: FeatureNameState
+
+# Optional: state machine. `name` is a logical id for docs/tooling; the enum type is usually
+# singular (e.g. FeatureNameState) and lives in components above.
+stateMachine:
+  name: FeatureNameStates
+  initialState: Inactive
+  states:
+    - name: Inactive
+      onEnter: null
+      onExit: Cleanup
+      transitions:
+        - to: Active
+          condition: CanActivate
+          guard: IsEnabled && CooldownComplete
+    - name: Active
+      onEnter: BeginFeature
+      onExit: EndFeature
+      transitions:
+        - to: Cooldown
+          condition: DurationComplete
+        - to: Inactive
+          condition: ForceDeactivate
+    - name: Cooldown
+      onEnter: StartCooldownTimer
+      onExit: null
+      transitions:
+        - to: Active
+          condition: CooldownComplete && CanActivate
+        - to: Inactive
+          condition: ForceDeactivate
+
+# Optional: API surface for other systems
+publicAPI:
+  methods:
+    - name: Activate
+      parameters: []
+      returnType: bool
+      description: Activates the feature, returns false if preconditions not met
+    - name: Deactivate
+      parameters: []
+      returnType: void
+      description: Immediately deactivates the feature
+    - name: IsActive
+      parameters: []
+      returnType: bool
+      description: Returns current active state (prefer a property in C# if spec is updated)
+  properties:
+    - name: RemainingDuration
+      type: float
+      readOnly: true
+      description: Time remaining in current activation
+  events:
+    - name: OnFeatureStateChanged
+      type: Action<FeatureNameState, FeatureNameState>
+      description: Fired when state changes (from, to)
+
+# Implementation details and requirements
+implementation:
+  files:
+    - path: Assets/_Game/Scripts/Features/FeatureName/FeatureNameController.cs
+      class: FeatureNameController
+      description: Main controller MonoBehaviour
+    - path: Assets/_Game/Scripts/Features/FeatureName/FeatureNameData.cs
+      class: FeatureNameData
+      description: ScriptableObject type definition (.cs); asset instance at designer path
+    - path: Assets/_Game/Scripts/Features/FeatureName/FeatureNameEventChannel.cs
+      class: FeatureNameEventChannel
+      description: Event channel for decoupled communication
+    - path: Assets/_Game/Scripts/Features/FeatureName/FeatureNameState.cs
+      class: FeatureNameState
+      description: Enum for state machine
+
+  # Paths relative to project root; all under Assets/_Game/Tests/ (see V57/docs/standards/UNITY_TEST_SCAFFOLD.md)
+  tests:
+    - path: Assets/_Game/Tests/EditMode/Features/FeatureName/FeatureNameControllerTests.cs
+      type: EditMode
+      coverage:
+        - Activate
+        - Deactivate
+        - State transitions
+    - path: Assets/_Game/Tests/PlayMode/Features/FeatureName/FeatureNameIntegrationTests.cs
+      type: PlayMode
+      coverage:
+        - Full feature lifecycle
+        - Integration with GameStateSystem
+
+  # Consumer Unity only. Agent resolves asmdef paths from assemblyPrefix + V57/docs/standards/UNITY_TEST_SCAFFOLD.md
+  testScaffold:
+    package: com.unity.test-framework
+    assemblyPrefix: null
+    testAssembliesReference: TestAssemblies
+
+  milestones:
+    - name: Core Implementation
+      status: pending
+      tasks:
+        - Implement FeatureNameController
+        - Create FeatureNameData ScriptableObject type and default asset
+        - Define FeatureNameState enum
+    - name: Event System
+      status: pending
+      tasks:
+        - Create event channel
+        - Connect to GameStateSystem
+    - name: Testing
+      status: pending
+      tasks:
+        - Write unit tests
+        - Write integration tests
+    - name: Polish
+      status: pending
+      tasks:
+        - Balance values
+        - Add VFX/SFX
+
+# Required for implement + sign-off: observable behaviors (maps to tests and PlayMode checks).
+# Each id should appear in implementation.tests.coverage or PlayMode acceptance rows.
+acceptanceCriteria:
+  - id: AC-001
+    description: Feature activates when preconditions are met and Activate returns true
+    verification: EditMode
+    traceTo:
+      - publicAPI.methods.Activate
+      - implementation.tests[0].coverage
+  - id: AC-002
+    description: Feature deactivates and OnFeatureStateChanged fires with expected states
+    verification: EditMode
+    traceTo:
+      - stateMachine
+      - OnFeatureStateChanged
+
+# Gates before marking the feature done in a Unity consumer project (see V57/agents/skills/commands/spec/unity-spec-skill.md).
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  unityTestFramework:
+    package: com.unity.test-framework
+    editMode: required
+    playMode: required_when_behavior_is_runtime
+  acceptanceCriteria: all_must_pass
+  manualPlaytest: optional
+
+# Optional: Editor tools or inspectors
+editorTools:
+  - name: FeatureNameDebugWindow
+    type: EditorWindow
+    path: Assets/_Game/Scripts/Editor/FeatureName/FeatureNameDebugWindow.cs
+    description: Debug window for runtime inspection
+
+# -----------------------------------------------------------------------------
+# V57 Context Intelligence (specVersion 1.1+) — see V57/docs/context/CONTEXT_INDEX.md
+# Required for new specs in consumer projects adopting Phase 1+.
+# -----------------------------------------------------------------------------
+specId: feature_name                    # snake_case; module id in project-index.json is `name` (Phase 2+)
+
+touches:
+  scripts: []                           # .cs paths this spec owns or modifies
+  prefabs: []                           # prefab paths with wiring for this feature
+  scriptable_objects: []                # SO asset instances (not .cs type definitions)
+  scenes: []                            # scene paths when scene-specific wiring applies
+  tests: []                             # EditMode/PlayMode test files
+
+# informativo — not consumed by indexing tools today; documents event wiring for agents
+eventChannels:
+  - name: OnExampleEvent
+    direction: publish                  # publish | subscribe | both
+    sourceModule: FeatureName             # module id in CONTEXT.md
+
+# Optional: scene wiring for /scene-setup OVR (consumer Unity + MCP)
+sceneSetup:
+  scenePath: Assets/_Game/Scenes/Main.unity
+  rootObjects:
+    - name: Player
+      tag: Player
+      components: [Rigidbody, FeatureNameController]
+  verification:
+    - invariant: scene_saved
+      expected: Assets/_Game/Scenes/Main.unity
+    - invariant: component_present
+      gameObject: Player
+      component: FeatureNameController
+
+# Optional: UI Toolkit (see /ui-setup)
+ui:
+  screens:
+    - name: Hud
+      uxml: Assets/UI/Screens/Hud.uxml
+      uss: Assets/UI/Styles/Hud.uss
+      elements:
+        - name: coins-text
+          type: Label
+      verification:
+        - query: coins-text
+          type: Label
+
+# Optional: audio events (see /audio-setup)
+audio:
+  cues:
+    - id: sfx_coin_collect
+      mixerGroup: SFX
+      trigger: OnCoinCollected
+
+# Optional: animation (see /animation-setup)
+animation:
+  controller: Assets/Animation/Player/Player.controller
+  parameters:
+    - name: Speed
+      type: float
+  states:
+    - name: Idle
+    - name: Move
+
+# Optional: NGO networking (see /network-setup, unity-ngo-patterns-skill.md)
+networking:
+  tier: lan                      # lan | relay | dedicated — inherit from CONTEXT if omitted
+  networkPrefabs:
+    - path: Assets/_Game/Prefabs/Network/NetworkPlayer.prefab
+      registerAsDefault: false
+  sync:
+    - component: ExampleHealth
+      fields: [CurrentHealth]
+      authority: server            # server | owner (input-only patterns use server for state)
+  verification:
+    - invariant: network_prefab_registered
+    - invariant: mppm_two_clients_spawn

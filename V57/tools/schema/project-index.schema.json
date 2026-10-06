@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/project-index.schema.json",
+  "title": "V57 Project Index",
+  "type": "object",
+  "required": ["indexVersion", "generatedAt", "generator", "modules", "interfaces", "events", "assets"],
+  "properties": {
+    "indexVersion": { "type": "string", "const": "1.0" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "generator": { "type": "string" },
+    "modules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "scripts", "dependsOn", "classes"],
+        "properties": {
+          "id": { "type": "string" },
+          "specId": { "type": "string" },
+          "scripts": { "type": "array", "items": { "type": "string" } },
+          "dependsOn": { "type": "array", "items": { "type": "string" } },
+          "classes": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "interfaces": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "implementors", "consumers"],
+        "properties": {
+          "name": { "type": "string" },
+          "implementors": { "type": "array", "items": { "type": "string" } },
+          "consumers": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["name", "publishers", "subscribers"],
+        "properties": {
+          "name": { "type": "string" },
+          "publishers": { "type": "array", "items": { "type": "string" } },
+          "subscribers": { "type": "array", "items": { "type": "string" } }
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "properties": {
+        "prefabs": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": { "type": "string" },
+              "components": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        },
+        "scriptableObjects": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": { "type": "string" },
+              "scriptType": { "type": "string" }
+            }
+          }
+        },
+        "scenes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": { "type": "string" },
+              "rootObjects": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    }
+  }
+}

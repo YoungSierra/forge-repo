@@ -1,0 +1,10 @@
+{
+  "name": "v57-runtime-lint",
+  "version": "1.0.0",
+  "description": "V57 runtime lint: M2 scene=game rules + honest PlayMode acceptance tests (no Physics.Simulate / collision disabling / clamping)",
+  "private": true,
+  "main": "runtime-lint.js",
+  "bin": { "v57-runtime-lint": "runtime-lint.js" },
+  "engines": { "node": ">=18" },
+  "scripts": { "test": "node --test test/*.test.js", "lint": "node runtime-lint.js" }
+}

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/entities.schema.json",
+  "title": "V57 entities",
+  "description": "Gameplay entities from TDD §B/§B-S + asset_briefs.serves.",
+  "type": "object",
+  "properties": {
+    "entities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "mechanics": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "asset_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "kind",
+          "mechanics",
+          "asset_id"
+        ]
+      }
+    }
+  },
+  "required": [
+    "entities"
+  ],
+  "additionalProperties": false
+}

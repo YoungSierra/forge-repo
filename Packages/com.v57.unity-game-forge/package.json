@@ -1,0 +1,24 @@
+{
+  "name": "com.v57.unity-game-forge",
+  "displayName": "V57 Unity GameForge",
+  "version": "0.1.0",
+  "unity": "6000.0",
+  "description": "Unity-native Prototype / Vertical Slice / Production workbench with a local agent sidecar for LLM generation. Requires Unity CLI + com.unity.pipeline for Editor MCP (legacy com.unity.ai.assistant relay supported until end 2026).",
+  "author": {
+    "name": "DavidGaitanV57"
+  },
+  "keywords": [
+    "v57",
+    "prototype",
+    "tdd",
+    "gameforge",
+    "ui-toolkit",
+    "unity-mcp",
+    "unity-cli"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "com.unity.inputsystem": "1.20.0",
+    "com.unity.pipeline": "0.5.0-exp.1"
+  }
+}

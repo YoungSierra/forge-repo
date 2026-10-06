@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/camera.schema.json",
+  "title": "V57 camera",
+  "description": "TDD §11.5 + ADD camera refs.",
+  "type": "object",
+  "properties": {
+    "views": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "scene": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "enum": [
+              "orthographic",
+              "perspective"
+            ]
+          },
+          "angle_deg": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "fov_or_size": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "distance_m": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "follow": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "follow target id; null = fixed camera"
+          },
+          "notes": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "scene",
+          "type",
+          "angle_deg",
+          "fov_or_size",
+          "distance_m",
+          "follow",
+          "notes"
+        ]
+      }
+    }
+  },
+  "required": [
+    "views"
+  ],
+  "additionalProperties": false
+}

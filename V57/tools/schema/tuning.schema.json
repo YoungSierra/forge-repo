@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/tuning.schema.json",
+  "title": "V57 tuning",
+  "description": "Tuning values from §B levers and §C numeric fields.",
+  "type": "object",
+  "properties": {
+    "values": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "mechanic": {
+            "type": "string"
+          },
+          "param": {
+            "type": "string"
+          },
+          "value": {
+            "type": [
+              "number",
+              "string",
+              "array",
+              "null"
+            ]
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "min": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "max": {
+            "type": [
+              "number",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "mechanic",
+          "param",
+          "value",
+          "unit",
+          "min",
+          "max"
+        ]
+      }
+    }
+  },
+  "required": [
+    "values"
+  ],
+  "additionalProperties": false
+}

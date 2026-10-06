@@ -1,0 +1,210 @@
+# =============================================================================
+# Network session system spec template (NGO)
+# Copy to: V57/specs/<slug>/systems/network_session.yaml
+#
+# Emit when TDD §A multiplayer_model != N/A or §B mechanic NetworkSession exists.
+# Implement after /network-setup PASS for matching tier.
+# =============================================================================
+
+specVersion: "1.1"
+
+name: NetworkSession
+type: system
+
+description: |
+  Manages NGO session lifecycle: offline, host, client, shutdown.
+  Tier-specific: LAN direct connect, UGS Lobby+Relay, or dedicated server connect.
+
+version: 0.1.0
+lastModified: YYYY-MM-DD
+author: Team
+
+dependencies:
+  - kind: system
+    id: GameStateSystem
+    minVersion: null
+
+preconditions:
+  - Unity MCP available
+  - Packages from NETWORKING_PACKAGES.md installed for target tier
+  - /network-setup completed for tier or verify PASS
+
+components:
+  - name: NetworkSessionManager
+    type: MonoBehaviour
+    responsibilities:
+      - Session FSM (Offline, Hosting, Client, ShuttingDown)
+      - StartHost / StartClient / StartServer / Shutdown wrappers
+      - Fire session events for UI and gameplay systems
+      - Spawn/despawn player prefab on connect/disconnect (server)
+    dependencies:
+      - NetworkManager
+    files:
+      - path: Assets/_Game/Scripts/Systems/Network/NetworkSessionManager.cs
+        class: NetworkSessionManager
+    events:
+      - name: OnSessionStarted
+        type: Action<NetworkSessionRole>
+        payload: NetworkSessionRole
+      - name: OnSessionEnded
+        type: Action
+        payload: null
+      - name: OnClientJoined
+        type: Action<ulong>
+        payload: clientId
+      - name: OnClientLeft
+        type: Action<ulong>
+        payload: clientId
+
+  - name: NetworkSessionRole
+    type: enum
+    values:
+      - None
+      - Host
+      - Client
+      - DedicatedServer
+    files:
+      - path: Assets/_Game/Scripts/Systems/Network/NetworkSessionRole.cs
+        class: NetworkSessionRole
+
+  - name: NetworkRelayService
+    type: MonoBehaviour
+    responsibilities:
+      - UGS Authentication, Lobby create/join, Relay allocation (tier relay only)
+      - Apply relay data to UnityTransport before StartHost/StartClient
+    dependencies:
+      - NetworkSessionManager
+    files:
+      - path: Assets/_Game/Scripts/Systems/Network/NetworkRelayService.cs
+        class: NetworkRelayService
+
+stateMachine:
+  name: NetworkSessionStates
+  initialState: Offline
+  states:
+    - name: Offline
+      transitions:
+        - to: Hosting
+          condition: StartHostRequested
+        - to: Client
+          condition: StartClientRequested
+    - name: Hosting
+      transitions:
+        - to: ShuttingDown
+          condition: ShutdownRequested
+    - name: Client
+      transitions:
+        - to: ShuttingDown
+          condition: ShutdownRequested
+    - name: ShuttingDown
+      transitions:
+        - to: Offline
+          condition: ShutdownComplete
+
+publicAPI:
+  methods:
+    - name: StartHostSessionAsync
+      parameters: []
+      returnType: Task<bool>
+      description: Start listen host (LAN or relay per tier)
+    - name: StartClientSessionAsync
+      parameters:
+        - name: connectionInfo
+          type: NetworkConnectionInfo
+      returnType: Task<bool>
+      description: Join existing session
+    - name: ShutdownSessionAsync
+      parameters: []
+      returnType: Task
+      description: Clean shutdown and despawn networked objects
+
+implementation:
+  files:
+    - path: Assets/_Game/Scripts/Systems/Network/NetworkSessionManager.cs
+      class: NetworkSessionManager
+      description: Core session FSM
+    - path: Assets/_Game/Scripts/Systems/Network/NetworkRelayService.cs
+      class: NetworkRelayService
+      description: UGS Lobby+Relay (tier relay)
+  tests:
+    - path: Assets/_Game/Tests/EditMode/Systems/Network/NetworkSessionManagerTests.cs
+      type: EditMode
+      coverage:
+        - State transitions without network (mocked)
+    - path: Assets/_Game/Tests/PlayMode/Systems/Network/NetworkSessionPlayModeTests.cs
+      type: PlayMode
+      coverage:
+        - Host start smoke (MPPM when available)
+
+acceptanceCriteria:
+  - id: AC-NET-001
+    description: Host can start session and reaches Hosting state (tier lan)
+    verification: PlayMode
+    traceTo:
+      - StartHostSessionAsync
+  - id: AC-NET-002
+    description: Client can join host on LAN and player object spawns
+    verification: PlayMode
+    traceTo:
+      - StartClientSessionAsync
+      - OnClientJoined
+  - id: AC-NET-003
+    description: Shutdown returns to Offline and despawns networked players
+    verification: PlayMode
+    traceTo:
+      - ShutdownSessionAsync
+  - id: AC-NET-004
+    description: Tier relay — private lobby created and join code displayed (compile + manual or integration test)
+    verification: Manual
+    traceTo:
+      - NetworkRelayService
+
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  unityTestFramework:
+    package: com.unity.test-framework
+    editMode: required
+    playMode: required_when_behavior_is_runtime
+  acceptanceCriteria: all_must_pass
+  manualPlaytest: required_for_tier_relay
+
+specId: network_session
+
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Systems/Network/NetworkSessionManager.cs
+    - Assets/_Game/Scripts/Systems/Network/NetworkRelayService.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Network/NetworkPlayer.prefab
+  scenes:
+    - Assets/_Game/Scenes/Main.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/Systems/Network/NetworkSessionManagerTests.cs
+    - Assets/_Game/Tests/PlayMode/Systems/Network/NetworkSessionPlayModeTests.cs
+
+networking:
+  tier: lan
+  networkPrefabs:
+    - path: Assets/_Game/Prefabs/Network/NetworkPlayer.prefab
+      registerAsDefault: true
+  verification:
+    - invariant: network_prefab_registered
+    - invariant: network_manager_present
+    - invariant: mppm_two_clients_spawn
+
+sceneSetup:
+  scenePath: Assets/_Game/Scenes/Main.unity
+  rootObjects:
+    - name: "--- NETWORK ---"
+      children:
+        - name: NetworkManager
+          components: [NetworkManager, UnityTransport, NetworkSessionManager]
+  verification:
+    - invariant: scene_saved
+      expected: Assets/_Game/Scenes/Main.unity
+    - invariant: component_present
+      gameObject: NetworkManager
+      component: NetworkSessionManager

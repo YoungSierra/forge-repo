@@ -1,0 +1,173 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/asset_manifest.schema.json",
+  "title": "V57 asset manifest",
+  "description": "ADD asset_briefs x on-disk inventory (brief \u00a72).",
+  "type": "object",
+  "properties": {
+    "assets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "asset_id": {
+            "type": "string"
+          },
+          "asset_name": {
+            "type": "string"
+          },
+          "category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "type": {
+            "enum": [
+              "model",
+              "character",
+              "animation",
+              "texture",
+              "sprite",
+              "atlas",
+              "font",
+              "vfx",
+              "music",
+              "sfx",
+              "ambience",
+              "voice",
+              "blockout",
+              "reference"
+            ]
+          },
+          "serves": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "files": {
+            "type": "object"
+          },
+          "size_m": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "type": "array",
+                "items": {
+                  "type": "number"
+                },
+                "minItems": 3,
+                "maxItems": 3
+              }
+            ]
+          },
+          "pivot": {
+            "enum": [
+              null,
+              "feet",
+              "base",
+              "center",
+              "hinge",
+              "axle"
+            ]
+          },
+          "side": {
+            "enum": [
+              null,
+              "left",
+              "right",
+              "center"
+            ]
+          },
+          "collision": {
+            "enum": [
+              "none",
+              "simple",
+              "exact"
+            ]
+          },
+          "tris_lod0": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "texture_size": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "bones": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "status": {
+            "enum": [
+              "final",
+              "provisional"
+            ]
+          },
+          "source": {
+            "enum": [
+              "brief",
+              "inventory"
+            ]
+          },
+          "issues": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "rig": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "enum": [
+              "humanoid",
+              "generic",
+              null
+            ]
+          }
+        },
+        "required": [
+          "asset_id",
+          "asset_name",
+          "category",
+          "type",
+          "serves",
+          "files",
+          "size_m",
+          "pivot",
+          "side",
+          "collision",
+          "tris_lod0",
+          "texture_size",
+          "bones",
+          "status",
+          "source",
+          "issues",
+          "rig"
+        ]
+      }
+    },
+    "orphans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "required": [
+    "assets",
+    "orphans"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,19 @@
+{
+  "name": "v57-intake",
+  "version": "1.0.0",
+  "description": "V57 I0 INTAKE: parses provider TDD + ADD + on-disk assets into Docs/Generated (yaml + json) and Docs/V57/INTAKE_REPORT.md",
+  "private": true,
+  "main": "index.js",
+  "bin": { "v57-intake": "index.js" },
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "intake": "node index.js"
+  },
+  "dependencies": {
+    "yaml": "^2.5.0"
+  },
+  "devDependencies": {
+    "ajv": "^8.17.1"
+  }
+}

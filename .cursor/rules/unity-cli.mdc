@@ -1,0 +1,29 @@
+---
+description: Unity CLI Pipeline drives Editor writes + verify; optional unity mcp stdio. Full reference in V57/docs/mcp/
+globs:
+alwaysApply: false
+---
+
+# Unity CLI (GameForge) — routing
+
+**Do not invent a second stack.** Primary = **Unity CLI + Pipeline** (`unity command` / `eval` / `test`). Optional = **`unity mcp`** (same Pipeline over Cursor stdio). Legacy assistant MCP = fallback only.
+
+| Task | Use | Never use for this |
+|------|-----|-------------------|
+| Preflight / Safe Mode | `unity pipeline list --format json` | — |
+| Scene / GO / asset **writes** | `unity command` (`open_scene`, `create_gameobject`, `batch`, `eval`, …) | Product `*Authoring` MenuItem scripts; human Hierarchy checklists |
+| OVR read-back | `unity command eval` / `get_scene_hierarchy` | Blind `.unity` YAML edits |
+| Save + compile poll | `unity command save_all` / `recompile` / `recompile_status` | — |
+| **EditMode / PlayMode tests** | **`unity test`** or `POST /api/unity-cli/test` | **Test Runner MCP** |
+| Play smoke | `unity command editor_play` | Play thrash loops |
+| Screenshot | `unity command screenshot` | — |
+
+`on_unavailable` means: **STOP** — do not ask the human to mount the scene manually. It does **not** forbid the agent from driving the live Editor via CLI.
+
+Sidecar: `GET /api/unity-cli/preflight`, `POST /api/unity-cli/eval`, `/command`, `/test`.
+
+Docs: `V57/docs/mcp/UNITY_CLI_INTEGRATIONS.md`, `UNITY_MCP_REQUIREMENT.md`.
+
+**Do not** use `unity logs` for `Editor.log` — that is the CLI log. Use `%LOCALAPPDATA%\Unity\Editor\Editor.log` or console tools.
+
+Policy: `agents.yaml` → `rules.unity_cli`, `rules.scene_authoring`, `run_unity_test_runner_via_cli: true`.

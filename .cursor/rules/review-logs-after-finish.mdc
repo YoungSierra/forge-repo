@@ -1,0 +1,13 @@
+---
+description: Always review Unity/agent logs after finishing work
+alwaysApply: true
+---
+
+# Review logs after finishing
+
+Whenever you finish implementing, fixing, or wiring a GameForge/Unity change:
+
+1. Read recent `Editor.log` (`%LOCALAPPDATA%\Unity\Editor\Editor.log` and/or `Logs/Editor.log`) for `error CS`, `Tundra build failed`, and `[GameForge]`.
+2. If Unity MCP is approved, also call `Unity_GetConsoleLogs` (Error/Warning).
+3. Report a short verdict to the user (OK / blockers / noise).
+4. If the logs show a compile error caused by the change (or by Generate under `Assets/Prototypes/`), fix it before declaring done — do not leave a red Console.

@@ -1,0 +1,608 @@
+name: UnityAgent
+description: AI agent for Unity C# development with spec-driven workflow (IDE / LLM agnostic)
+
+version: 2.0.0
+
+# Pack root — fixed folder name (repo name Base_Unity_V57), not a version number.
+pack_root: V57
+
+# ---------------------------------------------------------------------------
+# Game repo layout (provider repo, branch v57/setup). Single source for paths.
+# All paths are relative to the game repo root. Legacy roots (root `CONTEXT.md`,
+# `Assets/Scripts/`, `Assets/Prefabs/`, `Assets/Scenes/`) are never used.
+# ---------------------------------------------------------------------------
+layout:
+  engine_pin: "6000.6.2f1"            # V57 template ProjectSettings/ProjectVersion.txt; TDD engine is informational
+  game_root: Assets/_Game
+  provider_owned:                      # read-only for V57: never renamed/moved/edited; fixable issues absorbed by import rules + manifest mapping
+    - Docs/Design
+    - Docs/ArtDirection
+    - Docs/Audio
+    - Assets/_Game/Art                 # V57 may add only Materials/ subfolders and UI/Atlases/
+    - Assets/_Game/Audio
+  v57_owned:
+    - Assets/_Game/Art/**/Materials    # MAT_<Asset>.mat
+    - Assets/_Game/Art/UI/Atlases      # SpriteAtlas assets from BuildUiAtlases()
+    - Assets/_Game/Prefabs/Visual      # PRF_<Asset>_Visual.prefab
+    - Assets/_Game/Prefabs/Gameplay    # PRF_<Asset>.prefab (variant of Visual)
+    - Assets/_Game/Scenes              # SCN_<...>.unity
+    - Assets/_Game/Scripts             # <Area>/ one asmdef per area
+    - Assets/_Game/Data                # SO_<...>.asset
+    - Assets/_Game/Settings            # Rendering, Input, Presets
+    - Assets/_Game/Tests               # EditMode, PlayMode
+    - Docs/Generated                   # intake output only — never hand-edited
+    - Docs/V57
+    - V57/specs/<slug>
+    - Packages/manifest.json
+    - ProjectSettings
+  paths:
+    context: Docs/V57/CONTEXT.md       # per game; never swap a root CONTEXT.md
+    specs: V57/specs/<slug>/           # features/ and systems/ below
+    state: [Docs/V57/STATUS.json, Docs/V57/PLAN.md, Docs/V57/TODO.md, Docs/V57/DECISIONS.md, Docs/V57/DEVLOG.md]
+    intake_report: Docs/V57/INTAKE_REPORT.md
+    reports: Docs/V57/reports/<stage>-<slug>.md
+    assembly_report: Docs/V57/reports/assembly-report.json
+    evidence: Docs/V57/evidence/<stage>/<UTC>/
+    goldpath_evidence: Docs/V57/evidence/goldpath/<UTC>/checks.json
+    state_templates: V57/templates/game-state/
+    knowledge: V57/knowledge/
+    stop_token: .v57/ALLOW_STOP
+  unity_assembly_package:
+    id: com.v57.assembly
+    manifest_entry: "file:../V57/tools/unity-assembly"
+    run_all: 'unity command eval "V57.Assembly.AssemblyRunner.RunAll()"'
+    run_all_batch: "-executeMethod V57.Assembly.AssemblyRunner.RunAllBatch"
+  tools:
+    intake: "node V57/tools/intake/index.js --repo ."
+    runtime_lint: "node V57/tools/lint/runtime-lint.js --root Assets/_Game/Scripts --root Assets/_Game/Tests"
+    hierarchy_diff: 'unity command eval "V57.Assembly.AssemblyRunner.CaptureHierarchyDiff()"'   # → Docs/V57/reports/hierarchy-diff.json
+
+writes:
+  # Autonomous mode (default): write directly; never block on a confirm prompt.
+  require_user_confirm_before_spec_yaml: false
+  require_user_confirm_before_context_md: false
+
+# ---------------------------------------------------------------------------
+# Pipeline (VerticalSlice + Production). Driver: commands/setup/unity-vertical-slice-skill.md
+# ---------------------------------------------------------------------------
+pipeline:
+  stages: [I0, I1, I2, M1, F, M2, M3, M4]
+  driver: V57/agents/skills/commands/setup/unity-vertical-slice-skill.md
+  production: V57/agents/skills/commands/setup/unity-game-setup-skill.md
+  timeboxes_minutes:
+    I0: 15
+    I1: 30
+    I2: 45
+    M1: 240
+    F_per_spec: 90
+    M2: 240
+    M3: 240
+    M4: 120
+  status_words: [implemented, agent-verified, pending owner review]   # never "accepted"
+
+autonomy:
+  mode: autonomous                     # no `continue` between stages; `--staged` is opt-in for owner debugging
+  decide_and_log: Docs/V57/DECISIONS.md   # D-### entries instead of questions
+  stop_only_on:
+    - blocking_intake                  # intake exit code 2
+    - irreversible_or_destructive_action   # deleting provider files, force-push, history rewrite
+    - owner_stop_token                 # .v57/ALLOW_STOP present at a check point
+  hard_stop_actions:
+    - edit_tdd                         # Docs/Design/** is never edited to pass a gate
+    - edit_provider_art_to_pass_gate   # includes rename/move/delete of provider files; V57 never writes to Source/
+  timeboxes:
+    stuck_minutes: 45                  # then fallback / cut + D-### (never a placeholder asset; gaps go to Docs/V57/MISSING_ASSETS.md)
+    tool_failure_retries: 2            # then alternate route
+    max_attempts_per_asset_per_stage: 3
+    red_after_green_minutes: 20        # then revert rule (stash + restore last green commit)
+  resume_reads: [Docs/V57/STATUS.json, Docs/V57/PLAN.md, Docs/V57/TODO.md, Docs/V57/DEVLOG.md]
+  never_prompt_for:
+    - yes_before_writing_specs_or_context
+    - continue_between_stages
+    - variable_confirmation            # resolved from Docs/Generated/json/package.json
+    - auto_open_stage_reports
+
+gates:
+  A0: { stage: I0, check: "intake exit code == 0 + Docs/V57/MISSING_ASSETS.md written" }
+  I1: { stage: I1, check: "baseline eval all true + 0 console errors" }
+  I2: { stage: I2, check: "assembly-report.json 0 missing refs, 0 errors" }
+  M1: { stage: M1, check: "goldpath checks.json all pass, 0 errors" }
+  F:  { stage: F,  check: "per spec EditMode+PlayMode green via unity test AND goldpath green" }
+  M2:
+    stage: M2
+    checks: [runtime_lint_exit_0, hierarchy_diff_clean, colliders_with_mesh, goldpath_green]   # no player build unless the owner asks
+    evidence:
+      - Docs/V57/evidence/M2/<UTC>/lint.json          # runtime-lint over Assets/_Game/Scripts + Assets/_Game/Tests, exit 0
+      - Docs/V57/reports/hierarchy-diff.json          # must contain pass: true
+  M3:
+    stage: M3
+    check: "independent review every scored area >= min_score"
+  M4:
+    stage: M4
+    check: "playability-cert + qa from evidence; status words only"
+  independent_review:
+    skill: V57/agents/skills/commands/review/unity-independent-review-skill.md
+    min_score: 7
+    max_rounds: 3
+    reviewer: fresh_context          # new subagent / provider session each round; implementer never writes the verdict
+  self_grading_allowed: false
+
+review_standards:
+  read_in_order:
+    - V57/docs/standards/STANDARDS_CANONICAL.md
+    - V57/agents/skills/shared/checks/unity-validation-skill.md
+    - V57/agents/skills/shared/references/unity-naming-skill.md
+    - V57/docs/standards/CODING_STANDARDS.md
+
+rules:
+  # Primary Editor drive: Unity CLI + com.unity.pipeline (`unity command` / `eval` / `test`).
+  # `unity mcp` is an optional Cursor stdio binding to the same Pipeline — not a separate write stack.
+  # Legacy com.unity.ai.assistant relay is fallback only (end 2026).
+  unity_cli:
+    read_from: V57/docs/mcp/UNITY_CLI_INTEGRATIONS.md
+    playbook: V57/agents/skills/shared/helpers/unity-cli-ops-skill.md
+    invocation: /unity-cli
+    enforcement: strict
+    required_when_assets_folder_exists: true
+    mandatory_for:
+      - editor_preflight
+      - scene_asset_writes
+      - ovr_readback
+      - compile_poll
+      - save_before_play
+      - scene_hierarchy_verify
+      - test_runner_execution
+      - play_smoke
+      - viewport_screenshot
+    never_use_mcp_for_when_cli_available:
+      - unity_test_runner
+      - test_runner_api_via_runcommand
+    on_unavailable: stop_do_not_ask_human_manual_editor
+    note: >-
+      Drive the live Editor with `unity command` / `eval` (and optional `unity mcp` tools over Pipeline).
+      STOP if Pipeline/CLI unreachable — do not ask the human to click Hierarchy, and do not blind-edit .unity YAML.
+      Do not ship product Scripts/Editor/*Authoring MenuItem utilities; mount scenes via CLI/Pipeline or com.v57.assembly (AssemblyRunner).
+
+  unity_mcp:
+    read_from: V57/docs/mcp/UNITY_MCP_REQUIREMENT.md
+    enforcement: optional_stdio_binding
+    server_id: unity-mcp
+    primary_tool: Pipeline via unity mcp stdio
+    required_when_assets_folder_exists: false
+    on_unavailable: use_unity_cli_directly
+    note: >-
+      Optional IDE tool surface for the same Pipeline. Prefer `unity command` when the agent shell can run CLI.
+      Legacy assistant relay only when GAMEFORGE_UNITY_MCP_MODE=legacy.
+
+  scene_authoring:
+    enforcement: strict
+    principle: "The saved scene is the game (Edit Mode == Play Mode, except prefab spawns under declared spawn roots)."
+    prefer:
+      - v57_assembly_runner      # com.v57.assembly: import rules, materials, atlases, visual prefabs, level scenes, placeholders
+      - unity_command_pipeline   # open_scene, create_gameobject, batch, eval, set_serialized_field, …
+    layout: Assets/_Game         # single layout; see shared/references/unity-import-skill.md
+    prefab_rule: "Gameplay prefab PRF_<Asset> = prefab variant of Visual prefab PRF_<Asset>_Visual"
+    runtime_bootstrap: "may only bind [SerializeField] references and call Init in a fixed order"
+    forbid:
+      - runtime_scene_building             # creating/finding/reparenting/patching scene objects on Awake/Start/Play
+      - product_editor_menuitem_authoring  # Assets/**/Scripts/Editor/*Authoring.cs + MenuItem as scene builder
+      - human_manual_hierarchy_checklist_as_primary_path
+      - blind_unity_yaml_edits_while_editor_reachable
+      - patching_assets_via_gameplay_code  # hiding provider renderers, runtime rescale/rotate, runtime material swaps
+    banned_runtime_apis:                   # enforced by V57/tools/lint/runtime-lint.js at M2
+      - "GameObject.Find*"
+      - "Object.FindObjectOfType / FindObjectsOfType / FindObjectsByType / FindFirstObjectByType / FindAnyObjectByType"
+      - "reflection SetValue (FieldInfo/PropertyInfo.SetValue, BindingFlags.NonPublic)"
+      - "ScriptableObject.CreateInstance as config fallback"
+      - "AssetDatabase in runtime code (including #if UNITY_EDITOR blocks)"
+      - "Resources.Load for config fallback"
+      - "new GameObject / AddComponent / GameObject.CreatePrimitive to build level structure"
+      - "hardcoded world coordinates for layout"
+      - "Camera.main"
+    banned_in_playmode_acceptance_tests:   # Assets/_Game/Tests/PlayMode/Acceptance* and gold path
+      - "Physics.Simulate / Physics2D.Simulate"
+      - "detectCollisions = false / disabling colliders"
+      - "manual position/velocity clamps or teleports"
+      - "calling gameplay methods instead of Input System actions"
+    max_lines_per_file: 200
+
+  packages:
+    read_from: V57/agents/skills/shared/helpers/unity-package-management-skill.md
+    invocation: /packages
+    enforcement: strict
+    description: "UPM add/ensure via PackageManager Client — before nav/l10n/urp crafts"
+
+  canonical_standards:
+    read_from: V57/docs/standards/STANDARDS_CANONICAL.md
+    enforcement: strict
+    note: "Single source of truth for production C#; skills and derived docs must not contradict"
+
+  naming:
+    read_from: V57/agents/skills/shared/references/unity-naming-skill.md
+    enforcement: strict
+
+  import:
+    read_from: V57/agents/skills/shared/references/unity-import-skill.md
+    enforcement: strict
+
+  tdd_to_spec:
+    read_from: V57/agents/skills/commands/tdd/unity-tdd-to-spec-skill.md
+    invocation: /tdd-to-spec
+    enforcement: strict
+    auto_generate_on_tdd_description: false
+
+  tdd_to_context:
+    read_from: V57/agents/skills/commands/tdd/unity-tdd-to-context-skill.md
+    invocation: /tdd-to-context
+    enforcement: strict
+    description: "TDD -> CONTEXT.md sync (/tdd-to-context)"
+
+  context_aware:
+    read_from: V57/agents/skills/shared/helpers/unity-context-aware-spec-skill.md
+    enforcement: strict
+    read_context_first: true
+    auto_update_context: false
+
+  context_reading:
+    read_from: V57/agents/skills/shared/helpers/unity-context-reading-policy-skill.md
+    enforcement: strict
+    plan_doc: V57/docs/context/CONTEXT_INDEX.md
+    description: "Minimal context layers before repo-wide reads"
+
+  spec_driven:
+    read_from: V57/agents/skills/commands/spec/unity-spec-skill.md
+    invocation: /spec
+    enforcement: strict
+    require_spec_before_code: true
+
+  validation:
+    read_from: V57/agents/skills/shared/checks/unity-validation-skill.md
+    run_before_output: true
+
+  code_review:
+    read_from: V57/agents/skills/commands/review/unity-code-reviewer-skill.md
+    invocation: /code-reviewer
+
+  pr_review:
+    read_from: V57/agents/skills/commands/review/unity-pr-reviewer-skill.md
+    invocation: /pr-review
+
+  fix_script:
+    read_from: V57/agents/skills/commands/review/unity-fix-script-skill.md
+    invocation: /fix-<ScriptName>
+
+  game_setup:
+    read_from: V57/agents/skills/commands/setup/unity-game-setup-skill.md
+    invocation: /game-setup
+    aliases: [/game-setup-run-all]
+    enforcement: strict
+    description: "Production scope on the I0→M4 driver (all mechanics/scenes + perf, review, builds)"
+
+  intake:
+    read_from: V57/agents/skills/commands/setup/unity-intake-skill.md
+    invocation: /intake
+    enforcement: strict
+    description: "I0 intake CLI → I1 project baseline → I2 AssemblyRunner.RunAll"
+
+  gold_path:
+    read_from: V57/agents/skills/commands/setup/unity-gold-path-skill.md
+    invocation: /gold-path
+    enforcement: strict
+    description: "M1 gate + regression after every spec: GoldPathDriver, IGoldPathProbe, checks.json"
+
+  independent_review:
+    read_from: V57/agents/skills/commands/review/unity-independent-review-skill.md
+    invocation: /independent-review
+    enforcement: strict
+    description: "M3/M4 fresh-context visual review vs Reference/ + UIMockups; implementer never writes the verdict"
+
+  prototype:
+    read_from: V57/agents/skills/commands/setup/unity-prototype-skill.md
+    invocation: /prototype
+    enforcement: strict
+    description: "Guided mechanic spike pipeline — sandbox specs/scenes, stub deps, no automated tests (--no-tests always)"
+
+  vertical_slice:
+    read_from: V57/agents/skills/commands/setup/unity-vertical-slice-skill.md
+    invocation: /vertical-slice
+    enforcement: strict
+    description: "Stage driver I0→M4 (autonomous) — provider repo → playable vertical slice under Assets/_Game"
+
+  context_readiness:
+    read_from: V57/agents/skills/commands/context/unity-context-readiness-skill.md
+    invocation: /context-readiness
+    enforcement: optional
+
+  context_index:
+    read_from: V57/agents/skills/commands/context/unity-context-index-skill.md
+    invocation: /context-index
+    enforcement: optional
+
+  context_graph:
+    read_from: V57/agents/skills/commands/context/unity-context-graph-skill.md
+    invocation: /context-graph
+    enforcement: optional
+    description: "Regenerate project-index.json + interactive HTML viewer (export-context-graph.ps1)"
+
+  context_query:
+    read_from: V57/agents/skills/commands/context/unity-context-query-skill.md
+    invocation: /context-query
+    enforcement: optional
+
+  context_path:
+    read_from: V57/agents/skills/commands/context/unity-context-path-skill.md
+    invocation: /context-path
+    enforcement: optional
+
+  context_postmortem:
+    read_from: V57/agents/skills/commands/context/unity-context-postmortem-skill.md
+    invocation: /context-postmortem
+    enforcement: optional
+    description: "Post-run readiness + graph + lessons written to V57/knowledge/"
+
+  knowledge:
+    read_from: V57/knowledge/
+    enforcement: strict
+    description: "Short lessons (one topic per file); read once per session before I1"
+
+  context_drift:
+    read_from: V57/agents/skills/commands/context/unity-context-drift-skill.md
+    invocation: /context-drift
+    enforcement: optional
+
+  editor_verification:
+    read_from: V57/agents/skills/shared/helpers/unity-editor-verification-skill.md
+    enforcement: strict
+    description: "Operate -> Verify -> Report for all editor operations via Unity CLI/Pipeline"
+
+  scene_setup:
+    read_from: V57/agents/skills/commands/editor/unity-scene-setup-skill.md
+    invocation: /scene-setup
+    enforcement: strict
+    aliases: [/spec --setup-scene]
+
+  prefab:
+    read_from: V57/agents/skills/commands/editor/unity-prefab-skill.md
+    invocation: /prefab
+    enforcement: strict
+
+  data_asset:
+    read_from: V57/agents/skills/commands/editor/unity-data-asset-skill.md
+    invocation: /data-asset
+    enforcement: strict
+
+  perf_audit:
+    read_from: V57/agents/skills/commands/perf/unity-performance-audit-skill.md
+    invocation: /perf-audit
+    enforcement: optional
+
+  perf_budget:
+    read_from: V57/agents/skills/commands/perf/unity-perf-budget-skill.md
+    invocation: /perf-budget
+    enforcement: optional
+
+  ui_setup:
+    read_from: V57/agents/skills/commands/ui/unity-ui-toolkit-skill.md
+    invocation: /ui-setup
+    enforcement: strict
+
+  ui_patterns:
+    read_from: V57/agents/skills/shared/references/unity-ui-patterns-skill.md
+    enforcement: strict
+
+  ui_uitk:
+    read_from: V57/agents/skills/shared/references/unity-ui-uitk-skill.md
+    enforcement: strict
+    description: "UI Toolkit USS/UXML rules — adapted from Unity-Technologies/skills ui-uitk"
+
+  audio_setup:
+    read_from: V57/agents/skills/commands/audio/unity-audio-skill.md
+    invocation: /audio-setup
+    enforcement: strict
+
+  network_setup:
+    read_from: V57/agents/skills/commands/network/unity-networking-skill.md
+    invocation: /network-setup
+    enforcement: strict
+
+  ngo_patterns:
+    read_from: V57/agents/skills/shared/references/unity-ngo-patterns-skill.md
+    enforcement: strict
+    description: "NGO sync/RPC patterns — on demand from network-setup and networked specs"
+
+  animation_setup:
+    read_from: V57/agents/skills/commands/art/unity-animation-skill.md
+    invocation: /animation-setup
+    enforcement: strict
+
+  asset_pipeline:
+    read_from: V57/agents/skills/commands/art/unity-asset-pipeline-skill.md
+    invocation: /asset-pipeline
+    enforcement: strict
+
+  build_setup:
+    read_from: V57/agents/skills/commands/compilation/unity-build-skill.md
+    invocation: /build-setup
+    enforcement: strict
+
+  compile_heal:
+    read_from: V57/agents/skills/commands/compilation/unity-compile-heal-skill.md
+    invocation: /compile-heal
+    enforcement: strict
+    description: "Post-write compile loop until 0 errors — Task subagent from game-setup/prototype"
+
+  editor_smooth:
+    read_from: V57/agents/skills/shared/helpers/unity-editor-smooth-ops-skill.md
+    invocation: /editor-smooth
+    enforcement: strict
+    description: "Save dirty scenes, wait compile, safe reload — before Play"
+
+  playability_cert:
+    read_from: V57/agents/skills/commands/setup/unity-playability-cert-skill.md
+    invocation: /playability-cert
+    enforcement: strict
+    description: "M4 certification from evidence (gold path checks.json + independent screenshot review) — no self-PASS"
+
+  qa:
+    read_from: V57/agents/skills/commands/review/unity-qa-skill.md
+    invocation: /qa
+    enforcement: strict
+    stage: M4
+    description: "Full product QA (Q0–Q3 + GQ-01..12). Always enabled at M4 of /vertical-slice and /game-setup. Not used by /prototype or /prototype-full."
+
+  render_setup:
+    read_from: V57/agents/skills/commands/art/unity-render-setup-skill.md
+    invocation: /render-setup
+    enforcement: strict
+
+  lighting_setup:
+    read_from: V57/agents/skills/commands/art/unity-lighting-setup-skill.md
+    invocation: /lighting-setup
+    enforcement: strict
+
+  game_visuals:
+    read_from: V57/agents/skills/commands/art/unity-game-visuals-skill.md
+    invocation: /game-visuals
+    enforcement: strict
+
+  game_ui:
+    read_from: V57/agents/skills/commands/ui/unity-game-ui-skill.md
+    invocation: /game-ui
+    enforcement: strict
+    description: "Game HUD/feedback/VN UI — prefer over raw /ui-setup for slice UI"
+
+  vfx_setup:
+    read_from: V57/agents/skills/commands/art/unity-vfx-setup-skill.md
+    invocation: /vfx-setup
+    enforcement: strict
+
+  level_design:
+    read_from: V57/agents/skills/commands/editor/unity-level-design-skill.md
+    invocation: /level-design
+    enforcement: strict
+
+  camera_setup:
+    read_from: V57/agents/skills/commands/art/unity-camera-setup-skill.md
+    invocation: /camera-setup
+    enforcement: strict
+
+  game_feel:
+    read_from: V57/agents/skills/commands/art/unity-game-feel-skill.md
+    invocation: /game-feel
+    enforcement: strict
+    description: "§11.5 camera motion, HUD polish, atmosphere juice — M3 craft"
+
+  urp_postprocessing:
+    read_from: V57/agents/skills/commands/art/unity-urp-postprocessing-skill.md
+    invocation: /urp-postprocessing
+    enforcement: strict
+    description: "URP Volume post-FX — adapted from Unity-Technologies/skills"
+
+  input_setup:
+    read_from: V57/agents/skills/commands/editor/unity-input-setup-skill.md
+    invocation: /input-setup
+    enforcement: strict
+
+  shader_setup:
+    read_from: V57/agents/skills/commands/art/unity-shader-setup-skill.md
+    invocation: /shader-setup
+    enforcement: strict
+
+  cinematics:
+    read_from: V57/agents/skills/commands/art/unity-cinematics-skill.md
+    invocation: /cinematics
+    enforcement: strict
+
+  nav_ai:
+    read_from: V57/agents/skills/commands/editor/unity-nav-ai-skill.md
+    invocation: /nav-ai
+    enforcement: strict
+
+  physics_setup:
+    read_from: V57/agents/skills/commands/editor/unity-physics-setup-skill.md
+    invocation: /physics-setup
+    enforcement: strict
+    description: "PhysX layers/triggers/diagnostics — M1/M2 craft; adapted from unity-agent-plugin"
+
+  editor_search:
+    read_from: V57/agents/skills/commands/editor/unity-editor-search-skill.md
+    invocation: /editor-search
+    enforcement: optional
+    description: "Unity Search query + optional window open"
+
+  localization:
+    read_from: V57/agents/skills/commands/ui/unity-localization-skill.md
+    invocation: /localization
+    enforcement: strict
+
+  save_meta:
+    read_from: V57/agents/skills/commands/editor/unity-save-meta-skill.md
+    invocation: /save-meta
+    enforcement: strict
+
+  accessibility:
+    read_from: V57/agents/skills/commands/ui/unity-accessibility-skill.md
+    invocation: /accessibility
+    enforcement: strict
+
+prohibited:
+  - pattern: "\\bm_\\w+"
+    reason: "Use _camelCase for private fields"
+  - pattern: "interface\\s+(?!I[A-Z])[A-Za-z]\\w*"
+    reason: "Interfaces must use I prefix"
+  - pattern: "public\\s+(?!const\\b|static\\s+readonly\\b|event\\b)\\w+(<.*>)?\\s+\\w+\\s*(=|;)"
+    reason: "Use properties or [SerializeField] private instead of public mutable fields"
+  - pattern: "GameObject\\.Find\\("
+    reason: "Resolve references in Awake/inspector wiring, never search at runtime"
+  - pattern: "Camera\\.main"
+    reason: "Cache the camera; Camera.main is an anti-pattern in hot paths"
+  - pattern: "FindObjects?(OfType|ByType)|FindFirstObjectByType|FindAnyObjectByType"
+    reason: "Serialized references only; no runtime scene lookups"
+  - pattern: "\\.SetValue\\("
+    reason: "No reflection writes in runtime code"
+  - pattern: "AssetDatabase\\."
+    reason: "No AssetDatabase in runtime assemblies (Editor asmdefs only)"
+  - pattern: "Physics2?D?\\.Simulate\\("
+    reason: "No faked physics steps in PlayMode acceptance tests or gold path"
+
+documentation:
+  class_header: |
+    /// <summary>
+    /// Description of the class purpose
+    /// </summary>
+  method_doc: required
+  public_api_doc: required
+
+limits:
+  max_lines_per_file: 200
+  max_classes_per_file: 1
+  require_single_responsibility: true
+
+implementation_done_gates:
+  read_from: V57/agents/skills/commands/spec/unity-spec-skill.md
+  require_acceptance_criteria_in_spec: true
+  forge_mode_tests:
+    Prototype: false
+    VerticalSlice: true
+    Production: true
+  note: "Prototype (/prototype, /prototype-full, Workbench Prototype Build) never generates or runs tests — always pass --no-tests. Vertical Slice and Production use the gates below unless --no-tests."
+  on_spec_implement:
+    ensure_test_scaffold_before_tests: true
+    test_scaffold_doc: V57/docs/standards/UNITY_TEST_SCAFFOLD.md
+    generate_editmode_tests: true
+    generate_playmode_tests_when_runtime: true
+    run_standards_validation: true
+    run_code_reviewer: true
+    run_unity_test_runner_via_cli: true
+    run_unity_test_runner_via_mcp: false
+    block_when_unity_mcp_unavailable: false   # MCP is optional; CLI is primary
+    block_when_unity_cli_unavailable_for_tests: true
+    note: "Test execution uses unity test / POST /api/unity-cli/test only. Scene/asset writes prefer com.v57.assembly or unity command / Pipeline (optional unity mcp stdio); no product *Authoring MenuItem scripts; no runtime scene builders."
+    require_real_input_playmode_tests: true
+    require_goldpath_green_after_spec: true
+    verify_all_acceptance_criteria: true
+    verify_editor_assets_via_readback: true
+    run_perf_static_scan: true
+    perf_static_scan_skill: V57/agents/skills/commands/perf/unity-performance-audit-skill.md
+    editor_ovr_skill: V57/agents/skills/shared/helpers/unity-editor-verification-skill.md
+  opt_out_flag: --no-tests

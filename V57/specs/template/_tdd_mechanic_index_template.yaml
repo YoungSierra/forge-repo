@@ -1,0 +1,26 @@
+# Index: TDD → specs (V57 Context Intelligence — template)
+# Copiar a V57/specs/_tdd_mechanic_index.yaml en el proyecto consumidor.
+# Keep aligned with the TDD and CONTEXT.md (write after showing a summary).
+
+tdd: Docs/Design/TDD.md
+tdd_version: null                    # opcional: semver o fecha del TDD
+
+spec_queue:
+  # Orden sugerido: systems/core antes que features dependientes
+  - path: V57/specs/<slug>/systems/example_system.yaml
+    specId: example_system
+    status: pending                    # pending | in_progress | implemented | deprecated
+    depends_on: []                     # specIds o module ids PascalCase
+    owner: null                        # responsable humano (opcional)
+
+bootstrap_modules:
+  - GameManager
+  - EventBus
+
+# Optional metadata for context queries (Phase 2+)
+context_policy:
+  read_order:
+    - CONTEXT.md
+    - active_spec_yaml
+    - spec.touches.*
+    - project-index.json              # when available

@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/acceptance.schema.json",
+  "title": "V57 acceptance",
+  "description": "Acceptance criteria (§C) + gold path steps (do|expect).",
+  "type": "object",
+  "properties": {
+    "criteria": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "mechanic": {
+            "type": "string"
+          },
+          "mode": {
+            "enum": [
+              "EditMode",
+              "PlayMode"
+            ]
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "mechanic",
+          "mode",
+          "text"
+        ]
+      }
+    },
+    "gold_path": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "required": [
+            "steps"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "draft",
+                "provided"
+              ]
+            },
+            "steps": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "anyOf": [
+                  {
+                    "required": [
+                      "do"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "expect"
+                    ]
+                  }
+                ],
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "do": {
+                    "enum": [
+                      "press",
+                      "tap",
+                      "hold",
+                      "release",
+                      "move",
+                      "wait",
+                      "capture",
+                      "screenshot",
+                      "expect",
+                      "waituntil"
+                    ]
+                  },
+                  "action": {
+                    "type": "string"
+                  },
+                  "control": {
+                    "type": "string"
+                  },
+                  "expect": {
+                    "type": "string"
+                  },
+                  "seconds": {
+                    "type": "number"
+                  },
+                  "timeout_s": {
+                    "type": "number"
+                  }
+                }
+              },
+              "minItems": 1
+            },
+            "scene": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "description": "GoldPathDriver step contract (V57.GoldPath): input {do: press|hold|release|move|wait|capture, action: 'Map/Action' | control}, check {expect: '<probe key [op value]>', timeout_s}"
+        }
+      ]
+    }
+  },
+  "required": [
+    "criteria",
+    "gold_path"
+  ],
+  "additionalProperties": false
+}

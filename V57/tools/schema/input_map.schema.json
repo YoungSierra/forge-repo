@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/input_map.schema.json",
+  "title": "V57 input map",
+  "description": "TDD §11.3; bindings are Input System control paths when resolvable.",
+  "type": "object",
+  "properties": {
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "map": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "bindings": {
+            "type": "object",
+            "properties": {
+              "keyboard": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "gamepad": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "touch": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "raw": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "keyboard",
+              "gamepad",
+              "touch",
+              "raw"
+            ]
+          },
+          "consumed_by": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "map",
+          "action",
+          "bindings",
+          "consumed_by"
+        ]
+      }
+    }
+  },
+  "required": [
+    "actions"
+  ],
+  "additionalProperties": false
+}

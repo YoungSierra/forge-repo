@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/mechanics.schema.json",
+  "title": "V57 mechanics",
+  "description": "TDD §B mechanics with raw §C spec text.",
+  "type": "object",
+  "properties": {
+    "mechanics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "spec_yaml": {
+            "type": "string"
+          },
+          "acs": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "mode": {
+                  "enum": [
+                    "EditMode",
+                    "PlayMode"
+                  ]
+                },
+                "text": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "mode",
+                "text"
+              ]
+            }
+          }
+        },
+        "required": [
+          "name",
+          "type",
+          "spec_yaml",
+          "acs"
+        ]
+      }
+    }
+  },
+  "required": [
+    "mechanics"
+  ],
+  "additionalProperties": false
+}

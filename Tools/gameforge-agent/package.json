@@ -1,0 +1,28 @@
+{
+  "name": "v57-gameforge-agent",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "smoke": "node -e \"import('./src/agent/providers/catalog.js').then(m=>console.log('ok'))\"",
+    "smoke:chat-merge": "node scripts/smoke-chat-merge.js",
+    "smoke:unity-cli": "node scripts/smoke-unity-cli.js",
+    "smoke:context": "node scripts/smoke-context-budget.js",
+    "smoke:autonomous": "node scripts/smoke-autonomous.js",
+    "smoke:write-policy": "node scripts/smoke-write-policy.js",
+    "smoke:tdd-extract": "node scripts/smoke-tdd-extract.js",
+    "smoke:v57": "node scripts/smoke-write-policy.js && node scripts/smoke-tdd-extract.js && node scripts/smoke-autonomous.js"
+  },
+  "dependencies": {
+    "@cursor/sdk": "^1.0.0",
+    "@modelcontextprotocol/sdk": "^1.30.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^2.2.0",
+    "uuid": "^11.0.5"
+  }
+}

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>__V57_PROJECT_NAME__ — Context Intelligence Graph</title>
+  <script src="https://unpkg.com/vis-network@9.1.9/standalone/umd/vis-network.min.js"></script>
+  <style>
+    :root {
+      --bg: #0f1412; --panel: #18201c; --border: #2a3830; --text: #e6efe9; --muted: #8fa398;
+      --module: #3d9b6e; --iface: #c4a035; --event: #3d7eb8; --asset: #9b6b3d; --unassigned: #5a6560;
+      --accent: #4ecf8a;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; font-family: "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+    body { display: grid; grid-template-rows: auto 1fr; }
+    header {
+      display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between;
+      padding: 12px 16px; border-bottom: 1px solid var(--border); background: var(--panel);
+    }
+    header h1 { margin: 0; font-size: 1.05rem; font-weight: 600; }
+    header .meta { color: var(--muted); font-size: 0.8rem; }
+    .controls { display: flex; flex-wrap: wrap; gap: 10px 14px; align-items: center; }
+    .controls label { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: var(--muted); cursor: pointer; user-select: none; }
+    .controls input[type="search"] {
+      background: var(--bg); border: 1px solid var(--border); color: var(--text);
+      border-radius: 6px; padding: 6px 10px; min-width: 160px; font-size: 0.85rem;
+    }
+    .controls button {
+      background: transparent; border: 1px solid var(--border); color: var(--text);
+      border-radius: 6px; padding: 6px 10px; font-size: 0.82rem; cursor: pointer;
+    }
+    .controls button:hover { border-color: var(--accent); color: var(--accent); }
+    .legend { display: flex; flex-wrap: wrap; gap: 10px; font-size: 0.75rem; color: var(--muted); }
+    .legend span::before {
+      content: ""; display: inline-block; width: 10px; height: 10px; border-radius: 50%;
+      margin-right: 5px; vertical-align: -1px;
+    }
+    .legend .m::before { background: var(--module); }
+    .legend .i::before { background: var(--iface); }
+    .legend .e::before { background: var(--event); }
+    .legend .a::before { background: var(--asset); }
+    .legend .u::before { background: var(--unassigned); }
+    main { display: grid; grid-template-columns: 1fr minmax(260px, 320px); min-height: 0; }
+    #network {
+      width: 100%; height: 100%; min-height: 480px;
+      background:
+        radial-gradient(ellipse at 30% 20%, #16221c 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, #141c28 0%, transparent 45%),
+        var(--bg);
+    }
+    aside {
+      border-left: 1px solid var(--border); background: var(--panel);
+      padding: 14px 16px; overflow: auto; font-size: 0.85rem;
+    }
+    aside h2 { margin: 0 0 8px; font-size: 0.95rem; }
+    aside h3 { margin: 14px 0 6px; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    aside .empty { color: var(--muted); }
+    aside ul { margin: 0; padding-left: 1.1rem; }
+    aside li { margin: 2px 0; word-break: break-all; }
+    aside .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.72rem;
+      border: 1px solid var(--border); color: var(--muted); margin-right: 6px;
+    }
+    .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; margin-bottom: 10px; }
+    .stat { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 8px; }
+    .stat b { display: block; font-size: 1.1rem; color: var(--accent); }
+    .stat span { color: var(--muted); font-size: 0.72rem; }
+    @media (max-width: 900px) {
+      main { grid-template-columns: 1fr; grid-template-rows: 55vh auto; }
+      aside { border-left: none; border-top: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1>__V57_PROJECT_NAME__ — Context Intelligence graph</h1>
+      <div class="meta" id="meta">Loading…</div>
+    </div>
+    <div class="controls">
+      <label><input type="checkbox" id="showDeps" checked /> dependsOn</label>
+      <label><input type="checkbox" id="showIfaces" checked /> interfaces</label>
+      <label><input type="checkbox" id="showEvents" checked /> events</label>
+      <label><input type="checkbox" id="showAssets" /> assets</label>
+      <label><input type="checkbox" id="hideUnassigned" checked /> hide _Unassigned</label>
+      <input type="search" id="search" placeholder="Filter nodes…" />
+      <button type="button" id="fit">Fit view</button>
+      <button type="button" id="reloadFile">Open JSON…</button>
+      <input type="file" id="fileInput" accept="application/json,.json" hidden />
+    </div>
+    <div class="legend">
+      <span class="m">module</span>
+      <span class="i">interface</span>
+      <span class="e">event</span>
+      <span class="a">asset</span>
+      <span class="u">_Unassigned</span>
+    </div>
+  </header>
+  <main>
+    <div id="network"></div>
+    <aside id="detail">
+      <div class="stats" id="stats"></div>
+      <p class="empty">Click a node for details.</p>
+    </aside>
+  </main>
+  <script id="embedded-index" type="application/json">__V57_INDEX_JSON__</script>
+  <script>
+    const COLORS = {
+      module: "#3d9b6e", unassigned: "#5a6560", interface: "#c4a035",
+      event: "#3d7eb8", prefab: "#9b6b3d", so: "#8a5a2b", scene: "#6b4a2a",
+    };
+    let index = null, network = null, nodesDS = null, edgesDS = null;
+    const nodeMeta = new Map();
+    const NOISE_IFACES = new Set(["IEnumerator", "IDisposable", "IEnumerable", "IO"]);
+
+    function parseEmbedded() {
+      return JSON.parse(document.getElementById("embedded-index").textContent.trim());
+    }
+    function classToModule(data) {
+      const map = new Map();
+      for (const m of data.modules || []) for (const c of m.classes || []) map.set(c, m.id);
+      return map;
+    }
+    function resolveModuleId(name, modulesById, classMap) {
+      if (modulesById.has(name)) return name;
+      if (classMap.has(name)) return classMap.get(name);
+      return null;
+    }
+    function matchesQuery(id, label, payload, q) {
+      if (!q) return true;
+      if (id.toLowerCase().includes(q) || label.toLowerCase().includes(q)) return true;
+      if ((payload.specId || "").toLowerCase().includes(q)) return true;
+      if ((payload.classes || []).some(c => c.toLowerCase().includes(q))) return true;
+      return String(payload.path || "").toLowerCase().includes(q);
+    }
+    function buildGraph(data) {
+      const showDeps = document.getElementById("showDeps").checked;
+      const showIfaces = document.getElementById("showIfaces").checked;
+      const showEvents = document.getElementById("showEvents").checked;
+      const showAssets = document.getElementById("showAssets").checked;
+      const hideUnassigned = document.getElementById("hideUnassigned").checked;
+      const q = (document.getElementById("search").value || "").trim().toLowerCase();
+      const modulesById = new Map((data.modules || []).map(m => [m.id, m]));
+      const classMap = classToModule(data);
+      const nodes = [], edges = [], edgeKeys = new Set();
+      nodeMeta.clear();
+
+      function addNode(id, label, group, payload) {
+        if (hideUnassigned && (id === "mod:_Unassigned" || label === "_Unassigned")) return false;
+        if (!matchesQuery(id, label, payload, q)) return false;
+        const color = COLORS[group] || COLORS.module;
+        nodes.push({
+          id, label, group,
+          shape: group === "module" || group === "unassigned" ? "dot" : group === "interface" ? "diamond" : group === "event" ? "triangle" : "box",
+          size: group === "module" || group === "unassigned" ? 18 + Math.min(12, (payload.scripts || []).length) : 12,
+          color: { background: color, border: color, highlight: { background: "#e6efe9", border: color } },
+          font: { color: "#e6efe9", size: 12, face: "Segoe UI" }, borderWidth: 1,
+        });
+        nodeMeta.set(id, { group, ...payload, id, label });
+        return true;
+      }
+      function addEdge(from, to, kind, dashes) {
+        if (!nodeMeta.has(from) || !nodeMeta.has(to)) return;
+        const key = `${kind}|${from}|${to}`;
+        if (edgeKeys.has(key)) return;
+        edgeKeys.add(key);
+        const color = kind === "dependsOn" ? "#6a9b7e"
+          : (kind === "implements" || kind === "consumes") ? "#c4a035"
+          : (kind === "publishes" || kind === "subscribes") ? "#5a9fd4" : "#b8844a";
+        edges.push({
+          from, to, arrows: "to", dashes: !!dashes,
+          color: { color, highlight: color, opacity: 0.85 },
+          width: kind === "dependsOn" ? 2 : 1.2, title: kind,
+          smooth: { type: "continuous" },
+        });
+      }
+
+      for (const m of data.modules || []) {
+        const group = m.id === "_Unassigned" ? "unassigned" : "module";
+        addNode(`mod:${m.id}`, m.id, group, {
+          kind: "module", specId: m.specId, scripts: m.scripts || [],
+          classes: m.classes || [], dependsOn: m.dependsOn || [],
+        });
+      }
+      if (showDeps) {
+        for (const m of data.modules || []) {
+          for (const dep of m.dependsOn || []) {
+            let targetMod = resolveModuleId(dep, modulesById, classMap);
+            if (!targetMod) {
+              addNode(`mod:${dep}`, dep, "module", {
+                kind: "module", specId: null, scripts: [], classes: [], dependsOn: [], dangling: true,
+              });
+              targetMod = dep;
+            }
+            addEdge(`mod:${m.id}`, `mod:${targetMod}`, "dependsOn", false);
+          }
+        }
+      }
+      if (showIfaces) {
+        for (const iface of data.interfaces || []) {
+          if (NOISE_IFACES.has(iface.name)) continue;
+          const iid = `iface:${iface.name}`;
+          if (!addNode(iid, iface.name, "interface", {
+            kind: "interface", implementors: iface.implementors || [], consumers: iface.consumers || [],
+          })) continue;
+          for (const impl of iface.implementors || []) {
+            const mid = resolveModuleId(impl, modulesById, classMap);
+            if (mid) addEdge(`mod:${mid}`, iid, "implements", true);
+          }
+          for (const cons of iface.consumers || []) {
+            const mid = resolveModuleId(cons, modulesById, classMap);
+            if (mid) addEdge(`mod:${mid}`, iid, "consumes", true);
+          }
+        }
+      }
+      if (showEvents) {
+        for (const ev of data.events || []) {
+          const eid = `evt:${ev.name}`;
+          if (!addNode(eid, ev.name, "event", {
+            kind: "event", publishers: ev.publishers || [], subscribers: ev.subscribers || [],
+          })) continue;
+          for (const p of ev.publishers || []) {
+            const mid = resolveModuleId(p, modulesById, classMap);
+            if (mid) addEdge(`mod:${mid}`, eid, "publishes", false);
+          }
+          for (const s of ev.subscribers || []) {
+            const mid = resolveModuleId(s, modulesById, classMap);
+            if (mid) addEdge(eid, `mod:${mid}`, "subscribes", true);
+          }
+        }
+      }
+      if (showAssets) {
+        for (const p of (data.assets && data.assets.prefabs) || []) {
+          const id = `prefab:${p.path}`;
+          if (!addNode(id, (p.path || "").split("/").pop(), "prefab", {
+            kind: "prefab", path: p.path, components: p.components || [],
+          })) continue;
+          for (const c of p.components || []) {
+            const mid = resolveModuleId(c, modulesById, classMap);
+            if (mid) addEdge(id, `mod:${mid}`, "component", true);
+          }
+        }
+        for (const so of (data.assets && data.assets.scriptableObjects) || []) {
+          const id = `so:${so.path}`;
+          if (!addNode(id, (so.path || "").split("/").pop(), "so", {
+            kind: "scriptableObject", path: so.path, scriptType: so.scriptType,
+          })) continue;
+          const mid = resolveModuleId(so.scriptType, modulesById, classMap);
+          if (mid) addEdge(id, `mod:${mid}`, "scriptType", true);
+        }
+        for (const sc of (data.assets && data.assets.scenes) || []) {
+          addNode(`scene:${sc.path}`, (sc.path || "").split("/").pop(), "scene", {
+            kind: "scene", path: sc.path, rootObjects: sc.rootObjects || [],
+          });
+        }
+      }
+      return { nodes, edges };
+    }
+    function renderStats(data) {
+      const el = document.getElementById("stats");
+      const a = data.assets || {};
+      el.innerHTML = `
+        <div class="stat"><b>${(data.modules || []).length}</b><span>modules</span></div>
+        <div class="stat"><b>${(data.interfaces || []).length}</b><span>interfaces</span></div>
+        <div class="stat"><b>${(data.events || []).length}</b><span>events</span></div>
+        <div class="stat"><b>${(a.prefabs || []).length + (a.scriptableObjects || []).length + (a.scenes || []).length}</b><span>assets</span></div>`;
+    }
+    function renderDetail(meta) {
+      const aside = document.getElementById("detail");
+      if (!meta) {
+        aside.innerHTML = `<div class="stats" id="stats"></div><p class="empty">Click a node for details.</p>`;
+        renderStats(index);
+        return;
+      }
+      const lists = [];
+      function list(title, items) {
+        if (!items || !items.length) return;
+        lists.push(`<h3>${title}</h3><ul>${items.map(x => `<li>${x}</li>`).join("")}</ul>`);
+      }
+      list("Scripts", meta.scripts); list("Classes", meta.classes); list("dependsOn", meta.dependsOn);
+      list("Implementors", meta.implementors); list("Consumers", meta.consumers);
+      list("Publishers", meta.publishers); list("Subscribers", meta.subscribers);
+      list("Components", meta.components); list("Root objects", meta.rootObjects);
+      aside.innerHTML = `
+        <div class="stats" id="stats"></div>
+        <h2>${meta.label}</h2>
+        <div>
+          <span class="badge">${meta.kind || meta.group}</span>
+          ${meta.specId ? `<span class="badge">specId: ${meta.specId}</span>` : ""}
+          ${meta.dangling ? `<span class="badge">untyped dep</span>` : ""}
+        </div>
+        ${meta.path ? `<h3>Path</h3><p>${meta.path}</p>` : ""}
+        ${meta.scriptType ? `<h3>scriptType</h3><p>${meta.scriptType}</p>` : ""}
+        ${lists.join("")}`;
+      renderStats(index);
+    }
+    function redraw() {
+      const { nodes, edges } = buildGraph(index);
+      if (!network) {
+        nodesDS = new vis.DataSet(nodes);
+        edgesDS = new vis.DataSet(edges);
+        network = new vis.Network(document.getElementById("network"), { nodes: nodesDS, edges: edgesDS }, {
+          physics: {
+            solver: "forceAtlas2Based",
+            forceAtlas2Based: { gravitationalConstant: -46, springLength: 120, springConstant: 0.06 },
+            stabilization: { iterations: 120 },
+          },
+          interaction: { hover: true, tooltipDelay: 120, multiselect: true },
+          edges: { selectionWidth: 2 },
+        });
+        network.on("click", (params) => {
+          if (params.nodes.length) renderDetail(nodeMeta.get(params.nodes[0]));
+          else renderDetail(null);
+        });
+      } else {
+        nodesDS.clear(); edgesDS.clear();
+        nodesDS.add(nodes); edgesDS.add(edges);
+        network.fit({ animation: false });
+      }
+      document.getElementById("meta").textContent =
+        `indexVersion ${index.indexVersion} · ${index.generator} · generatedAt ${index.generatedAt} · V57 Context Intelligence`;
+      renderDetail(null);
+    }
+    function loadIndex(data) {
+      if (!data || !data.modules) throw new Error("Not a valid V57 project-index.json (missing modules).");
+      index = data;
+      redraw();
+    }
+    ["showDeps", "showIfaces", "showEvents", "showAssets", "hideUnassigned"].forEach(id => {
+      document.getElementById(id).addEventListener("change", redraw);
+    });
+    document.getElementById("search").addEventListener("input", () => {
+      clearTimeout(window.__searchT);
+      window.__searchT = setTimeout(redraw, 120);
+    });
+    document.getElementById("fit").addEventListener("click", () => network && network.fit({ animation: { duration: 400 } }));
+    document.getElementById("reloadFile").addEventListener("click", () => document.getElementById("fileInput").click());
+    document.getElementById("fileInput").addEventListener("change", async (ev) => {
+      const file = ev.target.files && ev.target.files[0];
+      if (!file) return;
+      loadIndex(JSON.parse(await file.text()));
+    });
+    loadIndex(parseEmbedded());
+  </script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/ui.schema.json",
+  "title": "V57 ui",
+  "description": "TDD §9.1 screens + ADD ui_screens/screen_layouts.",
+  "type": "object",
+  "properties": {
+    "screens": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "states": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "consumed_by": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "presentation": {
+            "enum": [
+              null,
+              "screen",
+              "world"
+            ]
+          },
+          "sprites": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "asset_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "text_keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "purpose",
+          "states",
+          "consumed_by",
+          "presentation",
+          "sprites",
+          "asset_id",
+          "text_keys"
+        ]
+      }
+    },
+    "layouts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "mockup": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "contains": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "id",
+          "mockup",
+          "contains"
+        ]
+      }
+    }
+  },
+  "required": [
+    "screens",
+    "layouts"
+  ],
+  "additionalProperties": false
+}

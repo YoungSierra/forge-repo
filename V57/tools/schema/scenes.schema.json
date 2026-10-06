@@ -1,0 +1,80 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://v57.local/schema/scenes.schema.json",
+  "title": "V57 scenes",
+  "description": "TDD §13.2 + ADD scene_manifest.",
+  "type": "object",
+  "properties": {
+    "scenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "purpose": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "world_owner": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "systems": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "acs": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slice": {
+            "type": "boolean"
+          },
+          "blockout": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "markers": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "camera_ref": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "purpose",
+          "world_owner",
+          "systems",
+          "acs",
+          "slice",
+          "blockout",
+          "markers",
+          "camera_ref"
+        ]
+      }
+    }
+  },
+  "required": [
+    "scenes"
+  ],
+  "additionalProperties": false
+}

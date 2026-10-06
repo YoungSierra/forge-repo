@@ -1,0 +1,1138 @@
+{
+  "contrato": "loopforge_unity_pkg/1.0",
+  "level_id": "Montaje",
+  "blender_version": "5.1.2",
+  "assets": [
+    {
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "fbx": "Models/AST-CHAR-JELLYFISH-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.3748166263103485,
+          -0.3704201877117157,
+          0.0
+        ],
+        "max": [
+          0.37481698393821716,
+          0.37042006850242615,
+          1.5
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-CHAR-JELLYFISH-001",
+          "albedo": "Textures/AST-CHAR-JELLYFISH-001_AST-CHAR-JELLYFISH-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-CHAR-NEONFLY-001",
+      "fbx": "Models/AST-CHAR-NEONFLY-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.09999997168779373,
+          -0.10000019520521164,
+          -0.10000000149011612
+        ],
+        "max": [
+          0.09999990463256836,
+          0.09999974071979523,
+          0.10000000149011612
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-CHAR-NEONFLY-001",
+          "albedo": null,
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            0.0,
+            0.8999999761581421,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-CHAR-RADIOACTIVESHARK-001",
+      "fbx": "Models/AST-CHAR-RADIOACTIVESHARK-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -4.862176418304443,
+          -8.484973907470703,
+          -2.0745920892295544e-07
+        ],
+        "max": [
+          4.862176418304443,
+          8.484975814819336,
+          8.0
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-CHAR-RADIOACTIVESHARK-001",
+          "albedo": "Textures/AST-CHAR-RADIOACTIVESHARK-001_AST-CHAR-RADIOACTIVESHARK-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.4472135901451111,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-B17ARCH-001",
+      "fbx": "Models/AST-ENV-B17ARCH-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -2.1337077617645264,
+          -0.6797757148742676,
+          0.0
+        ],
+        "max": [
+          2.1337082386016846,
+          0.6797752380371094,
+          4.599999904632568
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-B17ARCH-001",
+          "albedo": "Textures/AST-ENV-B17ARCH-001_AST-ENV-B17ARCH-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-B17FLOORPLATE-001",
+      "fbx": "Models/AST-ENV-B17FLOORPLATE-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -1.000954508781433,
+          -0.7134308218955994,
+          0.0
+        ],
+        "max": [
+          1.0009552240371704,
+          0.7134308218955994,
+          0.22199994325637817
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-B17FLOORPLATE-001",
+          "albedo": "Textures/AST-ENV-B17FLOORPLATE-001_AST-ENV-B17FLOORPLATE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-BULKHEAD-001",
+      "fbx": "Models/AST-ENV-BULKHEAD-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -2.710477828979492,
+          -1.3360389471054077,
+          0.0
+        ],
+        "max": [
+          2.7104780673980713,
+          1.336039423942566,
+          4.599999904632568
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-BULKHEAD-001",
+          "albedo": "Textures/AST-ENV-BULKHEAD-001_AST-ENV-BULKHEAD-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-CORALROCK-001",
+      "fbx": "Models/AST-ENV-CORALROCK-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -2.9174814224243164,
+          -2.914630174636841,
+          -9.157972158391203e-10
+        ],
+        "max": [
+          2.9174816608428955,
+          2.9146313667297363,
+          4.900000095367432
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-CORALROCK-001",
+          "albedo": "Textures/AST-ENV-CORALROCK-001_AST-ENV-CORALROCK-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "fbx": "Models/AST-ENV-CRYSTALPANEL-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -1.6123592853546143,
+          -0.6955057978630066,
+          0.0
+        ],
+        "max": [
+          1.6123597621917725,
+          0.6955055594444275,
+          4.599999904632568
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-CRYSTALPANEL-001",
+          "albedo": "Textures/AST-ENV-CRYSTALPANEL-001_AST-ENV-CRYSTALPANEL-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-GRATEPLATFORM-001",
+      "fbx": "Models/AST-ENV-GRATEPLATFORM-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.5001317262649536,
+          -0.4986658990383148,
+          0.0
+        ],
+        "max": [
+          0.5001320838928223,
+          0.49866610765457153,
+          0.4520000219345093
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-GRATEPLATFORM-001",
+          "albedo": "Textures/AST-ENV-GRATEPLATFORM-001_AST-ENV-GRATEPLATFORM-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-HATCHPANEL-001",
+      "fbx": "Models/AST-ENV-HATCHPANEL-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.5975570678710938,
+          -0.16297028958797455,
+          0.0
+        ],
+        "max": [
+          0.597557783126831,
+          0.1629701405763626,
+          1.600000023841858
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-HATCHPANEL-001",
+          "albedo": "Textures/AST-ENV-HATCHPANEL-001_AST-ENV-HATCHPANEL-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-HYDRODOMETOWER-001",
+      "fbx": "Models/AST-ENV-HYDRODOMETOWER-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -4.315339088439941,
+          -4.308988094329834,
+          0.0
+        ],
+        "max": [
+          4.315340042114258,
+          4.30898904800415,
+          13.0
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-HYDRODOMETOWER-001",
+          "albedo": "Textures/AST-ENV-HYDRODOMETOWER-001_AST-ENV-HYDRODOMETOWER-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-LABDOOR-001",
+      "fbx": "Models/AST-ENV-LABDOOR-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.7586466073989868,
+          -0.2032976597547531,
+          0.0
+        ],
+        "max": [
+          0.758647084236145,
+          0.20329739153385162,
+          2.9000000953674316
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-LABDOOR-001",
+          "albedo": "Textures/AST-ENV-LABDOOR-001_AST-ENV-LABDOOR-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-LABFLOOR-001",
+      "fbx": "Models/AST-ENV-LABFLOOR-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.4914548695087433,
+          -0.4997563064098358,
+          -2.1716962450568644e-08
+        ],
+        "max": [
+          0.4914553463459015,
+          0.4997553527355194,
+          0.09521486610174179
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-LABFLOOR-001",
+          "albedo": "Textures/AST-ENV-LABFLOOR-001_AST-ENV-LABFLOOR-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-PIPE-001",
+      "fbx": "Models/AST-ENV-PIPE-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.2999081611633301,
+          -0.29896754026412964,
+          0.0
+        ],
+        "max": [
+          0.2999086380004883,
+          0.29896748065948486,
+          0.9629999995231628
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-PIPE-001",
+          "albedo": "Textures/AST-ENV-PIPE-001_AST-ENV-PIPE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-PIPE-002",
+      "fbx": "Models/AST-ENV-PIPE-002.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.29979419708251953,
+          -0.5149795413017273,
+          0.0
+        ],
+        "max": [
+          0.2997944951057434,
+          0.5149794816970825,
+          1.034000039100647
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-PIPE-002",
+          "albedo": "Textures/AST-ENV-PIPE-002_AST-ENV-PIPE-002_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "fbx": "Models/AST-ENV-PLATFORMMODULE-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -1.499997615814209,
+          -1.000000238418579,
+          0.0
+        ],
+        "max": [
+          1.5000026226043701,
+          1.000000238418579,
+          0.30000001192092896
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-PLATFORMMODULE-001",
+          "albedo": "Textures/AST-ENV-PLATFORMMODULE-001_AST-ENV-PLATFORMMODULE-001_Albedo.png",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "fbx": "Models/AST-ENV-SCAFFOLD-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.5001400709152222,
+          -0.5171971917152405,
+          0.0
+        ],
+        "max": [
+          0.5001403093338013,
+          0.5171974301338196,
+          2.49399995803833
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-SCAFFOLD-001",
+          "albedo": "Textures/AST-ENV-SCAFFOLD-001_AST-ENV-SCAFFOLD-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "fbx": "Models/AST-ENV-STEELCOLUMN-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.19592055678367615,
+          -0.18639472126960754,
+          0.0
+        ],
+        "max": [
+          0.1959211528301239,
+          0.18639469146728516,
+          1.2999999523162842
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-STEELCOLUMN-001",
+          "albedo": "Textures/AST-ENV-STEELCOLUMN-001_AST-ENV-STEELCOLUMN-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-WATERSURFACE-001",
+      "fbx": "Models/AST-ENV-WATERSURFACE-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -32.000003814697266,
+          -16.0000057220459,
+          0.0
+        ],
+        "max": [
+          36.000003814697266,
+          34.000003814697266,
+          0.0
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-ENV-WATERSURFACE-001",
+          "albedo": null,
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            0.029999999329447746,
+            0.14000000059604645,
+            0.25999999046325684,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.9200000017881393,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-ACCESSKEY-001",
+      "fbx": "Models/AST-PROP-ACCESSKEY-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.026997631415724754,
+          -0.12700000405311584,
+          0.0
+        ],
+        "max": [
+          0.027002399787306786,
+          0.12700000405311584,
+          0.5870000123977661
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-ACCESSKEY-001",
+          "albedo": null,
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            0.6200000047683716,
+            0.05000000074505806,
+            1.0
+          ],
+          "metallic": 1.0,
+          "smoothness": 0.699999988079071,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-BEACONCRATE-001",
+      "fbx": "Models/AST-PROP-BEACONCRATE-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.4344651401042938,
+          -0.4328531324863434,
+          0.0
+        ],
+        "max": [
+          0.4344651401042938,
+          0.4328528642654419,
+          1.100000023841858
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-BEACONCRATE-001",
+          "albedo": "Textures/AST-PROP-BEACONCRATE-001_AST-PROP-BEACONCRATE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-CONSOLE-001",
+      "fbx": "Models/AST-PROP-CONSOLE-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.3373936414718628,
+          -0.3133586049079895,
+          0.0
+        ],
+        "max": [
+          0.3373938798904419,
+          0.3133585751056671,
+          1.2300000190734863
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-CONSOLE-001",
+          "albedo": "Textures/AST-PROP-CONSOLE-001_AST-PROP-CONSOLE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-CONSOLE-002",
+      "fbx": "Models/AST-PROP-CONSOLE-002.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.3796938359737396,
+          -0.45800480246543884,
+          0.0
+        ],
+        "max": [
+          0.37969428300857544,
+          0.45800432562828064,
+          0.49000003933906555
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-CONSOLE-002",
+          "albedo": "Textures/AST-PROP-CONSOLE-002_AST-PROP-CONSOLE-002_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-HATCH-001",
+      "fbx": "Models/AST-PROP-HATCH-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.547174870967865,
+          -0.5415002703666687,
+          0.0
+        ],
+        "max": [
+          0.5471751689910889,
+          0.5415006875991821,
+          0.5049999952316284
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-HATCH-001",
+          "albedo": "Textures/AST-PROP-HATCH-001_AST-PROP-HATCH-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-HOSE-001",
+      "fbx": "Models/AST-PROP-HOSE-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.2506103217601776,
+          -0.21250616014003754,
+          0.0
+        ],
+        "max": [
+          0.2506110668182373,
+          0.21250611543655396,
+          1.2000000476837158
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-HOSE-001",
+          "albedo": "Textures/AST-PROP-HOSE-001_AST-PROP-HOSE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-LANTERN-001",
+      "fbx": "Models/AST-PROP-LANTERN-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.12194139510393143,
+          -0.12194235622882843,
+          0.0
+        ],
+        "max": [
+          0.12194234877824783,
+          0.12194138765335083,
+          0.4300000071525574
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-LANTERN-001",
+          "albedo": "Textures/AST-PROP-LANTERN-001_AST-PROP-LANTERN-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-RAILING-001",
+      "fbx": "Models/AST-PROP-RAILING-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.5478686094284058,
+          -0.09661948680877686,
+          0.0
+        ],
+        "max": [
+          0.5478689670562744,
+          0.09661996364593506,
+          0.675000011920929
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-RAILING-001",
+          "albedo": "Textures/AST-PROP-RAILING-001_AST-PROP-RAILING-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-WARNINGSIGN-001",
+      "fbx": "Models/AST-PROP-WARNINGSIGN-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.32638704776763916,
+          -0.1669638752937317,
+          0.0
+        ],
+        "max": [
+          0.32638776302337646,
+          0.1669638752937317,
+          1.4700000286102295
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-WARNINGSIGN-001",
+          "albedo": "Textures/AST-PROP-WARNINGSIGN-001_AST-PROP-WARNINGSIGN-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-PROP-ZONEDOOR-001",
+      "fbx": "Models/AST-PROP-ZONEDOOR-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.9599971175193787,
+          -0.06000014394521713,
+          0.0
+        ],
+        "max": [
+          0.9600028395652771,
+          0.06000014394521713,
+          2.640000104904175
+        ]
+      },
+      "materials": [
+        {
+          "name": "AST-PROP-ZONEDOOR-001",
+          "albedo": null,
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            0.18000000715255737,
+            0.2199999988079071,
+            0.27000001072883606,
+            1.0
+          ],
+          "metallic": 0.6000000238418579,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    }
+  ]
+}

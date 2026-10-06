@@ -1,0 +1,4135 @@
+{
+  "contrato": "unity_scene/1.1",
+  "origen": {
+    "traductor": "montage/unity_pkg"
+  },
+  "level_id": "Montaje",
+  "convencion_ejes": "Unity_Y_up_metros",
+  "_nota_ejes": "Cada objeto trae position/rotation(cuaternión x,y,z,w)/scale ya en ejes Unity (cambio de base Y↔Z sobre la matriz de Blender). El prefab es un GameObject vacío en identidad con el modelo como hijo.",
+  "objetos": [
+    {
+      "nombre": "AST-CHAR-JELLYFISH-001.001",
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_799527ce_01c8_422d_9d00_e2d980a565b8_PackedUVMap"
+      },
+      "position": [
+        -20.0,
+        -1.4500000476837158,
+        -18.0
+      ],
+      "rotation": [
+        0.0,
+        -0.08715574443340302,
+        0.0,
+        0.9961947202682495
+      ],
+      "scale": [
+        0.9999998807907104,
+        1.0,
+        0.9999998807907104
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-JELLYFISH-001.002",
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_799527ce_01c8_422d_9d00_e2d980a565b8_PackedUVMap"
+      },
+      "position": [
+        -12.0,
+        -1.4500000476837158,
+        -24.0
+      ],
+      "rotation": [
+        0.0,
+        -0.342020183801651,
+        0.0,
+        0.9396926164627075
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-JELLYFISH-001.003",
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_799527ce_01c8_422d_9d00_e2d980a565b8_PackedUVMap"
+      },
+      "position": [
+        6.0,
+        -1.4500000476837158,
+        -16.0
+      ],
+      "rotation": [
+        0.0,
+        0.2588191032409668,
+        0.0,
+        0.9659258127212524
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-JELLYFISH-001.004",
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_799527ce_01c8_422d_9d00_e2d980a565b8_PackedUVMap"
+      },
+      "position": [
+        12.0,
+        -1.4500000476837158,
+        -8.0
+      ],
+      "rotation": [
+        0.0,
+        -0.6087613701820374,
+        0.0,
+        0.7933533787727356
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-JELLYFISH-001.005",
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_799527ce_01c8_422d_9d00_e2d980a565b8_PackedUVMap"
+      },
+      "position": [
+        -16.0,
+        -1.4500000476837158,
+        -6.0
+      ],
+      "rotation": [
+        0.0,
+        0.5,
+        0.0,
+        0.8660253882408142
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-JELLYFISH-001.006",
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_799527ce_01c8_422d_9d00_e2d980a565b8_PackedUVMap"
+      },
+      "position": [
+        2.0,
+        -1.4500000476837158,
+        -26.0
+      ],
+      "rotation": [
+        0.0,
+        -0.13052617013454437,
+        0.0,
+        0.9914448857307434
+      ],
+      "scale": [
+        0.9999998807907104,
+        1.0,
+        0.9999998807907104
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-NEONFLY-001.001",
+      "asset_id": "AST-CHAR-NEONFLY-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        -20.299999237060547,
+        2.700000047683716,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-NEONFLY-001.002",
+      "asset_id": "AST-CHAR-NEONFLY-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        -15.199999809265137,
+        2.799999952316284,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-NEONFLY-001.003",
+      "asset_id": "AST-CHAR-NEONFLY-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        -6.900000095367432,
+        1.399999976158142,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-NEONFLY-001.004",
+      "asset_id": "AST-CHAR-NEONFLY-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        3.299999952316284,
+        2.700000047683716,
+        7.599999904632568
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-NEONFLY-001.005",
+      "asset_id": "AST-CHAR-NEONFLY-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        4.900000095367432,
+        3.0,
+        7.199999809265137
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-NEONFLY-001.006",
+      "asset_id": "AST-CHAR-NEONFLY-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        8.100000381469727,
+        4.300000190734863,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-CHAR-RADIOACTIVESHARK-001.001",
+      "asset_id": "AST-CHAR-RADIOACTIVESHARK-001",
+      "capa": "Eventos",
+      "props": {
+        "currentUVSet": "tripo_95f5186a_dc6d_4580_a6f0_22b5e47d2cf1_PackedUVMap"
+      },
+      "position": [
+        -4.0,
+        -5.25,
+        -5.0
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-B17ARCH-001.001",
+      "asset_id": "AST-ENV-B17ARCH-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "e14ce100_2f30_4e2a_ad45_a4219ce1e237_PackedUVMap"
+      },
+      "position": [
+        15.479999542236328,
+        3.5,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-B17FLOORPLATE-001.001",
+      "asset_id": "AST-ENV-B17FLOORPLATE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "K_Prop_PackedUVMap"
+      },
+      "position": [
+        14.100000381469727,
+        3.2980000972747803,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-BULKHEAD-001.001",
+      "asset_id": "AST-ENV-BULKHEAD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "a289495d_4d79_4aea_a40e_a70325b44acb_PackedUVMap"
+      },
+      "position": [
+        -24.856000900268555,
+        2.200000047683716,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-BULKHEAD-001.002",
+      "asset_id": "AST-ENV-BULKHEAD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "a289495d_4d79_4aea_a40e_a70325b44acb_PackedUVMap"
+      },
+      "position": [
+        23.016000747680664,
+        3.5,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CORALROCK-001.001",
+      "asset_id": "AST-ENV-CORALROCK-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_6e28aa34_6900_4fbb_af32_19a3df9b239c_PackedUVMap"
+      },
+      "position": [
+        -26.0,
+        -3.799999952316284,
+        -13.0
+      ],
+      "rotation": [
+        0.0,
+        -0.17364811897277832,
+        0.0,
+        0.9848077893257141
+      ],
+      "scale": [
+        0.9999999403953552,
+        1.0,
+        0.9999999403953552
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CORALROCK-001.002",
+      "asset_id": "AST-ENV-CORALROCK-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_6e28aa34_6900_4fbb_af32_19a3df9b239c_PackedUVMap"
+      },
+      "position": [
+        25.0,
+        -3.5999999046325684,
+        -30.0
+      ],
+      "rotation": [
+        0.0,
+        0.30070585012435913,
+        0.0,
+        0.9537169337272644
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CORALROCK-001.003",
+      "asset_id": "AST-ENV-CORALROCK-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_6e28aa34_6900_4fbb_af32_19a3df9b239c_PackedUVMap"
+      },
+      "position": [
+        -8.0,
+        -3.5,
+        12.5
+      ],
+      "rotation": [
+        0.0,
+        -0.5735763907432556,
+        0.0,
+        0.8191520571708679
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.001",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        -22.139999389648438,
+        2.200000047683716,
+        3.8499999046325684
+      ],
+      "rotation": [
+        -0.0,
+        -1.0,
+        -0.0,
+        7.549790126404332e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.002",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        -22.139999389648438,
+        2.200000047683716,
+        8.149999618530273
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.003",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        -22.139999389648438,
+        7.170000076293945,
+        8.300000190734863
+      ],
+      "rotation": [
+        -0.7071067690849304,
+        0.0,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.004",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        -19.3799991607666,
+        2.2019999027252197,
+        3.8450000286102295
+      ],
+      "rotation": [
+        -0.0,
+        -1.0,
+        -0.0,
+        7.549790126404332e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.005",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        -19.3799991607666,
+        2.2019999027252197,
+        8.154999732971191
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.006",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        -19.3799991607666,
+        7.172999858856201,
+        8.300000190734863
+      ],
+      "rotation": [
+        -0.7071067690849304,
+        0.0,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.007",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        17.540000915527344,
+        3.5,
+        3.8499999046325684
+      ],
+      "rotation": [
+        -0.0,
+        -1.0,
+        -0.0,
+        7.549790126404332e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.008",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        17.540000915527344,
+        3.5,
+        8.149999618530273
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.009",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        17.540000915527344,
+        8.470000267028809,
+        8.300000190734863
+      ],
+      "rotation": [
+        -0.7071067690849304,
+        0.0,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.010",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        20.299999237060547,
+        3.502000093460083,
+        3.8450000286102295
+      ],
+      "rotation": [
+        -0.0,
+        -1.0,
+        -0.0,
+        7.549790126404332e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.011",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        20.299999237060547,
+        3.502000093460083,
+        8.154999732971191
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-CRYSTALPANEL-001.012",
+      "asset_id": "AST-ENV-CRYSTALPANEL-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "d4008706_6400_484b_b2d8_1c2505317d0b_PackedUVMap"
+      },
+      "position": [
+        20.299999237060547,
+        8.472999572753906,
+        8.300000190734863
+      ],
+      "rotation": [
+        -0.7071067690849304,
+        0.0,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-GRATEPLATFORM-001.001",
+      "asset_id": "AST-ENV-GRATEPLATFORM-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_7c4a6ba7_b2e1_460a_88bb_13c05fc9d2a8_PackedUVMap"
+      },
+      "position": [
+        -17.5,
+        2.200000047683716,
+        4.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-HATCHPANEL-001.001",
+      "asset_id": "AST-ENV-HATCHPANEL-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_6cd123e4_92c8_4e61_b429_1a0e5f65cb65_PackedUVMap"
+      },
+      "position": [
+        -6.900000095367432,
+        0.0,
+        6.840000152587891
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-HYDRODOMETOWER-001.001",
+      "asset_id": "AST-ENV-HYDRODOMETOWER-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_4a2c69e8_67db_434b_8c79_a51fdb3b0c95_PackedUVMap"
+      },
+      "position": [
+        -26.0,
+        -3.6700000762939453,
+        -25.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.384615421295166,
+        1.384615421295166,
+        1.384615421295166
+      ]
+    },
+    {
+      "nombre": "AST-ENV-HYDRODOMETOWER-001.002",
+      "asset_id": "AST-ENV-HYDRODOMETOWER-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_4a2c69e8_67db_434b_8c79_a51fdb3b0c95_PackedUVMap"
+      },
+      "position": [
+        19.0,
+        -2.7200000286102295,
+        -23.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-HYDRODOMETOWER-001.003",
+      "asset_id": "AST-ENV-HYDRODOMETOWER-001",
+      "capa": "Oceano",
+      "props": {
+        "currentUVSet": "tripo_4a2c69e8_67db_434b_8c79_a51fdb3b0c95_PackedUVMap"
+      },
+      "position": [
+        -29.0,
+        -1.9600000381469727,
+        -4.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        0.692307710647583,
+        0.692307710647583,
+        0.692307710647583
+      ]
+    },
+    {
+      "nombre": "AST-ENV-LABDOOR-001.001",
+      "asset_id": "AST-ENV-LABDOOR-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "M_Prop_PackedUVMap"
+      },
+      "position": [
+        -24.856000900268555,
+        2.200000047683716,
+        5.695499897003174
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-LABDOOR-001.002",
+      "asset_id": "AST-ENV-LABDOOR-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "M_Prop_PackedUVMap"
+      },
+      "position": [
+        23.016000747680664,
+        3.5,
+        5.695499897003174
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-LABFLOOR-001.001",
+      "asset_id": "AST-ENV-LABFLOOR-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "a4043cb1_485d_4a29_9ebe_ac5ee1ddd548_PackedUVMap"
+      },
+      "position": [
+        -23.0,
+        2.200000047683716,
+        6.0
+      ],
+      "rotation": [
+        -1.5454309831852697e-08,
+        -0.7071066498756409,
+        -1.5454308055495858e-08,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-LABFLOOR-001.002",
+      "asset_id": "AST-ENV-LABFLOOR-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "a4043cb1_485d_4a29_9ebe_ac5ee1ddd548_PackedUVMap"
+      },
+      "position": [
+        21.200000762939453,
+        3.5,
+        6.0
+      ],
+      "rotation": [
+        -1.5454309831852697e-08,
+        -0.7071066498756409,
+        -1.5454308055495858e-08,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.001",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        3.299999952316284,
+        1.7369999885559082,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.002",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        3.299999952316284,
+        0.7739999890327454,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.003",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        3.299999952316284,
+        -0.1889999955892563,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.004",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        3.299999952316284,
+        -1.1519999504089355,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.005",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        13.300000190734863,
+        3.0369999408721924,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.006",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        13.300000190734863,
+        2.0739998817443848,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.007",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        13.300000190734863,
+        1.1109999418258667,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.008",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        13.300000190734863,
+        0.14800000190734863,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.009",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        13.300000190734863,
+        -0.8149999976158142,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-001.010",
+      "asset_id": "AST-ENV-PIPE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_5987fcd7_882e_4238_97bf_1db67f6782a0_PackedUVMap"
+      },
+      "position": [
+        13.300000190734863,
+        -1.777999997138977,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-002.001",
+      "asset_id": "AST-ENV-PIPE-002",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "de10ba6e_675b_412c_9067_57a83dedfdfc_PackedUVMap"
+      },
+      "position": [
+        3.9200000762939453,
+        -0.699999988079071,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PIPE-002.002",
+      "asset_id": "AST-ENV-PIPE-002",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "de10ba6e_675b_412c_9067_57a83dedfdfc_PackedUVMap"
+      },
+      "position": [
+        13.920000076293945,
+        -0.699999988079071,
+        8.550000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.001",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -25.0,
+        1.899999976158142,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.002",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -25.0,
+        1.899999976158142,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.003",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -23.0,
+        1.899999976158142,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.004",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -23.0,
+        1.899999976158142,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.005",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -21.0,
+        1.899999976158142,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.006",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -21.0,
+        1.899999976158142,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.007",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -19.0,
+        1.899999976158142,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.008",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -19.0,
+        1.899999976158142,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.009",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        15.800000190734863,
+        3.200000047683716,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.010",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        15.800000190734863,
+        3.200000047683716,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.011",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        17.799999237060547,
+        3.200000047683716,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.012",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        17.799999237060547,
+        3.200000047683716,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.013",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        19.799999237060547,
+        3.200000047683716,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.014",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        19.799999237060547,
+        3.200000047683716,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.015",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        21.799999237060547,
+        3.200000047683716,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.016",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        21.799999237060547,
+        3.200000047683716,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.017",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        23.799999237060547,
+        3.200000047683716,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.018",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        23.799999237060547,
+        3.200000047683716,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.019",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -16.5,
+        1.899999976158142,
+        5.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.020",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -16.5,
+        1.899999976158142,
+        7.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.021",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -11.699999809265137,
+        0.800000011920929,
+        5.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.022",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -6.900000095367432,
+        -0.30000001192092896,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.023",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        -2.0999999046325684,
+        0.800000011920929,
+        7.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.024",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        3.299999952316284,
+        1.899999976158142,
+        5.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.025",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        3.299999952316284,
+        1.899999976158142,
+        7.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.026",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        8.100000381469727,
+        3.5,
+        5.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.027",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        8.100000381469727,
+        3.5,
+        7.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.028",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        13.300000190734863,
+        3.200000047683716,
+        5.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-PLATFORMMODULE-001.029",
+      "asset_id": "AST-ENV-PLATFORMMODULE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        13.300000190734863,
+        3.200000047683716,
+        7.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.001",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -25.5,
+        -0.593999981880188,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.002",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -25.5,
+        -3.0880000591278076,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.003",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -25.5,
+        -0.593999981880188,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.004",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -25.5,
+        -3.0880000591278076,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.005",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -22.0,
+        -0.593999981880188,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.006",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -22.0,
+        -3.0880000591278076,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.007",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -22.0,
+        -0.593999981880188,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.008",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -22.0,
+        -3.0880000591278076,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.009",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -18.5,
+        -0.593999981880188,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.010",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -18.5,
+        -3.0880000591278076,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.011",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -18.5,
+        -0.593999981880188,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.012",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -18.5,
+        -3.0880000591278076,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.013",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -15.5,
+        -0.593999981880188,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.014",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -15.5,
+        -3.0880000591278076,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.015",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -15.5,
+        -0.593999981880188,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.016",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -15.5,
+        -3.0880000591278076,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.017",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -12.699999809265137,
+        -1.694000005722046,
+        5.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.018",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -10.699999809265137,
+        -1.694000005722046,
+        5.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.019",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -7.900000095367432,
+        -2.7939999103546143,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.020",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -5.900000095367432,
+        -2.7939999103546143,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.021",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -3.0999999046325684,
+        -1.694000005722046,
+        7.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.022",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        -1.100000023841858,
+        -1.694000005722046,
+        7.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.023",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        2.299999952316284,
+        -0.593999981880188,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.024",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        2.299999952316284,
+        -3.0880000591278076,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.025",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        2.299999952316284,
+        -0.593999981880188,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.026",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        2.299999952316284,
+        -3.0880000591278076,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.027",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        4.300000190734863,
+        -0.593999981880188,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.028",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        4.300000190734863,
+        -3.0880000591278076,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.029",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        4.300000190734863,
+        -0.593999981880188,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.030",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        4.300000190734863,
+        -3.0880000591278076,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.031",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        7.099999904632568,
+        1.00600004196167,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.032",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        7.099999904632568,
+        -1.4880000352859497,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.033",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        7.099999904632568,
+        1.00600004196167,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.034",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        7.099999904632568,
+        -1.4880000352859497,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.035",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        9.100000381469727,
+        1.00600004196167,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.036",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        9.100000381469727,
+        -1.4880000352859497,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.037",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        9.100000381469727,
+        1.00600004196167,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.038",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        9.100000381469727,
+        -1.4880000352859497,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.039",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        12.300000190734863,
+        0.7059999704360962,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.040",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        12.300000190734863,
+        -1.7879999876022339,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.041",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        12.300000190734863,
+        0.7059999704360962,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.042",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        12.300000190734863,
+        -1.7879999876022339,
+        7.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.043",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        15.300000190734863,
+        0.7059999704360962,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.044",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        15.300000190734863,
+        -1.7879999876022339,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.045",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        15.300000190734863,
+        0.7059999704360962,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.046",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        15.300000190734863,
+        -1.7879999876022339,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.047",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        19.799999237060547,
+        0.7059999704360962,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.048",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        19.799999237060547,
+        -1.7879999876022339,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.049",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        19.799999237060547,
+        0.7059999704360962,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.050",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        19.799999237060547,
+        -1.7879999876022339,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.051",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        24.299999237060547,
+        0.7059999704360962,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.052",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        24.299999237060547,
+        -1.7879999876022339,
+        3.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.053",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        24.299999237060547,
+        0.7059999704360962,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-SCAFFOLD-001.054",
+      "asset_id": "AST-ENV-SCAFFOLD-001",
+      "capa": "Estructura",
+      "props": {
+        "currentUVSet": "E_Prop_PackedUVMap"
+      },
+      "position": [
+        24.299999237060547,
+        -1.7879999876022339,
+        8.5
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.001",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        -15.220000267028809,
+        2.200000047683716,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.002",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        -13.0,
+        1.100000023841858,
+        5.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.003",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        -5.619999885559082,
+        0.0,
+        6.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.004",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        -0.8199999928474426,
+        1.100000023841858,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.005",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        1.9800000190734863,
+        2.200000047683716,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.006",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        4.619999885559082,
+        2.200000047683716,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.007",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        9.380000114440918,
+        3.799999952316284,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.008",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        12.020000457763672,
+        3.5,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-STEELCOLUMN-001.009",
+      "asset_id": "AST-ENV-STEELCOLUMN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_25defbbb_aa10_4c0b_bc42_e92ff267da24_PackedUVMap"
+      },
+      "position": [
+        12.020000457763672,
+        3.5,
+        4.21999979019165
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-ENV-WATERSURFACE-001.001",
+      "asset_id": "AST-ENV-WATERSURFACE-001",
+      "capa": "Estructura",
+      "props": {},
+      "position": [
+        0.0,
+        -0.25,
+        0.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        2.5,
+        1.0,
+        2.5
+      ]
+    },
+    {
+      "nombre": "AST-PROP-ACCESSKEY-001.001",
+      "asset_id": "AST-PROP-ACCESSKEY-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        8.100000381469727,
+        5.0,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        -0.3826834559440613,
+        0.0,
+        0.9238795638084412
+      ],
+      "scale": [
+        0.9999999403953552,
+        1.0,
+        0.9999999403953552
+      ]
+    },
+    {
+      "nombre": "AST-PROP-BEACONCRATE-001.001",
+      "asset_id": "AST-PROP-BEACONCRATE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "A_Prop_PackedUVMap"
+      },
+      "position": [
+        -22.899999618530273,
+        2.200000047683716,
+        7.199999809265137
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-BEACONCRATE-001.002",
+      "asset_id": "AST-PROP-BEACONCRATE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "A_Prop_PackedUVMap"
+      },
+      "position": [
+        14.300000190734863,
+        3.5,
+        7.300000190734863
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-CONSOLE-001.001",
+      "asset_id": "AST-PROP-CONSOLE-001",
+      "capa": "Gameplay",
+      "props": {
+        "currentUVSet": "tripo_68d18f59_1a1b_4067_9e0e_33d9b2b99c3d_PackedUVMap"
+      },
+      "position": [
+        14.100000381469727,
+        3.5,
+        4.5
+      ],
+      "rotation": [
+        0.0,
+        0.9238795638084412,
+        0.0,
+        0.3826834261417389
+      ],
+      "scale": [
+        0.9999998807907104,
+        1.0,
+        0.9999998807907104
+      ]
+    },
+    {
+      "nombre": "AST-PROP-CONSOLE-002.001",
+      "asset_id": "AST-PROP-CONSOLE-002",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_60179fdb_80c1_48e7_9d14_5250aaff795f_PackedUVMap"
+      },
+      "position": [
+        8.100000381469727,
+        3.799999952316284,
+        7.349999904632568
+      ],
+      "rotation": [
+        -0.0,
+        -1.0,
+        -0.0,
+        7.549790126404332e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-HATCH-001.001",
+      "asset_id": "AST-PROP-HATCH-001",
+      "capa": "Gameplay",
+      "props": {
+        "currentUVSet": "c5e949ea_f8bd_41f2_89a9_7bc2fe051f90_PackedUVMap"
+      },
+      "position": [
+        -21.5,
+        1.7000000476837158,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-HOSE-001.001",
+      "asset_id": "AST-PROP-HOSE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ca2cacef_6502_43f3_a37f_c1e3371e7191_PackedUVMap"
+      },
+      "position": [
+        -22.899999618530273,
+        2.200000047683716,
+        4.75
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-HOSE-001.002",
+      "asset_id": "AST-PROP-HOSE-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ca2cacef_6502_43f3_a37f_c1e3371e7191_PackedUVMap"
+      },
+      "position": [
+        17.0,
+        3.5,
+        7.300000190734863
+      ],
+      "rotation": [
+        -0.0,
+        -1.0,
+        -0.0,
+        7.549790126404332e-08
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.001",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        -15.220000267028809,
+        3.5,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.002",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        -13.0,
+        2.4000000953674316,
+        5.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.003",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        -5.619999885559082,
+        1.2999999523162842,
+        6.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.004",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        -0.8199999928474426,
+        2.4000000953674316,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.005",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        1.9800000190734863,
+        3.5,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.006",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        4.619999885559082,
+        3.5,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.007",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        9.380000114440918,
+        5.099999904632568,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.008",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        12.020000457763672,
+        4.800000190734863,
+        7.78000020980835
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-LANTERN-001.009",
+      "asset_id": "AST-PROP-LANTERN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "ae7d45f5_ac6e_4b6d_b311_447740d8a248_PackedUVMap"
+      },
+      "position": [
+        12.020000457763672,
+        4.800000190734863,
+        4.21999979019165
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.001",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        -17.200000762939453,
+        2.200000047683716,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.002",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        -15.800000190734863,
+        2.200000047683716,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.003",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        -11.699999809265137,
+        1.100000023841858,
+        5.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.004",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        -2.0999999046325684,
+        1.100000023841858,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.005",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        2.5999999046325684,
+        2.200000047683716,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.006",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        4.0,
+        2.200000047683716,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.007",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        7.400000095367432,
+        3.799999952316284,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.008",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        8.800000190734863,
+        3.799999952316284,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.009",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        12.600000381469727,
+        3.5,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-RAILING-001.010",
+      "asset_id": "AST-PROP-RAILING-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_019b92d8_7b66_40bc_bb8d_29c12b574a39_PackedUVMap"
+      },
+      "position": [
+        14.0,
+        3.5,
+        7.880000114440918
+      ],
+      "rotation": [
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-WARNINGSIGN-001.001",
+      "asset_id": "AST-PROP-WARNINGSIGN-001",
+      "capa": "Vestido",
+      "props": {
+        "currentUVSet": "tripo_18bc4170_08a1_401e_aeeb_8b472f714880_PackedUVMap"
+      },
+      "position": [
+        -18.600000381469727,
+        2.200000047683716,
+        4.599999904632568
+      ],
+      "rotation": [
+        0.0,
+        0.7071067690849304,
+        0.0,
+        0.7071067690849304
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "nombre": "AST-PROP-ZONEDOOR-001.001",
+      "asset_id": "AST-PROP-ZONEDOOR-001",
+      "capa": "Gameplay",
+      "props": {},
+      "position": [
+        15.479999542236328,
+        3.615000009536743,
+        6.0
+      ],
+      "rotation": [
+        0.0,
+        -0.7071066498756409,
+        0.0,
+        0.70710688829422
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  ]
+}

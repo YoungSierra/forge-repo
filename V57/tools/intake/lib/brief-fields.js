@@ -89,7 +89,7 @@ function sizeOf(ctx, b) {
   const arr = Array.isArray(v) ? v : String(v).split(/[x×,\s]+/).filter(Boolean);
   const nums = arr.map((x) => (typeof x === 'number' ? x : Number(String(x).replace(/[^0-9.eE+-]/g, ''))));
   if (nums.length === 3 && nums.every((n) => Number.isFinite(n) && n > 0)) return nums;
-  badValue(ctx, b, 'size_m', 'size_m=null; placeholder sized from category defaults');
+  badValue(ctx, b, 'size_m', 'size_m=null; category default size used for layout checks only');
   return null;
 }
 

@@ -108,7 +108,7 @@ function renderReport({ tdd, add, inv, model, issues, exitCode, outputs, version
     const list = issues.filter((i) => i.level === l);
     lines.push(`## Issues — ${l} (${list.length})`, '');
     if (!list.length) { lines.push('_None._', ''); continue; }
-    lines.push(table(['ID', 'Code', 'Where', 'Issue', 'Suggested auto-fix / placeholder'],
+    lines.push(table(['ID', 'Code', 'Where', 'Issue', 'Suggested auto-fix / handling'],
       list.map((i) => [i.id, i.code, `\`${i.where}\``, `${i.message}${i.count > 1 ? ` (×${i.count})` : ''}`, i.fix])), '');
   }
   lines.push('## Generated files', '', ...outputs.map((o) => `- \`${o}\``), '');

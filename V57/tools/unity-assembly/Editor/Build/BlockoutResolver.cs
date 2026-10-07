@@ -8,7 +8,7 @@ namespace V57.Assembly.Build
 {
     /// <summary>
     /// Resolves <c>scenes[].blockout</c> (asset_id, asset_name or path) to the asset to instantiate:
-    /// the Visual prefab (real or placeholder) first, then the raw model.
+    /// the Visual prefab first, then the raw model.
     /// </summary>
     public static class BlockoutResolver
     {

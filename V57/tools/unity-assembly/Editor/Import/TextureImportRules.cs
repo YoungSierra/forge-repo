@@ -32,7 +32,13 @@ namespace V57.Assembly.Import
                 return;
             }
 
-            if (AssetNaming.TrySplitTexture(stem, out _, out string suffix))
+            if (assetPath.Contains("/Environment/Sky/"))
+            {
+                ApplySky(importer, assetPath);
+                return;
+            }
+
+            if (AssetNaming.TrySplitTexture(stem, out _, out string suffix) || AssetNaming.TrySplitDccTexture(stem, out suffix))
             {
                 ApplyMaterialTexture(importer, assetPath, suffix);
                 return;
@@ -86,6 +92,10 @@ namespace V57.Assembly.Import
                 case "ORM":
                 case "MASK":
                 case "MSO":
+                case "MS":
+                case "M":
+                case "R":
+                case "AO":
                     importer.textureType = TextureImporterType.Default;
                     importer.sRGBTexture = false;
                     decision = "Default linear (sRGB off)";
@@ -103,6 +113,25 @@ namespace V57.Assembly.Import
 
             importer.mipmapEnabled = true;
             ImportLog.Record(assetPath, "texture", decision + " mips=on");
+        }
+
+        /// <summary>
+        /// Sky backdrops (equirectangular / lat-long): no mips (a mip seam shows at the wrap), wrap U repeat, V clamp,
+        /// full source resolution up to 8192.
+        /// </summary>
+        private static void ApplySky(TextureImporter importer, string assetPath)
+        {
+            importer.textureType = TextureImporterType.Default;
+            importer.textureShape = TextureImporterShape.Texture2D;
+            importer.sRGBTexture = true;
+            importer.mipmapEnabled = false;
+            importer.wrapModeU = TextureWrapMode.Repeat;
+            importer.wrapModeV = TextureWrapMode.Clamp;
+            importer.filterMode = FilterMode.Bilinear;
+            importer.GetSourceTextureWidthAndHeight(out int width, out int height);
+            importer.maxTextureSize = Mathf.Clamp(Mathf.NextPowerOfTwo(Mathf.Max(width, height)), 32, 8192);
+            importer.textureCompression = TextureImporterCompression.CompressedHQ;
+            ImportLog.Record(assetPath, "sky", $"lat-long sky sRGB mips=off wrapU=repeat wrapV=clamp max={importer.maxTextureSize}");
         }
 
         #endregion

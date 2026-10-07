@@ -102,7 +102,7 @@ function buildAcceptance(tdd, add, mech, c, issues, scene = null) {
   const noAc = mech.mechanics.filter((m) => !m.acs.length).map((m) => m.name);
   if (noAc.length) {
     issues.add({ code: 'AC_MISSING', level: 'missing', area: 'tdd', where: tdd.file, message: `mechanics without acceptance criteria: ${noAc.join(', ')}`,
-      fix: 'placeholder AC "mechanic runs without errors in slice scene" generated in F', refs: noAc });
+      fix: 'default AC "mechanic runs without errors in slice scene" written in F (D-###)', refs: noAc });
   }
   return { criteria, gold_path: gold };
 }

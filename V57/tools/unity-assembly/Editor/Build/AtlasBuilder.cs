@@ -146,7 +146,7 @@ namespace V57.Assembly.Build
                 string folderName = string.IsNullOrEmpty(screen.sprites) ? screen.id : Path.GetFileName(screen.sprites.TrimEnd('/'));
                 if (!string.IsNullOrEmpty(folderName) && !AssetDatabase.IsValidFolder($"{AssemblyPaths.UiSpritesRoot}/{folderName}"))
                 {
-                    AssemblyContext.Warn(Step, $"ui screen '{screen.id}': sprite folder '{folderName}' not found (UI will need placeholders)");
+                    AssemblyContext.Warn(Step, $"ui screen '{screen.id}': sprite folder '{folderName}' not found (listed as missing; UI drawn without those sprites)");
                 }
             }
         }

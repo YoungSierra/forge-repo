@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "layouts",
+  "description": "Level layouts from Docs/Design/LevelMaps/<LevelId>/unity_scene.json (+ manifest.json), normalized by intake: English layer groups, <Name>_NN instance names, delivered model/texture paths.",
+  "type": "object",
+  "required": [
+    "layouts"
+  ],
+  "properties": {
+    "layouts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "level_id",
+          "source",
+          "manifest",
+          "objects",
+          "materials"
+        ],
+        "properties": {
+          "level_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "manifest": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "objects": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "asset_id",
+                "model",
+                "layer",
+                "position",
+                "rotation",
+                "scale"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "source_name": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "asset_id": {
+                  "type": "string"
+                },
+                "model": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "layer": {
+                  "type": "string"
+                },
+                "position": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                },
+                "rotation": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 4,
+                  "maxItems": 4
+                },
+                "scale": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 3,
+                  "maxItems": 3
+                }
+              }
+            }
+          },
+          "materials": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": [
+                "asset_id",
+                "name",
+                "base_color",
+                "metallic",
+                "smoothness",
+                "double_sided"
+              ],
+              "properties": {
+                "asset_id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "albedo": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "normal": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "metallic_smoothness": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "base_color": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 4,
+                  "maxItems": 4
+                },
+                "metallic": {
+                  "type": "number"
+                },
+                "smoothness": {
+                  "type": "number"
+                },
+                "alpha_mode": {
+                  "type": "string"
+                },
+                "alpha_cutoff": {
+                  "type": "number"
+                },
+                "double_sided": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

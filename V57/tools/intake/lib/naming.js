@@ -6,8 +6,9 @@ const MESH = /\.(fbx)$/i;
 const IMAGE = /\.(png|tga|jpg|jpeg|exr|hdr|tif|tiff)$/i;
 const AUDIO = /\.(wav|ogg|mp3|aif|aiff|flac)$/i;
 const FONT = /\.(ttf|otf)$/i;
-const TEX_SUFFIX = ['BC', 'N', 'ORM', 'E', 'Mask'];
+const TEX_SUFFIX = ['BC', 'N', 'ORM', 'MS', 'E', 'Mask'];
 const TEX_GUESS = [
+  [/metallic_?smoothness|metalsmooth|_ms$/i, 'MS'],
   [/albedo|basecolou?r|diffuse|colou?r|base|_d$|_bc$/i, 'BC'],
   [/normal|nrm|_n$/i, 'N'],
   [/orm|occlusion|rough|metal/i, 'ORM'],

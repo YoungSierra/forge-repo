@@ -63,7 +63,7 @@ function tddChecks(tdd, c, issues, resolve) {
       const r = resolve(u, c.screens, { what: `§B ${m.name} UI reference`, where: `${f}:${m.line}`, area: 'tdd' });
       if (r.status === 'unknown') {
         issues.add({ code: 'TDD_UI_NOT_REGISTERED', level: 'missing', area: 'tdd', where: `${f}:${m.line}`,
-          message: `§B ${m.name} references ${u}, absent from §9.1`, fix: 'placeholder screen entry added to ui.yaml', refs: [u] });
+          message: `§B ${m.name} references ${u}, absent from §9.1`, fix: 'stub screen entry added to ui.json (no art)', refs: [u] });
       }
     });
     m.sceneRefs.forEach((s) => {
@@ -77,7 +77,7 @@ function tddChecks(tdd, c, issues, resolve) {
       const r = resolve(a, c.actions, { what: `§B ${m.name} player input`, where: `${f}:${m.line}`, area: 'tdd' });
       if (r.status === 'unknown') {
         issues.add({ code: 'TDD_INPUT_NOT_MAPPED', level: 'missing', area: 'tdd', where: `${f}:${m.line}`,
-          message: `§B ${m.name} player input ${a} has no §11.3 row`, fix: 'placeholder action added to input_map (no binding)', refs: [a] });
+          message: `§B ${m.name} player input ${a} has no §11.3 row`, fix: 'stub action added to input_map (no binding)', refs: [a] });
       }
     });
     if (!tdd.specs.some((s) => s.name === m.name)) {

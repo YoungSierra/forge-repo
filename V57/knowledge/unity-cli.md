@@ -29,3 +29,13 @@
 
 ## Multiple Editors
 - **Rule:** pass `--project-path <repo>` on every `unity command` when more than one Editor may be open.
+
+## Long Editor work: schedule, then poll the output
+- **Symptom:** `unity command eval "V57.Assembly.AssemblyRunner.RunAll()"` returned `Main thread operation timed out after 5000ms`; while the Editor was still importing, the call never ran at all.
+- **Rule:** wait for `recompile_status` idle, then schedule long work with `EditorApplication.delayCall += () => …; return 1;` and poll its output file (`Docs/V57/reports/assembly-report.json` is rewritten at the end). Never treat the 5 s timeout as a failure or a success.
+- **Source:** PS end-to-end assembly test (2026-10).
+
+## Shell paths in generated C# / JS
+- **Symptom:** a capture script wrote to `C:UsersUsuario…` (a drive-relative folder at the drive root) because backslashes in a path were eaten by shell quoting; a failed `cd` in a chained shell command ran `rm` in the wrong repo.
+- **Rule:** write scripts with paths through the file tool (not inline shell strings); in shell chains guard every `cd` with `|| exit 1` and never `|| true` a `cd`.
+- **Source:** PS end-to-end test.

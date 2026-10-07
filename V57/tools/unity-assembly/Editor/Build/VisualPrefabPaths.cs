@@ -24,7 +24,7 @@ namespace V57.Assembly.Build
             return GoldPathPaths.SanitizeFileName(source.Trim());
         }
 
-        /// <summary>Category comes from the declared files.mesh first, so placeholder and real prefab share one path/GUID.</summary>
+        /// <summary>Category comes from the declared files.mesh first, so re-deliveries of the model keep one prefab path/GUID.</summary>
         public static string PrefabPath(AssetEntryDto entry, string modelPath)
         {
             string hint = AssemblyPaths.ToAssetPath(entry?.files?.mesh) ?? modelPath;
@@ -57,12 +57,6 @@ namespace V57.Assembly.Build
             }
 
             return null;
-        }
-
-        public static bool IsPlaceholder(string prefabPath)
-        {
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabPath);
-            return prefab != null && prefab.GetComponentInChildren<V57Placeholder>(true) != null;
         }
 
         public static bool Exists(string assetPath)

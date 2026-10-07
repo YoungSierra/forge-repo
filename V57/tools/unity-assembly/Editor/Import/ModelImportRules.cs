@@ -83,8 +83,10 @@ namespace V57.Assembly.Import
             {
                 bool humanoid = ManifestLookup.IsHumanoid(stem.Substring(3));
                 importer.animationType = humanoid ? ModelImporterAnimationType.Human : ModelImporterAnimationType.Generic;
+                // The SK_ owns the avatar every ANIM_<Asset>_* copies (AnimationAvatarLinker); without it clips cannot link.
+                importer.avatarSetup = ModelImporterAvatarSetup.CreateFromThisModel;
                 importer.importAnimation = true;
-                return humanoid ? "Humanoid" : "Generic";
+                return (humanoid ? "Humanoid" : "Generic") + " (avatar from this model)";
             }
 
             if (AssetNaming.TrySplitAnimation(stem, out string assetName, out string clip))

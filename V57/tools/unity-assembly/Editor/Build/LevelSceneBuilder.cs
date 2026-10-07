@@ -10,9 +10,11 @@ using V57.GoldPath;
 namespace V57.Assembly.Build
 {
     /// <summary>
-    /// Builds <c>Assets/_Game/Scenes/SCN_&lt;id&gt;.unity</c> for slice scenes in <c>scenes.json</c>: six root containers,
-    /// blockout instance under <c>_Environment</c>, typed markers, static dressing at spawn markers (<see cref="MarkerDresser"/>), cameras from markers + camera.json, one directional
-    /// light. Existing scenes are never overwritten unless <see cref="AssemblyOptions.Force"/> (protects gameplay work).
+    /// Builds <c>Assets/_Game/Scenes/SCN_&lt;id&gt;.unity</c> for slice scenes and layout scenes in <c>scenes.json</c>: six root
+    /// containers; level art from the LevelMaps layout (<see cref="LayoutSceneBuilder"/>) or the blockout instance with typed
+    /// markers and static dressing (<see cref="MarkerDresser"/>); cameras from markers + camera.json; one directional light;
+    /// the delivered sky (<see cref="SkyboxBuilder"/>). No placeholder geometry: a scene without level art stays empty.
+    /// Existing scenes are never overwritten unless <see cref="AssemblyOptions.Force"/> (protects gameplay work).
     /// Refuses to run in Play Mode or with unsaved open scenes (would lose user changes).
     /// </summary>
     public static class LevelSceneBuilder
@@ -67,7 +69,7 @@ namespace V57.Assembly.Build
             string[] packageSlice = GeneratedData.Package?.slice?.scenes ?? new string[0];
             foreach (SceneEntryDto entry in all)
             {
-                if (entry != null && (entry.slice || System.Array.IndexOf(packageSlice, entry.id) >= 0))
+                if (entry != null && (entry.slice || !string.IsNullOrEmpty(entry.layout) || System.Array.IndexOf(packageSlice, entry.id) >= 0))
                 {
                     selected.Add(entry);
                 }
@@ -103,27 +105,14 @@ namespace V57.Assembly.Build
             Scene scene = EditorSceneManager.NewScene(NewSceneSetup.EmptyScene, NewSceneMode.Single);
             SceneContainers containers = SceneContainers.Create();
             CreateSun(containers.Lighting);
-            GameObject source = BlockoutResolver.Resolve(entry.blockout, out string blockoutName);
-            if (string.IsNullOrWhiteSpace(entry.blockout))
+            LevelArtPlacer.Place(entry, containers, scene);
+            CameraPlacement.AssignMain(containers.Cameras, entry);
+            Material sky = SkyboxBuilder.DefaultSkybox();
+            if (sky != null)
             {
-                PlaceholderGround.Create(containers.Environment, entry.id);
-            }
-            else if (source == null)
-            {
-                AssemblyContext.Error(Step, $"{entry.id}: blockout '{entry.blockout}' not found (no model, prefab or placeholder)");
-            }
-            else
-            {
-                GameObject blockout = PrefabUtility.InstantiatePrefab(source, scene) as GameObject;
-                blockout.transform.SetParent(containers.Environment, false);
-                blockout.name = blockoutName;
-                int markers = MarkerConverter.Convert(blockout, containers, entry.id);
-                AssemblyContext.Counts.markers += markers;
-                CheckDeclaredMarkers(entry, containers.Markers);
-                AssemblyContext.Counts.dressed += MarkerDresser.Dress(containers, entry.id);
+                RenderSettings.skybox = sky;
             }
 
-            CameraPlacement.AssignMain(containers.Cameras, entry);
             if (!EditorSceneManager.SaveScene(scene, path))
             {
                 AssemblyContext.Error(Step, $"{path}: SaveScene failed");
@@ -143,18 +132,6 @@ namespace V57.Assembly.Build
             Light light = sun.AddComponent<Light>();
             light.type = LightType.Directional;
             light.shadows = LightShadows.Soft;
-        }
-
-        private static void CheckDeclaredMarkers(SceneEntryDto entry, Transform markersRoot)
-        {
-            foreach (string declared in entry.markers ?? new string[0])
-            {
-                string wanted = V57MarkerNaming.IsMarker(declared) ? declared : V57MarkerNaming.Prefix + declared;
-                if (markersRoot.Find(wanted) == null)
-                {
-                    AssemblyContext.Warn(Step, $"{entry.id}: declared marker '{wanted}' not found in blockout");
-                }
-            }
         }
 
         private static bool HasDirtyScene()

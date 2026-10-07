@@ -68,7 +68,8 @@ _Lighting/
 |-------------|-------------|
 | **Visual prefab** | `Assets/_Game/Prefabs/Visual/{Characters,Props,Environment,VFX}/PRF_<Asset>_Visual.prefab` — built by `AssemblyRunner.BuildVisualPrefabs()`; mesh + materials + colliders from `UCX_*`; **no gameplay scripts** |
 | **Gameplay prefab** | `Assets/_Game/Prefabs/Gameplay/PRF_<Asset>.prefab` — **prefab variant** of the Visual prefab + behaviour components + serialized config (`SO_*`) |
-| **Placeholders** | When art is `missing`, `AssemblyRunner.BuildPlaceholders()` creates a Visual prefab with a labeled primitive (`MissingAsset: <asset_name>`); the Gameplay variant is built on it the same way, so real art swaps in without touching gameplay |
+| **Missing art** | No placeholder: the slot stays empty (no prefab, unassigned reference) and is listed in `Docs/V57/MISSING_ASSETS.md`; when the art arrives, I2 builds its Visual prefab and gameplay variants pick it up |
+| **Scene names** | English only. Groups are PascalCase nouns (`_Environment/Structure`, `Ocean`, `Dressing`); repeated instances are `<Name>_NN` (`Jellyfish_01`, `Jellyfish_02`; 3 digits only past 99). Never DCC suffixes (`.001`) or Unity duplicates (`(1)`). The LevelMaps layout is normalized to this by intake |
 | **UI** | UXML/USS assets; `SPR_*` sprites from `Assets/_Game/Art/UI/Sprites/<ScreenId>/` |
 
 **Prohibited:** five separate scene-only spheres named `Coin_1`…`Coin_5` without a prefab source; gameplay components added to a Visual prefab; gameplay code that disables/enables provider renderers to "fix" visuals.
@@ -140,7 +141,7 @@ Report: `Docs/V57/reports/M2-scene-setup-{slug}.md` → section **Production inv
 - Flat scene root with unrelated GameObjects
 - Primitives as final art without a prefab asset
 - Gameplay scripts on `_Environment` static objects
-- Hiding provider meshes and substituting invisible/primitive colliders to make gameplay work (absorb via import rule / manifest mapping, or placeholder + provider fix list)
+- Hiding provider meshes and substituting invisible/primitive colliders to make gameplay work (absorb via import rule / manifest mapping, or empty slot + `MISSING_ASSETS.md` + provider fix list)
 
 ---
 

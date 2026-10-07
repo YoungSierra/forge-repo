@@ -77,3 +77,4 @@ desktop.ini
 *.blend2
 *~
 *.bak
+.claude/settings.local.json

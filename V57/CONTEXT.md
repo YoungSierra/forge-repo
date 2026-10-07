@@ -21,7 +21,7 @@ Driver: `V57/agents/skills/commands/setup/unity-vertical-slice-skill.md`. Produc
 | `V57/knowledge/` | Short lessons from real runs (read once per session) |
 | `V57/templates/game-state/` | `STATUS.json`, `PLAN.md`, `TODO.md`, `DECISIONS.md`, `DEVLOG.md` templates → copied to `Docs/V57/` |
 | `V57/tools/intake/` | Node intake CLI: provider docs/assets → `Docs/Generated/*.yaml` + `json/*.json` + `Docs/V57/INTAKE_REPORT.md` |
-| `V57/tools/unity-assembly/` | UPM package `com.v57.assembly`: `AssemblyRunner` (import rules, materials, atlases, Visual prefabs, level scenes, legacy placeholders — never instanced, gaps go to MISSING_ASSETS.md, hierarchy diff) + `V57.GoldPath` (GoldPathDriver, IGoldPathProbe) |
+| `V57/tools/unity-assembly/` | UPM package `com.v57.assembly`: `AssemblyRunner` (import rules, materials, skybox, atlases, animator controllers, Visual prefabs, level scenes from `BLK_` markers or the LevelMaps layout, hierarchy diff; no placeholders — gaps go to MISSING_ASSETS.md) + `V57.GoldPath` (GoldPathDriver, IGoldPathProbe) |
 | `V57/tools/lint/runtime-lint.js` | Runtime code lint (M2 gate) |
 | `V57/docs/` | Standards, guides, TDD mechanic-block reference, CLI/MCP docs (game reports live in each game repo under `Docs/V57/reports/`) |
 | `V57/specs/<slug>/` | Per-game specs (`features/`, `systems/`) adopted from TDD §C |

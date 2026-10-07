@@ -178,7 +178,7 @@ rules:
     enforcement: strict
     principle: "The saved scene is the game (Edit Mode == Play Mode, except prefab spawns under declared spawn roots)."
     prefer:
-      - v57_assembly_runner      # com.v57.assembly: import rules, materials, atlases, visual prefabs, level scenes, placeholders
+      - v57_assembly_runner      # com.v57.assembly: import rules, materials, skybox, atlases, animators, visual prefabs, level scenes (blockout or LevelMaps layout)
       - unity_command_pipeline   # open_scene, create_gameobject, batch, eval, set_serialized_field, …
     layout: Assets/_Game         # single layout; see shared/references/unity-import-skill.md
     prefab_rule: "Gameplay prefab PRF_<Asset> = prefab variant of Visual prefab PRF_<Asset>_Visual"

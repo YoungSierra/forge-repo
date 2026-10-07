@@ -10,7 +10,10 @@ Unity 6 base project that turns a **provider delivery** (design docs + raw art/a
 | `V57/tools/intake/` | Node: reads TDD + ADD + assets → `Docs/Generated/*.yaml` + `json/` and `Docs/V57/INTAKE_REPORT.md` |
 | `V57/tools/lint/` | Node: runtime lint for gameplay code (no scene building at runtime, no faked physics in tests) |
 | `V57/tools/schema/` | JSON schemas for every generated file |
-| `V57/tools/unity-assembly/` | UPM package `com.v57.assembly`: import rules, materials, atlases, visual prefabs, level scenes from `Marker_*`, gold-path driver (its legacy `BuildPlaceholders` output is never used in scenes) |
+| `V57/tools/unity-assembly/` | UPM package `com.v57.assembly`: import rules, materials (contract or Blender texture names), skybox, atlases, animator controllers, visual prefabs, level scenes from `BLK_` markers or a LevelMaps layout JSON, gold-path driver. No placeholders |
+| `V57/tools/install-core.ps1` | Installs this core into a provider game repo (V57/, agent commands, packages, project settings, `_Game` skeleton) |
+| `V57/agents/RUN.md` | Single run entry for `/vertical-slice` and `/game-setup` (read → preflight → run → report), used by every agent |
+| `.cursor/commands/`, `.claude/commands/` | `/vertical-slice` and `/game-setup` as native slash commands in Cursor and Claude Code (both point to `V57/agents/RUN.md`) |
 | `V57/templates/provider-repo/` | What the provider receives: folder tree, naming, commit order |
 | `V57/templates/game-state/` | Seeds for `Docs/V57/` (STATUS, PLAN, TODO, DECISIONS, DEVLOG) |
 | `Packages/com.v57.unity-game-forge/` | Unity Workbench window (chat, pipeline view) that talks to the sidecar |
@@ -37,9 +40,14 @@ cd V57/tools/intake; npm install; cd ../../..
 
 Open the folder in Unity Hub with 6000.6.2f1, then **V57 → GameForge → Open Workbench**.
 
-### Running from Cursor (or any agent chat)
+### New game repo
 
-`/vertical-slice` and `/game-setup` are V57 skill names (registry: `V57/agents/agents.yaml`), not Cursor slash commands. Keep the Unity Editor open on the project (`unity status` → `ready`), open the repo in Cursor, and paste a prompt in Agent mode that tells the agent to read `AGENTS.md`, `V57/SYSTEM_PROMPT.md` and the skill, then run the command autonomously. To resume or repeat part of a run use `/vertical-slice --status` or `/vertical-slice --from <stage>`; state is read from `Docs/V57/STATUS.json`.
+1. Clone the provider repo (delivery committed per `V57/templates/provider-repo/README.md`).
+2. From this core checkout: `pwsh V57/tools/install-core.ps1 -Target <provider repo>`; commit the result on a branch (e.g. `v57/core`).
+
+### Running (Cursor, Claude Code or any agent)
+
+Type `/vertical-slice` (or `/game-setup`) in the agent chat at the repo root — Cursor and Claude Code load them from `.cursor/commands/` and `.claude/commands/`; other agents get the same instruction from `AGENTS.md`. Every route lands on `V57/agents/RUN.md`, which does the preflight itself (branch `v57/setup`, `npm ci` for the Node tools, opens Unity 6000.6.2f1 with `unity open .` and waits for `ready`) and then runs I0 → M4 without `continue`. No prompt needs to be pasted. Resume or inspect with `/vertical-slice --from <stage>` or `--status`; state is read from `Docs/V57/STATUS.json`.
 
 ## Building a game
 
@@ -62,6 +70,7 @@ Open the folder in Unity Hub with 6000.6.2f1, then **V57 → GameForge → Open 
 - **No placeholders.** Missing art/audio is never faked (no primitives, placeholder materials, generated or synthesized assets, fallback sprites). Every gap is listed in `Docs/V57/MISSING_ASSETS.md` and the slot stays empty.
 - **Collision stays with its mesh.** Each collider lives on the gameplay prefab (a variant of the Visual prefab) of the piece it represents, so moving the piece moves its collision.
 - **Physics follows the delivered art.** A 3D scene (Y-up, play surface in XZ) uses 3D physics constrained to the play plane, even if the TDD says 2D; the conflict is logged `D-###`.
+- **English scene names.** Scene groups are English PascalCase (`Structure`, `Ocean`, `Dressing`) and repeated instances are `<Name>_NN` — never DCC suffixes like `.001` (the LevelMaps layout is normalized by intake).
 - **No player builds by default.** Verification happens in the Editor (tests, gold path, lint, hierarchy diff, console). Builds only on explicit owner request.
 
 Details: `V57/knowledge/assets-collision-builds.md`.

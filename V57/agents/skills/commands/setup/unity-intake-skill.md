@@ -7,8 +7,8 @@ Turns a provider delivery (docs + raw art/audio, **no Unity files**) into an ope
 | **Stages** | I0 INTAKE → I1 PROJECT → I2 ASSEMBLY |
 | **Intake CLI** | `node V57/tools/intake/index.js --repo . [--out Docs/Generated] [--json]` (Node 22+, run `npm install` in `V57/tools/intake` once) |
 | **Unity package** | `com.v57.assembly` = `file:../V57/tools/unity-assembly` (Editor asmdef `V57.Assembly.Editor`, runtime `V57.GoldPath`) |
-| **Assembly entry** | `unity command eval "V57.Assembly.AssemblyRunner.RunAll()"` (warm Editor) or `-executeMethod V57.Assembly.AssemblyRunner.RunAllBatch` (batch) |
-| **Outputs** | `Docs/Generated/*.yaml` + `Docs/Generated/json/*.json` (never hand-edited), `Docs/V57/INTAKE_REPORT.md`, `Docs/V57/reports/I1-project-<slug>.md`, `Docs/V57/reports/assembly-report.json` |
+| **Assembly entry** | `unity command eval "EditorApplication.delayCall += () => V57.Assembly.AssemblyRunner.RunAll(); return 1;"` (then poll `assembly-report.json`) (warm Editor; a blocking eval times out after 5 s on the main thread) or `-executeMethod V57.Assembly.AssemblyRunner.RunAllBatch` (batch) |
+| **Outputs** | `Docs/Generated/*.yaml` + `Docs/Generated/json/*.json` incl. `layouts.json` when `Docs/Design/LevelMaps/<LevelId>/unity_scene.json` exists (never hand-edited), `Docs/V57/INTAKE_REPORT.md`, `Docs/V57/reports/I1-project-<slug>.md`, `Docs/V57/reports/assembly-report.json` |
 | **Knowledge** | `V57/knowledge/asset-intake.md`, `camera.md`, `unity-cli.md` |
 
 ---
@@ -96,12 +96,13 @@ Safe Mode (compile errors block packages): fix C# on disk, restart Editor, retry
 ## I2 — ASSEMBLY
 
 ```bash
-unity command eval "V57.Assembly.AssemblyRunner.RunAll()"
+unity command eval "EditorApplication.delayCall += () => V57.Assembly.AssemblyRunner.RunAll(); return 1;"
+# then poll Docs/V57/reports/assembly-report.json (rewritten at the end of the run)
 # batch fallback (after 2 failed warm attempts):
 Unity -batchmode -quit -projectPath . -executeMethod V57.Assembly.AssemblyRunner.RunAllBatch -logFile Logs/v57-assembly.log
 ```
 
-`RunAll` runs, in order: `ApplyImportRules()` → `BuildMaterials()` → `BuildUiAtlases()` → `BuildVisualPrefabs()` → `BuildPlaceholders()` → `BuildLevelScenes()` → `WriteReport()` (placeholders first, so a missing blockout still yields a scene). It reads `Docs/Generated/json/*.json` only. **Placeholders are legacy:** prefabs from `BuildPlaceholders()` are never instanced in gameplay scenes and every one of them must appear in `MISSING_ASSETS.md` (pack follow-up: remove the step).
+`RunAll` runs, in order: `ApplyImportRules()` → `BuildMaterials()` (contract `T_` or DCC `_albedo/_normal/_MetallicSmoothness/_metallic/_roughness` textures, then LevelMaps manifest values) → `BuildSkybox()` (`Art/Environment/Sky/*` → panoramic `MAT_<Name>`) → `BuildUiAtlases()` → `BuildAnimators()` (`AC_<Asset>` per `SK_` with `ANIM_` clips, looping idle default) → `BuildVisualPrefabs()` (Animator bound on rigged models) → `BuildLevelScenes()` (slice scenes + LevelMaps layout scenes; level art from the layout or the `BLK_` markers; delivered sky) → `WriteReport()`. It reads `Docs/Generated/json/*.json` only. There is **no placeholder step**: missing art leaves the slot empty and is listed in `MISSING_ASSETS.md`.
 
 1. Poll `recompile_status` / import completion before reading results (`V57/knowledge/unity-cli.md`).
 2. Read `Docs/V57/reports/assembly-report.json`.

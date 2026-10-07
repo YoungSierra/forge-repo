@@ -9,10 +9,14 @@ namespace V57.Assembly.Report
         public int import_log_entries;
         public int materials;
         public int orm_packed_textures;
+        public int metallic_smoothness_packed;
+        public int skyboxes;
         public int atlases;
+        public int animator_controllers;
         public int visual_prefabs;
-        public int placeholders;
         public int scenes;
+        public int layout_instances;
+        public int layout_missing;
         public int markers;
         public int dressed;
         public int skipped_existing;

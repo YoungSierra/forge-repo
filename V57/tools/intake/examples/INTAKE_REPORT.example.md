@@ -14,7 +14,7 @@
 | blocking | 0 | stop run (A0 gate fails, exit 2) |
 | conflict | 6 | resolved by authority rule (TDD > ADD > disk), logged to DECISIONS |
 | fixable | 13 | V57 auto-fixes / normalizes, logged to DECISIONS |
-| missing | 19 | placeholder generated, run continues |
+| missing | 19 | listed in MISSING_ASSETS.md, slot left empty, run continues |
 
 ## Completeness — TDD
 
@@ -73,7 +73,7 @@ _None._
 
 ## Issues — conflict (6)
 
-| ID | Code | Where | Issue | Suggested auto-fix / placeholder |
+| ID | Code | Where | Issue | Suggested auto-fix / handling |
 |---|---|---|---|---|
 | I-001 | ADD_UNKNOWN_ID | `Docs/ArtDirection/ArtDirectionDocument.md` | 14 ADD ui_screens id value(s) not defined in the TDD: UI_BOSS_HEALTH, UI_BURST_FLASH, UI_INTERACT_PROMPT, UI_LEVER_ANIM, UI_LUMI_METER, UI_MOVEMENT_ANIM, UI_MULTIPLIER_SIGN, UI_RESULT_GOOD, UI_RESULT_MISS, UI_RESULT_PERFECT, UI_RING_INNER, UI_RING_OUTER, UI_SCORE_FLIPSIGN, UI_SPECIES_LABEL | TDD authority: not merged into generated data |
 | I-002 | ADD_UNKNOWN_ID | `Docs/ArtDirection/ArtDirectionDocument.md` | 6 ADD scene_manifest systems value(s) not defined in the TDD: BossJellybellSequence, EnvironmentInteract, JellybellRing, LumiMultiplier, PlatformerMovement, SpeciesTimingVariants | TDD authority: not merged into generated data |
@@ -84,7 +84,7 @@ _None._
 
 ## Issues — fixable (13)
 
-| ID | Code | Where | Issue | Suggested auto-fix / placeholder |
+| ID | Code | Where | Issue | Suggested auto-fix / handling |
 |---|---|---|---|---|
 | I-007 | ID_TYPO | `Docs/ArtDirection/ArtDirectionDocument.md` | scene SCN_BiollumeBloom_Gameplay: level name "BiollumeBloom" does not match any environment asset — did you mean "Biolume_Bloom"? | treat level as "Biolume_Bloom" when resolving blockout/kit |
 | I-008 | SLICE_INFERRED | `Docs/Design/TDD.md:§13.2` | no scene_manifest entry with slice: true matches a TDD scene | slice scene inferred as SCN_WoodlandPond_Gameplay (first gameplay scene of §13.2) |
@@ -102,7 +102,7 @@ _None._
 
 ## Issues — missing (19)
 
-| ID | Code | Where | Issue | Suggested auto-fix / placeholder |
+| ID | Code | Where | Issue | Suggested auto-fix / handling |
 |---|---|---|---|---|
 | I-020 | ADD_SECTION_MISSING | `Docs/ArtDirection/ArtDirectionDocument.md` | ADD has no ## screen_layouts section | one layout per screen assumed; assembly stacks elements by §9.1 order |
 | I-021 | BRIEF_V57_FIELDS | `Docs/ArtDirection/ArtDirectionDocument.md:70` | brief CHAR-01 (Cartón) lacks V57 fields: asset_name, serves, size_m, pivot, side, collision, tris_lod0, texture_size, bones, status, files | defaults: asset_name=Carton (derived), status=provisional, pivot=feet, collision=simple; numbers parsed from technical_constraints where present |

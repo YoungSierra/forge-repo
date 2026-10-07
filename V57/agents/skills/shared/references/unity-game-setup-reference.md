@@ -23,9 +23,9 @@ Provider TDD path: `Docs/Design/TDD.md`. Intake parses it into `Docs/Generated/j
 | §11.4 persistence | CONTEXT + save spec | M2 `/save-meta` |
 | §11.5 movement/camera | `camera.json` (+ ADD `Camera/` refs) | I2 (scenes), M1 (locked) |
 | §11.6 perf budgets | `rendering.json → budgets` | M3 numbers, M4 `/perf-audit` |
-| §13.1 content inventory | `asset_manifest.json` (`source: inventory`) | I2 placeholders |
+| §13.1 content inventory | `asset_manifest.json` (`source: inventory`) | I2 (missing → MISSING_ASSETS.md) |
 | §13.2 scene manifest | `scenes.json` | I2 (level scenes), scope |
-| §14.2 pending / §14.3 ledger | INTAKE_REPORT | informational; pending rows → placeholder/cut + `D-###` |
+| §14.2 pending / §14.3 ledger | INTAKE_REPORT | informational; pending rows → cut or empty slot + `D-###` |
 
 Authority: TDD > ADD. ADD sections used: `asset_briefs`, `ui_screens`, `screen_layouts`, `scene_manifest`, `color_palette`, `visual_targets`, `style_guide`, `reference_images`.
 
@@ -42,7 +42,7 @@ Authority: TDD > ADD. ADD sections used: `asset_briefs`, `ui_screens`, `screen_l
 
 Scope affects **what** is built, never the quality bar: everything built ships with real prefabs, real UI Toolkit screens, real input tests, and evidence.
 
-Missing media: `AssemblyRunner.BuildPlaceholders()` creates labeled placeholders (`MissingAsset: <asset_name>`); gaps are listed in `Docs/V57/TODO.md` and the M4 report. No synthesized audio (`AudioClip.Create`).
+Missing media: no placeholder is generated; the slot stays empty and the gap is listed in `Docs/V57/MISSING_ASSETS.md`, `Docs/V57/TODO.md` and the M4 report. No synthesized audio (`AudioClip.Create`).
 
 ---
 

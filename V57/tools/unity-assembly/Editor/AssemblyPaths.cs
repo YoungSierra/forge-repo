@@ -15,7 +15,8 @@ namespace V57.Assembly
         public const string UiSpritesRoot = "Assets/_Game/Art/UI/Sprites";
         public const string AtlasRoot = "Assets/_Game/Art/UI/Atlases";
         public const string VisualPrefabRoot = "Assets/_Game/Prefabs/Visual";
-        public const string PlaceholderMaterialPath = "Assets/_Game/Art/Shared/Materials/MAT_V57_Placeholder.mat";
+        public const string AnimationRoot = "Assets/_Game/Data/Animation";
+        public const string SkyRoot = "Assets/_Game/Art/Environment/Sky";
         public const string GeneratedJsonRelative = "Docs/Generated/json";
         public const string ReportsRelative = "Docs/V57/reports";
         public const string LitShaderName = "Universal Render Pipeline/Lit";

@@ -4,10 +4,11 @@ Local UPM package used by the V57 pipeline (design brief §4). Two assemblies:
 
 | Assembly | Platforms | Contents |
 |---|---|---|
-| `V57.Assembly.Editor` (`Editor/`) | Editor | Import rules (`V57AssetPostprocessor`), `AssemblyRunner` (materials, UI atlases, visual prefabs, placeholders, level scenes, hierarchy diff, report), JSON DTOs for `Docs/Generated/json/*.json` |
-| `V57.GoldPath` (`Runtime/`) | All | `GoldPathDriver`, `IGoldPathProbe`, `GoldPathProbeRegistry`, step model/parser, simulated input, `V57Marker`, `V57Placeholder` |
+| `V57.Assembly.Editor` (`Editor/`) | Editor | Import rules (`V57AssetPostprocessor`), `AssemblyRunner` (materials, skybox, UI atlases, animator controllers, visual prefabs, level scenes, hierarchy diff, report), JSON DTOs for `Docs/Generated/json/*.json` |
+| `V57.GoldPath` (`Runtime/`) | All | `GoldPathDriver`, `IGoldPathProbe`, `GoldPathProbeRegistry`, step model/parser, simulated input, `V57Marker` |
 | `V57.GoldPath.Tests` (`Tests/PlayMode/`) | PlayMode tests | `GoldPath_Passes` |
 | `V57.GoldPath.Tests.Editor` (`Tests/Editor/`) | EditMode tests | step parsing, JSON preprocessing, conditions, naming |
+| `V57.Assembly.Tests.Editor` (`Tests/AssemblyEditor/`) | EditMode tests | DCC texture suffixes, default animator state, layouts JSON |
 
 Target: Unity 6000.6 (pinned 6000.6.2f1; `package.json` declares the `6000.0` minimum), URP 17+, Input System 1.x (project-wide actions need 1.8+), C# 9.
 
@@ -30,27 +31,29 @@ Target: Unity 6000.6 (pinned 6000.6.2f1; `package.json` declares the `6000.0` mi
 
 | Method | Does | Output |
 |---|---|---|
-| `RunAll()` | Runs `ApplyImportRules`, `BuildMaterials`, `BuildUiAtlases`, `BuildVisualPrefabs`, `BuildPlaceholders`, `BuildLevelScenes` and `WriteReport`, in that order | `Docs/V57/reports/assembly-report.json` |
-| `RunAllForce()` | Same as `RunAll`, but it also rebuilds existing *real* visual prefabs and level scenes (same path and GUID) | same |
+| `RunAll()` | Runs `ApplyImportRules`, `BuildMaterials`, `BuildSkybox`, `BuildUiAtlases`, `BuildAnimators`, `BuildVisualPrefabs`, `BuildLevelScenes` and `WriteReport`, in that order | `Docs/V57/reports/assembly-report.json` |
+| `RunAllForce()` | Same as `RunAll`, but it also rebuilds existing visual prefabs, animator controllers and level scenes (same path and GUID) | same |
 | `RunAllBatch()` | For `-executeMethod`: runs `RunAll`, then exits with **0** when the report has `pass: true`, otherwise **1** | same |
 | `ApplyImportRules()` | Force-reimports `Assets/_Game/Art` and `Assets/_Game/Audio` so the import rules apply, then links each `ANIM_` file to its `SK_` avatar | import log |
-| `BuildMaterials()` | Builds `…/<Asset>/Materials/MAT_<Asset>.mat` (URP Lit) from `T_<Asset>_*` textures and remaps each model's embedded material to it | materials, `T_<Asset>_MSO.png` |
+| `BuildMaterials()` | Builds `…/<Asset>/Materials/MAT_<Asset>.mat` (URP Lit) from `T_<Asset>_*` or DCC-suffixed textures (`*_albedo`, `_normal`, `_MetallicSmoothness`, `_metallic`, `_roughness`, `_ao`, `_emission`; asset = folder name) and remaps the model's main embedded material to it; then applies the LevelMaps manifest material values (flat colour for untextured assets, metallic/smoothness when no map, double-sided, alpha clip) | materials, `T_<Asset>_MSO.png`, `T_<Asset>_MS.png` |
+| `BuildSkybox()` | `Art/Environment/Sky/<Name>.(png|jpg|exr|hdr)` → `Sky/Materials/MAT_<Name>.mat` (`Skybox/Panoramic`, lat-long 360°) | sky materials |
 | `BuildUiAtlases()` | Builds one atlas per `Art/UI/Sprites/<Id>/` folder at `Art/UI/Atlases/ATL_<Id>.spriteatlas` (`.spriteatlasv2` when the packer mode is V2) | atlases |
-| `BuildVisualPrefabs()` | Builds `Prefabs/Visual/<Category>/PRF_<Asset>_Visual.prefab` for manifest assets of type `model`, `character` or `blockout` | prefabs |
-| `BuildPlaceholders()` | Builds a labeled primitive at the same visual-prefab path for each asset whose model file is missing | prefabs |
-| `BuildLevelScenes()` | Builds `Assets/_Game/Scenes/SCN_<id>.unity` for each slice scene | scenes, Build Settings |
+| `BuildAnimators()` | `Data/Animation/AC_<Asset>.controller` per `SK_<Asset>` with `ANIM_<Asset>_*` clips: one state per clip, default = looping idle → first looping → first. No transitions/parameters (gameplay owns them) | controllers |
+| `BuildVisualPrefabs()` | Builds `Prefabs/Visual/<Category>/PRF_<Asset>_Visual.prefab` for manifest assets of type `model`, `character` or `blockout`; rigged models get an Animator (`AC_<Asset>`, model avatar, root motion off) | prefabs |
+| `BuildLevelScenes()` | Builds `Assets/_Game/Scenes/SCN_<id>.unity` for each slice scene and each LevelMaps layout scene | scenes, Build Settings |
 | `CaptureHierarchyDiff()` | M2 gate: compares the Edit Mode and Play Mode hierarchies (see below) | `hierarchy-edit.json`, `hierarchy-play.json`, `hierarchy-diff.json` |
 | `WriteReport()` | Scans the created prefabs and scenes for missing references and writes the report | `assembly-report.json` |
 
 Each single-step method first clears that step's earlier warnings, errors and result (so a fixed step can flip the report back to `pass: true`), then reloads the JSON, runs the step and rewrites the report, so you can re-run one failed step on its own. The same methods are also in the **Tools > V57 > Assembly** menu.
 
-**Order note:** placeholders are built *before* level scenes, so a scene whose blockout is missing still gets built (with the placeholder). `unity-intake-skill.md` currently lists `BuildLevelScenes` before `BuildPlaceholders`; the code order above is the intended one.
+**No placeholders:** there is no placeholder step. An asset without a model gets no prefab, a scene without blockout or layout gets no level art, and both are listed in `Docs/V57/MISSING_ASSETS.md`.
 
 ### CLI
 
 ```bash
-# Warm Editor (Unity CLI Pipeline)
-unity command eval "V57.Assembly.AssemblyRunner.RunAll()"
+# Warm Editor (Unity CLI Pipeline). A blocking eval times out after 5 s on the main thread, so schedule long steps
+# and poll the report file:
+unity command eval "EditorApplication.delayCall += () => V57.Assembly.AssemblyRunner.RunAll(); return 1;"
 unity command eval "V57.Assembly.AssemblyRunner.BuildVisualPrefabs()"   # re-run one step
 unity command eval "V57.Assembly.AssemblyRunner.CaptureHierarchyDiff()" # async: poll Docs/V57/reports/hierarchy-diff.json
 
@@ -77,8 +80,10 @@ Every decision is written as one JSON line to `Library/V57/import-log.jsonl`, an
 | `UCX_*` nodes | Convex `MeshCollider` from the node's own mesh; renderer disabled |
 | `Marker_*`, `Socket_*` nodes | Kept, with renderers disabled |
 | `T_*_N` | NormalMap |
-| `T_*_ORM`, `_Mask`, `_MSO` | Default, sRGB off |
-| `T_*_BC`, `_E` | Default, sRGB on, mipmaps on |
+| `T_*_ORM`, `_MS`, `_Mask`, `_MSO`; DCC `*_MetallicSmoothness`, `_metallic`, `_roughness`, `_ao` | Default, sRGB off |
+| `T_*_BC`, `_E`; DCC `*_albedo`, `_basecolor`, `_diffuse`, `_emission` | Default, sRGB on, mipmaps on |
+| DCC `*_normal` | NormalMap |
+| `Environment/Sky/**` | Lat-long sky: sRGB, mipmaps off, wrap U repeat / V clamp, max size = source (≤ 8192) |
 | `UI/Sprites/**`, `UI/Icons/**` | Sprite (Single), mipmaps off, clamp, alpha is transparency. `_9s-<px>` sets `spriteBorder` to (px, px, px, px) |
 | `VFX_*` | sRGB with alpha. The `_Sheet_<c>x<r>` grid is logged so TextureSheetAnimation can match it |
 | Audio `Music/`, `Ambience/` | Streaming, Vorbis q0.7, load in background |
@@ -90,7 +95,7 @@ Every decision is written as one JSON line to `Library/V57/import-log.jsonl`, an
 
 Provider ORM textures are packed R=occlusion, G=roughness, B=metallic. URP Lit reads metallic from R and smoothness from A of `_MetallicGlossMap`, and occlusion from **G** of `_OcclusionMap`, so the ORM texture cannot be assigned directly. `OrmPacker` blits the ORM on the GPU, so Read/Write is not needed, and writes `Materials/T_<Asset>_MSO.png` (R=metallic, G=occlusion, B=0, A=1−roughness, imported linear). It then assigns that texture to both `_MetallicGlossMap` and `_OcclusionMap`, with the `_METALLICSPECGLOSSMAP` and `_OCCLUSIONMAP` keywords and `_Smoothness = 1` as a multiplier. This needs a graphics device. If packing fails, the material keeps URP defaults and the report gets a warning. `_Mask` textures are imported linear but not wired to anything, because their meaning is game-specific.
 
-## Visual prefabs, placeholders and scenes
+## Visual prefabs and scenes
 
 - **Visual prefab:** a root `PRF_<Asset>_Visual` containing the model as a *nested prefab instance*, so reimports flow through and sockets/markers are kept. It also gets:
   - an `LODGroup` when the model has `*_LOD0…n` nodes;
@@ -101,18 +106,19 @@ Provider ORM textures are packed R=occlusion, G=roughness, B=metallic. URP Lit r
     - blockouts without UCX: non-convex MeshColliders.
 
   Size is checked against `size_m` [x, y, z] with ±10% tolerance, and the pivot is checked (`feet`/`base`, `center`, `hinge` + `side`, `axle`). Mismatches are **warnings**. The prefab holds no gameplay scripts.
-- **Category folder** comes from the declared `files.mesh` path, then the asset `type`/`category`. A placeholder and the real prefab that later replaces it therefore share the same path and GUID.
-- **2D physics** (`package.physics: "2d"`): colliders use the 2D types — zone triggers are `BoxCollider2D`, and `simple` colliders are `BoxCollider2D` (`CapsuleCollider2D` for characters). UCX `exact` stays a 3D convex MeshCollider with a warning, because no PolygonCollider2D is generated. 2D blockouts without UCX get no colliders (warning). Placeholders get a `BoxCollider2D`.
-- **Existing prefabs and scenes are not overwritten** unless you use `RunAllForce`, so gameplay edits made after I2 are safe. Placeholders are always refreshed, and they are replaced as soon as the model exists.
-- **Placeholder:** a Cube (Capsule for characters) scaled to `size_m` and offset for the pivot, using `MAT_V57_Placeholder` (magenta). It carries a TextMesh label `MissingAsset: <asset_name>` and the `V57Placeholder` component. It keeps its collider unless `collision` is `none`.
+- **Category folder** comes from the declared `files.mesh` path, then the asset `type`/`category`. A re-delivered model therefore keeps the same prefab path and GUID.
+- **2D physics** (`package.physics: "2d"`): colliders use the 2D types — zone triggers are `BoxCollider2D`, and `simple` colliders are `BoxCollider2D` (`CapsuleCollider2D` for characters). UCX `exact` stays a 3D convex MeshCollider with a warning, because no PolygonCollider2D is generated. 2D blockouts without UCX get no colliders (warning).
+- **Existing prefabs, controllers and scenes are not overwritten** unless you use `RunAllForce`, so gameplay edits made after I2 are safe.
+- **Rigged models:** the model instance carries an `Animator` with `AC_<Asset>` and the `SK_` avatar (root motion off, culling `CullUpdateTransforms`).
 - **Level scene:**
   - The six root containers `_Environment` (with `_Markers`), `_Gameplay` (with `Spawned`), `_Systems`, `_UI`, `_Cameras` and `_Lighting`.
-  - The blockout instance under `_Environment`. The visual prefab is used if one exists, otherwise the model.
+  - **LevelMaps layout scene** (`layout` set in `scenes.json`): one Visual prefab instance per `layouts.json` object under `_Environment/<Layer>` (English PascalCase group), named `<Name>_NN`, with the exported position/rotation/scale as-is; non-animated instances are static; objects without model/prefab are skipped and counted in `layout_missing`.
+  - **Blockout scene:** the blockout instance under `_Environment`. The visual prefab is used if one exists, otherwise the model.
   - One `V57Marker` per `Marker_*` node, under `_Environment/_Markers` (typed kind/id and local mesh bounds). `Zone` markers get a trigger `BoxCollider` sized from the marker mesh.
   - Static dressing under `_Environment/_Dressing`: every `Marker_Spawn_<AssetName>_NN` whose asset has no `serves` (environment / decoration, not a gameplay entity) gets the asset's Visual prefab with the marker's position, rotation and scale. Spawn markers of gameplay entities are left for gameplay code (M1).
   - Cameras under `_Cameras`: one per `Marker_Camera_<ViewId>`, with projection values from `camera.json`. The main camera is the one matching `camera_ref`, otherwise the first; the others are disabled. With no camera markers, a default camera is placed using `camera.json` angle and distance.
-  - One directional light.
-  - When the scene declares **no blockout**, a placeholder ground plane `BLK_Placeholder_Ground` is added, sized from `package.world.play_area_m` (x, z; default 20 m) and tagged `V57Placeholder`. This is a warning, not an error. A declared blockout that can't be found is still an error.
+  - One directional light; `RenderSettings.skybox` = the first delivered sky material (exposure/rotation/fog are M3 craft).
+  - A scene with **no blockout and no layout** keeps no level art (warning). A declared blockout or layout that can't be found is an error.
   - The scene is added to Build Settings.
   - The step refuses to run in Play Mode or while an open scene has unsaved changes.
 
@@ -137,7 +143,8 @@ Provider ORM textures are packed R=occlusion, G=roughness, B=metallic. URP Lit r
 Files are read with `JsonUtility` after `JsonPreprocessor` strips `"key": null` members. Unknown keys are ignored. Fields with uncertain JSON types are deliberately **not** mapped: `bones`, `tris_lod0`, `texture_size`, `issues`, `players`.
 
 - `asset_manifest.assets[]`: `asset_id, asset_name, category, type, serves[], files{mesh, textures[], reference}, size_m[3], pivot, side, collision, rig (optional: "humanoid"|"generic"), status, source, animations[{clip, file, loop (bool), events[{name, frame (int)}]}]`. **Intake:** emit `rig` for skinned characters, or everything imports as Generic.
-- `scenes.scenes[]`: `id, purpose, world_owner, systems[], acs[], slice (bool), blockout (asset_id | asset_name | path), markers[], camera_ref (view id, Marker_Camera_<Id> or Camera/<Id>.png)`.
+- `scenes.scenes[]`: `id, purpose, world_owner, systems[], acs[], slice (bool), blockout (asset_id | asset_name | path), layout (LevelMaps level id | null), markers[], camera_ref (view id, Marker_Camera_<Id> or Camera/<Id>.png)`.
+- `layouts.layouts[]` (optional file): `level_id, source, manifest, objects[{name, source_name, asset_id, model (asset path | null), layer, position[3], rotation[4] (x,y,z,w), scale[3]}], materials[{asset_id, name, albedo, normal, metallic_smoothness, base_color[4], metallic, smoothness, alpha_mode, alpha_cutoff, double_sided}]`.
 - `package`: `slug, title, version, perspective, physics, platform{targets[], orientation, reference_resolution[], target_fps}, world{…}, slice{scenes[]}`.
 - `ui.screens[]` / `ui.layouts[]`: as in brief §2. `sprites` is a folder name or path under `Art/UI/Sprites`.
 - `camera.views[]`: `id, scene, type (orthographic|perspective), angle_deg, fov_or_size, distance_m, follow (string), notes`.

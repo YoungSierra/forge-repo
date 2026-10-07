@@ -84,7 +84,7 @@ Platform overrides (mobile ASTC, desktop BC) come from `package.platform.targets
 - [ ] Every file under `Assets/_Game/Art` and `Assets/_Game/Audio` matches a naming prefix (or is listed in INTAKE_REPORT)
 - [ ] No provider file renamed, moved or edited; deviations absorbed + logged
 - [ ] Import settings equal the rule table (read-back via `assembly-report.json`)
-- [ ] Every brief asset has a Visual prefab or a placeholder
+- [ ] Every brief asset has a Visual prefab, or is listed in `Docs/V57/MISSING_ASSETS.md`
 - [ ] No duplicate asset names across folders
 
 ---

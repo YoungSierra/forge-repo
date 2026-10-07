@@ -13,7 +13,7 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Options:** A) … B) … C) …
 - **Choice:** <A/B/C> — <why, citing TDD/ADD section or V57 rule>
 - **Reversal cost:** low | medium | high — <what would need redoing>
-- **Type:** absorption | conflict | placeholder | cut | timebox | revert | tolerance | other
+- **Type:** absorption | conflict | missing | cut | timebox | revert | tolerance | other
 ```
 
 ---

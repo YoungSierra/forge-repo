@@ -80,3 +80,9 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Context:** The rigged deliveries supersede three static montage assets: `AST-CHAR-RADIOACTIVESHARK-001` → `Shark` (same mesh), `AST-CHAR-JELLYFISH-001` → `Jellyfish` (same mesh), `AST-CHAR-NEONFLY-001` (flat-colour sphere) → `Fly`.
 - **Choice:** In `SCN_Montaje` the 13 instances (1 shark, 6 jellyfish, 6 flies) now use `PRF_Shark/Jellyfish/Fly_Visual`, keeping the JSON position/scale and adding +180° yaw (D-009 facing). The old `Art/Characters/AST-CHAR-*` folders (FBX, textures, materials) and `PRF_AST-CHAR-*_Visual` prefabs are deleted; 0 missing prefab instances. The provider's `unity_scene.json` still names the AST ids (read-only; mapping above). Captures: `evidence/montage/*_rigged.png` (layout unchanged vs the Blender reference).
 - **Reversal cost:** low (git history) · **Type:** other
+
+### D-011 — Scene names in English, no Blender suffixes
+- **When:** 2026-10-07 · **Stage:** pre-I0 (owner request) · **Commit:** pending
+- **Context:** `SCN_Montaje` was built with the Spanish layer groups and the Blender object names from `unity_scene.json` (`Oceano/Estructura/Vestido/Eventos`, `Jellyfish.001`). The owner requires everything generated in a scene to be English and without `.001` duplicates suffixes.
+- **Choice:** Layer groups renamed `Ocean/Structure/Dressing/Events`; 175 instances renamed `<Name>_NN` (2 digits). Only `m_Name` values changed; transforms and prefab links untouched. The same rule is now in the core intake (`layouts.json`) and `SCENE_PRODUCTION_STANDARDS.md`. The provider JSON stays as delivered (read-only).
+- **Reversal cost:** low · **Type:** other

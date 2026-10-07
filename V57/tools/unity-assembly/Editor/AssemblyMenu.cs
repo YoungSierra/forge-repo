@@ -19,16 +19,19 @@ namespace V57.Assembly
         [MenuItem(Root + "Steps/Build Materials", priority = 21)]
         private static void BuildMaterials() => AssemblyRunner.BuildMaterials();
 
-        [MenuItem(Root + "Steps/Build UI Atlases", priority = 22)]
+        [MenuItem(Root + "Steps/Build Skybox", priority = 22)]
+        private static void BuildSkybox() => AssemblyRunner.BuildSkybox();
+
+        [MenuItem(Root + "Steps/Build UI Atlases", priority = 23)]
         private static void BuildUiAtlases() => AssemblyRunner.BuildUiAtlases();
 
-        [MenuItem(Root + "Steps/Build Visual Prefabs", priority = 23)]
+        [MenuItem(Root + "Steps/Build Animators", priority = 24)]
+        private static void BuildAnimators() => AssemblyRunner.BuildAnimators();
+
+        [MenuItem(Root + "Steps/Build Visual Prefabs", priority = 25)]
         private static void BuildVisualPrefabs() => AssemblyRunner.BuildVisualPrefabs();
 
-        [MenuItem(Root + "Steps/Build Placeholders", priority = 24)]
-        private static void BuildPlaceholders() => AssemblyRunner.BuildPlaceholders();
-
-        [MenuItem(Root + "Steps/Build Level Scenes", priority = 25)]
+        [MenuItem(Root + "Steps/Build Level Scenes", priority = 26)]
         private static void BuildLevelScenes() => AssemblyRunner.BuildLevelScenes();
 
         [MenuItem(Root + "Capture Hierarchy Diff", priority = 40)]

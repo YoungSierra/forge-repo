@@ -173,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.006
+      value: AST-ENV-PIPE-001_06
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -243,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.028
+      value: AST-ENV-SCAFFOLD-001_28
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -313,7 +313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.029
+      value: AST-ENV-PLATFORMMODULE-001_29
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -383,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.023
+      value: AST-ENV-SCAFFOLD-001_23
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -409,7 +409,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.005
+      value: AST-ENV-CRYSTALPANEL-001_05
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -483,7 +483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.006
+      value: AST-PROP-RAILING-001_06
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -593,7 +593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.008
+      value: AST-ENV-SCAFFOLD-001_08
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -663,7 +663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248499890478197644, guid: cd62ef41c13a4134fb3673898b1e5449, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-HOSE-001.001
+      value: AST-PROP-HOSE-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 7248499890478197644, guid: cd62ef41c13a4134fb3673898b1e5449, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -729,7 +729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277797563215950579, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
       propertyPath: m_Name
-      value: Fly.002
+      value: Fly_02
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -795,7 +795,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.022
+      value: AST-ENV-PLATFORMMODULE-001_22
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -865,7 +865,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.021
+      value: AST-ENV-SCAFFOLD-001_21
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -935,7 +935,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.027
+      value: AST-ENV-PLATFORMMODULE-001_27
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1005,7 +1005,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.010
+      value: AST-ENV-SCAFFOLD-001_10
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1035,7 +1035,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1450737826231948905, guid: 94b6b78b599c6f349b13b39826748169, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CORALROCK-001.003
+      value: AST-ENV-CORALROCK-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 1450737826231948905, guid: 94b6b78b599c6f349b13b39826748169, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1101,7 +1101,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.008
+      value: AST-PROP-LANTERN-001_08
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1171,7 +1171,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1836015049631147811, guid: 335ab66e6db17ad4c987ae2bc1ed3f4a, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-BULKHEAD-001.001
+      value: AST-ENV-BULKHEAD-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 1836015049631147811, guid: 335ab66e6db17ad4c987ae2bc1ed3f4a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1285,7 +1285,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.001
+      value: AST-ENV-PLATFORMMODULE-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1355,7 +1355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.036
+      value: AST-ENV-SCAFFOLD-001_36
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1425,7 +1425,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.009
+      value: AST-ENV-PLATFORMMODULE-001_09
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1451,7 +1451,7 @@ GameObject:
   m_Component:
   - component: {fileID: 250851387}
   m_Layer: 0
-  m_Name: Oceano
+  m_Name: Ocean
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1538,7 +1538,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213189831043259882, guid: 1526771a20556494f865c3ae7c22c308, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-HYDRODOMETOWER-001.002
+      value: AST-ENV-HYDRODOMETOWER-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 9213189831043259882, guid: 1526771a20556494f865c3ae7c22c308, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1608,7 +1608,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.029
+      value: AST-ENV-SCAFFOLD-001_29
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1678,7 +1678,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.003
+      value: AST-ENV-SCAFFOLD-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1748,7 +1748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.025
+      value: AST-ENV-SCAFFOLD-001_25
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1818,7 +1818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.004
+      value: AST-ENV-SCAFFOLD-001_04
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1888,7 +1888,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.044
+      value: AST-ENV-SCAFFOLD-001_44
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -1958,7 +1958,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.010
+      value: AST-ENV-PLATFORMMODULE-001_10
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2028,7 +2028,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.003
+      value: AST-ENV-PLATFORMMODULE-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2054,7 +2054,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4040256883519982845, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_Name
-      value: Jellyfish.006
+      value: Jellyfish_06
       objectReference: {fileID: 0}
     - target: {fileID: 7953001152278400214, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_LocalScale.x
@@ -2168,7 +2168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.011
+      value: AST-ENV-SCAFFOLD-001_11
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2238,7 +2238,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.042
+      value: AST-ENV-SCAFFOLD-001_42
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2308,7 +2308,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.009
+      value: AST-ENV-STEELCOLUMN-001_09
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2378,7 +2378,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.005
+      value: AST-ENV-SCAFFOLD-001_05
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2448,7 +2448,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.002
+      value: AST-ENV-PIPE-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2474,7 +2474,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.007
+      value: AST-ENV-CRYSTALPANEL-001_07
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2544,7 +2544,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.001
+      value: AST-PROP-LANTERN-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2654,7 +2654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6726648789626912694, guid: ca970d205e560074b9d3b02203f0c4ba, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-CONSOLE-002.001
+      value: AST-PROP-CONSOLE-002_01
       objectReference: {fileID: 0}
     - target: {fileID: 6726648789626912694, guid: ca970d205e560074b9d3b02203f0c4ba, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2728,7 +2728,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.045
+      value: AST-ENV-SCAFFOLD-001_45
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2810,7 +2810,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213189831043259882, guid: 1526771a20556494f865c3ae7c22c308, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-HYDRODOMETOWER-001.001
+      value: AST-ENV-HYDRODOMETOWER-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 9213189831043259882, guid: 1526771a20556494f865c3ae7c22c308, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2836,7 +2836,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.012
+      value: AST-ENV-CRYSTALPANEL-001_12
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -2986,7 +2986,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.019
+      value: AST-ENV-PLATFORMMODULE-001_19
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3056,7 +3056,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.009
+      value: AST-ENV-PIPE-001_09
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3126,7 +3126,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.005
+      value: AST-ENV-PIPE-001_05
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3196,7 +3196,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.054
+      value: AST-ENV-SCAFFOLD-001_54
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3266,7 +3266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.015
+      value: AST-ENV-PLATFORMMODULE-001_15
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3336,7 +3336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.006
+      value: AST-ENV-SCAFFOLD-001_06
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3406,7 +3406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.025
+      value: AST-ENV-PLATFORMMODULE-001_25
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3476,7 +3476,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.002
+      value: AST-ENV-PLATFORMMODULE-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3546,7 +3546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.028
+      value: AST-ENV-PLATFORMMODULE-001_28
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3576,7 +3576,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2925006995965349046, guid: 6853c3610af95034681b393c14b93d07, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-WATERSURFACE-001.001
+      value: AST-ENV-WATERSURFACE-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 2925006995965349046, guid: 6853c3610af95034681b393c14b93d07, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3694,7 +3694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.049
+      value: AST-ENV-SCAFFOLD-001_49
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3764,7 +3764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.027
+      value: AST-ENV-SCAFFOLD-001_27
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3834,7 +3834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.001
+      value: AST-ENV-STEELCOLUMN-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3904,7 +3904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.019
+      value: AST-ENV-SCAFFOLD-001_19
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -3974,7 +3974,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.007
+      value: AST-ENV-PLATFORMMODULE-001_07
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4044,7 +4044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7248499890478197644, guid: cd62ef41c13a4134fb3673898b1e5449, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-HOSE-001.002
+      value: AST-PROP-HOSE-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 7248499890478197644, guid: cd62ef41c13a4134fb3673898b1e5449, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4114,7 +4114,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.024
+      value: AST-ENV-SCAFFOLD-001_24
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4140,7 +4140,7 @@ GameObject:
   m_Component:
   - component: {fileID: 796873967}
   m_Layer: 0
-  m_Name: Vestido
+  m_Name: Dressing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4266,7 +4266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7082015760692868794, guid: 30520735e46045a49ac52bcfe3f2ced2, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-WARNINGSIGN-001.001
+      value: AST-PROP-WARNINGSIGN-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 7082015760692868794, guid: 30520735e46045a49ac52bcfe3f2ced2, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4336,7 +4336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.026
+      value: AST-ENV-PLATFORMMODULE-001_26
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4366,7 +4366,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.002
+      value: AST-PROP-RAILING-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4436,7 +4436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.001
+      value: AST-PROP-RAILING-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4546,7 +4546,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.001
+      value: AST-ENV-PIPE-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4616,7 +4616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.014
+      value: AST-ENV-SCAFFOLD-001_14
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4686,7 +4686,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.038
+      value: AST-ENV-SCAFFOLD-001_38
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -4752,7 +4752,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277797563215950579, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
       propertyPath: m_Name
-      value: Fly.004
+      value: Fly_04
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4818,7 +4818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.004
+      value: AST-ENV-PLATFORMMODULE-001_04
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5025,7 +5025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.016
+      value: AST-ENV-PLATFORMMODULE-001_16
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5095,7 +5095,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.007
+      value: AST-ENV-PIPE-001_07
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5121,7 +5121,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.011
+      value: AST-ENV-CRYSTALPANEL-001_11
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5191,7 +5191,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4001597965484525198, guid: a6603944ae59f884fa5dc5aba6973650, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-ACCESSKEY-001.001
+      value: AST-PROP-ACCESSKEY-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 4001597965484525198, guid: a6603944ae59f884fa5dc5aba6973650, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5313,7 +5313,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.022
+      value: AST-ENV-SCAFFOLD-001_22
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5383,7 +5383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.050
+      value: AST-ENV-SCAFFOLD-001_50
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5453,7 +5453,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7121095471169966935, guid: d96e595fae706c346af036fd617d977b, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-LABFLOOR-001.001
+      value: AST-ENV-LABFLOOR-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 7121095471169966935, guid: d96e595fae706c346af036fd617d977b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5523,7 +5523,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.015
+      value: AST-ENV-SCAFFOLD-001_15
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5593,7 +5593,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.004
+      value: AST-ENV-PIPE-001_04
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5663,7 +5663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.007
+      value: AST-ENV-SCAFFOLD-001_07
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5733,7 +5733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.006
+      value: AST-ENV-STEELCOLUMN-001_06
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5803,7 +5803,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.003
+      value: AST-ENV-PIPE-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5873,7 +5873,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.016
+      value: AST-ENV-SCAFFOLD-001_16
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -5943,7 +5943,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.004
+      value: AST-ENV-STEELCOLUMN-001_04
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6013,7 +6013,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.002
+      value: AST-ENV-STEELCOLUMN-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6039,7 +6039,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2203542532454295739, guid: a78b732c3b3293e4eacb8d34793745b9, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-HATCH-001.001
+      value: AST-PROP-HATCH-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 2203542532454295739, guid: a78b732c3b3293e4eacb8d34793745b9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6153,7 +6153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.005
+      value: AST-ENV-PLATFORMMODULE-001_05
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6183,7 +6183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.008
+      value: AST-PROP-RAILING-001_08
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6249,7 +6249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1096277124}
   m_Layer: 0
-  m_Name: Eventos
+  m_Name: Events
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6281,7 +6281,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.001
+      value: AST-ENV-CRYSTALPANEL-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6395,7 +6395,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.024
+      value: AST-ENV-PLATFORMMODULE-001_24
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6421,7 +6421,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.009
+      value: AST-ENV-CRYSTALPANEL-001_09
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6495,7 +6495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.009
+      value: AST-PROP-RAILING-001_09
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6561,7 +6561,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.004
+      value: AST-PROP-LANTERN-001_04
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6675,7 +6675,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.030
+      value: AST-ENV-SCAFFOLD-001_30
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6745,7 +6745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.041
+      value: AST-ENV-SCAFFOLD-001_41
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6771,7 +6771,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.006
+      value: AST-PROP-LANTERN-001_06
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6885,7 +6885,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.018
+      value: AST-ENV-PLATFORMMODULE-001_18
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -6911,7 +6911,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.008
+      value: AST-ENV-CRYSTALPANEL-001_08
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7025,7 +7025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.012
+      value: AST-ENV-SCAFFOLD-001_12
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7192,7 +7192,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.008
+      value: AST-ENV-STEELCOLUMN-001_08
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7218,7 +7218,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5291101607066786256, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-B17ARCH-001.001
+      value: AST-ENV-B17ARCH-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 5291101607066786256, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7332,7 +7332,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.039
+      value: AST-ENV-SCAFFOLD-001_39
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7358,7 +7358,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4040256883519982845, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_Name
-      value: Jellyfish.004
+      value: Jellyfish_04
       objectReference: {fileID: 0}
     - target: {fileID: 7953001152278400214, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7460,7 +7460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277797563215950579, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
       propertyPath: m_Name
-      value: Fly.001
+      value: Fly_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7526,7 +7526,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.011
+      value: AST-ENV-PLATFORMMODULE-001_11
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7596,7 +7596,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.033
+      value: AST-ENV-SCAFFOLD-001_33
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7626,7 +7626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.003
+      value: AST-PROP-RAILING-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7692,7 +7692,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.004
+      value: AST-ENV-CRYSTALPANEL-001_04
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7766,7 +7766,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4706213840082233371, guid: e62c69f826627e34d8f15eaa555e3cf4, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-CONSOLE-001.001
+      value: AST-PROP-CONSOLE-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 4706213840082233371, guid: e62c69f826627e34d8f15eaa555e3cf4, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7884,7 +7884,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.026
+      value: AST-ENV-SCAFFOLD-001_26
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -7910,7 +7910,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4424910149735654811, guid: 0f9ce075738f08f4eae89cc1ffc38bd9, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-BEACONCRATE-001.001
+      value: AST-PROP-BEACONCRATE-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 4424910149735654811, guid: 0f9ce075738f08f4eae89cc1ffc38bd9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8024,7 +8024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7121095471169966935, guid: d96e595fae706c346af036fd617d977b, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-LABFLOOR-001.002
+      value: AST-ENV-LABFLOOR-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 7121095471169966935, guid: d96e595fae706c346af036fd617d977b, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8050,7 +8050,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.006
+      value: AST-ENV-CRYSTALPANEL-001_06
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8124,7 +8124,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1154702216850244596, guid: 307b5c5509c827b4f97da5d5f1e6e16f, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-LABDOOR-001.002
+      value: AST-ENV-LABDOOR-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 1154702216850244596, guid: 307b5c5509c827b4f97da5d5f1e6e16f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8190,7 +8190,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.003
+      value: AST-ENV-CRYSTALPANEL-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8260,7 +8260,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.002
+      value: AST-ENV-CRYSTALPANEL-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8374,7 +8374,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.009
+      value: AST-ENV-SCAFFOLD-001_09
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8444,7 +8444,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.018
+      value: AST-ENV-SCAFFOLD-001_18
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8470,7 +8470,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4424910149735654811, guid: 0f9ce075738f08f4eae89cc1ffc38bd9, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-BEACONCRATE-001.002
+      value: AST-PROP-BEACONCRATE-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 4424910149735654811, guid: 0f9ce075738f08f4eae89cc1ffc38bd9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8584,7 +8584,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.012
+      value: AST-ENV-PLATFORMMODULE-001_12
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8610,7 +8610,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.002
+      value: AST-PROP-LANTERN-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8680,7 +8680,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CRYSTALPANEL-001.010
+      value: AST-ENV-CRYSTALPANEL-001_10
       objectReference: {fileID: 0}
     - target: {fileID: 3981628997437948133, guid: e3bf91783e47c5046917de5f5dc5b587, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8794,7 +8794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8962030025270671368, guid: 5cf70dcb0802eaa42aaefa1417dc0706, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-002.001
+      value: AST-ENV-PIPE-002_01
       objectReference: {fileID: 0}
     - target: {fileID: 8962030025270671368, guid: 5cf70dcb0802eaa42aaefa1417dc0706, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8820,7 +8820,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4040256883519982845, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_Name
-      value: Jellyfish.003
+      value: Jellyfish_03
       objectReference: {fileID: 0}
     - target: {fileID: 7953001152278400214, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -8926,7 +8926,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.040
+      value: AST-ENV-SCAFFOLD-001_40
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -8952,7 +8952,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4040256883519982845, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_Name
-      value: Jellyfish.001
+      value: Jellyfish_01
       objectReference: {fileID: 0}
     - target: {fileID: 7953001152278400214, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_LocalScale.x
@@ -9022,7 +9022,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531177601}
   m_Layer: 0
-  m_Name: Estructura
+  m_Name: Structure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9198,7 +9198,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8962030025270671368, guid: 5cf70dcb0802eaa42aaefa1417dc0706, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-002.002
+      value: AST-ENV-PIPE-002_02
       objectReference: {fileID: 0}
     - target: {fileID: 8962030025270671368, guid: 5cf70dcb0802eaa42aaefa1417dc0706, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9309,7 +9309,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.052
+      value: AST-ENV-SCAFFOLD-001_52
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9379,7 +9379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.003
+      value: AST-ENV-STEELCOLUMN-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9449,7 +9449,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.017
+      value: AST-ENV-SCAFFOLD-001_17
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9519,7 +9519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.008
+      value: AST-ENV-PLATFORMMODULE-001_08
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9589,7 +9589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.001
+      value: AST-ENV-SCAFFOLD-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9659,7 +9659,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.013
+      value: AST-ENV-SCAFFOLD-001_13
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9729,7 +9729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.053
+      value: AST-ENV-SCAFFOLD-001_53
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9759,7 +9759,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1450737826231948905, guid: 94b6b78b599c6f349b13b39826748169, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CORALROCK-001.002
+      value: AST-ENV-CORALROCK-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 1450737826231948905, guid: 94b6b78b599c6f349b13b39826748169, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -9825,7 +9825,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4040256883519982845, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_Name
-      value: Jellyfish.002
+      value: Jellyfish_02
       objectReference: {fileID: 0}
     - target: {fileID: 7953001152278400214, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9887,7 +9887,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4040256883519982845, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_Name
-      value: Jellyfish.005
+      value: Jellyfish_05
       objectReference: {fileID: 0}
     - target: {fileID: 7953001152278400214, guid: ed8572f4587cff14591a6d496f85e41b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -9993,7 +9993,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.035
+      value: AST-ENV-SCAFFOLD-001_35
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10063,7 +10063,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.034
+      value: AST-ENV-SCAFFOLD-001_34
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10133,7 +10133,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7601915223139808264, guid: bcc50985a66f3614b88774f2981e58d1, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-B17FLOORPLATE-001.001
+      value: AST-ENV-B17FLOORPLATE-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 7601915223139808264, guid: bcc50985a66f3614b88774f2981e58d1, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10159,7 +10159,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.009
+      value: AST-PROP-LANTERN-001_09
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10229,7 +10229,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.007
+      value: AST-PROP-LANTERN-001_07
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10299,7 +10299,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1836015049631147811, guid: 335ab66e6db17ad4c987ae2bc1ed3f4a, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-BULKHEAD-001.002
+      value: AST-ENV-BULKHEAD-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 1836015049631147811, guid: 335ab66e6db17ad4c987ae2bc1ed3f4a, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10413,7 +10413,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.020
+      value: AST-ENV-PLATFORMMODULE-001_20
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10483,7 +10483,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.051
+      value: AST-ENV-SCAFFOLD-001_51
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10513,7 +10513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.007
+      value: AST-PROP-RAILING-001_07
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10623,7 +10623,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.010
+      value: AST-ENV-PIPE-001_10
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10689,7 +10689,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277797563215950579, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
       propertyPath: m_Name
-      value: Fly.006
+      value: Fly_06
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10755,7 +10755,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6765387571384259082, guid: 56fe564f06b17134083337341f5cc3f6, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-ZONEDOOR-001.001
+      value: AST-PROP-ZONEDOOR-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 6765387571384259082, guid: 56fe564f06b17134083337341f5cc3f6, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10825,7 +10825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.031
+      value: AST-ENV-SCAFFOLD-001_31
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10895,7 +10895,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.023
+      value: AST-ENV-PLATFORMMODULE-001_23
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -10977,7 +10977,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9213189831043259882, guid: 1526771a20556494f865c3ae7c22c308, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-HYDRODOMETOWER-001.003
+      value: AST-ENV-HYDRODOMETOWER-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 9213189831043259882, guid: 1526771a20556494f865c3ae7c22c308, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11047,7 +11047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.014
+      value: AST-ENV-PLATFORMMODULE-001_14
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11117,7 +11117,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.047
+      value: AST-ENV-SCAFFOLD-001_47
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11187,7 +11187,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.043
+      value: AST-ENV-SCAFFOLD-001_43
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11257,7 +11257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.013
+      value: AST-ENV-PLATFORMMODULE-001_13
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11283,7 +11283,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.003
+      value: AST-PROP-LANTERN-001_03
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11397,7 +11397,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.005
+      value: AST-ENV-STEELCOLUMN-001_05
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11427,7 +11427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1154702216850244596, guid: 307b5c5509c827b4f97da5d5f1e6e16f, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-LABDOOR-001.001
+      value: AST-ENV-LABDOOR-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 1154702216850244596, guid: 307b5c5509c827b4f97da5d5f1e6e16f, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11493,7 +11493,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2192404095169940243, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
       propertyPath: m_Name
-      value: Shark.001
+      value: Shark_01
       objectReference: {fileID: 0}
     - target: {fileID: 3361437957897000556, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
       propertyPath: m_LocalPosition.x
@@ -11555,7 +11555,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-LANTERN-001.005
+      value: AST-PROP-LANTERN-001_05
       objectReference: {fileID: 0}
     - target: {fileID: 7144835573456084702, guid: 57c4e43b9b539f94884e2cff68beee06, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11669,7 +11669,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-STEELCOLUMN-001.007
+      value: AST-ENV-STEELCOLUMN-001_07
       objectReference: {fileID: 0}
     - target: {fileID: 6791309071687345707, guid: bf4e18a77cb61884eafbaf0c14fd87d9, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11739,7 +11739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.037
+      value: AST-ENV-SCAFFOLD-001_37
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11809,7 +11809,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.002
+      value: AST-ENV-SCAFFOLD-001_02
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11879,7 +11879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.020
+      value: AST-ENV-SCAFFOLD-001_20
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -11945,7 +11945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277797563215950579, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
       propertyPath: m_Name
-      value: Fly.005
+      value: Fly_05
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12011,7 +12011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.046
+      value: AST-ENV-SCAFFOLD-001_46
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12081,7 +12081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.032
+      value: AST-ENV-SCAFFOLD-001_32
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12111,7 +12111,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1450737826231948905, guid: 94b6b78b599c6f349b13b39826748169, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-CORALROCK-001.001
+      value: AST-ENV-CORALROCK-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 1450737826231948905, guid: 94b6b78b599c6f349b13b39826748169, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12225,7 +12225,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5207069410764075284, guid: 7848dfa56e8547e43867f77be4426fc8, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-HATCHPANEL-001.001
+      value: AST-ENV-HATCHPANEL-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 5207069410764075284, guid: 7848dfa56e8547e43867f77be4426fc8, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12259,7 +12259,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.004
+      value: AST-PROP-RAILING-001_04
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12369,7 +12369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.021
+      value: AST-ENV-PLATFORMMODULE-001_21
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12399,7 +12399,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.005
+      value: AST-PROP-RAILING-001_05
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12505,7 +12505,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8277797563215950579, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
       propertyPath: m_Name
-      value: Fly.003
+      value: Fly_03
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12571,7 +12571,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-SCAFFOLD-001.048
+      value: AST-ENV-SCAFFOLD-001_48
       objectReference: {fileID: 0}
     - target: {fileID: 6060834624821863725, guid: bfb82baa98865f644b96a80e73c30456, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12641,7 +12641,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.017
+      value: AST-ENV-PLATFORMMODULE-001_17
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12711,7 +12711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PLATFORMMODULE-001.006
+      value: AST-ENV-PLATFORMMODULE-001_06
       objectReference: {fileID: 0}
     - target: {fileID: 8994581537383138866, guid: 0dc2ec171786c1a4e92d03bf9df6cbe7, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12741,7 +12741,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_Name
-      value: AST-PROP-RAILING-001.010
+      value: AST-PROP-RAILING-001_10
       objectReference: {fileID: 0}
     - target: {fileID: 3811543643728036260, guid: b541cd95f729796429fd03fe3fc90d36, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12851,7 +12851,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-PIPE-001.008
+      value: AST-ENV-PIPE-001_08
       objectReference: {fileID: 0}
     - target: {fileID: 7574157189142841425, guid: 46f576b8764715e4a9aa9caec0e172cc, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -12921,7 +12921,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8598328557729346528, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
       propertyPath: m_Name
-      value: AST-ENV-GRATEPLATFORM-001.001
+      value: AST-ENV-GRATEPLATFORM-001_01
       objectReference: {fileID: 0}
     - target: {fileID: 8598328557729346528, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
       propertyPath: m_StaticEditorFlags

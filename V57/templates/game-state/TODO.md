@@ -4,9 +4,9 @@ Tick items as they reach the stated status word. One line per item. Never delete
 
 Legend: `[ ]` open · `[~]` implemented · `[x]` agent-verified · `[-]` cut (D-###)
 
-## Intake follow-ups (missing / placeholders)
+## Intake follow-ups (missing assets)
 
-- [ ] <asset_name> — placeholder (`MissingAsset`) — needs provider delivery
+- [ ] <asset_name> — missing (slot empty, `Docs/V57/MISSING_ASSETS.md`) — needs provider delivery
 
 ## Specs (F)
 

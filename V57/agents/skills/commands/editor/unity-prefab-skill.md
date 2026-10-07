@@ -6,7 +6,7 @@ Create or update **Gameplay prefabs** as **prefab variants of Visual prefabs**, 
 |------|--------|
 | **requires** | Unity CLI Pipeline; `unity mcp` optional |
 | **OVR helper** | `shared/helpers/unity-editor-verification-skill.md` |
-| **Visual prefabs** | built by `AssemblyRunner.BuildVisualPrefabs()` / `BuildPlaceholders()` at I2 — this skill does not hand-build them |
+| **Visual prefabs** | built by `AssemblyRunner.BuildVisualPrefabs()` at I2 (rigged models get their Animator + `AC_<Asset>`) — this skill does not hand-build them |
 
 ---
 
@@ -17,7 +17,7 @@ Create or update **Gameplay prefabs** as **prefab variants of Visual prefabs**, 
 | **Visual** | `Assets/_Game/Prefabs/Visual/{Characters,Props,Environment,VFX}/PRF_<Asset>_Visual.prefab` | `com.v57.assembly` | provider mesh/sprite, `MAT_<Asset>`, colliders from `UCX_*`, sockets, animator (if skinned). **No gameplay scripts.** |
 | **Gameplay** | `Assets/_Game/Prefabs/Gameplay/PRF_<Asset>.prefab` | this skill | **prefab variant** of the Visual prefab + behaviour components, Rigidbody/trigger setup, serialized config (`SO_*`) |
 
-Why: art updates (new mesh, placeholder → final) re-run I2 and flow into gameplay without touching behaviour; behaviour never patches art at runtime.
+Why: art updates (new mesh, missing → delivered) re-run I2 and flow into gameplay without touching behaviour; behaviour never patches art at runtime.
 
 Rules:
 1. Never add gameplay components to a Visual prefab; never duplicate a Visual prefab to add behaviour.

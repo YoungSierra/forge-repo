@@ -21,6 +21,7 @@ namespace V57.Assembly.Data
         private static ScenesDto _scenes;
         private static UiDto _ui;
         private static CameraDto _camera;
+        private static LayoutsDto _layouts;
         private static string _lastLoadProblems = string.Empty;
 
         #endregion
@@ -37,6 +38,23 @@ namespace V57.Assembly.Data
 
         public static CameraDto Camera => EnsureLoaded(ref _camera);
 
+        /// <summary>Optional: only present when the delivery has <c>Docs/Design/LevelMaps/&lt;LevelId&gt;/unity_scene.json</c>.</summary>
+        public static LayoutsDto Layouts => EnsureLoaded(ref _layouts);
+
+        /// <summary>Layout for a LevelMaps level id, or null.</summary>
+        public static LayoutDto FindLayout(string levelId)
+        {
+            foreach (LayoutDto layout in Layouts?.layouts ?? new LayoutDto[0])
+            {
+                if (layout != null && string.Equals(layout.level_id, levelId, StringComparison.OrdinalIgnoreCase))
+                {
+                    return layout;
+                }
+            }
+
+            return null;
+        }
+
         /// <summary>Semicolon-separated problems from the last <see cref="Reload"/>.</summary>
         public static string LastLoadProblems => _lastLoadProblems;
 
@@ -48,6 +66,7 @@ namespace V57.Assembly.Data
             _scenes = Load<ScenesDto>("scenes");
             _ui = Load<UiDto>("ui");
             _camera = Load<CameraDto>("camera");
+            _layouts = File.Exists(PathOf("layouts")) ? Load<LayoutsDto>("layouts") : new LayoutsDto { layouts = new LayoutDto[0] };
             _loaded = true;
         }
 

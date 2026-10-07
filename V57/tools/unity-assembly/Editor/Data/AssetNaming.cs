@@ -9,6 +9,14 @@ namespace V57.Assembly.Data
 
         private static readonly string[] MeshPrefixes = { "SM_", "SK_", "BLK_" };
 
+        // DCC-exported texture suffixes accepted as aliases of the contract suffixes (order: longest match first).
+        private static readonly string[][] DccTextureSuffixes =
+        {
+            new[] { "metallicsmoothness", "MS" }, new[] { "basecolour", "BC" }, new[] { "basecolor", "BC" },
+            new[] { "occlusion", "AO" }, new[] { "roughness", "R" }, new[] { "emissive", "E" }, new[] { "emission", "E" },
+            new[] { "metallic", "M" }, new[] { "diffuse", "BC" }, new[] { "albedo", "BC" }, new[] { "normal", "N" }, new[] { "ao", "AO" }
+        };
+
         #endregion
 
         #region Public Methods
@@ -62,6 +70,32 @@ namespace V57.Assembly.Data
             assetName = stem.Substring(2, last - 2);
             suffix = stem.Substring(last + 1);
             return assetName.Length > 0 && suffix.Length > 0;
+        }
+
+        /// <summary>
+        /// DCC-style texture name <c>&lt;Anything&gt;_albedo|_normal|_MetallicSmoothness|_metallic|_roughness|_ao|_emission</c>
+        /// (any case) → contract suffix BC, N, MS, M, R, AO or E. The asset is the texture's asset folder, not the stem.
+        /// </summary>
+        public static bool TrySplitDccTexture(string stem, out string suffix)
+        {
+            suffix = string.Empty;
+            int last = stem.LastIndexOf('_');
+            if (last <= 0 || stem.StartsWith("T_", StringComparison.Ordinal))
+            {
+                return false;
+            }
+
+            string tail = stem.Substring(last + 1);
+            foreach (string[] pair in DccTextureSuffixes)
+            {
+                if (string.Equals(tail, pair[0], StringComparison.OrdinalIgnoreCase))
+                {
+                    suffix = pair[1];
+                    return true;
+                }
+            }
+
+            return false;
         }
 
         #endregion

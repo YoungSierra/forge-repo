@@ -57,6 +57,13 @@
               "string",
               "null"
             ]
+          },
+          "layout": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "LevelMaps level id whose normalized layout (layouts.json) builds this scene"
           }
         },
         "required": [

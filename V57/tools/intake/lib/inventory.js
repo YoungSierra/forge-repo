@@ -4,8 +4,8 @@ const fs = require('fs');
 const path = require('path');
 const { checkFile } = require('./naming');
 
-const TOP_FILES = new Set(['README.md', '.gitignore', '.gitattributes', 'ignore.conf', 'LICENSE', 'LICENSE.md']);
-const TOP_DIRS = new Set(['Docs', 'Source', 'Assets', 'V57', '.v57', '.git', '.plastic', '.github']);
+const TOP_FILES = new Set(['README.md', '.gitignore', '.gitattributes', 'ignore.conf', 'LICENSE', 'LICENSE.md', 'AGENTS.md', 'gameforge.env.example']);
+const TOP_DIRS = new Set(['Docs', 'Source', 'Assets', 'V57', '.v57', '.git', '.plastic', '.github', 'Tools', '.cursor', '.claude']);
 const UNITY_DIRS = new Set(['Library', 'ProjectSettings', 'Packages', 'Logs', 'Temp', 'UserSettings', 'obj', 'Build', 'Builds', 'MemoryCaptures']);
 const V57_GAME_DIRS = new Set(['Prefabs', 'Scenes', 'Scripts', 'Data', 'Settings', 'Tests']);
 const SKIP_NAMES = new Set(['.gitkeep', '.DS_Store', 'Thumbs.db', 'desktop.ini', 'node_modules']);
@@ -13,6 +13,7 @@ const SKIP_NAMES = new Set(['.gitkeep', '.DS_Store', 'Thumbs.db', 'desktop.ini',
 const DOC_RULES = [
   /^Docs\/Design\/TDD\.md$/,
   /^Docs\/Design\/LevelMaps\/[^/]+\.(png|jpe?g)$/i,
+  /^Docs\/Design\/LevelMaps\/[^/]+\/(unity_scene|manifest)\.json$/i,
   /^Docs\/Design\/Encounters\/[^/]+\.csv$/i,
   /^Docs\/ArtDirection\/(ArtDirectionDocument|VisualProductionBlueprint)\.md$/,
   /^Docs\/ArtDirection\/ADI\/ADI_11\.\d+_[^/]+\.md$/,

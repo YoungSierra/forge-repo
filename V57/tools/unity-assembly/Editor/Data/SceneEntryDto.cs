@@ -17,6 +17,8 @@ namespace V57.Assembly.Data
         public string[] acs;
         public bool slice;
         public string blockout;
+        /// <summary>LevelMaps level id whose layout (layouts.json) places the level art; wins over <see cref="blockout"/>.</summary>
+        public string layout;
         public string[] markers;
         public string camera_ref;
     }

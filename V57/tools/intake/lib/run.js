@@ -8,6 +8,7 @@ const { parseTdd } = require('./tdd');
 const { parseAdd } = require('./add');
 const xr = require('./crossref');
 const { buildUi, buildScenes, buildInput, reportAddUnknown } = require('./build-world');
+const { readLayouts } = require('./layouts');
 const { buildMechanics, buildTuning, buildAcceptance, buildEntities } = require('./build-core');
 const { buildPackage, buildCamera, buildRendering, buildAudio, buildLocalization } = require('./build-meta');
 const { buildAssets } = require('./build-assets');
@@ -60,7 +61,7 @@ function markerIssues(doc, label, issues) {
 
 function sectionIssues(doc, label, required, issues) {
   for (const k of required) {
-    if (!doc.found[k]) issues.add({ code: `${label}_SECTION_MISSING`, level: 'missing', area: label.toLowerCase(), where: doc.file, message: `${label} section "${k}" not found`, fix: 'defaults/placeholders used for dependent generated data', refs: [k] });
+    if (!doc.found[k]) issues.add({ code: `${label}_SECTION_MISSING`, level: 'missing', area: label.toLowerCase(), where: doc.file, message: `${label} section "${k}" not found`, fix: 'defaults used for dependent generated data (D-###)', refs: [k] });
   }
 }
 
@@ -85,7 +86,7 @@ function runIntake({ repo, out, unityPin: pin }) {
   const add = parseAdd(addText, addPath ? rel(addPath) : 'Docs/ArtDirection/ArtDirectionDocument.md', issues);
   if (!tdd) issues.add({ code: 'TDD_MISSING', level: 'blocking', area: 'tdd', where: 'Docs/Design/TDD.md', message: 'provider TDD not found', fix: 'provider must deliver Docs/Design/TDD.md' });
   else if (!tdd.mechanics.length && !tdd.found.identity) issues.add({ code: 'TDD_UNRECOGNIZABLE', level: 'blocking', area: 'tdd', where: tdd.file, message: 'TDD has neither §A identity nor §B mechanics', fix: 'provider must deliver a TDD Standard 2.0.0 document' });
-  if (!addPath) issues.add({ code: 'ADD_MISSING', level: 'missing', area: 'add', where: 'Docs/ArtDirection/ArtDirectionDocument.md', message: 'ADD not found', fix: 'style from TDD §8 only; all assets placeholders unless on disk' });
+  if (!addPath) issues.add({ code: 'ADD_MISSING', level: 'missing', area: 'add', where: 'Docs/ArtDirection/ArtDirectionDocument.md', message: 'ADD not found', fix: 'style from TDD §8 only; assets not on disk are listed in Docs/V57/MISSING_ASSETS.md; slot left empty' });
   if (!add.briefs.length && !inv.art.length) {
     issues.add({ code: 'NO_ASSETS', level: 'blocking', area: 'cross', where: 'Assets/_Game/Art/', message: 'ADD has no asset_briefs and no art assets are on disk', fix: 'provider must deliver asset briefs or assets' });
   }
@@ -105,6 +106,8 @@ function runIntake({ repo, out, unityPin: pin }) {
     const envNames = [...add.briefs.filter((b) => /environment|level|tileset/i.test(b.category || '')).map((b) => b.asset_name || b.name),
       ...inv.art.filter((f) => f.type === 'blockout').map((f) => f.asset)];
     xr.levelNameChecks([...tdd.scenes.map((s) => s.id), ...add.scenes.map((s) => s.id)], envNames, add.file, issues);
+    ctx.layouts = readLayouts(root, inv, issues);
+    model.layouts = { layouts: ctx.layouts };
     model.ui = buildUi(ctx);
     model.scenes = buildScenes(ctx);
     model.input_map = buildInput(ctx);

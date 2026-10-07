@@ -12,6 +12,16 @@
 - **Rule:** a level FBX is only valid as `BLK_<Level>.fbx` with `Marker_*` empties. Gameplay actors must be separate `SM_`/`SK_` assets with briefs. A montage is `fixable` only by treating it as the blockout; missing actor meshes are listed in `Docs/V57/MISSING_ASSETS.md` (`missing`) and left empty — no placeholders. Never extract/hide sub-meshes at runtime.
 - **Enforced by:** intake naming + brief checks; runtime lint (renderer toggles). **Source:** HH asset-pipeline report.
 
+## Level layout exported from a DCC (JSON)
+- **Symptom:** the level arrived as `unity_scene.json` + `manifest.json` from Blender (175 placements, Spanish layer names, `Name.001` instance names) instead of `BLK_` + `Marker_*`.
+- **Rule:** `Docs/Design/LevelMaps/<LevelId>/unity_scene.json` (contract `unity_scene/1.x`, Unity Y-up metres) + optional `manifest.json` is a valid level source. Intake normalizes it into `layouts.json` (English PascalCase layer groups, `<Name>_NN` instance names, delivered model/texture paths) and links it to the TDD scene whose id matches `SCN_<LevelId>…` (else adds `SCN_<LevelId>` as a layout scene). `BuildLevelScenes` places the Visual prefabs with the exported transforms as-is; manifest material values (flat colours, metallic, smoothness, double-sided) are provider values, not placeholders. Objects whose model is not on disk stay empty (`LAYOUT_ASSET_MISSING`).
+- **Enforced by:** intake `lib/layouts.js`, `LayoutSceneBuilder`, `LayoutMaterialBuilder`. **Source:** PS.
+
+## DCC texture names
+- **Symptom:** textures delivered as `<Name>_albedo|_normal|_MetallicSmoothness|_metallic|_roughness` built no material (the builder only knew `T_<Asset>_BC/N/ORM`).
+- **Rule:** DCC suffixes are aliases (albedo/basecolor/diffuse = BC, normal = N, MetallicSmoothness = MS used as delivered, metallic + roughness packed into `Materials/T_<Asset>_MS.png`, ao = AO, emission = E); the asset is the texture's asset folder. Intake still reports `NAME_CONVENTION` (fixable) with the canonical `T_` name for the provider.
+- **Enforced by:** `AssetNaming.TrySplitDccTexture`, `TextureImportRules`, `MaterialBuilder`. **Source:** PS.
+
 ## Scale ×10
 - **Symptom:** table instanced at scale ≈ 10.29 to look right; physics sizes and camera size then drifted.
 - **Cause:** exported in centimetres / wrong unit.
@@ -32,3 +42,8 @@
 - **Symptom:** 42 BoxColliders approximated from bounds because meshes were not Read/Write; ball behaviour off near rails.
 - **Rule:** collision comes from `UCX_*` (convex) or, when brief says `collision: exact`, a MeshCollider with Read/Write enabled by the import rule. Collision sits on the prefab that carries the mesh (`assets-collision-builds.md`).
 - **Enforced by:** import rules; physics-setup proof rules. **Source:** HH physics report.
+
+## Stale material remaps
+- **Symptom:** after the `Materials/` folders were deleted and rebuilt, every renderer showed magenta: the FBX `.meta` still remapped its material to the old (deleted) `MAT_` GUID, and the remapper skipped the model because a remap hides the embedded material.
+- **Rule:** `ModelMaterialRemapper` drops remaps whose target no longer exists, reimports, then remaps to the current `MAT_<Asset>`. Providers never deliver `.meta`; a V57 end-to-end test starts from art without `.meta`.
+- **Enforced by:** `ModelMaterialRemapper.DropStaleRemaps`. **Source:** PS end-to-end test.

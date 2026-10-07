@@ -30,6 +30,7 @@ There is **no `continue`** between stages in the default mode.
 
 ## 0. Session start / resume protocol (every session, every resume)
 
+0. Preflight from `V57/agents/RUN.md` §2 (branch, `Docs/Design/TDD.md`, Node deps, Unity Editor 6000.6.2f1 open on this repo and `ready` — open it yourself with `unity open .` when missing).
 1. `git status` — on `v57/setup`, working tree clean (commit leftovers with a DEVLOG note).
 2. If `.v57/ALLOW_STOP` exists → finish nothing new; write DEVLOG entry, commit, stop (§7).
 3. Read, in order: `Docs/V57/STATUS.json`, `Docs/V57/PLAN.md`, `Docs/V57/TODO.md`, the last 3 entries of `Docs/V57/DEVLOG.md`, the last 10 `D-###` in `Docs/V57/DECISIONS.md`. Missing → copy templates from `V57/templates/game-state/`.
@@ -44,7 +45,7 @@ There is **no `continue`** between stages in the default mode.
 |---|---|---|---|---|---|
 | **I0 INTAKE** | `/intake` | `node V57/tools/intake/index.js --repo .` → `Docs/Generated/` + `Docs/V57/INTAKE_REPORT.md` + `Docs/V57/MISSING_ASSETS.md` | **A0:** exit code 0 (2 = blocking → stop) | INTAKE_REPORT | 15 min |
 | **I1 PROJECT** | `/intake` | Open with Unity 6000.6.2f1, baseline settings, add `com.v57.assembly`, 0 console errors | script check (see `/intake` I1) | `Docs/V57/reports/I1-project-<slug>.md` | 30 min |
-| **I2 ASSEMBLY** | `/intake` | `unity command eval "V57.Assembly.AssemblyRunner.RunAll()"` | `Docs/V57/reports/assembly-report.json`: 0 missing refs, 0 errors | assembly-report.json | 45 min |
+| **I2 ASSEMBLY** | `/intake` | `unity command eval "EditorApplication.delayCall += () => V57.Assembly.AssemblyRunner.RunAll(); return 1;"` (then poll `assembly-report.json`) | `Docs/V57/reports/assembly-report.json`: 0 missing refs, 0 errors | assembly-report.json | 45 min |
 | **M1 GREYBOX GOLD PATH** | `/gold-path` | Plan + specs + core-loop gameplay on level scenes (Visual prefabs; missing art left empty and listed in MISSING_ASSETS.md) | `checks.json` all pass, 0 errors | `Docs/V57/evidence/goldpath/<UTC>/` | 4 h |
 | **F SPECS** | `/spec` + `/compile-heal` + `/gold-path` | One §C spec at a time, real tests | per spec: EditMode + PlayMode green **and** gold path still green | `Docs/V57/reports/F-<spec>-<slug>.md` | 90 min / spec |
 | **M2 SCENE = GAME** | `/scene-setup`, `/prefab`, `/game-ui`, `/audio-setup`, `/vfx-setup`, `/input-setup`, `/level-design` | Gameplay prefab variants, UI from mockups, audio/VFX wiring | runtime lint clean, Edit vs Play hierarchy diff clean, collision-with-mesh check, gold path green | `Docs/V57/reports/M2-*.md`, lint JSON, diff | 4 h |

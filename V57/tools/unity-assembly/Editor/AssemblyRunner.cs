@@ -18,18 +18,19 @@ namespace V57.Assembly
     {
         #region Public Methods
 
-        /// <summary>ApplyImportRules → BuildMaterials → BuildUiAtlases → BuildVisualPrefabs → BuildPlaceholders →
-        /// BuildLevelScenes → WriteReport. Placeholders run before scenes so a missing blockout still yields a scene.</summary>
+        /// <summary>ApplyImportRules → BuildMaterials → BuildSkybox → BuildUiAtlases → BuildAnimators → BuildVisualPrefabs →
+        /// BuildLevelScenes → WriteReport. Missing art is never replaced by placeholders: slots stay empty and are reported.</summary>
         public static void RunAll()
         {
             AssemblyContext.Reset();
             GeneratedData.Reload();
             RecordDataProblems();
             RunStep("ApplyImportRules", ImportRuleApplier.Apply);
-            RunStep("BuildMaterials", MaterialBuilder.BuildAll);
+            RunStep("BuildMaterials", BuildAllMaterials);
+            RunStep("BuildSkybox", SkyboxBuilder.BuildAll);
             RunStep("BuildUiAtlases", AtlasBuilder.BuildAll);
+            RunStep("BuildAnimators", AnimatorControllerBuilder.BuildAll);
             RunStep("BuildVisualPrefabs", VisualPrefabBuilder.BuildAll);
-            RunStep("BuildPlaceholders", PlaceholderBuilder.BuildAll);
             RunStep("BuildLevelScenes", LevelSceneBuilder.BuildAll);
             WriteReport();
         }
@@ -67,13 +68,15 @@ namespace V57.Assembly
 
         public static void ApplyImportRules() => RunSingle("ApplyImportRules", ImportRuleApplier.Apply);
 
-        public static void BuildMaterials() => RunSingle("BuildMaterials", MaterialBuilder.BuildAll);
+        public static void BuildMaterials() => RunSingle("BuildMaterials", BuildAllMaterials);
+
+        public static void BuildSkybox() => RunSingle("BuildSkybox", SkyboxBuilder.BuildAll);
 
         public static void BuildUiAtlases() => RunSingle("BuildUiAtlases", AtlasBuilder.BuildAll);
 
-        public static void BuildVisualPrefabs() => RunSingle("BuildVisualPrefabs", VisualPrefabBuilder.BuildAll);
+        public static void BuildAnimators() => RunSingle("BuildAnimators", AnimatorControllerBuilder.BuildAll);
 
-        public static void BuildPlaceholders() => RunSingle("BuildPlaceholders", PlaceholderBuilder.BuildAll);
+        public static void BuildVisualPrefabs() => RunSingle("BuildVisualPrefabs", VisualPrefabBuilder.BuildAll);
 
         public static void BuildLevelScenes() => RunSingle("BuildLevelScenes", LevelSceneBuilder.BuildAll);
 
@@ -96,6 +99,13 @@ namespace V57.Assembly
         #endregion
 
         #region Private Methods
+
+        /// <summary>Texture-driven materials first, then the level-layout manifest values (flat colours, metallic, culling).</summary>
+        private static void BuildAllMaterials()
+        {
+            MaterialBuilder.BuildAll();
+            LayoutMaterialBuilder.BuildAll();
+        }
 
         private static void RunSingle(string name, Action step)
         {

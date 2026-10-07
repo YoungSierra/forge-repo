@@ -5,7 +5,7 @@
 - **Rule:** V57 never generates placeholder art or audio (primitives, `MAT_V57_Placeholder`, generated textures/meshes, synthesized or recorded sounds, "closest match" sprite fallbacks). Every missing resource is listed in **`Docs/V57/MISSING_ASSETS.md`** (written at I0, updated whenever a stage finds a gap) and the slot stays empty: the serialized reference is unassigned, the feature logs one warning, and the scene keeps working without it.
 - **Gameplay that needs a missing mesh** (e.g. a plunger) keeps only its functional parts (collider, behaviour) on the gameplay prefab, with no stand-in visual; the gap is listed as `blocks: visual` in `MISSING_ASSETS.md`.
 - **`MISSING_ASSETS.md` sources:** intake `missing` issues, `DELIVERY.md` / provider notes, TDD §13.1 inventory vs files on disk (meshes, LODs, textures, UI sprites per §9.1 screen, audio stems/SFX/stingers/VO), ADD `asset_briefs` without files, and anything a later stage finds. Columns: asset / category / required by (TDD §, mechanic or screen) / expected path / impact (`blocks: gameplay | visual | audio | none`) / status (`missing | delivered`).
-- **Enforced by:** `/intake` I0 writes the file; M4 final report links it; `/independent-review` packs never contain V57 filler. Legacy `AssemblyRunner.BuildPlaceholders()` output is never instanced in a scene (pack follow-up: remove the step).
+- **Enforced by:** `/intake` I0 writes the file; M4 final report links it; `/independent-review` packs never contain V57 filler. `com.v57.assembly` has no placeholder step (removed 2026-10); scenes without level art stay empty.
 - **Source:** HH run 2 (2026-09).
 
 ## Collision lives with its mesh

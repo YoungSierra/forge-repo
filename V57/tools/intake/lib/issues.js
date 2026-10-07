@@ -7,7 +7,7 @@ const LEVEL_MEANING = {
   blocking: 'stop run (A0 gate fails, exit 2)',
   conflict: 'resolved by authority rule (TDD > ADD > disk), logged to DECISIONS',
   fixable: 'V57 auto-fixes / normalizes, logged to DECISIONS',
-  missing: 'placeholder generated, run continues',
+  missing: 'listed in MISSING_ASSETS.md, slot left empty, run continues',
 };
 
 class Issues {

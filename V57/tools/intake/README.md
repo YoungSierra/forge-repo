@@ -32,7 +32,7 @@ A missing section never crashes the run: it is reported as an issue and the depe
 
 - `Docs/Generated/<name>.yaml` plus `Docs/Generated/json/<name>.json` for `package, asset_manifest, entities, mechanics, ui, scenes, input_map, camera, rendering, audio, tuning, acceptance`. Top-level keys follow brief §2 exactly. The JSON Schemas are in `V57/tools/schema/<name>.schema.json`.
 - `Docs/Generated/localization.csv` (`key,en`): ADD `text_keys` plus text-valued TDD levers.
-- `Docs/V57/INTAKE_REPORT.md`: verdict, per-level counts, completeness per TDD section / ADD section / asset module, and issue tables by level with the suggested auto-fix or placeholder. See `examples/INTAKE_REPORT.example.md` (HH TDD + Cartón ADD fixture).
+- `Docs/V57/INTAKE_REPORT.md`: verdict, per-level counts, completeness per TDD section / ADD section / asset module, and issue tables by level with the suggested auto-fix or handling. See `examples/INTAKE_REPORT.example.md` (HH TDD + Cartón ADD fixture).
 - `Docs/V57/DECISIONS.md`: every `fixable` and `conflict` issue is appended as a `D-###` entry with a hidden `v57-intake-key`. Re-runs never duplicate entries, and numbering continues after any manual D-entries.
 
 Files are rewritten only when their content changes. Generated data has no timestamps, so re-runs give identical diffs.

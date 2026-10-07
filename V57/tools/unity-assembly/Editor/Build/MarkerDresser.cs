@@ -53,7 +53,7 @@ namespace V57.Assembly.Build
                     VisualPrefabPaths.PrefabPath(entry, VisualPrefabPaths.ResolveModelPath(entry)));
                 if (prefab == null)
                 {
-                    AssemblyContext.Warn(Step, $"{sceneId}: {marker.name} → no Visual prefab for '{entity}' (run BuildVisualPrefabs/BuildPlaceholders first)");
+                    AssemblyContext.Warn(Step, $"{sceneId}: {marker.name} → no Visual prefab for '{entity}' (run BuildVisualPrefabs first; missing art stays empty)");
                     continue;
                 }
 

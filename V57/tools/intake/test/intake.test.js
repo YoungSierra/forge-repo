@@ -20,7 +20,7 @@ test('HH TDD + Cartón ADD fixture: exit 0, all generated files with fixed top-l
     package: ['slug', 'title', 'version', 'genre', 'modules', 'perspective', 'physics', 'players', 'engine', 'platform', 'world', 'slice', 'sources'],
     asset_manifest: ['assets', 'orphans'], entities: ['entities'], mechanics: ['mechanics'], ui: ['screens', 'layouts'], scenes: ['scenes'],
     input_map: ['actions'], camera: ['views'], rendering: ['pipeline', 'palette', 'budgets', 'post'], audio: ['events', 'middleware', 'notes'],
-    tuning: ['values'], acceptance: ['criteria', 'gold_path'],
+    tuning: ['values'], acceptance: ['criteria', 'gold_path'], layouts: ['layouts'],
   };
   for (const n of GENERATED) {
     assert.ok(fs.existsSync(path.join(repo, 'Docs/Generated', `${n}.yaml`)), `${n}.yaml`);

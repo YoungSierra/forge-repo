@@ -173,10 +173,10 @@ function buildAudio(ctx) {
     if (!claimed.has(base)) events.push({ event: base.replace(/\.[^.]+$/, ''), file: f.rel, volume: null, loop: f.type === 'music' || f.type === 'ambience', source: 'inventory' });
   });
   events.filter((e) => e.file && !e.file.startsWith('Assets/') && !fs.existsSync(path.join(inv.root, 'Assets/_Game/Audio', e.file))).forEach((e) => issues.add({
-    code: 'AUDIO_FILE_MISSING', level: 'missing', area: 'cross', where: e.file, message: `audio event ${e.event} file not on disk`, fix: 'silent placeholder clip', refs: [e.event] }));
+    code: 'AUDIO_FILE_MISSING', level: 'missing', area: 'cross', where: e.file, message: `audio event ${e.event} file not on disk`, fix: 'event left unbound; listed in Docs/V57/MISSING_ASSETS.md; slot left empty', refs: [e.event] }));
   if (!events.length) {
     issues.add({ code: 'AUDIO_NONE', level: 'missing', area: 'repo', where: 'Assets/_Game/Audio/', message: 'no audio events and no audio files delivered',
-      fix: 'silent placeholder events; M3 audio review scored as N/A', refs: ['audio'] });
+      fix: 'events left unbound; M3 audio review scored as N/A; listed in Docs/V57/MISSING_ASSETS.md; slot left empty', refs: ['audio'] });
   }
   const t = tdd.audio.text;
   const middleware = /fmod/i.test(t) && /wwise/i.test(t) ? 'FMOD or Wwise (TDD undecided; V57 default: Unity Audio Mixer until chosen)' : /fmod/i.test(t) ? 'FMOD' : /wwise/i.test(t) ? 'Wwise' : 'Unity Audio';

@@ -32,6 +32,9 @@ test('naming: good names pass, bad names get suggestions', () => {
   assert.deepEqual(checkFile('Assets/_Game/Art/Props/Bumpers/Koala/Meshes/SM_Koala.fbx').problems, []);
   assert.deepEqual(checkFile('Assets/_Game/Art/UI/Sprites/UI_LeafArcMeter/SPR_UI_LeafArcMeter_Fill_9s-12.png').problems, []);
   assert.deepEqual(checkFile('Assets/_Game/Art/Characters/Professor/Professor_export.json').problems, []);
+  // DCC suffixes are absorbed (NAME_CONVENTION fixable + canonical suggestion); the assembly reads them as aliases.
+  assert.equal(checkFile('Assets/_Game/Art/Characters/Professor/Textures/Professor_Wort_albedo.jpg').problems[0].suggestion, 'T_Professor_BC.jpg');
+  assert.equal(checkFile('Assets/_Game/Art/Characters/Professor/Textures/Professor_Wort_MetallicSmoothness.png').problems[0].suggestion, 'T_Professor_MS.png');
   assert.equal(checkFile('Assets/_Game/Art/Characters/Professor/Other_export.json').problems[0].kind, 'folder');
   const tex = checkFile('Assets/_Game/Art/Characters/Carton/Textures/carton_albedo.png').problems;
   assert.equal(tex[0].suggestion, 'T_Carton_BC.png');

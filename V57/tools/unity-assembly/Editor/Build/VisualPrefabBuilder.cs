@@ -10,7 +10,8 @@ namespace V57.Assembly.Build
     /// For each manifest asset of type model/character/blockout with a model on disk, builds
     /// <c>Prefabs/Visual/&lt;Category&gt;/PRF_&lt;Asset&gt;_Visual.prefab</c>: model instance (kept as nested prefab so
     /// reimports flow through, sockets/markers kept), LODGroup, colliders, size/pivot validation. No gameplay scripts.
-    /// Existing real prefabs are kept unless <see cref="AssemblyOptions.Force"/>; placeholders are always replaced.
+    /// Rigged models get an Animator bound to <c>AC_&lt;Asset&gt;</c> (<see cref="AnimatorBinder"/>).
+    /// Existing prefabs are kept unless <see cref="AssemblyOptions.Force"/>. Assets without a model get no prefab (no placeholder).
     /// </summary>
     public static class VisualPrefabBuilder
     {
@@ -41,11 +42,11 @@ namespace V57.Assembly.Build
                 string modelPath = VisualPrefabPaths.ResolveModelPath(entry);
                 if (modelPath == null)
                 {
-                    continue; // BuildPlaceholders covers assets without a model.
+                    continue; // missing model: slot stays empty, intake lists it in MISSING_ASSETS.md
                 }
 
                 string prefabPath = VisualPrefabPaths.PrefabPath(entry, modelPath);
-                if (VisualPrefabPaths.Exists(prefabPath) && !AssemblyOptions.Force && !VisualPrefabPaths.IsPlaceholder(prefabPath))
+                if (VisualPrefabPaths.Exists(prefabPath) && !AssemblyOptions.Force)
                 {
                     AssemblyContext.Counts.skipped_existing++;
                     AssemblyContext.TrackAsset(prefabPath);
@@ -74,6 +75,7 @@ namespace V57.Assembly.Build
                 }
 
                 instance.transform.SetParent(root.transform, false);
+                bool animated = AnimatorBinder.Bind(instance, modelPath);
                 int lodLevels = LodGroupBuilder.Apply(root, instance);
                 Bounds bounds = RendererBounds.Compute(root);
                 string colliders = PrefabColliderBuilder.Apply(entry, root, bounds);
@@ -88,7 +90,7 @@ namespace V57.Assembly.Build
 
                 AssemblyContext.Counts.visual_prefabs++;
                 AssemblyContext.TrackAsset(prefabPath);
-                Debug.Log($"V57.Assembly: {prefabPath} ← {modelPath} (lod={lodLevels}, colliders={colliders})");
+                Debug.Log($"V57.Assembly: {prefabPath} ← {modelPath} (lod={lodLevels}, colliders={colliders}, animator={animated})");
             }
             catch (Exception exception)
             {

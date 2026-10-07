@@ -61,7 +61,7 @@ Report: `Docs/V57/reports/animation-setup-report-{slug}.md`
 
 ## Scope
 
-V57 **does not create** raw animation clips from scratch. Uses placeholders or existing `.anim`/FBX/sprite clips from `/asset-pipeline`. Configures controller + wiring only.
+V57 **does not create** raw animation clips from scratch. Uses only existing `.anim`/FBX/sprite clips from `/asset-pipeline`. Configures controller + wiring only.
 
 ---
 

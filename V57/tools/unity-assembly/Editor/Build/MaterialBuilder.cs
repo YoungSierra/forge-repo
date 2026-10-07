@@ -8,9 +8,9 @@ using V57.Assembly.Report;
 namespace V57.Assembly.Build
 {
     /// <summary>
-    /// Creates/updates <c>&lt;AssetFolder&gt;/Materials/MAT_&lt;Asset&gt;.mat</c> (URP Lit) from <c>T_&lt;Asset&gt;_*</c>
-    /// textures and remaps the models' embedded material to it. ORM is repacked (see <see cref="OrmPacker"/>)
-    /// because URP Lit reads metallic from R / smoothness from A of _MetallicGlossMap and occlusion from G.
+    /// Creates/updates <c>&lt;AssetFolder&gt;/Materials/MAT_&lt;Asset&gt;.mat</c> (URP Lit) from the asset's textures and remaps
+    /// the asset's FBX to it. Texture roles come from contract names (<c>T_&lt;Asset&gt;_BC|N|ORM|MS|E|Mask</c>) or DCC
+    /// aliases (<c>*_albedo|_normal|_MetallicSmoothness|_metallic|_roughness|_ao|_emission</c>, asset = folder name).
     /// </summary>
     public static class MaterialBuilder
     {
@@ -35,12 +35,12 @@ namespace V57.Assembly.Build
             {
                 if (set.BaseColor == null)
                 {
-                    AssemblyContext.Warn(Step, $"{set.AssetFolder}: T_{set.AssetName}_BC missing; material not built");
+                    AssemblyContext.Warn(Step, $"{set.AssetFolder}: no base colour texture for '{set.AssetName}'; material left to the layout manifest or FBX");
                     continue;
                 }
 
                 Material material = BuildMaterial(set, lit);
-                ModelMaterialRemapper.Remap(set, material);
+                ModelMaterialRemapper.Remap(set.AssetFolder, set.AssetName, material);
             }
         }
 
@@ -54,14 +54,24 @@ namespace V57.Assembly.Build
             foreach (string guid in AssetDatabase.FindAssets("t:Texture2D", new[] { AssemblyPaths.ArtRoot }))
             {
                 string path = AssetDatabase.GUIDToAssetPath(guid);
-                if (path.Contains("/UI/") || path.Contains("/Materials/")
-                    || !AssetNaming.TrySplitTexture(Path.GetFileNameWithoutExtension(path), out string assetName, out string suffix))
+                if (path.Contains("/UI/") || path.Contains("/Materials/") || path.Contains("/Environment/Sky/"))
                 {
                     continue;
                 }
 
+                string stem = Path.GetFileNameWithoutExtension(path);
                 string textureFolder = AssemblyPaths.ParentFolder(path);
                 string assetFolder = textureFolder.EndsWith("/Textures") ? AssemblyPaths.ParentFolder(textureFolder) : textureFolder;
+                if (!AssetNaming.TrySplitTexture(stem, out string assetName, out string suffix))
+                {
+                    if (!AssetNaming.TrySplitDccTexture(stem, out suffix))
+                    {
+                        continue;
+                    }
+
+                    assetName = Path.GetFileName(assetFolder);
+                }
+
                 string key = assetFolder + "|" + assetName;
                 if (!sets.TryGetValue(key, out MaterialTextureSet set))
                 {
@@ -82,6 +92,10 @@ namespace V57.Assembly.Build
                 case "BC": set.BaseColor = texture; break;
                 case "N": set.Normal = texture; break;
                 case "ORM": set.Orm = texture; break;
+                case "MS": set.MetallicSmoothness = texture; break;
+                case "M": set.Metallic = texture; break;
+                case "R": set.Roughness = texture; break;
+                case "AO": set.Occlusion = texture; break;
                 case "E": set.Emission = texture; break;
                 case "MASK": set.Mask = texture; break;
             }
@@ -102,6 +116,7 @@ namespace V57.Assembly.Build
             }
 
             material.SetTexture("_BaseMap", set.BaseColor);
+            material.SetTexture("_MainTex", set.BaseColor);
             material.SetColor("_BaseColor", Color.white);
             if (set.Normal != null)
             {
@@ -110,7 +125,7 @@ namespace V57.Assembly.Build
                 material.EnableKeyword("_NORMALMAP");
             }
 
-            ApplyOrm(set, material);
+            ApplySurfaceMaps(set, material);
             if (set.Emission != null)
             {
                 material.SetTexture("_EmissionMap", set.Emission);
@@ -129,28 +144,41 @@ namespace V57.Assembly.Build
             return material;
         }
 
-        private static void ApplyOrm(MaterialTextureSet set, Material material)
+        /// <summary>Metallic/smoothness and occlusion: MS mask as delivered → ORM repack → metallic + roughness pack.</summary>
+        private static void ApplySurfaceMaps(MaterialTextureSet set, Material material)
         {
-            if (set.Orm == null)
+            Texture2D metallicGloss = set.MetallicSmoothness;
+            Texture2D occlusion = set.Occlusion;
+            if (metallicGloss == null && set.Orm != null)
             {
-                return;
+                metallicGloss = OrmPacker.Pack(set.Orm, set.AssetFolder + "/Materials", set.AssetName);
+                occlusion = metallicGloss;
+                AssemblyContext.Counts.orm_packed_textures += metallicGloss != null ? 1 : 0;
+            }
+            else if (metallicGloss == null && (set.Metallic != null || set.Roughness != null))
+            {
+                metallicGloss = MetallicSmoothnessPacker.Pack(set.Metallic, set.Roughness, set.AssetFolder + "/Materials", set.AssetName);
+                AssemblyContext.Counts.metallic_smoothness_packed += metallicGloss != null ? 1 : 0;
             }
 
-            Texture2D packed = OrmPacker.Pack(set.Orm, set.AssetFolder + "/Materials", set.AssetName);
-            if (packed == null)
+            if (metallicGloss != null)
             {
-                AssemblyContext.Warn(Step, $"T_{set.AssetName}_ORM could not be repacked (GPU readback failed?) — metallic/occlusion left at defaults");
-                return;
+                material.SetTexture("_MetallicGlossMap", metallicGloss);
+                material.SetFloat("_Smoothness", 1f);
+                material.SetFloat("_SmoothnessTextureChannel", 0f);
+                material.EnableKeyword("_METALLICSPECGLOSSMAP");
+            }
+            else if (set.Orm != null || set.Metallic != null || set.Roughness != null)
+            {
+                AssemblyContext.Warn(Step, $"{set.AssetName}: metallic/smoothness maps could not be packed (GPU readback failed?) — defaults kept");
             }
 
-            material.SetTexture("_MetallicGlossMap", packed);
-            material.SetTexture("_OcclusionMap", packed);
-            material.SetFloat("_Smoothness", 1f);
-            material.SetFloat("_OcclusionStrength", 1f);
-            material.SetFloat("_SmoothnessTextureChannel", 0f);
-            material.EnableKeyword("_METALLICSPECGLOSSMAP");
-            material.EnableKeyword("_OCCLUSIONMAP");
-            AssemblyContext.Counts.orm_packed_textures++;
+            if (occlusion != null)
+            {
+                material.SetTexture("_OcclusionMap", occlusion);
+                material.SetFloat("_OcclusionStrength", 1f);
+                material.EnableKeyword("_OCCLUSIONMAP");
+            }
         }
 
         #endregion

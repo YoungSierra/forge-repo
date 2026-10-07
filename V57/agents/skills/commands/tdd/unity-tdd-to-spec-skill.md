@@ -121,12 +121,12 @@ When TDD §A `multiplayer_model != N/A`:
 
 - `specId`: snake_case from mechanic/controller name (full name, no truncation)
 - `version`: from TDD Spec metadata `version` when present
-- `touches`: all paths under `Assets/` (scripts, prefabs, SO instances, scenes, tests)
+- `touches`: all paths under `Assets/` (scripts, prefabs, SO instances, scenes, tests). TDD Standard 2.1 paths are relative to the script/data roots (`Scripts/…`, `Data/…`, `Prefabs/…`, `Scenes/…`, `Tests/…`): map them (and `components[].files`) to `Assets/_Game/<path>` without logging a decision; an `Assets/…` path is kept as written
 - `acceptanceCriteria`: measurable, testable, traced to TDD § Acceptance; `verification` from the AC tag (`EditMode` | `PlayMode`)
 - `validationGates`: from template defaults unless TDD specifies otherwise
 - **Persistence** (standard TDDs): when the mechanic's Persistence ≠ `none`, reflect it in `description` / `implementation` notes and include save-related paths in `touches`
 - **status**: skip spec generation for `status: deprecated` mechanics unless the user explicitly asks
-- **Legacy `sliceScope`** (v1 TDDs only): tolerated and ignored as a quality signal — TDD Standard 2.0.0 removed it; scope selection happens at prototyping/implementation time, never in the document. It may inform batch ordering as a legacy hint, nothing more
+- **Legacy `sliceScope`** (v1 TDDs only): tolerated and ignored as a quality signal — TDD Standard 2.x removed it; scope selection happens at prototyping/implementation time, never in the document. It may inform batch ordering as a legacy hint, nothing more
 
 ### A5. Validate structure
 
@@ -198,7 +198,7 @@ A TDD where every mechanic is ✅ Clear/Solid can still fail Layer 2 (e.g. no lo
 
 | # | Check | What must hold | Gate |
 |---|-------|----------------|------|
-| **PC-01** | Agency & locomotion | If the fantasy/core loop implies navigating space, §11.5 declares a **Control mode** (`player-driven | click-to-move | auto | none` — `auto`/`none` justified) and player-driven/click modes have Move/Look (or equivalent) in §11.3 with a §B consumer. A navigation technology (NavMesh, A*) **without** a control mode is a FAIL — it says how the character path-finds, not who drives it | G-14 |
+| **PC-01** | Agency & locomotion | If the fantasy/core loop implies navigating space, §11.5 declares a **Control mode** (`player-driven | click-to-move | auto | none` — `auto`/`none` justified) and player-driven/click modes have Move (or equivalent) in §11.3 with a §B consumer; Look only when the player controls the camera (an authored camera declares `Look: none (authored camera)`). A navigation technology (NavMesh, A*) **without** a control mode is a FAIL — it says how the character path-finds, not who drives it | G-14 |
 | **PC-02** | Core loop trace | Every §3 loop step maps to: mechanic id + triggering input (§11.3) or system event + feedback channel. Emit the trace table; any unmapped step is a break in the loop | G-15 |
 | **PC-03** | Session bootstrap | Player spawn, session/run start, and initial player capabilities are declared (in a §B/§B-S block or the entry scene row) | G-16 |
 | **PC-04** | Play space owner | Every gameplay scene in §13.2 names a **world owner** — the §B/§B-S id that populates the play space. No owner = empty-world risk (the exact failure mode of an unpopulated final build) | G-16 |
@@ -249,7 +249,7 @@ A TDD where every mechanic is ✅ Clear/Solid can still fail Layer 2 (e.g. no lo
 - *"Specs can be generated, but the assembled game will not be playable as documented — fix the Layer 2 failures first (each names its section)."* — Layer 1 clean but any PC item FAIL. **Never** summarize this state as "healthy".
 - *"Fix the failing gate items before the full batch — each failure names the section to complete."* — any G-item FAIL (blockers for a production run; the user may still force the batch explicitly).
 - *"Fix or confirm the flagged mechanics before running the full batch — these are warnings, not blockers."* — only ⚠️ friction flags remain.
-- Legacy docs additionally get: *"Consider migrating to TDD Standard 2.0.0 (the provider owns the template; V57 only reads the TDD) — see Migration notes above."*
+- Legacy docs additionally get: *"Consider migrating to TDD Standard 2.x (template `V57/docs/tdd/TDD_Template.md`; the provider owns the TDD; V57 only reads the TDD) — see Migration notes above."*
 
 ---
 

@@ -9,6 +9,7 @@ const { parseAdd } = require('./add');
 const xr = require('./crossref');
 const { buildUi, buildScenes, buildInput, reportAddUnknown } = require('./build-world');
 const { readLayouts } = require('./layouts');
+const { readLevelData } = require('./level-data');
 const { buildMechanics, buildTuning, buildAcceptance, buildEntities } = require('./build-core');
 const { buildPackage, buildCamera, buildRendering, buildAudio, buildLocalization } = require('./build-meta');
 const { buildAssets } = require('./build-assets');
@@ -85,7 +86,7 @@ function runIntake({ repo, out, unityPin: pin }) {
   const tdd = tddPath ? parseTdd(tddText, rel(tddPath), issues) : null;
   const add = parseAdd(addText, addPath ? rel(addPath) : 'Docs/ArtDirection/ArtDirectionDocument.md', issues);
   if (!tdd) issues.add({ code: 'TDD_MISSING', level: 'blocking', area: 'tdd', where: 'Docs/Design/TDD.md', message: 'provider TDD not found', fix: 'provider must deliver Docs/Design/TDD.md' });
-  else if (!tdd.mechanics.length && !tdd.found.identity) issues.add({ code: 'TDD_UNRECOGNIZABLE', level: 'blocking', area: 'tdd', where: tdd.file, message: 'TDD has neither §A identity nor §B mechanics', fix: 'provider must deliver a TDD Standard 2.0.0 document' });
+  else if (!tdd.mechanics.length && !tdd.found.identity) issues.add({ code: 'TDD_UNRECOGNIZABLE', level: 'blocking', area: 'tdd', where: tdd.file, message: 'TDD has neither §A identity nor §B mechanics', fix: 'provider must deliver a TDD Standard 2.x document (V57/docs/tdd/TDD_Template.md)' });
   if (!addPath) issues.add({ code: 'ADD_MISSING', level: 'missing', area: 'add', where: 'Docs/ArtDirection/ArtDirectionDocument.md', message: 'ADD not found', fix: 'style from TDD §8 only; assets not on disk are listed in Docs/V57/MISSING_ASSETS.md; slot left empty' });
   if (!add.briefs.length && !inv.art.length) {
     issues.add({ code: 'NO_ASSETS', level: 'blocking', area: 'cross', where: 'Assets/_Game/Art/', message: 'ADD has no asset_briefs and no art assets are on disk', fix: 'provider must deliver asset briefs or assets' });
@@ -108,6 +109,7 @@ function runIntake({ repo, out, unityPin: pin }) {
     xr.levelNameChecks([...tdd.scenes.map((s) => s.id), ...add.scenes.map((s) => s.id)], envNames, add.file, issues);
     ctx.layouts = readLayouts(root, inv, issues);
     model.layouts = { layouts: ctx.layouts };
+    model.level_data = { levels: readLevelData(root, inv, issues) };
     model.ui = buildUi(ctx);
     model.scenes = buildScenes(ctx);
     model.input_map = buildInput(ctx);

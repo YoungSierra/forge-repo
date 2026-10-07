@@ -11,7 +11,8 @@ namespace V57.Assembly.Build
     /// Places a normalized level layout (<c>layouts.json</c>) in a level scene: one Visual prefab instance per object under
     /// <c>_Environment/&lt;Layer&gt;</c>, named <c>&lt;Name&gt;_NN</c>, with the exported Unity transform as-is. Objects whose
     /// model or Visual prefab is missing are skipped (slot empty, counted in <c>layout_missing</c>). Non-animated
-    /// instances are marked static.
+    /// instances are marked static. <c>Marker_*</c> objects (kind marker) become typed V57Markers under
+    /// <c>_Environment/_Markers</c> via <see cref="MarkerConverter"/> (volume = 1 m cube scaled by the exported scale).
     /// </summary>
     public static class LayoutSceneBuilder
     {
@@ -23,14 +24,27 @@ namespace V57.Assembly.Build
 
         #region Public Methods
 
-        /// <summary>Returns the number of placed instances.</summary>
-        public static int Populate(Transform environment, LayoutDto layout, Scene scene)
+        /// <summary>Returns the number of placed instances; <paramref name="markers"/> receives the number of markers.</summary>
+        public static int Populate(SceneContainers containers, LayoutDto layout, Scene scene, string sceneId, out int markers)
         {
+            Transform environment = containers.Environment;
+            markers = 0;
             Dictionary<string, GameObject> prefabsByModel = VisualPrefabsByModel();
             Dictionary<string, Transform> groups = new Dictionary<string, Transform>();
             int placed = 0;
             foreach (LayoutObjectDto item in layout.objects ?? new LayoutObjectDto[0])
             {
+                if (item != null && item.kind == "marker")
+                {
+                    if (MarkerConverter.Create(containers, item.name, ToVector3(item.position, Vector3.zero), ToQuaternion(item.rotation),
+                        ToVector3(item.scale, Vector3.one), MarkerConverter.UnitVolume, sceneId, item.shape == "box"))
+                    {
+                        markers++;
+                    }
+
+                    continue;
+                }
+
                 if (item == null || string.IsNullOrEmpty(item.model) || !prefabsByModel.TryGetValue(item.model, out GameObject prefab))
                 {
                     AssemblyContext.Counts.layout_missing++;

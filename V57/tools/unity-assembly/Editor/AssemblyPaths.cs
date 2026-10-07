@@ -17,6 +17,7 @@ namespace V57.Assembly
         public const string VisualPrefabRoot = "Assets/_Game/Prefabs/Visual";
         public const string AnimationRoot = "Assets/_Game/Data/Animation";
         public const string SkyRoot = "Assets/_Game/Art/Environment/Sky";
+        public const string LevelDataRoot = "Assets/_Game/Data/Levels";
         public const string GeneratedJsonRelative = "Docs/Generated/json";
         public const string ReportsRelative = "Docs/V57/reports";
         public const string LitShaderName = "Universal Render Pipeline/Lit";

@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "layouts",
-  "description": "Level layouts from Docs/Design/LevelMaps/<LevelId>/unity_scene.json (+ manifest.json), normalized by intake: English layer groups, <Name>_NN instance names, delivered model/texture paths.",
+  "description": "Level layouts from Docs/Design/LevelMaps/<LevelId>/unity_scene.json (+ manifest.json), normalized by intake: English layer groups, <Name>_NN instance names, delivered model/texture paths; Marker_* objects are level markers (kind marker).",
   "type": "object",
   "required": [
     "layouts"
@@ -47,6 +47,26 @@
               "properties": {
                 "name": {
                   "type": "string"
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "model",
+                    "marker"
+                  ],
+                  "description": "marker = Marker_<Type>_<Id> level marker (no model); the scene gets a typed V57Marker"
+                },
+                "shape": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "enum": [
+                    "box",
+                    "point",
+                    null
+                  ],
+                  "description": "marker shape from the export: box = volume (1 m cube x scale), point = position only; null = decided by the marker type"
                 },
                 "source_name": {
                   "type": [

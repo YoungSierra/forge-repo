@@ -24,11 +24,14 @@ namespace V57.Assembly.Data
         public LayoutMaterialDto[] materials;
     }
 
-    /// <summary>One placed instance; position/rotation(x,y,z,w)/scale already in Unity Y-up metres.</summary>
+    /// <summary>One placed instance (<c>kind</c> model) or level marker (<c>kind</c> marker, <c>Marker_&lt;Type&gt;_&lt;Id&gt;</c>, no model);
+    /// position/rotation(x,y,z,w)/scale already in Unity Y-up metres. A marker volume is a 1 m cube scaled by <c>scale</c>.</summary>
     [Serializable]
     public sealed class LayoutObjectDto
     {
         public string name;
+        public string kind;
+        public string shape;
         public string source_name;
         public string asset_id;
         public string model;

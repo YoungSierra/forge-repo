@@ -86,3 +86,9 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Context:** `SCN_Montaje` was built with the Spanish layer groups and the Blender object names from `unity_scene.json` (`Oceano/Estructura/Vestido/Eventos`, `Jellyfish.001`). The owner requires everything generated in a scene to be English and without `.001` duplicates suffixes.
 - **Choice:** Layer groups renamed `Ocean/Structure/Dressing/Events`; 175 instances renamed `<Name>_NN` (2 digits). Only `m_Name` values changed; transforms and prefab links untouched. The same rule is now in the core intake (`layouts.json`) and `SCENE_PRODUCTION_STANDARDS.md`. The provider JSON stays as delivered (read-only).
 - **Reversal cost:** low · **Type:** other
+
+### D-012 — TDD 1.0.0 (Standard 2.1.0) installed; level contract by markers
+- **When:** 2026-10-07 · **Stage:** pre-I0 (owner request) · **Commit:** pending
+- **Context:** The owner approved the rebuilt TDD (`Docs/Design/TDD.md`, 1.0.0, gate 19/19): ids aligned with the art delivery (Professor = Wort, Shark replaces the Whale), authored Crash-style camera, Sprat as a no-effect companion, Unity built-in audio, zone-completion saves, no map content in the TDD.
+- **Choice:** The TDD scene `SCN_HydroStation_Gameplay` takes the delivered `LevelMaps/Montaje` layout (linked by role, `LAYOUT_LINKED_BY_ROLE`). `SCN_Montaje` stays as the art montage. The playable level needs the §6 level contract from the provider: `Marker_*` empties (spawn, zone, exit, kill, camera zones, patrol ends), `MechanicalCrab` instances, and the layout re-exported with `Fly` / `Jellyfish` / `Shark` ids.
+- **Reversal cost:** low · **Type:** other

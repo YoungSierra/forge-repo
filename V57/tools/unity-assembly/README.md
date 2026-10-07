@@ -31,7 +31,7 @@ Target: Unity 6000.6 (pinned 6000.6.2f1; `package.json` declares the `6000.0` mi
 
 | Method | Does | Output |
 |---|---|---|
-| `RunAll()` | Runs `ApplyImportRules`, `BuildMaterials`, `BuildSkybox`, `BuildUiAtlases`, `BuildAnimators`, `BuildVisualPrefabs`, `BuildLevelScenes` and `WriteReport`, in that order | `Docs/V57/reports/assembly-report.json` |
+| `RunAll()` | Runs `ApplyImportRules`, `BuildMaterials`, `BuildSkybox`, `BuildUiAtlases`, `BuildAnimators`, `BuildVisualPrefabs`, `BuildLevelData`, `BuildLevelScenes` and `WriteReport`, in that order | `Docs/V57/reports/assembly-report.json` |
 | `RunAllForce()` | Same as `RunAll`, but it also rebuilds existing visual prefabs, animator controllers and level scenes (same path and GUID) | same |
 | `RunAllBatch()` | For `-executeMethod`: runs `RunAll`, then exits with **0** when the report has `pass: true`, otherwise **1** | same |
 | `ApplyImportRules()` | Force-reimports `Assets/_Game/Art` and `Assets/_Game/Audio` so the import rules apply, then links each `ANIM_` file to its `SK_` avatar | import log |
@@ -40,6 +40,7 @@ Target: Unity 6000.6 (pinned 6000.6.2f1; `package.json` declares the `6000.0` mi
 | `BuildUiAtlases()` | Builds one atlas per `Art/UI/Sprites/<Id>/` folder at `Art/UI/Atlases/ATL_<Id>.spriteatlas` (`.spriteatlasv2` when the packer mode is V2) | atlases |
 | `BuildAnimators()` | `Data/Animation/AC_<Asset>.controller` per `SK_<Asset>` with `ANIM_<Asset>_*` clips: one state per clip, default = looping idle → first looping → first. No transitions/parameters (gameplay owns them) | controllers |
 | `BuildVisualPrefabs()` | Builds `Prefabs/Visual/<Category>/PRF_<Asset>_Visual.prefab` for manifest assets of type `model`, `character` or `blockout`; rigged models get an Animator (`AC_<Asset>`, model avatar, root motion off) | prefabs |
+| `BuildLevelData()` | Copies each `Docs/Design/LevelData/<LevelId>.json` (index `level_data.json`) verbatim to `Assets/_Game/Data/Levels/<LevelId>.json` (TextAsset for gameplay code); rewritten only when it changed | level data files |
 | `BuildLevelScenes()` | Builds `Assets/_Game/Scenes/SCN_<id>.unity` for each slice scene and each LevelMaps layout scene | scenes, Build Settings |
 | `CaptureHierarchyDiff()` | M2 gate: compares the Edit Mode and Play Mode hierarchies (see below) | `hierarchy-edit.json`, `hierarchy-play.json`, `hierarchy-diff.json` |
 | `WriteReport()` | Scans the created prefabs and scenes for missing references and writes the report | `assembly-report.json` |
@@ -112,9 +113,9 @@ Provider ORM textures are packed R=occlusion, G=roughness, B=metallic. URP Lit r
 - **Rigged models:** the model instance carries an `Animator` with `AC_<Asset>` and the `SK_` avatar (root motion off, culling `CullUpdateTransforms`).
 - **Level scene:**
   - The six root containers `_Environment` (with `_Markers`), `_Gameplay` (with `Spawned`), `_Systems`, `_UI`, `_Cameras` and `_Lighting`.
-  - **LevelMaps layout scene** (`layout` set in `scenes.json`): one Visual prefab instance per `layouts.json` object under `_Environment/<Layer>` (English PascalCase group), named `<Name>_NN`, with the exported position/rotation/scale as-is; non-animated instances are static; objects without model/prefab are skipped and counted in `layout_missing`.
+  - **LevelMaps layout scene** (`layout` set in `scenes.json`): one Visual prefab instance per `layouts.json` object under `_Environment/<Layer>` (English PascalCase group), named `<Name>_NN`, with the exported position/rotation/scale as-is; non-animated instances are static; objects without model/prefab are skipped and counted in `layout_missing`. Layout objects of kind `marker` (`Marker_<Type>_<Id>`) become `V57Marker`s under `_Environment/_Markers` exactly like blockout markers (volume = 1 m cube × the exported scale).
   - **Blockout scene:** the blockout instance under `_Environment`. The visual prefab is used if one exists, otherwise the model.
-  - One `V57Marker` per `Marker_*` node, under `_Environment/_Markers` (typed kind/id and local mesh bounds). `Zone` markers get a trigger `BoxCollider` sized from the marker mesh.
+  - One `V57Marker` per `Marker_*` node, under `_Environment/_Markers` (typed kind/id and local mesh bounds). A marker is a **volume** — trigger `BoxCollider` sized from the marker mesh (layout markers: 1 m cube × scale) — when its kind is `Zone`, `Bounds`, `Exit`, `Kill` or `CameraZone`, when the layout object says `shape: box`, or when a blockout marker of an unknown type has a mesh. Other kinds (`Spawn`, `Camera`, `Checkpoint`, `Patrol`, `Other`) are points. Gameplay code binds markers by name; V57 does not know what a game uses them for.
   - Static dressing under `_Environment/_Dressing`: every `Marker_Spawn_<AssetName>_NN` whose asset has no `serves` (environment / decoration, not a gameplay entity) gets the asset's Visual prefab with the marker's position, rotation and scale. Spawn markers of gameplay entities are left for gameplay code (M1).
   - Cameras under `_Cameras`: one per `Marker_Camera_<ViewId>`, with projection values from `camera.json`. The main camera is the one matching `camera_ref`, otherwise the first; the others are disabled. With no camera markers, a default camera is placed using `camera.json` angle and distance.
   - One directional light; `RenderSettings.skybox` = the first delivered sky material (exposure/rotation/fog are M3 craft).
@@ -144,7 +145,8 @@ Files are read with `JsonUtility` after `JsonPreprocessor` strips `"key": null` 
 
 - `asset_manifest.assets[]`: `asset_id, asset_name, category, type, serves[], files{mesh, textures[], reference}, size_m[3], pivot, side, collision, rig (optional: "humanoid"|"generic"), status, source, animations[{clip, file, loop (bool), events[{name, frame (int)}]}]`. **Intake:** emit `rig` for skinned characters, or everything imports as Generic.
 - `scenes.scenes[]`: `id, purpose, world_owner, systems[], acs[], slice (bool), blockout (asset_id | asset_name | path), layout (LevelMaps level id | null), markers[], camera_ref (view id, Marker_Camera_<Id> or Camera/<Id>.png)`.
-- `layouts.layouts[]` (optional file): `level_id, source, manifest, objects[{name, source_name, asset_id, model (asset path | null), layer, position[3], rotation[4] (x,y,z,w), scale[3]}], materials[{asset_id, name, albedo, normal, metallic_smoothness, base_color[4], metallic, smoothness, alpha_mode, alpha_cutoff, double_sided}]`.
+- `layouts.layouts[]` (optional file): `level_id, source, manifest, objects[{name, kind (model | marker), shape (box | point | null), source_name, asset_id, model (asset path | null), layer, position[3], rotation[4] (x,y,z,w), scale[3]}], materials[{asset_id, name, albedo, normal, metallic_smoothness, base_color[4], metallic, smoothness, alpha_mode, alpha_cutoff, double_sided}]`.
+- `level_data.levels[]` (optional file): `level_id, source (Docs/Design/LevelData/<LevelId>.json), target (Assets/_Game/Data/Levels/<LevelId>.json), contract, keys[]` — the game-specific payload stays in the source file.
 - `package`: `slug, title, version, perspective, physics, platform{targets[], orientation, reference_resolution[], target_fps}, world{…}, slice{scenes[]}`.
 - `ui.screens[]` / `ui.layouts[]`: as in brief §2. `sprites` is a folder name or path under `Art/UI/Sprites`.
 - `camera.views[]`: `id, scene, type (orthographic|perspective), angle_deg, fov_or_size, distance_m, follow (string), notes`.

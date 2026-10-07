@@ -4,7 +4,7 @@ Reference only — the operational rules live in `commands/setup/unity-vertical-
 
 ---
 
-## 1. Provider TDD (TDD Standard 2.0.0) → pipeline
+## 1. Provider TDD (TDD Standard 2.x, `V57/docs/tdd/TDD_Template.md`) → pipeline
 
 Provider TDD path: `Docs/Design/TDD.md`. Intake parses it into `Docs/Generated/json/*.json`; stages read the JSON, and go back to the TDD text only for prose.
 

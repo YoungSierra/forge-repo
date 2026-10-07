@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "level_data",
+  "description": "Index of non-spatial level content from Docs/Design/LevelData/<LevelId>.json (contract level_data/1.x). The game-specific payload stays in the source file; the assembly copies it to target as a TextAsset.",
+  "type": "object",
+  "required": [
+    "levels"
+  ],
+  "properties": {
+    "levels": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "level_id",
+          "source",
+          "target",
+          "contract",
+          "keys"
+        ],
+        "properties": {
+          "level_id": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "target": {
+            "type": "string"
+          },
+          "contract": {
+            "type": "string"
+          },
+          "keys": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}

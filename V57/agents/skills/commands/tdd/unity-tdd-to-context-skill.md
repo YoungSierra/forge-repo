@@ -133,7 +133,7 @@ Add **NetworkSession** row to Modules Overview (Type: System, Status: planned) w
 
 Use quoted strings for unknowns only when the user asked to leave placeholders; prefer concrete values from the TDD.
 
-### Standard TDD sections (provider TDD Standard 2.0.0)
+### Standard TDD sections (provider TDD Standard 2.x — full template `V57/docs/tdd/TDD_Template.md`)
 
 | TDD section | CONTEXT target |
 |-------------|----------------|

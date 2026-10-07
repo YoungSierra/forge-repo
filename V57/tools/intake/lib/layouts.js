@@ -61,6 +61,31 @@ function instanceNames(objects) {
   return picked.map(({ b, key, n }) => `${b}_${String(n).padStart(width.get(key), '0')}`);
 }
 
+/** Level markers (`Marker_<Type>_<Id>`, same contract as BLK_ marker nodes): no model; the scene gets a typed V57Marker. */
+function isMarker(o) {
+  return /^marker$/i.test(String(o.asset_id || '')) || /^Marker_/.test(String(o.nombre || o.name || ''));
+}
+
+/** Marker names keep their id verbatim; only a Blender `.NNN` duplicate suffix becomes `_NN`. */
+function markerName(o, taken) {
+  const raw = String(o.nombre || o.name || 'Marker_Other').trim();
+  const m = raw.match(/^(.*)\.(\d{3,})$/);
+  let name = cleanBase(m ? `${m[1]}_${String(parseInt(m[2], 10)).padStart(2, '0')}` : raw);
+  if (!name.startsWith('Marker_')) name = `Marker_${name}`;
+  let out = name;
+  for (let n = 2; taken.has(out); n++) out = `${name}_${String(n).padStart(2, '0')}`;
+  taken.add(out);
+  return out;
+}
+
+/** Optional marker shape from the export (`shape`/`forma`): `box` = volume (1 m cube × scale), `point` = position only. */
+function markerShape(o) {
+  const v = ascii(o.shape || o.forma || '').toLowerCase();
+  if (/^(box|cube|caja|cubo|volume|volumen)$/.test(v)) return 'box';
+  if (/^(point|punto)$/.test(v)) return 'point';
+  return null;
+}
+
 function readJson(root, rel, issues, code) {
   try { return JSON.parse(fs.readFileSync(path.join(root, rel), 'utf8')); } catch (e) {
     issues.add({ code, level: 'conflict', area: 'design', where: rel, message: `unreadable JSON: ${e.message}`, fix: 'layout ignored; provider must re-export', refs: [rel] });
@@ -121,15 +146,18 @@ function readLayouts(root, inv, issues) {
     const manifest = inv.docs.includes(manifestRel) ? readJson(root, manifestRel, issues, 'LAYOUT_MANIFEST_UNREADABLE') : null;
     const raw = (doc.objetos || doc.objects || []).map((o) => ({ ...o, _layer: englishLayer(o.capa || o.layer).name }));
     const names = instanceNames(raw);
+    const markerNames = new Set();
     const renamedLayers = new Map();
     const missing = new Set();
     const objects = raw.map((o, i) => {
       const src = o.capa || o.layer || '';
       const layer = englishLayer(src);
       if (layer.renamed) renamedLayers.set(src, layer.name);
-      const model = models.get(String(o.asset_id || '').toLowerCase()) || null;
-      if (!model) missing.add(o.asset_id);
-      return { name: names[i], source_name: o.nombre || o.name || null, asset_id: o.asset_id, model, layer: layer.name,
+      const marker = isMarker(o);
+      const model = marker ? null : models.get(String(o.asset_id || '').toLowerCase()) || null;
+      if (!marker && !model) missing.add(o.asset_id);
+      return { name: marker ? markerName(o, markerNames) : names[i], kind: marker ? 'marker' : 'model', shape: marker ? markerShape(o) : null,
+        source_name: o.nombre || o.name || null, asset_id: marker ? 'Marker' : o.asset_id, model, layer: marker ? 'Markers' : layer.name,
         position: (o.position || [0, 0, 0]).slice(0, 3), rotation: (o.rotation || [0, 0, 0, 1]).slice(0, 4), scale: (o.scale || [1, 1, 1]).slice(0, 3) };
     });
     if (renamedLayers.size) {
@@ -147,4 +175,4 @@ function readLayouts(root, inv, issues) {
   return layouts;
 }
 
-module.exports = { readLayouts, englishLayer, splitInstanceName, instanceNames, LAYOUT_RE };
+module.exports = { readLayouts, englishLayer, splitInstanceName, instanceNames, isMarker, markerName, markerShape, LAYOUT_RE };

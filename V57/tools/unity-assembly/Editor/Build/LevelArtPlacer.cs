@@ -8,7 +8,7 @@ using V57.GoldPath;
 namespace V57.Assembly.Build
 {
     /// <summary>
-    /// Puts a scene's level art under <c>_Environment</c>: the LevelMaps layout when the scene has one, else the
+    /// Puts a scene's level art under <c>_Environment</c>: the LevelMaps layout (instances + <c>Marker_*</c> markers) when the scene has one, else the
     /// <c>BLK_</c> blockout with its markers and marker dressing. Without either the scene keeps no level art (no placeholder).
     /// </summary>
     public static class LevelArtPlacer
@@ -32,7 +32,8 @@ namespace V57.Assembly.Build
                     return;
                 }
 
-                AssemblyContext.Counts.layout_instances += LayoutSceneBuilder.Populate(containers.Environment, layout, scene);
+                AssemblyContext.Counts.layout_instances += LayoutSceneBuilder.Populate(containers, layout, scene, entry.id, out int layoutMarkers);
+                AssemblyContext.Counts.markers += layoutMarkers;
                 return;
             }
 

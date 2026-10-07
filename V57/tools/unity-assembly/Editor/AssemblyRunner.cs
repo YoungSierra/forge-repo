@@ -19,7 +19,7 @@ namespace V57.Assembly
         #region Public Methods
 
         /// <summary>ApplyImportRules → BuildMaterials → BuildSkybox → BuildUiAtlases → BuildAnimators → BuildVisualPrefabs →
-        /// BuildLevelScenes → WriteReport. Missing art is never replaced by placeholders: slots stay empty and are reported.</summary>
+        /// BuildLevelData → BuildLevelScenes → WriteReport. Missing art is never replaced by placeholders: slots stay empty and are reported.</summary>
         public static void RunAll()
         {
             AssemblyContext.Reset();
@@ -31,6 +31,7 @@ namespace V57.Assembly
             RunStep("BuildUiAtlases", AtlasBuilder.BuildAll);
             RunStep("BuildAnimators", AnimatorControllerBuilder.BuildAll);
             RunStep("BuildVisualPrefabs", VisualPrefabBuilder.BuildAll);
+            RunStep("BuildLevelData", LevelDataBuilder.BuildAll);
             RunStep("BuildLevelScenes", LevelSceneBuilder.BuildAll);
             WriteReport();
         }
@@ -77,6 +78,8 @@ namespace V57.Assembly
         public static void BuildAnimators() => RunSingle("BuildAnimators", AnimatorControllerBuilder.BuildAll);
 
         public static void BuildVisualPrefabs() => RunSingle("BuildVisualPrefabs", VisualPrefabBuilder.BuildAll);
+
+        public static void BuildLevelData() => RunSingle("BuildLevelData", LevelDataBuilder.BuildAll);
 
         public static void BuildLevelScenes() => RunSingle("BuildLevelScenes", LevelSceneBuilder.BuildAll);
 

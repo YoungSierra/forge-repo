@@ -14,6 +14,7 @@ const DOC_RULES = [
   /^Docs\/Design\/TDD\.md$/,
   /^Docs\/Design\/LevelMaps\/[^/]+\.(png|jpe?g)$/i,
   /^Docs\/Design\/LevelMaps\/[^/]+\/(unity_scene|manifest)\.json$/i,
+  /^Docs\/Design\/LevelData\/[^/]+\.json$/i,
   /^Docs\/Design\/Encounters\/[^/]+\.csv$/i,
   /^Docs\/ArtDirection\/(ArtDirectionDocument|VisualProductionBlueprint)\.md$/,
   /^Docs\/ArtDirection\/ADI\/ADI_11\.\d+_[^/]+\.md$/,

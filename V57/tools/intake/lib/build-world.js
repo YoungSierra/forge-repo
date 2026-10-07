@@ -129,9 +129,22 @@ function buildScenes(ctx) {
         message: 'no scene_manifest entry with slice: true matches a TDD scene', fix: `slice scene inferred as ${pick.id} (first gameplay scene of §13.2)`, refs: [pick.id] });
     }
   }
+  const unmatched = [];
   for (const l of ctx.layouts || []) {
     const hit = scenes.find((s) => norm(levelOf(s.id) || s.id) === norm(l.level_id));
-    if (hit) { hit.layout = l.level_id; continue; }
+    if (hit) hit.layout = l.level_id;
+    else unmatched.push(l);
+  }
+  // The TDD names levels by role, not by delivery folder: one unmatched layout + one gameplay scene without
+  // layout is an unambiguous pair, so a renamed or new map never requires a TDD amendment.
+  const free = scenes.filter((s) => /^gameplay/i.test(s.purpose) && !s.layout);
+  if (unmatched.length === 1 && free.length === 1) {
+    const l = unmatched.pop();
+    free[0].layout = l.level_id;
+    issues.add({ code: 'LAYOUT_LINKED_BY_ROLE', level: 'fixable', area: 'cross', where: l.source,
+      message: `layout ${l.level_id} has no TDD scene SCN_${l.level_id}*`, fix: `linked to the only gameplay scene ${free[0].id}`, refs: [l.source, free[0].id] });
+  }
+  for (const l of unmatched) {
     scenes.push({ id: `SCN_${l.level_id}`, purpose: 'layout (level art from LevelMaps)', world_owner: null, systems: [], acs: [], slice: false, blockout: null, layout: l.level_id, markers: [], camera_ref: null });
     issues.add({ code: 'LAYOUT_SCENE_ADDED', level: 'fixable', area: 'cross', where: l.source,
       message: `layout ${l.level_id} matches no TDD §13.2 scene`, fix: `scene SCN_${l.level_id} built from the layout (not slice); map it to a TDD scene id in the next delivery`, refs: [l.source] });

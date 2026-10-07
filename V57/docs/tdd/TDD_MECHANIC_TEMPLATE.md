@@ -1,6 +1,6 @@
 # TDD mechanic template (spec-ready)
 
-Reference for the `## Mechanic:` blocks inside a provider TDD (TDD Standard 2.0.0, §B). V57 only reads these blocks — the TDD is provider-owned and never edited by V57. Run `/tdd-to-spec` per `V57/agents/skills/commands/tdd/unity-tdd-to-spec-skill.md`: one mechanic by name, or `--all` for every mechanic in the TDD.
+Reference for the `## Mechanic:` blocks inside a provider TDD (TDD Standard 2.x, §B — full template `TDD_Template.md`). V57 only reads these blocks — the TDD is provider-owned and never edited by V57. Run `/tdd-to-spec` per `V57/agents/skills/commands/tdd/unity-tdd-to-spec-skill.md`: one mechanic by name, or `--all` for every mechanic in the TDD.
 
 Aligned with:
 
@@ -114,7 +114,7 @@ Each bullet should be concrete enough to become a test or guard in the spec.
 
 - **Performance / budgets:** <if any>
 - **Suggested tests (EditMode / PlayMode):** paths optional; **coverage targets** required (method names or behaviors).
-- **Milestones:** ordered phases with **tasks** (maps to `implementation.milestones`); mark draft status if unknown.
+- **Milestones:** *(optional — not part of TDD Standard 2.1 §B; execution order is the consumer's decision)* ordered phases with **tasks** (maps to `implementation.milestones`); when absent, the consumer derives them.
 
 ### Acceptance criteria (testable)
 

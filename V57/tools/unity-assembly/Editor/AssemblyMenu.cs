@@ -31,7 +31,10 @@ namespace V57.Assembly
         [MenuItem(Root + "Steps/Build Visual Prefabs", priority = 25)]
         private static void BuildVisualPrefabs() => AssemblyRunner.BuildVisualPrefabs();
 
-        [MenuItem(Root + "Steps/Build Level Scenes", priority = 26)]
+        [MenuItem(Root + "Steps/Build Level Data", priority = 26)]
+        private static void BuildLevelData() => AssemblyRunner.BuildLevelData();
+
+        [MenuItem(Root + "Steps/Build Level Scenes", priority = 27)]
         private static void BuildLevelScenes() => AssemblyRunner.BuildLevelScenes();
 
         [MenuItem(Root + "Capture Hierarchy Diff", priority = 40)]

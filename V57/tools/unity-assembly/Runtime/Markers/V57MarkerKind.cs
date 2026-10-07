@@ -9,6 +9,11 @@ namespace V57.GoldPath
         Camera,
         Checkpoint,
         Patrol,
-        Other
+        Other,
+
+        // Appended (serialized values of the kinds above stay stable).
+        Exit,
+        Kill,
+        CameraZone
     }
 }

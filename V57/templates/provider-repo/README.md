@@ -13,7 +13,7 @@ Este repositorio sigue el **Contrato de entrada V57**. El proveedor llena las ca
 
 | Carpeta | Contenido |
 | --- | --- |
-| `Docs/Design/` | `TDD.md`, `LevelMaps/<LevelId>.png`, `LevelMaps/<LevelId>/unity_scene.json` + `manifest.json` (layout exportado desde Blender, opcional), `Encounters/<LevelId>.csv` |
+| `Docs/Design/` | `TDD.md`, `LevelMaps/<LevelId>.png`, `LevelMaps/<LevelId>/unity_scene.json` + `manifest.json` (layout exportado desde Blender, opcional), `LevelData/<LevelId>.json` (datos de nivel no espaciales, opcional), `Encounters/<LevelId>.csv` |
 | `Docs/ArtDirection/` | `ArtDirectionDocument.md` (ADD completo con campos V57), `VisualProductionBlueprint.md`, `ADI/ADI_11.x_*.md`, `Reference/ref<N>_<Slug>.png`, `Concept/`, `UIMockups/<ScreenId>.png`, `Camera/<ViewId>.png`, `VFXReference/<AssetName>.mp4`, `AnimationPreviews/` |
 | `Docs/Audio/` | `AudioParameters.md` (mapa de eventos y parámetros) |
 | `Docs/Marketing/` | Arte de marketing (fuera del vertical slice) |
@@ -51,6 +51,30 @@ Inglés, sin espacios ni acentos, mayúscula inicial por palabra: `<Prefijo>_<As
 - `asset_id` = nombre del FBX entregado (sin extensión); si un asset se reemplaza (por ejemplo un estático por su versión `SK_` animada), el JSON se vuelve a exportar con el nuevo `asset_id`.
 - `capa` en inglés y PascalCase (`Structure`, `Dressing`, `Ocean`, `Gameplay`, `Events`). V57 traduce los nombres comunes en español, pero lo reporta.
 - Los nombres de instancia pueden venir como `Nombre.001`; V57 los normaliza a `Nombre_01` en la escena.
+
+### Marcadores de nivel (en el layout JSON o dentro del `BLK_`)
+
+Los puntos y zonas que el juego necesita (aparición del jugador, zonas, salidas, caídas, cámaras, rutas) se entregan como **empties de Blender** con nombre `Marker_<Tipo>_<Id>`. No llevan malla ni textura. **Qué marcadores necesita cada juego lo dice la tabla "Level contract" de la §6 de su TDD**; los tipos que V57 reconoce son:
+
+| Tipo | Forma | Uso típico |
+|---|---|---|
+| `Spawn`, `Checkpoint`, `Patrol`, `Camera` | punto (Empty › Plain Axes) | aparición, punto de control, fin de una ruta de patrulla, cámara fija |
+| `Zone`, `Bounds`, `Exit`, `Kill`, `CameraZone` | caja (Empty › Cube, *Display Size* `0.5`) | zona de juego, límites, salida, volumen de caída, zona de cámara |
+| cualquier otro nombre | punto, o caja si se exporta `"shape": "box"` | lo que el TDD del juego defina |
+
+- Tamaño de una caja = **escala** del empty en metros (con *Display Size* `0.5` el cubo visible en Blender mide exactamente eso). La rotación se respeta (en `CameraZone` el giro en Y es la dirección de la cámara).
+- En `unity_scene.json` el export los escribe como un objeto más: `"nombre": "Marker_Kill_01"`, `"asset_id": "Marker"`, `capa`, `position`, `rotation`, `scale` y, opcional, `"shape": "box"` o `"point"`.
+- Nombres únicos; si Blender agrega `.001`, V57 lo convierte en `_01`.
+
+### Datos de nivel no espaciales (tableros, oleadas, puzzles)
+
+Cuando un nivel es datos y no geometría (por ejemplo un tablero de match-3), se entrega un JSON por nivel en `Docs/Design/LevelData/<LevelId>.json`:
+
+```json
+{ "contract": "level_data/1.0", "level_id": "Level_01", "data": { "...": "campos definidos en la §6 del TDD" } }
+```
+
+`data` lleva exactamente los campos y rangos que pide la tabla "Level contract" del TDD. V57 lo copia al proyecto tal cual; nunca inventa niveles.
 
 ### Texturas exportadas desde Blender
 

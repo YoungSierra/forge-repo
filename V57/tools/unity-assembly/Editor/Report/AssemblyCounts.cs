@@ -17,6 +17,7 @@ namespace V57.Assembly.Report
         public int scenes;
         public int layout_instances;
         public int layout_missing;
+        public int level_data;
         public int markers;
         public int dressed;
         public int skipped_existing;

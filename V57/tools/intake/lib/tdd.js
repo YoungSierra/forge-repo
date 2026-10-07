@@ -1,5 +1,5 @@
 'use strict';
-// Provider TDD ("TDD Standard 2.0.0") parser. Section-keyed, tolerant: every missing
+// Provider TDD ("TDD Standard 2.x", V57/docs/tdd/TDD_Template.md) parser. Section-keyed, tolerant: every missing
 // section is recorded in `found` and reported by the caller, never thrown.
 const YAML = require('yaml');
 const { splitSections, findSection, parseTables, cell, splitList, stripMd, extractFences, isEmptyValue } = require('./md');

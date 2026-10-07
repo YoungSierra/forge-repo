@@ -12,6 +12,8 @@ namespace V57.Assembly.Build
     /// reimports flow through, sockets/markers kept), LODGroup, colliders, size/pivot validation. No gameplay scripts.
     /// Rigged models get an Animator bound to <c>AC_&lt;Asset&gt;</c> (<see cref="AnimatorBinder"/>).
     /// Existing prefabs are kept unless <see cref="AssemblyOptions.Force"/>. Assets without a model get no prefab (no placeholder).
+    /// Finally nests each Visual prefab into its gameplay prefab <c>PRF_&lt;Asset&gt;</c> when that exists without it
+    /// (<see cref="GameplayPrefabLinker"/>), so art delivered after the system appears without manual work.
     /// </summary>
     public static class VisualPrefabBuilder
     {
@@ -55,6 +57,8 @@ namespace V57.Assembly.Build
 
                 Build(entry, modelPath, prefabPath);
             }
+
+            GameplayPrefabLinker.LinkAll();
         }
 
         #endregion

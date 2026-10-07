@@ -83,6 +83,9 @@ namespace V57.Assembly
 
         public static void BuildLevelScenes() => RunSingle("BuildLevelScenes", LevelSceneBuilder.BuildAll);
 
+        /// <summary>New/changed level delivery: replaces only <c>_Environment</c> + <c>_Gameplay/Level</c> in existing level scenes.</summary>
+        public static void RebuildLevelContent() => RunSingle("RebuildLevelContent", LevelSceneBuilder.RebuildContentAll);
+
         /// <summary>
         /// M2 gate. Edit Mode: snapshots the active scene, enters Play Mode, and after a few seconds writes
         /// <c>Docs/V57/reports/hierarchy-diff.json</c> and exits Play Mode (asynchronous — poll the file).

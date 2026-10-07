@@ -15,6 +15,7 @@ namespace V57.Assembly
         public const string UiSpritesRoot = "Assets/_Game/Art/UI/Sprites";
         public const string AtlasRoot = "Assets/_Game/Art/UI/Atlases";
         public const string VisualPrefabRoot = "Assets/_Game/Prefabs/Visual";
+        public const string GameplayPrefabRoot = "Assets/_Game/Prefabs/Gameplay";
         public const string AnimationRoot = "Assets/_Game/Data/Animation";
         public const string SkyRoot = "Assets/_Game/Art/Environment/Sky";
         public const string LevelDataRoot = "Assets/_Game/Data/Levels";

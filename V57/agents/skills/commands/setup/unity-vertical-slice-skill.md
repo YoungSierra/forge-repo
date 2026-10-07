@@ -213,3 +213,7 @@ Preceded by the single line `HARD-STOP: <reason>`.
 ---
 
 *Last updated: 2026-09-28*
+
+## New or changed map (after implementation)
+
+A new LevelMaps layout or `BLK_` for an existing level is **not** a re-implementation: run intake, then `AssemblyRunner.RunAll()` (new art) and `AssemblyRunner.RebuildLevelContent()` (replaces `_Environment` + `_Gameplay/Level` only; gameplay prefabs are placed automatically), then re-run the gold path and M4 acceptance. If the map breaks a TDD §6 level rule or misses a level-contract element, report it to the provider — never patch it in gameplay code.

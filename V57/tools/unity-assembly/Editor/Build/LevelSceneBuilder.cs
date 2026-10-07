@@ -22,6 +22,7 @@ namespace V57.Assembly.Build
         #region Fields
 
         private const string Step = "BuildLevelScenes";
+        private const string RebuildStep = "RebuildLevelContent";
 
         #endregion
 
@@ -59,9 +60,80 @@ namespace V57.Assembly.Build
             }
         }
 
+        /// <summary>
+        /// New or changed level delivery: in each existing level scene, replaces only the level content (everything under
+        /// <c>_Environment</c> and <c>_Gameplay/Level</c>) from the current layout or blockout. The player, systems, UI,
+        /// cameras and lighting placed during implementation are kept. Scenes that do not exist yet are built normally.
+        /// </summary>
+        public static void RebuildContentAll()
+        {
+            ScenesDto scenes = GeneratedData.Scenes;
+            if (scenes?.scenes == null || scenes.scenes.Length == 0)
+            {
+                AssemblyContext.Error(RebuildStep, "scenes.json missing or empty");
+                return;
+            }
+
+            if (EditorApplication.isPlayingOrWillChangePlaymode || HasDirtyScene())
+            {
+                AssemblyContext.Error(RebuildStep, "Editor is in Play Mode or has unsaved scenes; save/stop first (nothing was changed)");
+                return;
+            }
+
+            SceneSetup[] previous = EditorSceneManager.GetSceneManagerSetup();
+            try
+            {
+                foreach (SceneEntryDto entry in SelectSliceScenes(scenes.scenes))
+                {
+                    string path = V57SceneNaming.ToScenePath(entry.id);
+                    if (!VisualPrefabPaths.Exists(path))
+                    {
+                        BuildScene(entry);
+                        continue;
+                    }
+
+                    RebuildContent(entry, path);
+                }
+            }
+            finally
+            {
+                if (previous.Length > 0 && System.Array.TrueForAll(previous, setup => !string.IsNullOrEmpty(setup.path)))
+                {
+                    EditorSceneManager.RestoreSceneManagerSetup(previous);
+                }
+            }
+        }
+
         #endregion
 
         #region Private Methods
+
+        private static void RebuildContent(SceneEntryDto entry, string path)
+        {
+            Scene scene = EditorSceneManager.OpenScene(path, OpenSceneMode.Single);
+            SceneContainers containers = SceneContainers.FromScene(scene);
+            int removed = containers.ClearLevelContent();
+            AssemblyOptions.LevelContentOnly = true;
+            try
+            {
+                LevelArtPlacer.Place(entry, containers, scene);
+            }
+            finally
+            {
+                AssemblyOptions.LevelContentOnly = false;
+            }
+
+            EditorSceneManager.MarkSceneDirty(scene);
+            if (!EditorSceneManager.SaveScene(scene, path))
+            {
+                AssemblyContext.Error(RebuildStep, $"{path}: SaveScene failed");
+                return;
+            }
+
+            AssemblyContext.Counts.scenes++;
+            AssemblyContext.TrackAsset(path);
+            Debug.Log($"V57.Assembly: {path} level content rebuilt ({removed} old objects replaced; gameplay setup kept)");
+        }
 
         private static List<SceneEntryDto> SelectSliceScenes(SceneEntryDto[] all)
         {

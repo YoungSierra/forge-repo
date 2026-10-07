@@ -37,6 +37,9 @@ namespace V57.Assembly
         [MenuItem(Root + "Steps/Build Level Scenes", priority = 27)]
         private static void BuildLevelScenes() => AssemblyRunner.BuildLevelScenes();
 
+        [MenuItem(Root + "Steps/Rebuild Level Content (new map)", priority = 28)]
+        private static void RebuildLevelContent() => AssemblyRunner.RebuildLevelContent();
+
         [MenuItem(Root + "Capture Hierarchy Diff", priority = 40)]
         private static void CaptureHierarchyDiff() => AssemblyRunner.CaptureHierarchyDiff();
 

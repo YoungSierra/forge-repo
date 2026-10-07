@@ -58,7 +58,7 @@ namespace V57.Assembly.Build
             {
                 AddVolumeTrigger(markerObject, local, sceneId);
             }
-            else if (kind == V57MarkerKind.Camera)
+            else if (kind == V57MarkerKind.Camera && !AssemblyOptions.LevelContentOnly)
             {
                 CameraPlacement.Create(containers.Cameras, markerObject.transform, id, sceneId);
             }

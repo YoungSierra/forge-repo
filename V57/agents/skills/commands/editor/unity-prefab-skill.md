@@ -24,6 +24,8 @@ Rules:
 2. Override only what gameplay needs (components, layer, tag, collider trigger flags); document overrides in the report.
 3. If the Visual prefab is wrong (scale, pivot, mirrored side), fix it at import (import rule or manifest mapping, logged `D-###`) — not with variant transform overrides or runtime code.
 4. One Gameplay prefab per `asset_manifest` asset that has behaviour (`entities.json → asset_id`).
+5. **Art not delivered yet:** create `PRF_<Asset>.prefab` as a plain prefab with the behaviour only (slot listed in `MISSING_ASSETS.md`). When the art arrives, I2 builds `PRF_<Asset>_Visual` and nests it into the existing gameplay prefab automatically (`GameplayPrefabLinker`) — never rebuild the gameplay prefab by hand.
+6. Level deliveries place the gameplay prefab, not the Visual: an asset with `PRF_<Asset>` in a LevelMaps layout is instantiated under `_Gameplay/Level/<Layer>`; without one, its Visual goes under `_Environment/<Layer>`.
 
 ---
 

@@ -4,10 +4,10 @@
   "mode": "VerticalSlice",
   "branch": "v57/setup",
   "engine_pin": "6000.6.2f1",
-  "stage": "I2",
+  "stage": "M1",
   "stage_state": "running",
   "status": "running",
-  "next": "I2 assembly",
+  "next": "M1 plan, context, specs, greybox gold path",
   "next_spec": null,
   "hard_stop": null,
   "gates": {
@@ -22,9 +22,9 @@
       "at_utc": "2026-10-07T23:48:11Z"
     },
     "I2": {
-      "state": "pending",
-      "evidence": null,
-      "at_utc": null
+      "state": "passed",
+      "evidence": "Docs/V57/reports/assembly-report.json",
+      "at_utc": "2026-10-07T23:54:10Z"
     },
     "M1": {
       "state": "pending",
@@ -70,11 +70,11 @@
     "pass": null,
     "checks_path": null
   },
-  "last_green_commit": null,
+  "last_green_commit": "c9b10b2",
   "last_decision": null,
   "status_word": "implemented",
   "blockers": [],
-  "updated_utc": "2026-10-07T23:48:11Z",
+  "updated_utc": "2026-10-07T23:54:12Z",
   "_notes": {
     "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
     "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",

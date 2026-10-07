@@ -56,10 +56,11 @@ namespace V57.Assembly.Import
             }
 
             AnimationEntryDto manifest = ManifestLookup.FindAnimation(assetPath);
+            bool? exportLoop = manifest == null ? CharacterExportLookup.FindLoop(assetPath) : null;
             int eventCount = 0;
             foreach (ModelImporterClipAnimation clip in clips)
             {
-                clip.loopTime = manifest != null ? manifest.loop : LooksLooping(clip.name);
+                clip.loopTime = manifest != null ? manifest.loop : exportLoop ?? LooksLooping(clip.name);
                 if (manifest?.events != null && manifest.events.Length > 0)
                 {
                     clip.events = BuildEvents(manifest.events, clip);
@@ -68,7 +69,7 @@ namespace V57.Assembly.Import
             }
 
             importer.clipAnimations = clips;
-            string source = manifest != null ? "manifest" : "name heuristic";
+            string source = manifest != null ? "manifest" : exportLoop.HasValue ? "export sidecar" : "name heuristic";
             ImportLog.Record(assetPath, "animation", $"clips={clips.Length} loop from {source} events={eventCount} receiver={AnimationEventReceiver}(string)");
         }
 
@@ -91,7 +92,10 @@ namespace V57.Assembly.Import
                 bool humanoid = ManifestLookup.IsHumanoid(assetName);
                 importer.animationType = humanoid ? ModelImporterAnimationType.Human : ModelImporterAnimationType.Generic;
                 importer.importAnimation = true;
-                return (humanoid ? "Humanoid" : "Generic") + $" (as SK_{assetName}, clip {clip}; avatar linked by ApplyImportRules)";
+                // Armature-only exports have a single root node; Unity would collapse it and the curves would lose the
+                // "<Rig>/" path prefix the SK_ hierarchy has, so Generic clips would not bind (and would rotate the root).
+                importer.preserveHierarchy = true;
+                return (humanoid ? "Humanoid" : "Generic") + $" (as SK_{assetName}, clip {clip}, hierarchy preserved; avatar linked by ApplyImportRules)";
             }
 
             if (stem.StartsWith("SM_", StringComparison.Ordinal) || stem.StartsWith("BLK_", StringComparison.Ordinal))

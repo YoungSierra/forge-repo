@@ -31,6 +31,8 @@ test('proseTypos: PREFECT and G0OD vs frequent tokens', () => {
 test('naming: good names pass, bad names get suggestions', () => {
   assert.deepEqual(checkFile('Assets/_Game/Art/Props/Bumpers/Koala/Meshes/SM_Koala.fbx').problems, []);
   assert.deepEqual(checkFile('Assets/_Game/Art/UI/Sprites/UI_LeafArcMeter/SPR_UI_LeafArcMeter_Fill_9s-12.png').problems, []);
+  assert.deepEqual(checkFile('Assets/_Game/Art/Characters/Professor/Professor_export.json').problems, []);
+  assert.equal(checkFile('Assets/_Game/Art/Characters/Professor/Other_export.json').problems[0].kind, 'folder');
   const tex = checkFile('Assets/_Game/Art/Characters/Carton/Textures/carton_albedo.png').problems;
   assert.equal(tex[0].suggestion, 'T_Carton_BC.png');
   const blk = checkFile('Assets/_Game/Art/Environment/Blockout/WoodlandPond/blk_woodland.fbx').problems;

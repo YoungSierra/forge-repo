@@ -73,7 +73,7 @@ Every decision is written as one JSON line to `Library/V57/import-log.jsonl`, an
 | Models | `globalScale 1`, `useFileScale`, no cameras or lights, `addCollider off`, materials `ImportViaMaterialDescription` kept **in the model** (not extracted). V57 builds `MAT_<Asset>` and remaps to it. `isReadable` is on only when the manifest says `collision: exact` |
 | `SM_*`, `BLK_*` | `animationType None`, no animation import |
 | `SK_*` | `Human` when the manifest says `rig: "humanoid"`, otherwise `Generic` |
-| `ANIM_<Asset>_<Clip>` | Same type as `SK_<Asset>`. Its avatar is copied from `SK_<Asset>` by `ApplyImportRules`. `loopTime` comes from `animations[].loop`, or a name heuristic (idle/walk/run/loop/cycle) when no manifest entry exists. Events from `animations[].events` call `OnV57AnimationEvent(string name)` |
+| `ANIM_<Asset>_<Clip>` | Same type as `SK_<Asset>`. `preserveHierarchy` on, so curves keep the `<Rig>/` path of the `SK_` hierarchy (armature-only exports have a single root node). Its avatar is copied from `SK_<Asset>` by `ApplyImportRules`. `loopTime` comes from `animations[].loop`, else from the provider sidecar `Characters/<Asset>/<Asset>_export.json` (`clips[].file` / `loop`), else a name heuristic (idle/walk/run/loop/cycle). Events from `animations[].events` call `OnV57AnimationEvent(string name)` |
 | `UCX_*` nodes | Convex `MeshCollider` from the node's own mesh; renderer disabled |
 | `Marker_*`, `Socket_*` nodes | Kept, with renderers disabled |
 | `T_*_N` | NormalMap |

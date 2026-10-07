@@ -24,7 +24,7 @@ Este repositorio sigue el **Contrato de entrada V57**. El proveedor llena las ca
 | `Assets/_Game/Art/Environment/Decoration/<AssetId>/` | Adornos sin interacción: `Meshes/`, `Textures/` |
 | `Assets/_Game/Art/Environment/Sky/` | Cielo o fondo (`.hdr`, `.exr`, `.png`) |
 | `Assets/_Game/Art/Props/<Category>/<AssetId>/` | Objetos jugables, uno por carpeta: `Meshes/`, `Textures/` |
-| `Assets/_Game/Art/Characters/<CharacterId>/` | `Meshes/SK_*.fbx`, `Animations/ANIM_*.fbx`, `Textures/` |
+| `Assets/_Game/Art/Characters/<CharacterId>/` | `Meshes/SK_*.fbx`, `Animations/ANIM_*.fbx`, `Textures/`, opcional `<CharacterId>_export.json` (clips y loops del script de export) |
 | `Assets/_Game/Art/Shared/Textures/` | Texturas repetibles (suelo, pasto, piedra) |
 | `Assets/_Game/Art/UI/Sprites/<ScreenId>/` | Cada elemento de la pantalla en un PNG individual |
 | `Assets/_Game/Art/UI/Icons/`, `Fonts/` | Íconos generales; fuentes `.ttf` / `.otf` con licencia |
@@ -68,5 +68,6 @@ La guía completa está en la **Guía de entrega V57 para el proveedor**.
 - [ ] Ningún `[DRAFT]` ni `[PENDING]` pendiente; IDs idénticos en todos los documentos.
 - [ ] Cada entidad, pantalla, evento de sonido y nivel tiene su asset, o figura como `provisorio`.
 - [ ] Modelos en metros, transformaciones aplicadas, pivote funcional, sin cámaras ni luces.
+- [ ] FBX exportados con: Apply Scalings **FBX All**, Apply Unit, Forward **-Z**, Up **Y**, Apply Transform desactivado. `SK_`: Armature + Mesh, Only Deform Bones, sin Add Leaf Bones, sin animación. `ANIM_`: solo Armature (mismo esqueleto que el `SK_`), Bake Animation, sin NLA Strips ni All Actions (una acción por archivo). El −90° en X que Blender deja dentro del rig es esperado.
 - [ ] Un mockup por pantalla y al menos una imagen de referencia por área del juego.
 - [ ] `Docs/LICENSES.md` cubre todo recurso externo o generado.

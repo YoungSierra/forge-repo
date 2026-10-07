@@ -56,6 +56,7 @@ function classify(rel) {
   if (a1 === 'Environment' && (a2 === 'Kits' || a2 === 'Decoration')) return byKind(at(6), a3);
   if (a1 === 'Environment' && a2 === 'Sky') return r('texture', 'Sky', null, false);
   if (a1 === 'Props') return byKind(at(6), a3);
+  if (a1 === 'Characters' && seg.length === 6 && file === `${a2}_export.json`) return r('sidecar', a2, null);
   if (a1 === 'Characters') return byKind(at(5), a2, true);
   if (a1 === 'Shared') return r('texture', null, 'T_', false);
   if (a1 === 'UI' && a2 === 'Sprites') return r('sprite', a3, 'SPR_');
@@ -73,7 +74,7 @@ function classify(rel) {
 }
 
 function expectedExt(type) {
-  return { blockout: MESH, model: MESH, character: MESH, animation: MESH, texture: IMAGE, sprite: IMAGE, vfx: IMAGE, font: FONT, music: AUDIO, sfx: AUDIO, ambience: AUDIO, voice: AUDIO }[type] || null;
+  return { blockout: MESH, model: MESH, character: MESH, animation: MESH, texture: IMAGE, sprite: IMAGE, vfx: IMAGE, font: FONT, sidecar: /\.json$/i, music: AUDIO, sfx: AUDIO, ambience: AUDIO, voice: AUDIO }[type] || null;
 }
 
 /** Deterministic rename suggestion or null. */

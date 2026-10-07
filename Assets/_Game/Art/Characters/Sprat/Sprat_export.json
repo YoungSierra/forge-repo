@@ -1,0 +1,142 @@
+{
+  "character": "Sprat",
+  "exported": "2026-10-07T11:20:34",
+  "blend": "Sprat_Rigged_ExportCH.blend",
+  "armature": "Sprat_Rig",
+  "skeleton": "8254f9c4337d",
+  "root": {
+    "rot_deg": [
+      -90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "fix": "none"
+  },
+  "sk": {
+    "file": "SK_Sprat.fbx",
+    "bytes": 580748,
+    "meshes": [
+      "Sprat"
+    ],
+    "verts": 9191
+  },
+  "clips": [
+    {
+      "name": "Idle",
+      "file": "ANIM_Sprat_Idle.fbx",
+      "frames": [
+        1,
+        49
+      ],
+      "loop": true,
+      "curves": 243,
+      "bytes": 264396
+    },
+    {
+      "name": "Excited",
+      "file": "ANIM_Sprat_Excited.fbx",
+      "frames": [
+        1,
+        25
+      ],
+      "loop": true,
+      "curves": 243,
+      "bytes": 225900
+    },
+    {
+      "name": "Spin",
+      "file": "ANIM_Sprat_Spin.fbx",
+      "frames": [
+        1,
+        30
+      ],
+      "loop": false,
+      "curves": 243,
+      "bytes": 238284
+    },
+    {
+      "name": "Freeze",
+      "file": "ANIM_Sprat_Freeze.fbx",
+      "frames": [
+        1,
+        97
+      ],
+      "loop": false,
+      "curves": 243,
+      "bytes": 311580
+    },
+    {
+      "name": "Hazard",
+      "file": "ANIM_Sprat_Hazard.fbx",
+      "frames": [
+        1,
+        13
+      ],
+      "loop": false,
+      "curves": 243,
+      "bytes": 199164
+    }
+  ],
+  "checks": {
+    "R1": "ok",
+    "R2": "warn",
+    "R3": "ok",
+    "R4": "ok",
+    "R5": "ok"
+  },
+  "settings": {
+    "FBX_SK": {
+      "use_selection": true,
+      "use_armature_deform_only": true,
+      "add_leaf_bones": false,
+      "primary_bone_axis": "Y",
+      "secondary_bone_axis": "X",
+      "axis_forward": "-Z",
+      "axis_up": "Y",
+      "apply_unit_scale": true,
+      "apply_scale_options": "FBX_SCALE_ALL",
+      "bake_space_transform": false,
+      "armature_nodetype": "NULL",
+      "use_custom_props": false,
+      "object_types": [
+        "ARMATURE",
+        "MESH"
+      ],
+      "use_mesh_modifiers": false,
+      "mesh_smooth_type": "FACE",
+      "path_mode": "AUTO",
+      "embed_textures": false,
+      "bake_anim": false
+    },
+    "FBX_ANIM": {
+      "use_selection": true,
+      "use_armature_deform_only": true,
+      "add_leaf_bones": false,
+      "primary_bone_axis": "Y",
+      "secondary_bone_axis": "X",
+      "axis_forward": "-Z",
+      "axis_up": "Y",
+      "apply_unit_scale": true,
+      "apply_scale_options": "FBX_SCALE_ALL",
+      "bake_space_transform": false,
+      "armature_nodetype": "NULL",
+      "use_custom_props": false,
+      "object_types": [
+        "ARMATURE"
+      ],
+      "bake_anim": true,
+      "bake_anim_use_all_bones": true,
+      "bake_anim_force_startend_keying": true,
+      "bake_anim_step": 1.0,
+      "bake_anim_simplify_factor": 0.0,
+      "bake_anim_use_nla_strips": false,
+      "bake_anim_use_all_actions": false
+    }
+  },
+  "skeleton_order": "bdb37fec2d24"
+}

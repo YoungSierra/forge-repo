@@ -1,0 +1,208 @@
+{
+  "character": "Fly",
+  "exported": "2026-10-06T22:48:11",
+  "blend": "Fly_Rigged.blend",
+  "armature": "Fly_Rig",
+  "skeleton": "4ef8791c0d30",
+  "root": {
+    "rot_deg": [
+      -90.0,
+      0.0,
+      0.0
+    ],
+    "scale": [
+      1.0,
+      1.0,
+      1.0
+    ],
+    "fix": "none"
+  },
+  "sk": {
+    "file": "SK_Fly.fbx",
+    "bytes": 535308,
+    "meshes": [
+      "Fly"
+    ],
+    "verts": 7600
+  },
+  "clips": [
+    {
+      "name": "HoverIdle",
+      "file": "ANIM_Fly_HoverIdle.fbx",
+      "frames": [
+        1,
+        49
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 281788
+    },
+    {
+      "name": "HangIdle",
+      "file": "ANIM_Fly_HangIdle.fbx",
+      "frames": [
+        1,
+        73
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 327260
+    },
+    {
+      "name": "LazyCircleDrift",
+      "file": "ANIM_Fly_LazyCircleDrift.fbx",
+      "frames": [
+        1,
+        97
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 368732
+    },
+    {
+      "name": "LazyCircleDriftInPlace",
+      "file": "ANIM_Fly_LazyCircleDriftInPlace.fbx",
+      "frames": [
+        1,
+        97
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 358988
+    },
+    {
+      "name": "CruiseFlight",
+      "file": "ANIM_Fly_CruiseFlight.fbx",
+      "frames": [
+        1,
+        25
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 241852
+    },
+    {
+      "name": "PopOut",
+      "file": "ANIM_Fly_PopOut.fbx",
+      "frames": [
+        1,
+        6
+      ],
+      "loop": false,
+      "curves": 261,
+      "bytes": 191180
+    },
+    {
+      "name": "FixedGazeHover",
+      "file": "ANIM_Fly_FixedGazeHover.fbx",
+      "frames": [
+        1,
+        49
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 277596
+    },
+    {
+      "name": "AscentBurst",
+      "file": "ANIM_Fly_AscentBurst.fbx",
+      "frames": [
+        1,
+        18
+      ],
+      "loop": false,
+      "curves": 261,
+      "bytes": 223052
+    },
+    {
+      "name": "AscentBurstInPlace",
+      "file": "ANIM_Fly_AscentBurstInPlace.fbx",
+      "frames": [
+        1,
+        18
+      ],
+      "loop": false,
+      "curves": 261,
+      "bytes": 223100
+    },
+    {
+      "name": "OrbitLoop",
+      "file": "ANIM_Fly_OrbitLoop.fbx",
+      "frames": [
+        1,
+        49
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 283948
+    },
+    {
+      "name": "OrbitLoopInPlace",
+      "file": "ANIM_Fly_OrbitLoopInPlace.fbx",
+      "frames": [
+        1,
+        49
+      ],
+      "loop": true,
+      "curves": 261,
+      "bytes": 277580
+    }
+  ],
+  "checks": {
+    "R1": "ok",
+    "R2": "warn",
+    "R3": "ok",
+    "R4": "ok",
+    "R5": "ok"
+  },
+  "settings": {
+    "FBX_SK": {
+      "use_selection": true,
+      "use_armature_deform_only": true,
+      "add_leaf_bones": false,
+      "primary_bone_axis": "Y",
+      "secondary_bone_axis": "X",
+      "axis_forward": "-Z",
+      "axis_up": "Y",
+      "apply_unit_scale": true,
+      "apply_scale_options": "FBX_SCALE_ALL",
+      "bake_space_transform": false,
+      "armature_nodetype": "NULL",
+      "use_custom_props": false,
+      "object_types": [
+        "ARMATURE",
+        "MESH"
+      ],
+      "use_mesh_modifiers": false,
+      "mesh_smooth_type": "FACE",
+      "path_mode": "AUTO",
+      "embed_textures": false,
+      "bake_anim": false
+    },
+    "FBX_ANIM": {
+      "use_selection": true,
+      "use_armature_deform_only": true,
+      "add_leaf_bones": false,
+      "primary_bone_axis": "Y",
+      "secondary_bone_axis": "X",
+      "axis_forward": "-Z",
+      "axis_up": "Y",
+      "apply_unit_scale": true,
+      "apply_scale_options": "FBX_SCALE_ALL",
+      "bake_space_transform": false,
+      "armature_nodetype": "NULL",
+      "use_custom_props": false,
+      "object_types": [
+        "ARMATURE"
+      ],
+      "bake_anim": true,
+      "bake_anim_use_all_bones": true,
+      "bake_anim_force_startend_keying": true,
+      "bake_anim_step": 1.0,
+      "bake_anim_simplify_factor": 0.0,
+      "bake_anim_use_nla_strips": false,
+      "bake_anim_use_all_actions": false
+    }
+  },
+  "skeleton_order": "df180ee7a0c0"
+}

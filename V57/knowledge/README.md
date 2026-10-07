@@ -11,6 +11,7 @@ Short, concrete lessons from real runs. One topic per file. Read all of them onc
 | `unity-cli.md` | CLI/Editor races, input simulation, device restore |
 | `assets-collision-builds.md` | No placeholders (MISSING_ASSETS.md), collision lives with its mesh, 3D physics for 3D scenes, no player builds by default |
 | `process.md` | Autonomy, decide + log, timeboxes, state on disk |
+| `rigged-characters.md` | ANIM_ hierarchy, loop sidecar, Blender rig −90° X, provider FBX export settings, replacing static stand-ins |
 
 Lesson format: **Symptom → Cause → Rule → Enforced by → Source**.
-Sources: `HH` = Happy Habitat pinball run (2026-09, first V57 vertical slice); `WoO` = World of Oldcraft process learnings (AI-built game reference process).
+Sources: `HH` = Happy Habitat pinball run (2026-09, first V57 vertical slice); `PS` = ProfesorSprat delivery (2026-10); `WoO` = World of Oldcraft process learnings (AI-built game reference process).

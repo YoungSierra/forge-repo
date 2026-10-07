@@ -10,6 +10,6 @@ Montage-only stage (D-001). No placeholders are generated; each gap below stays 
 | Level blockout with `Marker_*` | Environment | level scene from markers | `Art/Environment/Blockout/<LevelId>/BLK_<LevelId>.fbx` | blocks: none now (JSON placement used) | missing |
 | Albedo maps for NEONFLY, WATERSURFACE, ACCESSKEY, ZONEDOOR | Textures | materials | `<asset>/Textures/` | blocks: none (manifest flat colours used) | not delivered (by design?) |
 | Normal / ORM maps (all 29 assets) | Textures | URP Lit detail | `<asset>/Textures/T_<Asset>_N`, `_ORM` | blocks: visual quality | missing |
-| Animations (JELLYFISH, NEONFLY, RADIOACTIVESHARK) | Characters | creature motion | `Art/Characters/<id>/Animations/ANIM_*.fbx` | blocks: none (static montage) | missing |
-| Sky / underwater background | Environment | backdrop | `Art/Environment/Sky/` | blocks: look | missing |
+| Animations | Characters | creature motion | `Art/Characters/<Id>/Animations/` | — | delivered for Professor, Shark, Sprat, Fish, Fly, Jellyfish, MechanicalCrab (D-007) |
+| Sky / underwater background | Environment | backdrop | `Art/Environment/Sky/` | — | delivered (`SkyBox_1.png`, D-006); higher resolution (4096×2048+) recommended |
 | Audio | Audio | — | `Assets/_Game/Audio/` | blocks: none now | missing |

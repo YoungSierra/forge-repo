@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 3
   tags:
   - Enemy
+  - Environment
+  - Interactable
+  - Hazard
+  - Trigger
+  - Projectile
+  - UIWorld
+  - Collectible
   layers:
   - Default
   - TransparentFX
@@ -14,15 +21,15 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Environment
+  - Interactable
+  - Hazard
+  - Trigger
+  - Projectile
+  - UIWorld
+  - Enemy
+  - Collectible
   - 
   - 
   - 
@@ -51,3 +58,4 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+  m_MigratedRenderPipelines: []

@@ -20,3 +20,6 @@ GF-PROGRESS stage=<id> spec=<spec|none> done=<n> total=<m> gate=<pass|fail|runni
 
 ## 2026-10-07T23:47:34Z — I0 intake
 GF-PROGRESS stage=I0 spec=none done=1 total=1 gate=pass status_word=implemented action="intake exit 0 (0 blocking, 4 conflict, 86 fixable, 41 missing); MISSING_ASSETS rewritten for TDD 1.0.0"
+
+## 2026-10-07T23:48:11Z — I1 project baseline
+GF-PROGRESS stage=I1 spec=none done=1 total=1 gate=pass status_word=implemented action="baseline script check true; tags/layers base set added"

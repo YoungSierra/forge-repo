@@ -4,10 +4,10 @@
   "mode": "VerticalSlice",
   "branch": "v57/setup",
   "engine_pin": "6000.6.2f1",
-  "stage": "I1",
+  "stage": "I2",
   "stage_state": "running",
   "status": "running",
-  "next": "I1 project baseline",
+  "next": "I2 assembly",
   "next_spec": null,
   "hard_stop": null,
   "gates": {
@@ -17,9 +17,9 @@
       "at_utc": "2026-10-07T23:47:34Z"
     },
     "I1": {
-      "state": "pending",
-      "evidence": null,
-      "at_utc": null
+      "state": "passed",
+      "evidence": "Docs/V57/reports/I1-project-ProfessorWortSprat.md",
+      "at_utc": "2026-10-07T23:48:11Z"
     },
     "I2": {
       "state": "pending",
@@ -74,7 +74,7 @@
   "last_decision": null,
   "status_word": "implemented",
   "blockers": [],
-  "updated_utc": "2026-10-07T23:47:34Z",
+  "updated_utc": "2026-10-07T23:48:11Z",
   "_notes": {
     "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
     "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",

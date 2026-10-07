@@ -1,0 +1,89 @@
+{
+  "schema": "v57.status/1",
+  "slug": "ProfessorWortSprat",
+  "mode": "VerticalSlice",
+  "branch": "v57/setup",
+  "engine_pin": "6000.6.2f1",
+  "stage": "I1",
+  "stage_state": "running",
+  "status": "running",
+  "next": "I1 project baseline",
+  "next_spec": null,
+  "hard_stop": null,
+  "gates": {
+    "A0": {
+      "state": "passed",
+      "evidence": "Docs/V57/INTAKE_REPORT.md",
+      "at_utc": "2026-10-07T23:47:34Z"
+    },
+    "I1": {
+      "state": "pending",
+      "evidence": null,
+      "at_utc": null
+    },
+    "I2": {
+      "state": "pending",
+      "evidence": null,
+      "at_utc": null
+    },
+    "M1": {
+      "state": "pending",
+      "evidence": null,
+      "at_utc": null
+    },
+    "F": {
+      "state": "pending",
+      "evidence": null,
+      "at_utc": null
+    },
+    "M2": {
+      "state": "pending",
+      "evidence": null,
+      "at_utc": null
+    },
+    "M3": {
+      "state": "pending",
+      "evidence": null,
+      "at_utc": null,
+      "review_round": 0,
+      "min_area_score": null
+    },
+    "M4": {
+      "state": "pending",
+      "evidence": null,
+      "at_utc": null
+    }
+  },
+  "intake": {
+    "exit_code": 0,
+    "issue_counts": {
+      "blocking": 0,
+      "fixable": 86,
+      "missing": 41,
+      "conflict": 4
+    }
+  },
+  "specs": [],
+  "goldpath": {
+    "last_run_utc": null,
+    "commit": null,
+    "pass": null,
+    "checks_path": null
+  },
+  "last_green_commit": null,
+  "last_decision": null,
+  "status_word": "implemented",
+  "blockers": [],
+  "updated_utc": "2026-10-07T23:47:34Z",
+  "_notes": {
+    "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
+    "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",
+    "gate.state": "pending | running | passed | failed | failed-timeboxed | blocked | n/a",
+    "specs[]": "{ \"id\": \"flipper_controller\", \"path\": \"V57/specs/<slug>/features/flipper_controller.yaml\", \"state\": \"queued | implementing | green | reverted | cut\", \"attempts\": 0, \"status_word\": \"implemented | agent-verified\" }",
+    "status": "running | ready | done | blocked  (read by the runner to continue/stop; done only after M4 passed)",
+    "next / next_spec": "what the next autonomous turn does; next_spec = spec id/name or C-NN for the TDD extract",
+    "hard_stop": "null or reason string: destructive action or TDD edit needed; stops the run",
+    "status_word": "implemented | agent-verified | pending owner review (never 'accepted')",
+    "blockers[]": "only for stop conditions: blocking intake, destructive action, owner stop token"
+  }
+}

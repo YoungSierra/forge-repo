@@ -1,0 +1,132 @@
+{
+  "entities": [
+    {
+      "id": "Locomotion",
+      "kind": "mechanic",
+      "mechanics": [
+        "Locomotion"
+      ],
+      "asset_id": null
+    },
+    {
+      "id": "Jump",
+      "kind": "mechanic",
+      "mechanics": [
+        "Jump"
+      ],
+      "asset_id": null
+    },
+    {
+      "id": "Stomp",
+      "kind": "mechanic",
+      "mechanics": [
+        "Stomp"
+      ],
+      "asset_id": null
+    },
+    {
+      "id": "FlyCollection",
+      "kind": "mechanic",
+      "mechanics": [
+        "FlyCollection"
+      ],
+      "asset_id": null
+    },
+    {
+      "id": "KeyMaterialisation",
+      "kind": "mechanic",
+      "mechanics": [
+        "KeyMaterialisation"
+      ],
+      "asset_id": null
+    },
+    {
+      "id": "CrabEncounter",
+      "kind": "mechanic",
+      "mechanics": [
+        "CrabEncounter"
+      ],
+      "asset_id": null
+    },
+    {
+      "id": "SpratCompanion",
+      "kind": "mechanic",
+      "mechanics": [
+        "SpratCompanion"
+      ],
+      "asset_id": null
+    },
+    {
+      "id": "EventBus",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "InputHandler",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "CameraRig",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "ZoneFlow",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "RespawnService",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "SaveService",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "HUDController",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "PauseController",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "AudioService",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "VFXService",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "CharacterAnimationDriver",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    },
+    {
+      "id": "AmbientCreatures",
+      "kind": "service",
+      "mechanics": [],
+      "asset_id": null
+    }
+  ]
+}

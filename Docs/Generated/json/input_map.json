@@ -1,0 +1,78 @@
+{
+  "actions": [
+    {
+      "map": "Gameplay",
+      "action": "Move",
+      "bindings": {
+        "keyboard": null,
+        "gamepad": null,
+        "touch": null,
+        "raw": "<Gamepad>/leftStick · <Keyboard>/WASD · <Keyboard>/arrows"
+      },
+      "interaction": "press",
+      "consumed_by": [
+        "Locomotion",
+        "InputHandler"
+      ]
+    },
+    {
+      "map": "Gameplay",
+      "action": "Jump",
+      "bindings": {
+        "keyboard": "<Keyboard>/space",
+        "gamepad": null,
+        "touch": null,
+        "raw": "<Gamepad>/buttonSouth · <Keyboard>/space"
+      },
+      "interaction": "press",
+      "consumed_by": [
+        "Jump",
+        "InputHandler"
+      ]
+    },
+    {
+      "map": "Gameplay",
+      "action": "Stomp",
+      "bindings": {
+        "keyboard": null,
+        "gamepad": null,
+        "touch": null,
+        "raw": "<Gamepad>/buttonSouth · <Gamepad>/buttonEast · <Keyboard>/space · <Keyboard>/leftCtrl"
+      },
+      "interaction": "press",
+      "consumed_by": [
+        "Stomp",
+        "InputHandler"
+      ]
+    },
+    {
+      "map": "Gameplay",
+      "action": "Pause",
+      "bindings": {
+        "keyboard": "<Keyboard>/escape",
+        "gamepad": null,
+        "touch": null,
+        "raw": "<Gamepad>/start · <Keyboard>/escape"
+      },
+      "interaction": "press",
+      "consumed_by": [
+        "PauseController"
+      ]
+    },
+    {
+      "map": "UI",
+      "action": "Navigate · Submit · Cancel",
+      "bindings": {
+        "keyboard": null,
+        "gamepad": null,
+        "touch": null,
+        "raw": "<Gamepad>/dpad/leftStick · buttonSouth · buttonEast; <Keyboard>/arrows · enter · escape"
+      },
+      "interaction": "press",
+      "consumed_by": [
+        "PauseController",
+        "ZoneFlow"
+      ]
+    }
+  ]
+}

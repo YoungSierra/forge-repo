@@ -1,0 +1,297 @@
+{
+  "mechanics": [
+    {
+      "name": "Locomotion",
+      "type": "mechanic",
+      "version": "1.0.0",
+      "status": "active",
+      "dependencies": [
+        "EventBus",
+        "InputHandler",
+        "CrabEncounter"
+      ],
+      "spec_yaml": "# specs/features/locomotion.yaml\nspecVersion: \"1.1\"\nname: Locomotion\ntype: mechanic\ndescription: Camera-relative ground movement of the Professor; knockback and stun receiver.\nversion: 1.0.0\ndependencies:\n  - { kind: system, id: EventBus }\n  - { kind: system, id: InputHandler }\n  - { kind: mechanic, id: CrabEncounter }\npreconditions:\n  - \"CharacterController on the Professor gameplay prefab\"\n  - \"ZoneFlow initialized the zone\"\ncomponents:\n  - { name: ProfessorLocomotion, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Locomotion/ProfessorLocomotion.cs }] }\n  - { name: LocomotionConfig, type: ScriptableObject, files: [{ path: Scripts/Gameplay/Locomotion/LocomotionConfig.cs }] }\n  - { name: LocomotionModel, type: plain-C#, files: [{ path: Scripts/Gameplay/Locomotion/LocomotionModel.cs }] }\npublicAPI:\n  methods:\n    - \"void SetMoveInput(Vector3 worldDirection)\"\n    - \"void ApplyKnockback(Vector3 direction, float distance, float duration)\"\n    - \"void Stun(float duration)\"\n    - \"void Teleport(Vector3 position, Quaternion rotation)\"\n  properties: [\"Vector3 Velocity\", \"bool IsGrounded\", \"LocomotionState State\"]\n  events:\n    - \"OnPlayerMoved {Vector3 position, Vector3 velocity}\"\n    - \"OnGroundedChanged {bool isGrounded, Vector3 position}\"\n    - \"OnStunBegin {float duration}\"\n    - \"OnStunEnd {}\"\nacceptanceCriteria:\n  - { id: AC-LOC-01, description: \"Config runSpeed 5.5, acceleration 18, deceleration 22, stunDuration 0.5\", verification: EditMode }\n  - { id: AC-LOC-02, description: \"Speed 5.4-5.6 m/s after 0.35 s full input\", verification: PlayMode }\n  - { id: AC-LOC-03, description: \"Knockback 2.5 m in 0.5 s, vertical unchanged, input ignored during stun\", verification: PlayMode }\n  - { id: AC-LOC-04, description: \"Slope > 45 deg blocks uphill; slide >= 1.9 m/s\", verification: PlayMode }\n  - { id: AC-LOC-05, description: \"Camera-relative move; basis change deferred while stick held\", verification: PlayMode }\nvalidationGates: { specStructural: required, compileUnity: required, standardsValidation: required, codeReviewer: required, acceptanceCriteria: all_must_pass }\nspecId: locomotion\ntouches:\n  scripts: [Scripts/Gameplay/Locomotion/ProfessorLocomotion.cs, Scripts/Gameplay/Locomotion/LocomotionConfig.cs, Scripts/Gameplay/Locomotion/LocomotionModel.cs]\n  prefabs: [Prefabs/Gameplay/PRF_Professor.prefab]\n  scriptable_objects: [Data/Config/LocomotionConfig.asset]\n  scenes: [Scenes/Tests/SCN_Locomotion_Test.unity]\n  tests: [Tests/EditMode/Locomotion/LocomotionConfigTests.cs, Tests/PlayMode/Locomotion/LocomotionPlayTests.cs]",
+      "acs": [
+        {
+          "id": "AC-LOC-01",
+          "mode": "EditMode",
+          "text": "Config runSpeed 5.5, acceleration 18, deceleration 22, stunDuration 0.5"
+        },
+        {
+          "id": "AC-LOC-02",
+          "mode": "PlayMode",
+          "text": "Speed 5.4-5.6 m/s after 0.35 s full input"
+        },
+        {
+          "id": "AC-LOC-03",
+          "mode": "PlayMode",
+          "text": "Knockback 2.5 m in 0.5 s, vertical unchanged, input ignored during stun"
+        },
+        {
+          "id": "AC-LOC-04",
+          "mode": "PlayMode",
+          "text": "Slope > 45 deg blocks uphill; slide >= 1.9 m/s"
+        },
+        {
+          "id": "AC-LOC-05",
+          "mode": "PlayMode",
+          "text": "Camera-relative move; basis change deferred while stick held"
+        }
+      ]
+    },
+    {
+      "name": "Jump",
+      "type": "mechanic",
+      "version": "1.0.0",
+      "status": "active",
+      "dependencies": [
+        "Locomotion",
+        "EventBus",
+        "InputHandler"
+      ],
+      "spec_yaml": "# specs/features/jump.yaml\nspecVersion: \"1.1\"\nname: Jump\ntype: mechanic\ndescription: Single jump with coyote time, jump buffer, falling gravity and drop shadow.\nversion: 1.0.0\ndependencies:\n  - { kind: mechanic, id: Locomotion }\n  - { kind: system, id: EventBus }\n  - { kind: system, id: InputHandler }\npreconditions: [\"Locomotion active on the same body\"]\ncomponents:\n  - { name: ProfessorJump, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Jump/ProfessorJump.cs }] }\n  - { name: JumpConfig, type: ScriptableObject, files: [{ path: Scripts/Gameplay/Jump/JumpConfig.cs }] }\n  - { name: JumpModel, type: plain-C#, files: [{ path: Scripts/Gameplay/Jump/JumpModel.cs }] }\n  - { name: DropShadow, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Jump/DropShadow.cs }] }\npublicAPI:\n  methods: [\"void PressJump()\"]\n  properties: [\"bool IsAirborne\", \"float VerticalVelocity\", \"float TimeSinceJumpStart\"]\n  events: [\"OnJumpStarted {Vector3 position}\", \"OnLanded {Vector3 position, float fallDistance}\"]\nacceptanceCriteria:\n  - { id: AC-JMP-01, description: \"jumpImpulse 6.6, fallingGravityScale 1.8\", verification: EditMode }\n  - { id: AC-JMP-02, description: \"Peak 2.17-2.27 m from config\", verification: EditMode }\n  - { id: AC-JMP-03, description: \"Coyote jump at 0.10 s, gain >= 1.8 m\", verification: PlayMode }\n  - { id: AC-JMP-04, description: \"Buffered press fires within 1 frame of landing\", verification: PlayMode }\n  - { id: AC-JMP-05, description: \"No double jump; peak <= 2.3 m\", verification: PlayMode }\nvalidationGates: { specStructural: required, compileUnity: required, standardsValidation: required, codeReviewer: required, acceptanceCriteria: all_must_pass }\nspecId: jump\ntouches:\n  scripts: [Scripts/Gameplay/Jump/ProfessorJump.cs, Scripts/Gameplay/Jump/JumpConfig.cs, Scripts/Gameplay/Jump/JumpModel.cs, Scripts/Gameplay/Jump/DropShadow.cs]\n  prefabs: [Prefabs/Gameplay/PRF_Professor.prefab]\n  scriptable_objects: [Data/Config/JumpConfig.asset]\n  scenes: [Scenes/Tests/SCN_Jump_Test.unity]\n  tests: [Tests/EditMode/Jump/JumpConfigTests.cs, Tests/PlayMode/Jump/JumpPlayTests.cs]",
+      "acs": [
+        {
+          "id": "AC-JMP-01",
+          "mode": "EditMode",
+          "text": "jumpImpulse 6.6, fallingGravityScale 1.8"
+        },
+        {
+          "id": "AC-JMP-02",
+          "mode": "EditMode",
+          "text": "Peak 2.17-2.27 m from config"
+        },
+        {
+          "id": "AC-JMP-03",
+          "mode": "PlayMode",
+          "text": "Coyote jump at 0.10 s, gain >= 1.8 m"
+        },
+        {
+          "id": "AC-JMP-04",
+          "mode": "PlayMode",
+          "text": "Buffered press fires within 1 frame of landing"
+        },
+        {
+          "id": "AC-JMP-05",
+          "mode": "PlayMode",
+          "text": "No double jump; peak <= 2.3 m"
+        }
+      ]
+    },
+    {
+      "name": "Stomp",
+      "type": "mechanic",
+      "version": "1.0.0",
+      "status": "active",
+      "dependencies": [
+        "Jump",
+        "Locomotion",
+        "EventBus",
+        "InputHandler"
+      ],
+      "spec_yaml": "# specs/features/stomp.yaml\nspecVersion: \"1.1\"\nname: Stomp\ntype: mechanic\ndescription: Air-only straight-down slam; defeats a crab within 1.0 m and bounces off it.\nversion: 1.0.0\ndependencies:\n  - { kind: mechanic, id: Jump }\n  - { kind: mechanic, id: Locomotion }\n  - { kind: system, id: EventBus }\n  - { kind: system, id: InputHandler }\npreconditions: [\"Professor airborne and not stunned\"]\ncomponents:\n  - { name: ProfessorStomp, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Stomp/ProfessorStomp.cs }] }\n  - { name: StompConfig, type: ScriptableObject, files: [{ path: Scripts/Gameplay/Stomp/StompConfig.cs }] }\n  - { name: StompModel, type: plain-C#, files: [{ path: Scripts/Gameplay/Stomp/StompModel.cs }] }\npublicAPI:\n  methods: [\"void PressStomp()\"]\n  properties: [\"bool IsStomping\", \"float ImpactRadius\"]\n  events: [\"OnStompStarted {Vector3 position}\", \"OnStompLanded {Vector3 position, float impactRadius}\"]\nacceptanceCriteria:\n  - { id: AC-STP-01, description: \"impactRadius 1.0, stompGravityMultiplier 3.0, bounceHeight 0.8\", verification: EditMode }\n  - { id: AC-STP-02, description: \"Descent from 1.5 m in 0.20-0.28 s\", verification: EditMode }\n  - { id: AC-STP-03, description: \"Grounded press ignored\", verification: PlayMode }\n  - { id: AC-STP-04, description: \"Crab at 0.9 m defeated; bounce 0.7-0.9 m\", verification: PlayMode }\n  - { id: AC-STP-05, description: \"Crab at 1.05 m not defeated; 0.25 s recovery\", verification: PlayMode }\n  - { id: AC-STP-06, description: \"Horizontal speed 0 while stomping\", verification: PlayMode }\n  - { id: AC-STP-07, description: \"Not eligible before 0.15 s after jump start\", verification: PlayMode }\nvalidationGates: { specStructural: required, compileUnity: required, standardsValidation: required, codeReviewer: required, acceptanceCriteria: all_must_pass }\nspecId: stomp\ntouches:\n  scripts: [Scripts/Gameplay/Stomp/ProfessorStomp.cs, Scripts/Gameplay/Stomp/StompConfig.cs, Scripts/Gameplay/Stomp/StompModel.cs]\n  prefabs: [Prefabs/Gameplay/PRF_Professor.prefab]\n  scriptable_objects: [Data/Config/StompConfig.asset]\n  scenes: [Scenes/Tests/SCN_Stomp_Test.unity]\n  tests: [Tests/EditMode/Stomp/StompConfigTests.cs, Tests/PlayMode/Stomp/StompPlayTests.cs]",
+      "acs": [
+        {
+          "id": "AC-STP-01",
+          "mode": "EditMode",
+          "text": "impactRadius 1.0, stompGravityMultiplier 3.0, bounceHeight 0.8"
+        },
+        {
+          "id": "AC-STP-02",
+          "mode": "EditMode",
+          "text": "Descent from 1.5 m in 0.20-0.28 s"
+        },
+        {
+          "id": "AC-STP-03",
+          "mode": "PlayMode",
+          "text": "Grounded press ignored"
+        },
+        {
+          "id": "AC-STP-04",
+          "mode": "PlayMode",
+          "text": "Crab at 0.9 m defeated; bounce 0.7-0.9 m"
+        },
+        {
+          "id": "AC-STP-05",
+          "mode": "PlayMode",
+          "text": "Crab at 1.05 m not defeated; 0.25 s recovery"
+        },
+        {
+          "id": "AC-STP-06",
+          "mode": "PlayMode",
+          "text": "Horizontal speed 0 while stomping"
+        },
+        {
+          "id": "AC-STP-07",
+          "mode": "PlayMode",
+          "text": "Not eligible before 0.15 s after jump start"
+        }
+      ]
+    },
+    {
+      "name": "FlyCollection",
+      "type": "mechanic",
+      "version": "1.0.0",
+      "status": "active",
+      "dependencies": [
+        "Locomotion",
+        "EventBus",
+        "ZoneFlow"
+      ],
+      "spec_yaml": "# specs/features/fly_collection.yaml\nspecVersion: \"1.1\"\nname: FlyCollection\ntype: mechanic\ndescription: Proximity collection of flies; zone total = flies placed; last fly fires OnZoneComplete.\nversion: 1.0.0\ndependencies:\n  - { kind: mechanic, id: Locomotion }\n  - { kind: system, id: EventBus }\n  - { kind: system, id: ZoneFlow }\npreconditions: [\"Zone started with >= 1 registered fly\"]\ncomponents:\n  - { name: FlyController, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Flies/FlyController.cs }] }\n  - { name: ZoneFlyTracker, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Flies/ZoneFlyTracker.cs }] }\n  - { name: FlyConfig, type: ScriptableObject, files: [{ path: Scripts/Gameplay/Flies/FlyConfig.cs }] }\n  - { name: ZoneFlyModel, type: plain-C#, files: [{ path: Scripts/Gameplay/Flies/ZoneFlyModel.cs }] }\npublicAPI:\n  methods: [\"void Register(FlyController fly)\", \"void BeginZone(string zoneId)\"]\n  properties: [\"int CollectedCount\", \"int ZoneTotal\", \"bool IsComplete\"]\n  events: [\"OnFlyCollected {string flyId, string zoneId, int newCount, int zoneTotal}\", \"OnZoneComplete {string zoneId}\"]\nacceptanceCriteria:\n  - { id: AC-FLY-01, description: \"6 registered flies -> total 6, count 0\", verification: EditMode }\n  - { id: AC-FLY-02, description: \"triggerRadius 0.6\", verification: EditMode }\n  - { id: AC-FLY-03, description: \"Collect at 0.55 m within 1 frame\", verification: PlayMode }\n  - { id: AC-FLY-04, description: \"OnZoneComplete exactly once\", verification: PlayMode }\n  - { id: AC-FLY-05, description: \"Count unchanged after crab contact and respawn\", verification: PlayMode }\n  - { id: AC-FLY-06, description: \"Late registration rejected\", verification: PlayMode }\nvalidationGates: { specStructural: required, compileUnity: required, standardsValidation: required, codeReviewer: required, acceptanceCriteria: all_must_pass }\nspecId: fly_collection\ntouches:\n  scripts: [Scripts/Gameplay/Flies/FlyController.cs, Scripts/Gameplay/Flies/ZoneFlyTracker.cs, Scripts/Gameplay/Flies/FlyConfig.cs, Scripts/Gameplay/Flies/ZoneFlyModel.cs]\n  prefabs: [Prefabs/Gameplay/PRF_Fly.prefab]\n  scriptable_objects: [Data/Config/FlyConfig.asset]\n  scenes: [Scenes/Tests/SCN_FlyCollection_Test.unity]\n  tests: [Tests/EditMode/Flies/ZoneFlyModelTests.cs, Tests/PlayMode/Flies/FlyCollectionPlayTests.cs]",
+      "acs": [
+        {
+          "id": "AC-FLY-01",
+          "mode": "EditMode",
+          "text": "6 registered flies -> total 6, count 0"
+        },
+        {
+          "id": "AC-FLY-02",
+          "mode": "EditMode",
+          "text": "triggerRadius 0.6"
+        },
+        {
+          "id": "AC-FLY-03",
+          "mode": "PlayMode",
+          "text": "Collect at 0.55 m within 1 frame"
+        },
+        {
+          "id": "AC-FLY-04",
+          "mode": "PlayMode",
+          "text": "OnZoneComplete exactly once"
+        },
+        {
+          "id": "AC-FLY-05",
+          "mode": "PlayMode",
+          "text": "Count unchanged after crab contact and respawn"
+        },
+        {
+          "id": "AC-FLY-06",
+          "mode": "PlayMode",
+          "text": "Late registration rejected"
+        }
+      ]
+    },
+    {
+      "name": "KeyMaterialisation",
+      "type": "mechanic",
+      "version": "1.0.0",
+      "status": "active",
+      "dependencies": [
+        "FlyCollection",
+        "Locomotion",
+        "EventBus",
+        "ZoneFlow"
+      ],
+      "spec_yaml": "# specs/features/key_materialisation.yaml\nspecVersion: \"1.1\"\nname: KeyMaterialisation\ntype: mechanic\ndescription: Access Key spawns only on OnZoneComplete (1.2 s ceremony), collected at 1.5 m, unlocks the zone door.\nversion: 1.0.0\ndependencies:\n  - { kind: mechanic, id: FlyCollection }\n  - { kind: mechanic, id: Locomotion }\n  - { kind: system, id: EventBus }\n  - { kind: system, id: ZoneFlow }\npreconditions: [\"Zone has one key anchor and one ZoneDoor\"]\ncomponents:\n  - { name: AccessKeyController, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/AccessKey/AccessKeyController.cs }] }\n  - { name: ZoneDoorController, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/AccessKey/ZoneDoorController.cs }] }\n  - { name: AccessKeyConfig, type: ScriptableObject, files: [{ path: Scripts/Gameplay/AccessKey/AccessKeyConfig.cs }] }\n  - { name: AccessKeyModel, type: plain-C#, files: [{ path: Scripts/Gameplay/AccessKey/AccessKeyModel.cs }] }\npublicAPI:\n  methods: [\"void Arm(string zoneId)\"]\n  properties: [\"bool IsKeyCarried\", \"KeyState State\"]\n  events: [\"OnKeySpawned {string zoneId, Vector3 keyPosition}\", \"OnKeyCollected {string zoneId}\", \"OnDoorUnlocked {string zoneId, string doorId}\"]\nacceptanceCriteria:\n  - { id: AC-KEY-01, description: \"ceremonyDuration 1.2, pickupRadius 1.5, doorOpenDuration 0.8\", verification: EditMode }\n  - { id: AC-KEY-02, description: \"Spawn within 1 frame; amber 4.0 at 1.2 s\", verification: PlayMode }\n  - { id: AC-KEY-03, description: \"Double OnZoneComplete spawns once\", verification: PlayMode }\n  - { id: AC-KEY-04, description: \"Pickup deferred to ceremony end; door unlock in 0.8 s\", verification: PlayMode }\n  - { id: AC-KEY-05, description: \"Door stays locked without key\", verification: PlayMode }\nvalidationGates: { specStructural: required, compileUnity: required, standardsValidation: required, codeReviewer: required, acceptanceCriteria: all_must_pass }\nspecId: key_materialisation\ntouches:\n  scripts: [Scripts/Gameplay/AccessKey/AccessKeyController.cs, Scripts/Gameplay/AccessKey/ZoneDoorController.cs, Scripts/Gameplay/AccessKey/AccessKeyConfig.cs, Scripts/Gameplay/AccessKey/AccessKeyModel.cs]\n  prefabs: [Prefabs/Gameplay/PRF_AccessKey.prefab, Prefabs/Gameplay/PRF_ZoneDoor.prefab]\n  scriptable_objects: [Data/Config/AccessKeyConfig.asset]\n  scenes: [Scenes/Tests/SCN_KeyMaterialisation_Test.unity]\n  tests: [Tests/EditMode/AccessKey/AccessKeyConfigTests.cs, Tests/PlayMode/AccessKey/KeyMaterialisationPlayTests.cs]",
+      "acs": [
+        {
+          "id": "AC-KEY-01",
+          "mode": "EditMode",
+          "text": "ceremonyDuration 1.2, pickupRadius 1.5, doorOpenDuration 0.8"
+        },
+        {
+          "id": "AC-KEY-02",
+          "mode": "PlayMode",
+          "text": "Spawn within 1 frame; amber 4.0 at 1.2 s"
+        },
+        {
+          "id": "AC-KEY-03",
+          "mode": "PlayMode",
+          "text": "Double OnZoneComplete spawns once"
+        },
+        {
+          "id": "AC-KEY-04",
+          "mode": "PlayMode",
+          "text": "Pickup deferred to ceremony end; door unlock in 0.8 s"
+        },
+        {
+          "id": "AC-KEY-05",
+          "mode": "PlayMode",
+          "text": "Door stays locked without key"
+        }
+      ]
+    },
+    {
+      "name": "CrabEncounter",
+      "type": "mechanic",
+      "version": "1.0.0",
+      "status": "active",
+      "dependencies": [
+        "Locomotion",
+        "Stomp",
+        "EventBus"
+      ],
+      "spec_yaml": "# specs/features/crab_encounter.yaml\nspecVersion: \"1.1\"\nname: CrabEncounter\ntype: mechanic\ndescription: Mechanical Crabs patrol a one-way range; contact knocks back and stuns; stomp defeats; no drops.\nversion: 1.0.0\ndependencies:\n  - { kind: mechanic, id: Locomotion }\n  - { kind: mechanic, id: Stomp }\n  - { kind: system, id: EventBus }\npreconditions: [\"Placed crab range within 0-4.0 m\"]\ncomponents:\n  - { name: CrabController, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Crab/CrabController.cs }] }\n  - { name: CrabConfig, type: ScriptableObject, files: [{ path: Scripts/Gameplay/Crab/CrabConfig.cs }] }\n  - { name: CrabPatrolModel, type: plain-C#, files: [{ path: Scripts/Gameplay/Crab/CrabPatrolModel.cs }] }\npublicAPI:\n  methods: [\"void Init(Vector3 origin, Vector3 axis, float range)\"]\n  properties: [\"bool IsDefeated\"]\n  events: [\"OnCrabContactPlayer {string crabId, Vector3 knockbackVector}\", \"OnCrabDefeated {string crabId, Vector3 position}\", \"OnCrabProximity {string crabId, bool near}\"]\nacceptanceCriteria:\n  - { id: AC-CRB-01, description: \"patrolSpeed 1.2, bodyRadius 0.5, knockbackDistance 2.5, maxRange 4.0\", verification: EditMode }\n  - { id: AC-CRB-02, description: \"Contact displaces 2.5 m in 0.5 s; fly count unchanged\", verification: PlayMode }\n  - { id: AC-CRB-03, description: \"Stomp defeats; collider off; no contact event\", verification: PlayMode }\n  - { id: AC-CRB-04, description: \"No repeated contact without leaving the sphere after stun\", verification: PlayMode }\n  - { id: AC-CRB-05, description: \"Round trip for range 4.0 = 7.47 s +/- 0.1 s\", verification: PlayMode }\n  - { id: AC-CRB-06, description: \"Proximity near at 3.0 m, far at 3.5 m\", verification: PlayMode }\nvalidationGates: { specStructural: required, compileUnity: required, standardsValidation: required, codeReviewer: required, acceptanceCriteria: all_must_pass }\nspecId: crab_encounter\ntouches:\n  scripts: [Scripts/Gameplay/Crab/CrabController.cs, Scripts/Gameplay/Crab/CrabConfig.cs, Scripts/Gameplay/Crab/CrabPatrolModel.cs]\n  prefabs: [Prefabs/Gameplay/PRF_MechanicalCrab.prefab]\n  scriptable_objects: [Data/Config/CrabConfig.asset]\n  scenes: [Scenes/Tests/SCN_CrabEncounter_Test.unity]\n  tests: [Tests/EditMode/Crab/CrabConfigTests.cs, Tests/PlayMode/Crab/CrabEncounterPlayTests.cs]",
+      "acs": [
+        {
+          "id": "AC-CRB-01",
+          "mode": "EditMode",
+          "text": "patrolSpeed 1.2, bodyRadius 0.5, knockbackDistance 2.5, maxRange 4.0"
+        },
+        {
+          "id": "AC-CRB-02",
+          "mode": "PlayMode",
+          "text": "Contact displaces 2.5 m in 0.5 s; fly count unchanged"
+        },
+        {
+          "id": "AC-CRB-03",
+          "mode": "PlayMode",
+          "text": "Stomp defeats; collider off; no contact event"
+        },
+        {
+          "id": "AC-CRB-04",
+          "mode": "PlayMode",
+          "text": "No repeated contact without leaving the sphere after stun"
+        },
+        {
+          "id": "AC-CRB-05",
+          "mode": "PlayMode",
+          "text": "Round trip for range 4.0 = 7.47 s +/- 0.1 s"
+        },
+        {
+          "id": "AC-CRB-06",
+          "mode": "PlayMode",
+          "text": "Proximity near at 3.0 m, far at 3.5 m"
+        }
+      ]
+    },
+    {
+      "name": "SpratCompanion",
+      "type": "feature",
+      "version": "1.0.0",
+      "status": "active",
+      "dependencies": [
+        "Locomotion",
+        "FlyCollection",
+        "KeyMaterialisation",
+        "CrabEncounter",
+        "RespawnService",
+        "EventBus"
+      ],
+      "spec_yaml": "# specs/features/sprat_companion.yaml\nspecVersion: \"1.1\"\nname: SpratCompanion\ntype: feature\ndescription: Aku-Aku-style floating companion that follows and reacts; no gameplay effect.\nversion: 1.0.0\ndependencies:\n  - { kind: mechanic, id: Locomotion }\n  - { kind: mechanic, id: FlyCollection }\n  - { kind: mechanic, id: KeyMaterialisation }\n  - { kind: mechanic, id: CrabEncounter }\n  - { kind: system, id: RespawnService }\n  - { kind: system, id: EventBus }\npreconditions: [\"Professor present\", \"Sprat bound by ZoneFlow\"]\ncomponents:\n  - { name: SpratCompanion, type: MonoBehaviour, files: [{ path: Scripts/Gameplay/Sprat/SpratCompanion.cs }] }\n  - { name: SpratConfig, type: ScriptableObject, files: [{ path: Scripts/Gameplay/Sprat/SpratConfig.cs }] }\npublicAPI:\n  methods: [\"void Bind(Transform professor)\"]\n  properties: [\"SpratState State\"]\n  events: []\nacceptanceCriteria:\n  - { id: AC-SPR-01, description: \"followSmoothTime 0.18, maxLag 1.5, snapDistance 4.0\", verification: EditMode }\n  - { id: AC-SPR-02, description: \"Lag <= 1.5 m at run speed; <= 0.3 m 0.5 s after stop\", verification: PlayMode }\n  - { id: AC-SPR-03, description: \"Spin on OnKeySpawned; Freeze during stun\", verification: PlayMode }\n  - { id: AC-SPR-04, description: \"No collider; Professor motion identical with and without Sprat\", verification: PlayMode }\nvalidationGates: { specStructural: required, compileUnity: required, standardsValidation: required, codeReviewer: required, acceptanceCriteria: all_must_pass }\nspecId: sprat_companion\ntouches:\n  scripts: [Scripts/Gameplay/Sprat/SpratCompanion.cs, Scripts/Gameplay/Sprat/SpratConfig.cs]\n  prefabs: [Prefabs/Gameplay/PRF_Sprat.prefab]\n  scriptable_objects: [Data/Config/SpratConfig.asset]\n  scenes: [Scenes/Tests/SCN_SpratCompanion_Test.unity]\n  tests: [Tests/EditMode/Sprat/SpratConfigTests.cs, Tests/PlayMode/Sprat/SpratCompanionPlayTests.cs]",
+      "acs": [
+        {
+          "id": "AC-SPR-01",
+          "mode": "EditMode",
+          "text": "followSmoothTime 0.18, maxLag 1.5, snapDistance 4.0"
+        },
+        {
+          "id": "AC-SPR-02",
+          "mode": "PlayMode",
+          "text": "Lag <= 1.5 m at run speed; <= 0.3 m 0.5 s after stop"
+        },
+        {
+          "id": "AC-SPR-03",
+          "mode": "PlayMode",
+          "text": "Spin on OnKeySpawned; Freeze during stun"
+        },
+        {
+          "id": "AC-SPR-04",
+          "mode": "PlayMode",
+          "text": "No collider; Professor motion identical with and without Sprat"
+        }
+      ]
+    }
+  ]
+}

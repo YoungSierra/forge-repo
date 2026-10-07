@@ -1,0 +1,346 @@
+{
+  "values": [
+    {
+      "mechanic": "Locomotion",
+      "param": "runSpeed",
+      "value": 5.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Locomotion",
+      "param": "acceleration",
+      "value": 18,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Locomotion",
+      "param": "deceleration",
+      "value": 22,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Locomotion",
+      "param": "turnRate",
+      "value": 720,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Locomotion",
+      "param": "airControl",
+      "value": 0.4,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Locomotion",
+      "param": "slopeLimit",
+      "value": 45,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Locomotion",
+      "param": "slideSpeed",
+      "value": 2,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Jump",
+      "param": "jumpImpulse",
+      "value": 6.6,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Jump",
+      "param": "fallingGravityScale",
+      "value": 1.8,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Jump",
+      "param": "coyoteTime",
+      "value": 0.12,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Jump",
+      "param": "jumpBuffer",
+      "value": 0.1,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Jump",
+      "param": "dropShadowRadius",
+      "value": 0.35,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Stomp",
+      "param": "stompGravityMultiplier",
+      "value": 3,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Stomp",
+      "param": "impactRadius",
+      "value": 1,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Stomp",
+      "param": "bounceHeight",
+      "value": 0.8,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Stomp",
+      "param": "landRecovery",
+      "value": 0.25,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "Stomp",
+      "param": "minTimeAfterJump",
+      "value": 0.15,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "FlyCollection",
+      "param": "triggerRadius",
+      "value": 0.6,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "FlyCollection",
+      "param": "popDuration",
+      "value": 0.25,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "FlyCollection",
+      "param": "glowIntensity",
+      "value": 2.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "KeyMaterialisation",
+      "param": "ceremonyDuration",
+      "value": 1.2,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "KeyMaterialisation",
+      "param": "amberIntensity",
+      "value": 4,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "KeyMaterialisation",
+      "param": "amberRange",
+      "value": 6,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "KeyMaterialisation",
+      "param": "pickupRadius",
+      "value": 1.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "KeyMaterialisation",
+      "param": "doorUnlockRadius",
+      "value": 1.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "KeyMaterialisation",
+      "param": "doorOpenDuration",
+      "value": 0.8,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "CrabEncounter",
+      "param": "patrolSpeed",
+      "value": 1.2,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "CrabEncounter",
+      "param": "endpointPause",
+      "value": 0.4,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "CrabEncounter",
+      "param": "bodyRadius",
+      "value": 0.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "CrabEncounter",
+      "param": "knockbackDistance",
+      "value": 2.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "CrabEncounter",
+      "param": "stunDuration",
+      "value": 0.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "CrabEncounter",
+      "param": "warnRadius",
+      "value": 3,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "CrabEncounter",
+      "param": "defeatDuration",
+      "value": 0.4,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "SpratCompanion",
+      "param": "followSmoothTime",
+      "value": 0.18,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "SpratCompanion",
+      "param": "maxLag",
+      "value": 1.5,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "SpratCompanion",
+      "param": "snapDistance",
+      "value": 4,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "SpratCompanion",
+      "param": "excitedDuration",
+      "value": 1,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    },
+    {
+      "mechanic": "SpratCompanion",
+      "param": "yawRate",
+      "value": 360,
+      "unit": null,
+      "min": null,
+      "max": null,
+      "source": "§B levers"
+    }
+  ]
+}

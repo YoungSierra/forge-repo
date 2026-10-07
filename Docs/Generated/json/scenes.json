@@ -1,0 +1,209 @@
+{
+  "scenes": [
+    {
+      "id": "SCN_MainMenu_Boot",
+      "purpose": "menu — build entry scene; loads the last level or the first one",
+      "world_owner": "N/A (menu)",
+      "systems": [
+        "SaveService",
+        "AudioService",
+        "InputHandler"
+      ],
+      "acs": [],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_HydroStation_Gameplay",
+      "purpose": "gameplay — level HydroStation; session bootstrap (ZoneFlow creates the session when entered directly, spawns the Professor at the level's player spawn and starts zone 1)",
+      "world_owner": "ZoneFlow",
+      "systems": [
+        "Locomotion",
+        "Jump",
+        "Stomp",
+        "FlyCollection",
+        "KeyMaterialisation",
+        "CrabEncounter",
+        "SpratCompanion",
+        "EventBus",
+        "InputHandler",
+        "CameraRig",
+        "RespawnService",
+        "SaveService",
+        "HUDController",
+        "PauseController",
+        "AudioService",
+        "VFXService",
+        "CharacterAnimationDriver",
+        "AmbientCreatures"
+      ],
+      "acs": [],
+      "slice": true,
+      "blockout": null,
+      "layout": "Montaje",
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_Locomotion_Test",
+      "purpose": "test",
+      "world_owner": "Locomotion",
+      "systems": [
+        "Locomotion",
+        "InputHandler",
+        "CameraRig",
+        "EventBus"
+      ],
+      "acs": [
+        "AC-LOC-02",
+        "AC-LOC-03",
+        "AC-LOC-04",
+        "AC-LOC-05"
+      ],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_Jump_Test",
+      "purpose": "test",
+      "world_owner": "Jump",
+      "systems": [
+        "Jump",
+        "Locomotion",
+        "EventBus"
+      ],
+      "acs": [
+        "AC-JMP-03",
+        "AC-JMP-04",
+        "AC-JMP-05"
+      ],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_Stomp_Test",
+      "purpose": "test",
+      "world_owner": "Stomp",
+      "systems": [
+        "Stomp",
+        "Jump",
+        "Locomotion",
+        "CrabEncounter",
+        "EventBus"
+      ],
+      "acs": [
+        "AC-STP-03",
+        "AC-STP-04",
+        "AC-STP-05",
+        "AC-STP-06",
+        "AC-STP-07"
+      ],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_FlyCollection_Test",
+      "purpose": "test",
+      "world_owner": "FlyCollection",
+      "systems": [
+        "FlyCollection",
+        "Locomotion",
+        "CrabEncounter",
+        "RespawnService",
+        "EventBus"
+      ],
+      "acs": [
+        "AC-FLY-03",
+        "AC-FLY-04",
+        "AC-FLY-05",
+        "AC-FLY-06"
+      ],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_KeyMaterialisation_Test",
+      "purpose": "test",
+      "world_owner": "KeyMaterialisation",
+      "systems": [
+        "KeyMaterialisation",
+        "FlyCollection",
+        "Locomotion",
+        "CameraRig",
+        "EventBus"
+      ],
+      "acs": [
+        "AC-KEY-02",
+        "AC-KEY-03",
+        "AC-KEY-04",
+        "AC-KEY-05"
+      ],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_CrabEncounter_Test",
+      "purpose": "test",
+      "world_owner": "CrabEncounter",
+      "systems": [
+        "CrabEncounter",
+        "Stomp",
+        "Jump",
+        "Locomotion",
+        "FlyCollection",
+        "EventBus"
+      ],
+      "acs": [
+        "AC-CRB-02",
+        "AC-CRB-03",
+        "AC-CRB-04",
+        "AC-CRB-05",
+        "AC-CRB-06"
+      ],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    },
+    {
+      "id": "SCN_SpratCompanion_Test",
+      "purpose": "test",
+      "world_owner": "SpratCompanion",
+      "systems": [
+        "SpratCompanion",
+        "Locomotion",
+        "KeyMaterialisation",
+        "EventBus"
+      ],
+      "acs": [
+        "AC-SPR-02",
+        "AC-SPR-03",
+        "AC-SPR-04"
+      ],
+      "slice": false,
+      "blockout": null,
+      "layout": null,
+      "markers": [],
+      "camera_ref": null
+    }
+  ]
+}

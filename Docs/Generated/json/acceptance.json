@@ -1,0 +1,257 @@
+{
+  "criteria": [
+    {
+      "id": "AC-LOC-01",
+      "mechanic": "Locomotion",
+      "mode": "EditMode",
+      "text": "Config runSpeed 5.5, acceleration 18, deceleration 22, stunDuration 0.5"
+    },
+    {
+      "id": "AC-LOC-02",
+      "mechanic": "Locomotion",
+      "mode": "PlayMode",
+      "text": "Speed 5.4-5.6 m/s after 0.35 s full input"
+    },
+    {
+      "id": "AC-LOC-03",
+      "mechanic": "Locomotion",
+      "mode": "PlayMode",
+      "text": "Knockback 2.5 m in 0.5 s, vertical unchanged, input ignored during stun"
+    },
+    {
+      "id": "AC-LOC-04",
+      "mechanic": "Locomotion",
+      "mode": "PlayMode",
+      "text": "Slope > 45 deg blocks uphill; slide >= 1.9 m/s"
+    },
+    {
+      "id": "AC-LOC-05",
+      "mechanic": "Locomotion",
+      "mode": "PlayMode",
+      "text": "Camera-relative move; basis change deferred while stick held"
+    },
+    {
+      "id": "AC-JMP-01",
+      "mechanic": "Jump",
+      "mode": "EditMode",
+      "text": "jumpImpulse 6.6, fallingGravityScale 1.8"
+    },
+    {
+      "id": "AC-JMP-02",
+      "mechanic": "Jump",
+      "mode": "EditMode",
+      "text": "Peak 2.17-2.27 m from config"
+    },
+    {
+      "id": "AC-JMP-03",
+      "mechanic": "Jump",
+      "mode": "PlayMode",
+      "text": "Coyote jump at 0.10 s, gain >= 1.8 m"
+    },
+    {
+      "id": "AC-JMP-04",
+      "mechanic": "Jump",
+      "mode": "PlayMode",
+      "text": "Buffered press fires within 1 frame of landing"
+    },
+    {
+      "id": "AC-JMP-05",
+      "mechanic": "Jump",
+      "mode": "PlayMode",
+      "text": "No double jump; peak <= 2.3 m"
+    },
+    {
+      "id": "AC-STP-01",
+      "mechanic": "Stomp",
+      "mode": "EditMode",
+      "text": "impactRadius 1.0, stompGravityMultiplier 3.0, bounceHeight 0.8"
+    },
+    {
+      "id": "AC-STP-02",
+      "mechanic": "Stomp",
+      "mode": "EditMode",
+      "text": "Descent from 1.5 m in 0.20-0.28 s"
+    },
+    {
+      "id": "AC-STP-03",
+      "mechanic": "Stomp",
+      "mode": "PlayMode",
+      "text": "Grounded press ignored"
+    },
+    {
+      "id": "AC-STP-04",
+      "mechanic": "Stomp",
+      "mode": "PlayMode",
+      "text": "Crab at 0.9 m defeated; bounce 0.7-0.9 m"
+    },
+    {
+      "id": "AC-STP-05",
+      "mechanic": "Stomp",
+      "mode": "PlayMode",
+      "text": "Crab at 1.05 m not defeated; 0.25 s recovery"
+    },
+    {
+      "id": "AC-STP-06",
+      "mechanic": "Stomp",
+      "mode": "PlayMode",
+      "text": "Horizontal speed 0 while stomping"
+    },
+    {
+      "id": "AC-STP-07",
+      "mechanic": "Stomp",
+      "mode": "PlayMode",
+      "text": "Not eligible before 0.15 s after jump start"
+    },
+    {
+      "id": "AC-FLY-01",
+      "mechanic": "FlyCollection",
+      "mode": "EditMode",
+      "text": "6 registered flies -> total 6, count 0"
+    },
+    {
+      "id": "AC-FLY-02",
+      "mechanic": "FlyCollection",
+      "mode": "EditMode",
+      "text": "triggerRadius 0.6"
+    },
+    {
+      "id": "AC-FLY-03",
+      "mechanic": "FlyCollection",
+      "mode": "PlayMode",
+      "text": "Collect at 0.55 m within 1 frame"
+    },
+    {
+      "id": "AC-FLY-04",
+      "mechanic": "FlyCollection",
+      "mode": "PlayMode",
+      "text": "OnZoneComplete exactly once"
+    },
+    {
+      "id": "AC-FLY-05",
+      "mechanic": "FlyCollection",
+      "mode": "PlayMode",
+      "text": "Count unchanged after crab contact and respawn"
+    },
+    {
+      "id": "AC-FLY-06",
+      "mechanic": "FlyCollection",
+      "mode": "PlayMode",
+      "text": "Late registration rejected"
+    },
+    {
+      "id": "AC-KEY-01",
+      "mechanic": "KeyMaterialisation",
+      "mode": "EditMode",
+      "text": "ceremonyDuration 1.2, pickupRadius 1.5, doorOpenDuration 0.8"
+    },
+    {
+      "id": "AC-KEY-02",
+      "mechanic": "KeyMaterialisation",
+      "mode": "PlayMode",
+      "text": "Spawn within 1 frame; amber 4.0 at 1.2 s"
+    },
+    {
+      "id": "AC-KEY-03",
+      "mechanic": "KeyMaterialisation",
+      "mode": "PlayMode",
+      "text": "Double OnZoneComplete spawns once"
+    },
+    {
+      "id": "AC-KEY-04",
+      "mechanic": "KeyMaterialisation",
+      "mode": "PlayMode",
+      "text": "Pickup deferred to ceremony end; door unlock in 0.8 s"
+    },
+    {
+      "id": "AC-KEY-05",
+      "mechanic": "KeyMaterialisation",
+      "mode": "PlayMode",
+      "text": "Door stays locked without key"
+    },
+    {
+      "id": "AC-CRB-01",
+      "mechanic": "CrabEncounter",
+      "mode": "EditMode",
+      "text": "patrolSpeed 1.2, bodyRadius 0.5, knockbackDistance 2.5, maxRange 4.0"
+    },
+    {
+      "id": "AC-CRB-02",
+      "mechanic": "CrabEncounter",
+      "mode": "PlayMode",
+      "text": "Contact displaces 2.5 m in 0.5 s; fly count unchanged"
+    },
+    {
+      "id": "AC-CRB-03",
+      "mechanic": "CrabEncounter",
+      "mode": "PlayMode",
+      "text": "Stomp defeats; collider off; no contact event"
+    },
+    {
+      "id": "AC-CRB-04",
+      "mechanic": "CrabEncounter",
+      "mode": "PlayMode",
+      "text": "No repeated contact without leaving the sphere after stun"
+    },
+    {
+      "id": "AC-CRB-05",
+      "mechanic": "CrabEncounter",
+      "mode": "PlayMode",
+      "text": "Round trip for range 4.0 = 7.47 s +/- 0.1 s"
+    },
+    {
+      "id": "AC-CRB-06",
+      "mechanic": "CrabEncounter",
+      "mode": "PlayMode",
+      "text": "Proximity near at 3.0 m, far at 3.5 m"
+    },
+    {
+      "id": "AC-SPR-01",
+      "mechanic": "SpratCompanion",
+      "mode": "EditMode",
+      "text": "followSmoothTime 0.18, maxLag 1.5, snapDistance 4.0"
+    },
+    {
+      "id": "AC-SPR-02",
+      "mechanic": "SpratCompanion",
+      "mode": "PlayMode",
+      "text": "Lag <= 1.5 m at run speed; <= 0.3 m 0.5 s after stop"
+    },
+    {
+      "id": "AC-SPR-03",
+      "mechanic": "SpratCompanion",
+      "mode": "PlayMode",
+      "text": "Spin on OnKeySpawned; Freeze during stun"
+    },
+    {
+      "id": "AC-SPR-04",
+      "mechanic": "SpratCompanion",
+      "mode": "PlayMode",
+      "text": "No collider; Professor motion identical with and without Sprat"
+    }
+  ],
+  "gold_path": {
+    "status": "draft",
+    "source": "TDD §3 core-loop traceability (review in M1)",
+    "scene": "SCN_HydroStation_Gameplay",
+    "steps": [
+      {
+        "id": "S01",
+        "do": "press",
+        "action": "Gameplay/Move",
+        "mechanic": "Locomotion, Jump, Stomp, CrabEncounter"
+      },
+      {
+        "id": "S02",
+        "do": "press",
+        "action": "Gameplay/Jump",
+        "mechanic": "Locomotion, Jump, Stomp, CrabEncounter"
+      },
+      {
+        "id": "S03",
+        "do": "press",
+        "action": "Gameplay/Stomp",
+        "mechanic": "Locomotion, Jump, Stomp, CrabEncounter"
+      }
+    ]
+  }
+}

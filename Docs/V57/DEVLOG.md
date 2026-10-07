@@ -23,3 +23,6 @@ GF-PROGRESS stage=I0 spec=none done=1 total=1 gate=pass status_word=implemented 
 
 ## 2026-10-07T23:48:11Z — I1 project baseline
 GF-PROGRESS stage=I1 spec=none done=1 total=1 gate=pass status_word=implemented action="baseline script check true; tags/layers base set added"
+
+## 2026-10-07T23:54:10Z — I2 assembly
+GF-PROGRESS stage=I2 spec=none done=1 total=1 gate=pass status_word=implemented action="RunAll pass: 0 errors, 0 missing refs; SCN_HydroStation_Gameplay built from LevelMaps/Montaje (162 instances, 13 old AST ids skipped)"

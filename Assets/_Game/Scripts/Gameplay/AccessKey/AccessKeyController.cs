@@ -90,13 +90,12 @@ namespace ProfessorSprat.Gameplay.AccessKey
                 return;
             }
 
-            float ramp = _config.AmberRampDuration > 0f ? Mathf.Clamp01(_model.CeremonyElapsed / _config.AmberRampDuration) : 1f;
+            bool ended = _model.TickCeremony(Time.deltaTime, _config.CeremonyDuration);
+            float ramp = ended || _config.AmberRampDuration <= 0f ? 1f : Mathf.Clamp01(_model.CeremonyElapsed / _config.AmberRampDuration);
             if (_amberLight != null)
             {
                 _amberLight.intensity = _config.AmberIntensity * ramp;
             }
-
-            _model.TickCeremony(Time.deltaTime, _config.CeremonyDuration);
         }
 
         #endregion

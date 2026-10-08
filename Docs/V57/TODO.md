@@ -13,13 +13,13 @@ Legend: `[ ]` open · `[~]` implemented · `[x]` agent-verified · `[-]` cut (D-
 
 ## Specs (F)
 
-- [~] locomotion — tests · gold path
-- [~] jump — tests · gold path
-- [~] stomp — tests · gold path
-- [~] crab_encounter — tests · gold path
-- [~] fly_collection — tests · gold path
-- [~] key_materialisation — tests · gold path
-- [~] sprat_companion — tests · gold path
+- [x] locomotion — tests · gold path
+- [x] jump — tests · gold path
+- [x] stomp — tests · gold path
+- [x] crab_encounter — tests · gold path
+- [x] fly_collection — tests · gold path
+- [x] key_materialisation — tests · gold path
+- [x] sprat_companion — tests · gold path
 
 ## M2 — scene = game
 

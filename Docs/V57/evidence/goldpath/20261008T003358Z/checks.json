@@ -1,0 +1,244 @@
+{
+    "started": "2026-10-08T00:33:58.0831231Z",
+    "finished": "2026-10-08T00:34:05.7504667Z",
+    "source": "E:\\Repositorio\\ProfesorSprat\\Docs/V57/gold_path.json",
+    "scene": "Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity",
+    "evidence_dir": "E:\\Repositorio\\ProfesorSprat\\Docs/V57/evidence/goldpath\\20261008T003358Z",
+    "steps": [
+        {
+            "index": 0,
+            "id": "S01",
+            "type": "WaitUntil",
+            "arg": "zone.state == Playing (timeout 8s)",
+            "pass": true,
+            "elapsed": 0.5655999183654785,
+            "detail": "zone.state='Playing' == 'Playing'",
+            "screenshot": "00_S01.png"
+        },
+        {
+            "index": 1,
+            "id": "S02",
+            "type": "WaitUntil",
+            "arg": "flies.total == 6 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.011723995208740234,
+            "detail": "flies.total=6 == 6",
+            "screenshot": ""
+        },
+        {
+            "index": 2,
+            "id": "S03",
+            "type": "WaitUntil",
+            "arg": "hud.counter == 0 / 6 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.004061222076416016,
+            "detail": "hud.counter='0 / 6' == '0 / 6'",
+            "screenshot": ""
+        },
+        {
+            "index": 3,
+            "id": "S04",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1 for 0,65s",
+            "pass": true,
+            "elapsed": 0.6658840179443359,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 4,
+            "id": "S05",
+            "type": "WaitUntil",
+            "arg": "flies.collected >= 2 (timeout 1,5s)",
+            "pass": true,
+            "elapsed": 0.002468585968017578,
+            "detail": "flies.collected=2 >= 2",
+            "screenshot": ""
+        },
+        {
+            "index": 5,
+            "id": "S06",
+            "type": "Wait",
+            "arg": "0,6s",
+            "pass": true,
+            "elapsed": 0.6009478569030762,
+            "detail": "waited",
+            "screenshot": ""
+        },
+        {
+            "index": 6,
+            "id": "S07",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1 for 0,15s",
+            "pass": true,
+            "elapsed": 0.15636301040649414,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 7,
+            "id": "S08",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.008863449096679688,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 8,
+            "id": "S09",
+            "type": "Wait",
+            "arg": "0,42s",
+            "pass": true,
+            "elapsed": 0.4216136932373047,
+            "detail": "waited",
+            "screenshot": ""
+        },
+        {
+            "index": 9,
+            "id": "S10",
+            "type": "Press",
+            "arg": "Gameplay/Stomp",
+            "pass": true,
+            "elapsed": 0.005523681640625,
+            "detail": "action Gameplay/Stomp → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 10,
+            "id": "S11",
+            "type": "WaitUntil",
+            "arg": "crabs.defeated == 1 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.5151882171630859,
+            "detail": "crabs.defeated=1 == 1",
+            "screenshot": "10_S11.png"
+        },
+        {
+            "index": 11,
+            "id": "S12",
+            "type": "WaitUntil",
+            "arg": "flies.collected >= 4 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.002147674560546875,
+            "detail": "flies.collected=4 >= 4",
+            "screenshot": ""
+        },
+        {
+            "index": 12,
+            "id": "S13",
+            "type": "Wait",
+            "arg": "0,8s",
+            "pass": true,
+            "elapsed": 0.8001003265380859,
+            "detail": "waited",
+            "screenshot": ""
+        },
+        {
+            "index": 13,
+            "id": "S14",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1 for 0,75s",
+            "pass": true,
+            "elapsed": 0.7553644180297852,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 14,
+            "id": "S15",
+            "type": "WaitUntil",
+            "arg": "zone.complete == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.26922607421875,
+            "detail": "zone.complete=True == true",
+            "screenshot": "14_S15.png"
+        },
+        {
+            "index": 15,
+            "id": "S16",
+            "type": "WaitUntil",
+            "arg": "key.carried == true (timeout 4s)",
+            "pass": true,
+            "elapsed": 0.8858928680419922,
+            "detail": "key.carried=True == true",
+            "screenshot": "15_S16.png"
+        },
+        {
+            "index": 16,
+            "id": "S17",
+            "type": "WaitUntil",
+            "arg": "hud.key_visible == true (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.0045680999755859375,
+            "detail": "hud.key_visible=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 17,
+            "id": "S18",
+            "type": "WaitUntil",
+            "arg": "door.open == true (timeout 4s)",
+            "pass": true,
+            "elapsed": 0.7823143005371094,
+            "detail": "door.open=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 18,
+            "id": "S19",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1 for 0,3s",
+            "pass": true,
+            "elapsed": 0.3073434829711914,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 19,
+            "id": "S20",
+            "type": "WaitUntil",
+            "arg": "levelend.visible == true (timeout 4s)",
+            "pass": true,
+            "elapsed": 0.249420166015625,
+            "detail": "levelend.visible=True == true",
+            "screenshot": "19_S20.png"
+        },
+        {
+            "index": 20,
+            "id": "S21",
+            "type": "WaitUntil",
+            "arg": "hud.counter == 6 / 6 (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.0022373199462890625,
+            "detail": "hud.counter='6 / 6' == '6 / 6'",
+            "screenshot": ""
+        },
+        {
+            "index": 21,
+            "id": "S22",
+            "type": "Capture",
+            "arg": "end_state",
+            "pass": true,
+            "elapsed": 0.2534818649291992,
+            "detail": "",
+            "screenshot": "21_end_state.png"
+        },
+        {
+            "index": 22,
+            "id": "final",
+            "type": "Capture",
+            "arg": "final",
+            "pass": true,
+            "elapsed": 0.0,
+            "detail": "",
+            "screenshot": "22_final.png"
+        }
+    ],
+    "parse_errors": [],
+    "console_errors": 0,
+    "console_error_samples": [],
+    "fps_avg": 270.2591247558594,
+    "pass": true
+}

@@ -26,9 +26,7 @@ namespace ProfessorSprat.Gameplay.Input
         private InputAction _move;
         private InputAction _jumpAction;
         private InputAction _stompAction;
-        private float _basisYaw;
-        private float _pendingYaw;
-        private float _pendingTime;
+        private MoveBasis _basis;
 
         #endregion
 
@@ -36,7 +34,7 @@ namespace ProfessorSprat.Gameplay.Input
 
         public bool GameplayEnabled { get; private set; } = true;
 
-        public float BasisYaw => _basisYaw;
+        public float BasisYaw => _basis != null ? _basis.Yaw : 0f;
 
         public void SetGameplayEnabled(bool enabledState)
         {
@@ -63,8 +61,7 @@ namespace ProfessorSprat.Gameplay.Input
             _move = _actions.FindAction("Gameplay/Move", true);
             _jumpAction = _actions.FindAction("Gameplay/Jump", true);
             _stompAction = _actions.FindAction("Gameplay/Stomp", true);
-            _basisYaw = _cameraRig != null ? _cameraRig.ActiveYaw : 0f;
-            _pendingYaw = _basisYaw;
+            _basis = new MoveBasis(_cameraRig != null ? _cameraRig.ActiveYaw : 0f, _basisSwitchStick, _basisSwitchDelay);
         }
 
         private void OnEnable()
@@ -91,9 +88,8 @@ namespace ProfessorSprat.Gameplay.Input
             }
 
             Vector2 stick = _move.ReadValue<Vector2>();
-            UpdateBasis(stick.magnitude);
-            Vector3 world = Quaternion.Euler(0f, _basisYaw, 0f) * new Vector3(stick.x, 0f, stick.y);
-            _locomotion.SetMoveInput(world);
+            _basis.Update(_cameraRig != null ? _cameraRig.ActiveYaw : _basis.Yaw, stick.magnitude, Time.time);
+            _locomotion.SetMoveInput(_basis.ToWorld(stick));
             if (_jumpAction.WasPressedThisFrame())
             {
                 _jump.PressJump();
@@ -102,30 +98,6 @@ namespace ProfessorSprat.Gameplay.Input
             if (_stompAction.WasPressedThisFrame())
             {
                 _stomp.PressStomp();
-            }
-        }
-
-        #endregion
-
-        #region Private Methods
-
-        private void UpdateBasis(float stickMagnitude)
-        {
-            float cameraYaw = _cameraRig != null ? _cameraRig.ActiveYaw : _basisYaw;
-            if (!Mathf.Approximately(cameraYaw, _pendingYaw))
-            {
-                _pendingYaw = cameraYaw;
-                _pendingTime = Time.time;
-            }
-
-            if (Mathf.Approximately(_pendingYaw, _basisYaw))
-            {
-                return;
-            }
-
-            if (stickMagnitude < _basisSwitchStick || Time.time - _pendingTime >= _basisSwitchDelay)
-            {
-                _basisYaw = _pendingYaw;
             }
         }
 

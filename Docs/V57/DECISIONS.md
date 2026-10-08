@@ -759,3 +759,9 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Context:** TDD §B-S lists Animator parameters (Speed, Grounded…), but the V57-generated `AC_<Asset>` controllers have one state per delivered clip and no transitions.
 - **Choice:** `CharacterAnimationDriver` (and the Sprat/crab/fly/creature controllers) cross-fade to the named clip state from mechanic state (`AnimatorStatePlayer`); gameplay code never calls the Animator directly.
 - **Reversal cost:** low · **Type:** other
+
+### D-019 — PlayMode criteria as component tests; acceptance through the gold path
+- **When:** 2026-10-07 · **Stage:** F · **Commit:** pending
+- **Context:** Several TDD PlayMode criteria are system-level (double `OnZoneComplete`, late fly registration, stun reactions) and cannot be produced by player input; the V57 rule forbids direct gameplay calls only in input-driven acceptance tests (`Tests/PlayMode/Acceptance*`).
+- **Choice:** each criterion is a PlayMode test (`*PlayTests`) in its §13.2 test scene with real FixedUpdate physics, driving the mechanic through its public API or publishing the triggering event; no `Physics.Simulate`, time-scale changes or collision disabling. The full input-driven acceptance is the gold path (real Input System devices on the real scene). `MoveBasis` was extracted from `InputHandler` so AC-LOC-05 is testable.
+- **Reversal cost:** medium (input-driven variants per criterion) · **Type:** other

@@ -8,4 +8,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity
     guid: 720f16a29cac31e48a9aa398fa43aac6
+  - enabled: 1
+    path: Assets/_Game/Scenes/Tests/SCN_Locomotion_Test.unity
+    guid: b4eb10652d948404f8157b9fae58800a
+  - enabled: 1
+    path: Assets/_Game/Scenes/Tests/SCN_Jump_Test.unity
+    guid: 562def588f5da04439e5ca69804497ca
+  - enabled: 1
+    path: Assets/_Game/Scenes/Tests/SCN_Stomp_Test.unity
+    guid: 6cf5d1ee84076374ea0fc15f58dd0ce9
+  - enabled: 1
+    path: Assets/_Game/Scenes/Tests/SCN_FlyCollection_Test.unity
+    guid: 0511cfd7c82c9c74dbe1c5d5ab6653a1
+  - enabled: 1
+    path: Assets/_Game/Scenes/Tests/SCN_KeyMaterialisation_Test.unity
+    guid: 0f3b0533c72a470428ab8f885c1715a1
+  - enabled: 1
+    path: Assets/_Game/Scenes/Tests/SCN_CrabEncounter_Test.unity
+    guid: f3ee5d0c974509d4e85feeeb009d6637
+  - enabled: 1
+    path: Assets/_Game/Scenes/Tests/SCN_SpratCompanion_Test.unity
+    guid: c7780ac53489c24459f41dca3d83beae
   m_configObjects: {}

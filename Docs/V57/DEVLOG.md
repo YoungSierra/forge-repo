@@ -29,3 +29,6 @@ GF-PROGRESS stage=I2 spec=none done=1 total=1 gate=pass status_word=implemented 
 
 ## 2026-10-08T00:27:06Z — M1 greybox gold path
 GF-PROGRESS stage=M1 spec=none done=1 total=1 gate=pass status_word=agent-verified action="22/22 checks, 0 console errors; 7 specs adopted; test placement D-013; camera fix D-016"
+
+## 2026-10-08T00:34:35Z — F specs
+GF-PROGRESS stage=F spec=all done=7 total=7 gate=pass status_word=agent-verified action="EditMode 13/13, PlayMode 28/28, gold path 23/23 green after the queue"

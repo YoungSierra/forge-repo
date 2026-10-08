@@ -1,0 +1,84 @@
+specVersion: "1.1"
+name: FlyCollection
+type: mechanic
+description: Proximity collection of flies; zone total = flies placed; last fly fires OnZoneComplete.
+version: 1.0.0
+dependencies:
+  - kind: mechanic
+    id: Locomotion
+  - kind: system
+    id: EventBus
+  - kind: system
+    id: ZoneFlow
+preconditions:
+  - Zone started with >= 1 registered fly
+components:
+  - name: FlyController
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Flies/FlyController.cs
+  - name: ZoneFlyTracker
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Flies/ZoneFlyTracker.cs
+  - name: FlyConfig
+    type: ScriptableObject
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Config/FlyConfig.cs
+  - name: ZoneFlyModel
+    type: plain-C#
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Flies/ZoneFlyModel.cs
+publicAPI:
+  methods:
+    - void Register(FlyController fly)
+    - void BeginZone(string zoneId)
+  properties:
+    - int CollectedCount
+    - int ZoneTotal
+    - bool IsComplete
+  events:
+    - OnFlyCollected {string flyId, string zoneId, int newCount, int zoneTotal}
+    - OnZoneComplete {string zoneId}
+acceptanceCriteria:
+  - id: AC-FLY-01
+    description: 6 registered flies -> total 6, count 0
+    verification: EditMode
+  - id: AC-FLY-02
+    description: triggerRadius 0.6
+    verification: EditMode
+  - id: AC-FLY-03
+    description: Collect at 0.55 m within 1 frame
+    verification: PlayMode
+  - id: AC-FLY-04
+    description: OnZoneComplete exactly once
+    verification: PlayMode
+  - id: AC-FLY-05
+    description: Count unchanged after crab contact and respawn
+    verification: PlayMode
+  - id: AC-FLY-06
+    description: Late registration rejected
+    verification: PlayMode
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  acceptanceCriteria: all_must_pass
+specId: fly_collection
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Gameplay/Flies/FlyController.cs
+    - Assets/_Game/Scripts/Gameplay/Flies/ZoneFlyTracker.cs
+    - Assets/_Game/Scripts/Gameplay/Config/FlyConfig.cs
+    - Assets/_Game/Scripts/Gameplay/Flies/ZoneFlyModel.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Gameplay/PRF_Fly.prefab
+  scriptable_objects:
+    - Assets/_Game/Data/Config/FlyConfig.asset
+  scenes:
+    - Assets/_Game/Scenes/Tests/SCN_FlyCollection_Test.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/Flies/ZoneFlyModelTests.cs
+    - Assets/_Game/Tests/PlayMode/Flies/FlyCollectionPlayTests.cs
+source: Docs/Design/TDD.md §C (adopted by V57 M1; paths mapped to Assets/_Game per TDD Standard 2.1)

@@ -69,12 +69,18 @@ namespace ProfessorSprat.Gameplay.Input
 
         private void OnEnable()
         {
-            _actions?.FindActionMap("Gameplay", true).Enable();
+            if (_actions != null)
+            {
+                _actions.FindActionMap("Gameplay", true).Enable();
+            }
         }
 
         private void OnDisable()
         {
-            _actions?.FindActionMap("Gameplay", true).Disable();
+            if (_actions != null)
+            {
+                _actions.FindActionMap("Gameplay", true).Disable();
+            }
         }
 
         private void Update()

@@ -733,7 +733,7 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 ### D-014 — Duplicate Visual prefabs after the intake naming change
 - **When:** 2026-10-07 · **Stage:** I2 · **Commit:** pending
 - **Context:** I2 built 26 `PRF_ASTENV…/ASTPROP…_Visual` prefabs (new sanitized asset names) for models that already had `PRF_AST-ENV-…_Visual` prefabs used by both scenes.
-- **Choice:** deleted the 26 unused duplicates; core fix (V57 `fd…` "one Visual prefab per model") reuses the existing prefab for a model instead of creating a second one.
+- **Choice:** deleted the 26 unused duplicates; core fix (V57 `5fa392c`, "one Visual prefab per model") reuses the existing prefab for a model instead of creating a second one.
 - **Reversal cost:** low · **Type:** revert
 
 ### D-015 — Amber ramp spans the whole key ceremony
@@ -741,3 +741,21 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Context:** TDD §B KeyMaterialisation feedback says "dissolve-in 0.4 s, amber 0 → 4.0" while AC-KEY-02 requires the light to reach 4.0 at 1.2 s ± 0.05 s.
 - **Choice:** the acceptance criterion wins: the amber light ramps 0 → 4.0 over the 1.2 s ceremony (`AccessKeyConfig.amberRampDuration = 1.2`); the visual appears at ceremony start.
 - **Reversal cost:** low (config value) · **Type:** conflict
+
+### D-016 — Test route direction and key-shot framing
+- **When:** 2026-10-07 · **Stage:** M1 · **Commit:** pending
+- **Context:** The first green gold path (20261008T002239Z) had the follow camera behind the start bulkhead (Professor hidden) and the 60° key shot inside a glass wall of the tunnel.
+- **Choice:** the test route (D-013) runs towards −X from the open end of the tunnel (`Marker_CameraZone_Default` yaw 270°, spawn x −15.6, door + exit next to the bulkhead); the key shot keeps the follow-camera direction, higher and farther (`CameraRig`, offset (0, 4.2, −8.5) rotated by the active yaw).
+- **Reversal cost:** low · **Type:** other
+
+### D-017 — Adopted specs follow the implementation layout
+- **When:** 2026-10-07 · **Stage:** M1 · **Commit:** pending
+- **Context:** TDD §C paths (`Scripts/Gameplay/Locomotion/…`) differ from the implemented areas (`Gameplay/Player`, `Gameplay/Config`, `Gameplay/Flow`, …).
+- **Choice:** the V57-owned specs in `V57/specs/ProfessorWortSprat/features/` point to the real files (28 paths aligned); the TDD is unchanged (its paths are suggestions per TDD Standard 2.1).
+- **Reversal cost:** low · **Type:** absorption
+
+### D-018 — Animator states by cross-fade instead of parameters
+- **When:** 2026-10-07 · **Stage:** M1 · **Commit:** pending
+- **Context:** TDD §B-S lists Animator parameters (Speed, Grounded…), but the V57-generated `AC_<Asset>` controllers have one state per delivered clip and no transitions.
+- **Choice:** `CharacterAnimationDriver` (and the Sprat/crab/fly/creature controllers) cross-fade to the named clip state from mechanic state (`AnimatorStatePlayer`); gameplay code never calls the Animator directly.
+- **Reversal cost:** low · **Type:** other

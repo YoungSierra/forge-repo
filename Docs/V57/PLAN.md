@@ -1,50 +1,29 @@
-# PLAN — <GameTitle> (`<slug>`)
+# PLAN — Professor Wort & Sprat (`ProfessorWortSprat`)
 
-Written at M1 from `Docs/Generated/json/*`. Re-read at every session start. The owner may edit the **Resolved variables** and **Scope** sections between runs; V57 logs any change it makes as `D-###`.
+Written at M1 from `Docs/Generated/json/*`. Re-read at every session start.
 
 ## Resolved variables
 
 | Variable | Value | Source |
 |---|---|---|
-| slug | | package.json |
-| mode | VerticalSlice \| Production | invocation |
-| tdd | Docs/Design/TDD.md | provider |
-| add | Docs/ArtDirection/ArtDirectionDocument.md | provider |
+| slug | ProfessorWortSprat | package.json |
+| mode | VerticalSlice | invocation |
+| tdd | Docs/Design/TDD.md (1.0.0, TDD Standard 2.1.0) | provider (owner) |
+| add | missing (Docs/V57/MISSING_ASSETS.md) | — |
 | engine | 6000.6.2f1 | V57 pin |
-| perspective / physics | | package.json |
-| platform / orientation / reference resolution / fps | | package.json |
-| test assembly prefix | | TDD §A |
-| gold path scene | Assets/_Game/Scenes/SCN_<...>.unity | scenes.json |
-| gold path source | acceptance.json \| Docs/V57/gold_path.json | M1 |
+| perspective / physics | 3d / 3d | package.json |
+| platform / orientation / reference resolution / fps | PC + console-ready / landscape / 1920×1080 / 60 | package.json |
+| test assembly prefix | ProfessorSprat | TDD §A |
+| gold path scene | Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity | scenes.json (slice) |
+| gold path source | Docs/V57/gold_path.json (from the acceptance.json draft + §3) | M1 |
+| level | HydroStation ← LevelMaps/Montaje (test map, linked by role) + temporary test placement (D-013) | intake + D-013 |
 
 ## Scope
 
-| Scenes (slice) | Mechanics in scope | Out of scope (reason) |
-|---|---|---|
-| | | |
-
-## Camera (locked at M1)
-
-| View | Type | FOV/size | Angle | Distance | Follow | Source |
-|---|---|---|---|---|---|---|
-| | | | | | | camera.json |
+Slice scene `SCN_HydroStation_Gameplay`; all 7 §B mechanics (the §D closure covers every mechanic) and the 12 §B-S systems.
 
 ## Spec queue (§D order)
 
-| # | specId | Path | Depends on | Core loop step |
-|---|---|---|---|---|
-| 1 | | V57/specs/<slug>/… | | |
+1. locomotion → 2. jump → 3. stomp → 4. crab_encounter → 5. fly_collection → 6. key_materialisation → 7. sprat_companion
 
-## Stage plan
-
-| Stage | Planned work | Timebox | Gate |
-|---|---|---|---|
-| M1 | | 240 min | checks.json all pass |
-| F | | 90 min / spec | tests + gold path |
-| M2 | | 240 min | lint, diff, build smoke |
-| M3 | | 240 min | independent review ≥ 7 |
-| M4 | | 120 min | cert + QA from evidence |
-
-## Known risks (from INTAKE_REPORT)
-
-- 
+Each spec: EditMode + PlayMode tests in its §13.2 test scene (`SCN_<Mechanic>_Test`, synthetic geometry), then a gold path re-run.

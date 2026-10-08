@@ -26,3 +26,6 @@ GF-PROGRESS stage=I1 spec=none done=1 total=1 gate=pass status_word=implemented 
 
 ## 2026-10-07T23:54:10Z — I2 assembly
 GF-PROGRESS stage=I2 spec=none done=1 total=1 gate=pass status_word=implemented action="RunAll pass: 0 errors, 0 missing refs; SCN_HydroStation_Gameplay built from LevelMaps/Montaje (162 instances, 13 old AST ids skipped)"
+
+## 2026-10-08T00:27:06Z — M1 greybox gold path
+GF-PROGRESS stage=M1 spec=none done=1 total=1 gate=pass status_word=agent-verified action="22/22 checks, 0 console errors; 7 specs adopted; test placement D-013; camera fix D-016"

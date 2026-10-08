@@ -1,0 +1,29 @@
+{
+  "status": "authored",
+  "source": "V57 M1 from the intake draft (Move/Jump/Stomp) + TDD §3 core loop; test placement D-013",
+  "scene": "Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity",
+  "steps": [
+    { "id": "S01", "expect": "zone.state", "op": "==", "value": "Playing", "timeout_s": 8, "screenshot": true },
+    { "id": "S02", "expect": "flies.total", "op": "==", "value": "6", "timeout_s": 2 },
+    { "id": "S03", "expect": "hud.counter", "op": "==", "value": "0 / 6", "timeout_s": 2 },
+    { "id": "S04", "do": "move", "action": "Gameplay/Move", "value": "0,1", "seconds": 0.65 },
+    { "id": "S05", "expect": "flies.collected", "op": ">=", "value": "2", "timeout_s": 1.5 },
+    { "id": "S06", "do": "wait", "seconds": 0.6 },
+    { "id": "S07", "do": "move", "action": "Gameplay/Move", "value": "0,1", "seconds": 0.15 },
+    { "id": "S08", "do": "tap", "action": "Gameplay/Jump" },
+    { "id": "S09", "do": "wait", "seconds": 0.42 },
+    { "id": "S10", "do": "tap", "action": "Gameplay/Stomp" },
+    { "id": "S11", "expect": "crabs.defeated", "op": "==", "value": "1", "timeout_s": 2, "screenshot": true },
+    { "id": "S12", "expect": "flies.collected", "op": ">=", "value": "4", "timeout_s": 2 },
+    { "id": "S13", "do": "wait", "seconds": 0.8 },
+    { "id": "S14", "do": "move", "action": "Gameplay/Move", "value": "0,1", "seconds": 0.75 },
+    { "id": "S15", "expect": "zone.complete", "op": "==", "value": "true", "timeout_s": 3, "screenshot": true },
+    { "id": "S16", "expect": "key.carried", "op": "==", "value": "true", "timeout_s": 4, "screenshot": true },
+    { "id": "S17", "expect": "hud.key_visible", "op": "==", "value": "true", "timeout_s": 1 },
+    { "id": "S18", "expect": "door.open", "op": "==", "value": "true", "timeout_s": 4 },
+    { "id": "S19", "do": "move", "action": "Gameplay/Move", "value": "0,1", "seconds": 0.3 },
+    { "id": "S20", "expect": "levelend.visible", "op": "==", "value": "true", "timeout_s": 4, "screenshot": true },
+    { "id": "S21", "expect": "hud.counter", "op": "==", "value": "6 / 6", "timeout_s": 1 },
+    { "id": "S22", "do": "capture", "name": "end_state" }
+  ]
+}

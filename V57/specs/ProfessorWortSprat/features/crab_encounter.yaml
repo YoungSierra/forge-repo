@@ -1,0 +1,77 @@
+specVersion: "1.1"
+name: CrabEncounter
+type: mechanic
+description: Mechanical Crabs patrol a one-way range; contact knocks back and stuns; stomp defeats; no drops.
+version: 1.0.0
+dependencies:
+  - kind: mechanic
+    id: Locomotion
+  - kind: mechanic
+    id: Stomp
+  - kind: system
+    id: EventBus
+preconditions:
+  - Placed crab range within 0-4.0 m
+components:
+  - name: CrabController
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Crab/CrabController.cs
+  - name: CrabConfig
+    type: ScriptableObject
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Config/CrabConfig.cs
+  - name: CrabPatrolModel
+    type: plain-C#
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Crab/CrabPatrolModel.cs
+publicAPI:
+  methods:
+    - void Init(Vector3 origin, Vector3 axis, float range)
+  properties:
+    - bool IsDefeated
+  events:
+    - OnCrabContactPlayer {string crabId, Vector3 knockbackVector}
+    - OnCrabDefeated {string crabId, Vector3 position}
+    - OnCrabProximity {string crabId, bool near}
+acceptanceCriteria:
+  - id: AC-CRB-01
+    description: patrolSpeed 1.2, bodyRadius 0.5, knockbackDistance 2.5, maxRange 4.0
+    verification: EditMode
+  - id: AC-CRB-02
+    description: Contact displaces 2.5 m in 0.5 s; fly count unchanged
+    verification: PlayMode
+  - id: AC-CRB-03
+    description: Stomp defeats; collider off; no contact event
+    verification: PlayMode
+  - id: AC-CRB-04
+    description: No repeated contact without leaving the sphere after stun
+    verification: PlayMode
+  - id: AC-CRB-05
+    description: Round trip for range 4.0 = 7.47 s +/- 0.1 s
+    verification: PlayMode
+  - id: AC-CRB-06
+    description: Proximity near at 3.0 m, far at 3.5 m
+    verification: PlayMode
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  acceptanceCriteria: all_must_pass
+specId: crab_encounter
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Gameplay/Crab/CrabController.cs
+    - Assets/_Game/Scripts/Gameplay/Config/CrabConfig.cs
+    - Assets/_Game/Scripts/Gameplay/Crab/CrabPatrolModel.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Gameplay/PRF_MechanicalCrab.prefab
+  scriptable_objects:
+    - Assets/_Game/Data/Config/CrabConfig.asset
+  scenes:
+    - Assets/_Game/Scenes/Tests/SCN_CrabEncounter_Test.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/Crab/CrabConfigTests.cs
+    - Assets/_Game/Tests/PlayMode/Crab/CrabEncounterPlayTests.cs
+source: Docs/Design/TDD.md §C (adopted by V57 M1; paths mapped to Assets/_Game per TDD Standard 2.1)

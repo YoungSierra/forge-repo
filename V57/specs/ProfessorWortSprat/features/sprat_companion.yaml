@@ -1,0 +1,70 @@
+specVersion: "1.1"
+name: SpratCompanion
+type: feature
+description: Aku-Aku-style floating companion that follows and reacts; no gameplay effect.
+version: 1.0.0
+dependencies:
+  - kind: mechanic
+    id: Locomotion
+  - kind: mechanic
+    id: FlyCollection
+  - kind: mechanic
+    id: KeyMaterialisation
+  - kind: mechanic
+    id: CrabEncounter
+  - kind: system
+    id: RespawnService
+  - kind: system
+    id: EventBus
+preconditions:
+  - Professor present
+  - Sprat bound by ZoneFlow
+components:
+  - name: SpratCompanion
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Sprat/SpratCompanion.cs
+  - name: SpratConfig
+    type: ScriptableObject
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Config/SpratConfig.cs
+publicAPI:
+  methods:
+    - void Bind(Transform professor)
+  properties:
+    - SpratState State
+  events: []
+acceptanceCriteria:
+  - id: AC-SPR-01
+    description: followSmoothTime 0.18, maxLag 1.5, snapDistance 4.0
+    verification: EditMode
+  - id: AC-SPR-02
+    description: Lag <= 1.5 m at run speed; <= 0.3 m 0.5 s after stop
+    verification: PlayMode
+  - id: AC-SPR-03
+    description: Spin on OnKeySpawned; Freeze during stun
+    verification: PlayMode
+  - id: AC-SPR-04
+    description: No collider; Professor motion identical with and without Sprat
+    verification: PlayMode
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  acceptanceCriteria: all_must_pass
+specId: sprat_companion
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Gameplay/Sprat/SpratCompanion.cs
+    - Assets/_Game/Scripts/Gameplay/Config/SpratConfig.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Gameplay/PRF_Sprat.prefab
+  scriptable_objects:
+    - Assets/_Game/Data/Config/SpratConfig.asset
+  scenes:
+    - Assets/_Game/Scenes/Tests/SCN_SpratCompanion_Test.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/Sprat/SpratConfigTests.cs
+    - Assets/_Game/Tests/PlayMode/Sprat/SpratCompanionPlayTests.cs
+source: Docs/Design/TDD.md §C (adopted by V57 M1; paths mapped to Assets/_Game per TDD Standard 2.1)

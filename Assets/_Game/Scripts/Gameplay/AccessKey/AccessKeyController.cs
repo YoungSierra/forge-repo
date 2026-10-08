@@ -42,7 +42,10 @@ namespace ProfessorSprat.Gameplay.AccessKey
         {
             _model.Arm(zoneId);
             _door = door;
-            _door?.Arm(zoneId);
+            if (_door != null)
+            {
+                _door.Arm(zoneId);
+            }
             SetPresent(false);
         }
 
@@ -119,7 +122,10 @@ namespace ProfessorSprat.Gameplay.AccessKey
             }
 
             SetPresent(false);
-            _door?.SetKeyCarried(true);
+            if (_door != null)
+            {
+                _door.SetKeyCarried(true);
+            }
             EventBus.Publish(new KeyCollectedEvent(_model.ZoneId));
         }
 

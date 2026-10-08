@@ -1,0 +1,265 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7080267285978294685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7920678446890958900}
+  - component: {fileID: 358829743332053507}
+  - component: {fileID: 2902364438768957128}
+  m_Layer: 0
+  m_Name: DropShadow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7920678446890958900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080267285978294685}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8861271945272891685}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &358829743332053507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080267285978294685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0777d029ed3dffa4692f417d4aba19ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.DecalProjector
+  m_Material: {fileID: 2100000, guid: 31d0dcc6f2dd4e4408d18036a2c93862, type: 2}
+  m_DrawDistance: 1000
+  m_FadeScale: 0.9
+  m_StartAngleFade: 180
+  m_EndAngleFade: 180
+  m_UVScale: {x: 1, y: 1}
+  m_UVBias: {x: 0, y: 0}
+  m_RenderingLayerMask:
+    serializedVersion: 0
+    m_Bits: 1
+  m_ScaleMode: 0
+  m_Offset: {x: 0, y: 0, z: 0.5}
+  m_Size: {x: 1, y: 1, z: 1}
+  m_FadeFactor: 1
+  m_VisibleInScene: 1
+  version: 1
+  m_DecalLayerMask: 1
+--- !u!114 &2902364438768957128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7080267285978294685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a64558e28c6998a488a481ce6753dc16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Player.DropShadow
+  _config: {fileID: 11400000, guid: a7233034cb2417747aa0a6b06c0d850d, type: 2}
+  _professor: {fileID: 8861271945272891685}
+  _projector: {fileID: 358829743332053507}
+  _surfaces:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!1001 &3975024155256976708
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_Name
+      value: PRF_Professor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7920678446890958900}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7616416441223840778}
+    - targetCorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2761263806204546977}
+    - targetCorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3830563800889397248}
+    - targetCorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8707023168133139916}
+    - targetCorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8745184534131852868}
+  m_SourcePrefab: {fileID: 100100000, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+--- !u!95 &2884714155122364526 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2243513163463812394, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+  m_PrefabInstance: {fileID: 3975024155256976708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5117077507456589595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+  m_PrefabInstance: {fileID: 3975024155256976708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!143 &7616416441223840778
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117077507456589595}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Height: 1.09
+  m_Radius: 0.35
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.02
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 0.565, z: 0}
+--- !u!114 &2761263806204546977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117077507456589595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 229553c8d3a0c844198985ee2c115081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Player.ProfessorLocomotion
+  _config: {fileID: 11400000, guid: ca42260392afbcf489179f988d48439b, type: 2}
+  _jump: {fileID: 3830563800889397248}
+  _stomp: {fileID: 8707023168133139916}
+--- !u!114 &3830563800889397248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117077507456589595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1962ad2b2fc980e438ce93a246820089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Player.ProfessorJump
+  _config: {fileID: 11400000, guid: a7233034cb2417747aa0a6b06c0d850d, type: 2}
+  _locomotion: {fileID: 2761263806204546977}
+  _stomp: {fileID: 8707023168133139916}
+--- !u!114 &8707023168133139916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117077507456589595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73564a47222380845acd1ae905b5d23e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Player.ProfessorStomp
+  _config: {fileID: 11400000, guid: 18c3cd54667a5fa49bf9ebd18615ae14, type: 2}
+  _jump: {fileID: 3830563800889397248}
+  _locomotion: {fileID: 2761263806204546977}
+--- !u!114 &8745184534131852868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117077507456589595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc8ac51d017688545a023bc5d0b4c3f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Animation.CharacterAnimationDriver
+  _animator: {fileID: 2884714155122364526}
+  _locomotion: {fileID: 2761263806204546977}
+  _stomp: {fileID: 8707023168133139916}
+--- !u!4 &8861271945272891685 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+  m_PrefabInstance: {fileID: 3975024155256976708}
+  m_PrefabAsset: {fileID: 0}

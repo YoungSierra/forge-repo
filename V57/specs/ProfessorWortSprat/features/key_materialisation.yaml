@@ -1,0 +1,83 @@
+specVersion: "1.1"
+name: KeyMaterialisation
+type: mechanic
+description: Access Key spawns only on OnZoneComplete (1.2 s ceremony), collected at 1.5 m, unlocks the zone door.
+version: 1.0.0
+dependencies:
+  - kind: mechanic
+    id: FlyCollection
+  - kind: mechanic
+    id: Locomotion
+  - kind: system
+    id: EventBus
+  - kind: system
+    id: ZoneFlow
+preconditions:
+  - Zone has one key anchor and one ZoneDoor
+components:
+  - name: AccessKeyController
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/AccessKey/AccessKeyController.cs
+  - name: ZoneDoorController
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/AccessKey/ZoneDoorController.cs
+  - name: AccessKeyConfig
+    type: ScriptableObject
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Config/AccessKeyConfig.cs
+  - name: AccessKeyModel
+    type: plain-C#
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/AccessKey/AccessKeyModel.cs
+publicAPI:
+  methods:
+    - void Arm(string zoneId)
+  properties:
+    - bool IsKeyCarried
+    - KeyState State
+  events:
+    - OnKeySpawned {string zoneId, Vector3 keyPosition}
+    - OnKeyCollected {string zoneId}
+    - OnDoorUnlocked {string zoneId, string doorId}
+acceptanceCriteria:
+  - id: AC-KEY-01
+    description: ceremonyDuration 1.2, pickupRadius 1.5, doorOpenDuration 0.8
+    verification: EditMode
+  - id: AC-KEY-02
+    description: Spawn within 1 frame; amber 4.0 at 1.2 s
+    verification: PlayMode
+  - id: AC-KEY-03
+    description: Double OnZoneComplete spawns once
+    verification: PlayMode
+  - id: AC-KEY-04
+    description: Pickup deferred to ceremony end; door unlock in 0.8 s
+    verification: PlayMode
+  - id: AC-KEY-05
+    description: Door stays locked without key
+    verification: PlayMode
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  acceptanceCriteria: all_must_pass
+specId: key_materialisation
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Gameplay/AccessKey/AccessKeyController.cs
+    - Assets/_Game/Scripts/Gameplay/AccessKey/ZoneDoorController.cs
+    - Assets/_Game/Scripts/Gameplay/Config/AccessKeyConfig.cs
+    - Assets/_Game/Scripts/Gameplay/AccessKey/AccessKeyModel.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Gameplay/PRF_AccessKey.prefab
+    - Assets/_Game/Prefabs/Gameplay/PRF_ZoneDoor.prefab
+  scriptable_objects:
+    - Assets/_Game/Data/Config/AccessKeyConfig.asset
+  scenes:
+    - Assets/_Game/Scenes/Tests/SCN_KeyMaterialisation_Test.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/AccessKey/AccessKeyConfigTests.cs
+    - Assets/_Game/Tests/PlayMode/AccessKey/KeyMaterialisationPlayTests.cs
+source: Docs/Design/TDD.md §C (adopted by V57 M1; paths mapped to Assets/_Game per TDD Standard 2.1)

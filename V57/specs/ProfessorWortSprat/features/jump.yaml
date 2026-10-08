@@ -1,0 +1,80 @@
+specVersion: "1.1"
+name: Jump
+type: mechanic
+description: Single jump with coyote time, jump buffer, falling gravity and drop shadow.
+version: 1.0.0
+dependencies:
+  - kind: mechanic
+    id: Locomotion
+  - kind: system
+    id: EventBus
+  - kind: system
+    id: InputHandler
+preconditions:
+  - Locomotion active on the same body
+components:
+  - name: ProfessorJump
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Player/ProfessorJump.cs
+  - name: JumpConfig
+    type: ScriptableObject
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Config/JumpConfig.cs
+  - name: JumpModel
+    type: plain-C#
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Player/JumpModel.cs
+  - name: DropShadow
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Player/DropShadow.cs
+publicAPI:
+  methods:
+    - void PressJump()
+  properties:
+    - bool IsAirborne
+    - float VerticalVelocity
+    - float TimeSinceJumpStart
+  events:
+    - OnJumpStarted {Vector3 position}
+    - OnLanded {Vector3 position, float fallDistance}
+acceptanceCriteria:
+  - id: AC-JMP-01
+    description: jumpImpulse 6.6, fallingGravityScale 1.8
+    verification: EditMode
+  - id: AC-JMP-02
+    description: Peak 2.17-2.27 m from config
+    verification: EditMode
+  - id: AC-JMP-03
+    description: Coyote jump at 0.10 s, gain >= 1.8 m
+    verification: PlayMode
+  - id: AC-JMP-04
+    description: Buffered press fires within 1 frame of landing
+    verification: PlayMode
+  - id: AC-JMP-05
+    description: No double jump; peak <= 2.3 m
+    verification: PlayMode
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  acceptanceCriteria: all_must_pass
+specId: jump
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Gameplay/Player/ProfessorJump.cs
+    - Assets/_Game/Scripts/Gameplay/Config/JumpConfig.cs
+    - Assets/_Game/Scripts/Gameplay/Player/JumpModel.cs
+    - Assets/_Game/Scripts/Gameplay/Player/DropShadow.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Gameplay/PRF_Professor.prefab
+  scriptable_objects:
+    - Assets/_Game/Data/Config/JumpConfig.asset
+  scenes:
+    - Assets/_Game/Scenes/Tests/SCN_Jump_Test.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/Jump/JumpConfigTests.cs
+    - Assets/_Game/Tests/PlayMode/Jump/JumpPlayTests.cs
+source: Docs/Design/TDD.md §C (adopted by V57 M1; paths mapped to Assets/_Game per TDD Standard 2.1)

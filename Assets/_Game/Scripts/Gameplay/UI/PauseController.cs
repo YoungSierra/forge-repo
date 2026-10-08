@@ -38,7 +38,10 @@ namespace ProfessorSprat.Gameplay.UI
 
             IsPaused = paused;
             Time.timeScale = paused ? 0f : 1f;
-            _input?.SetGameplayEnabled(!paused);
+            if (_input != null)
+            {
+                _input.SetGameplayEnabled(!paused);
+            }
             if (_panel != null)
             {
                 _panel.style.display = paused ? DisplayStyle.Flex : DisplayStyle.None;

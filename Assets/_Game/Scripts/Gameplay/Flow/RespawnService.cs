@@ -130,7 +130,10 @@ namespace ProfessorSprat.Gameplay.Flow
         private IEnumerator CoRespawn()
         {
             IsRespawning = true;
-            _input?.SetGameplayEnabled(false);
+            if (_input != null)
+            {
+                _input.SetGameplayEnabled(false);
+            }
             if (_fade != null)
             {
                 yield return _fade.CoFade(1f, _config.FadeOut);
@@ -144,7 +147,10 @@ namespace ProfessorSprat.Gameplay.Flow
                 yield return _fade.CoFade(0f, _config.FadeIn);
             }
 
-            _input?.SetGameplayEnabled(true);
+            if (_input != null)
+            {
+                _input.SetGameplayEnabled(true);
+            }
             IsRespawning = false;
         }
 

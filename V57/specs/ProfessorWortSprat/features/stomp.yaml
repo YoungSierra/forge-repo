@@ -1,0 +1,82 @@
+specVersion: "1.1"
+name: Stomp
+type: mechanic
+description: Air-only straight-down slam; defeats a crab within 1.0 m and bounces off it.
+version: 1.0.0
+dependencies:
+  - kind: mechanic
+    id: Jump
+  - kind: mechanic
+    id: Locomotion
+  - kind: system
+    id: EventBus
+  - kind: system
+    id: InputHandler
+preconditions:
+  - Professor airborne and not stunned
+components:
+  - name: ProfessorStomp
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Player/ProfessorStomp.cs
+  - name: StompConfig
+    type: ScriptableObject
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Config/StompConfig.cs
+  - name: StompModel
+    type: plain-C#
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Player/StompModel.cs
+publicAPI:
+  methods:
+    - void PressStomp()
+  properties:
+    - bool IsStomping
+    - float ImpactRadius
+  events:
+    - OnStompStarted {Vector3 position}
+    - OnStompLanded {Vector3 position, float impactRadius}
+acceptanceCriteria:
+  - id: AC-STP-01
+    description: impactRadius 1.0, stompGravityMultiplier 3.0, bounceHeight 0.8
+    verification: EditMode
+  - id: AC-STP-02
+    description: Descent from 1.5 m in 0.20-0.28 s
+    verification: EditMode
+  - id: AC-STP-03
+    description: Grounded press ignored
+    verification: PlayMode
+  - id: AC-STP-04
+    description: Crab at 0.9 m defeated; bounce 0.7-0.9 m
+    verification: PlayMode
+  - id: AC-STP-05
+    description: Crab at 1.05 m not defeated; 0.25 s recovery
+    verification: PlayMode
+  - id: AC-STP-06
+    description: Horizontal speed 0 while stomping
+    verification: PlayMode
+  - id: AC-STP-07
+    description: Not eligible before 0.15 s after jump start
+    verification: PlayMode
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  acceptanceCriteria: all_must_pass
+specId: stomp
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Gameplay/Player/ProfessorStomp.cs
+    - Assets/_Game/Scripts/Gameplay/Config/StompConfig.cs
+    - Assets/_Game/Scripts/Gameplay/Player/StompModel.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Gameplay/PRF_Professor.prefab
+  scriptable_objects:
+    - Assets/_Game/Data/Config/StompConfig.asset
+  scenes:
+    - Assets/_Game/Scenes/Tests/SCN_Stomp_Test.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/Stomp/StompConfigTests.cs
+    - Assets/_Game/Tests/PlayMode/Stomp/StompPlayTests.cs
+source: Docs/Design/TDD.md §C (adopted by V57 M1; paths mapped to Assets/_Game per TDD Standard 2.1)

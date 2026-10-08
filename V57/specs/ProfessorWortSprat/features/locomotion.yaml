@@ -1,0 +1,81 @@
+specVersion: "1.1"
+name: Locomotion
+type: mechanic
+description: Camera-relative ground movement of the Professor; knockback and stun receiver.
+version: 1.0.0
+dependencies:
+  - kind: system
+    id: EventBus
+  - kind: system
+    id: InputHandler
+  - kind: mechanic
+    id: CrabEncounter
+preconditions:
+  - CharacterController on the Professor gameplay prefab
+  - ZoneFlow initialized the zone
+components:
+  - name: ProfessorLocomotion
+    type: MonoBehaviour
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Player/ProfessorLocomotion.cs
+  - name: LocomotionConfig
+    type: ScriptableObject
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Config/LocomotionConfig.cs
+  - name: LocomotionModel
+    type: plain-C#
+    files:
+      - path: Assets/_Game/Scripts/Gameplay/Player/LocomotionModel.cs
+publicAPI:
+  methods:
+    - void SetMoveInput(Vector3 worldDirection)
+    - void ApplyKnockback(Vector3 direction, float distance, float duration)
+    - void Stun(float duration)
+    - void Teleport(Vector3 position, Quaternion rotation)
+  properties:
+    - Vector3 Velocity
+    - bool IsGrounded
+    - LocomotionState State
+  events:
+    - OnPlayerMoved {Vector3 position, Vector3 velocity}
+    - OnGroundedChanged {bool isGrounded, Vector3 position}
+    - OnStunBegin {float duration}
+    - OnStunEnd {}
+acceptanceCriteria:
+  - id: AC-LOC-01
+    description: Config runSpeed 5.5, acceleration 18, deceleration 22, stunDuration 0.5
+    verification: EditMode
+  - id: AC-LOC-02
+    description: Speed 5.4-5.6 m/s after 0.35 s full input
+    verification: PlayMode
+  - id: AC-LOC-03
+    description: Knockback 2.5 m in 0.5 s, vertical unchanged, input ignored during stun
+    verification: PlayMode
+  - id: AC-LOC-04
+    description: Slope > 45 deg blocks uphill; slide >= 1.9 m/s
+    verification: PlayMode
+  - id: AC-LOC-05
+    description: Camera-relative move; basis change deferred while stick held
+    verification: PlayMode
+validationGates:
+  specStructural: required
+  compileUnity: required
+  standardsValidation: required
+  codeReviewer: required
+  acceptanceCriteria: all_must_pass
+specId: locomotion
+touches:
+  scripts:
+    - Assets/_Game/Scripts/Gameplay/Player/ProfessorLocomotion.cs
+    - Assets/_Game/Scripts/Gameplay/Config/LocomotionConfig.cs
+    - Assets/_Game/Scripts/Gameplay/Player/LocomotionModel.cs
+  prefabs:
+    - Assets/_Game/Prefabs/Gameplay/PRF_Professor.prefab
+  scriptable_objects:
+    - Assets/_Game/Data/Config/LocomotionConfig.asset
+  scenes:
+    - Assets/_Game/Scenes/Tests/SCN_Locomotion_Test.unity
+  tests:
+    - Assets/_Game/Tests/EditMode/Locomotion/LocomotionConfigTests.cs
+    - Assets/_Game/Tests/PlayMode/Locomotion/LocomotionPlayTests.cs
+source: Docs/Design/TDD.md §C (adopted by V57 M1; paths mapped to Assets/_Game per TDD Standard 2.1)

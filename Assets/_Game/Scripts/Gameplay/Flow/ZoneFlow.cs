@@ -84,7 +84,10 @@ namespace ProfessorSprat.Gameplay.Flow
                 return;
             }
 
-            _save?.Load();
+            if (_save != null)
+            {
+                _save.Load();
+            }
             _content = LevelContent.Scan(_markersRoot, _levelActorsRoot);
             if (_content.Problems.Count > 0)
             {
@@ -98,11 +101,23 @@ namespace ProfessorSprat.Gameplay.Flow
             }
 
             _professor.Teleport(_content.Spawn.position, _content.Spawn.rotation);
-            _cameraRig?.Bind(_professor.transform, _content.DefaultYaw, _content.CameraZones, _content.CameraZoneYaws);
-            _sprat?.Bind(_professor.transform);
-            _respawn?.Bind(_content.KillVolumes, _content.Spawn);
+            if (_cameraRig != null)
+            {
+                _cameraRig.Bind(_professor.transform, _content.DefaultYaw, _content.CameraZones, _content.CameraZoneYaws);
+            }
+            if (_sprat != null)
+            {
+                _sprat.Bind(_professor.transform);
+            }
+            if (_respawn != null)
+            {
+                _respawn.Bind(_content.KillVolumes, _content.Spawn);
+            }
             BeginZone(0);
-            _input?.SetGameplayEnabled(true);
+            if (_input != null)
+            {
+                _input.SetGameplayEnabled(true);
+            }
             State = ZoneFlowState.Playing;
         }
 
@@ -133,7 +148,10 @@ namespace ProfessorSprat.Gameplay.Flow
                 crab.Init(_content.PatrolRange(crab));
             }
 
-            zone.Key?.Arm(zone.Id, zone.Door);
+            if (zone.Key != null)
+            {
+                zone.Key.Arm(zone.Id, zone.Door);
+            }
             EventBus.Publish(new ZoneStartedEvent(zone.Id, _flyTracker.ZoneTotal));
         }
 
@@ -148,7 +166,10 @@ namespace ProfessorSprat.Gameplay.Flow
             }
 
             State = ZoneFlowState.LevelEnd;
-            _input?.SetGameplayEnabled(false);
+            if (_input != null)
+            {
+                _input.SetGameplayEnabled(false);
+            }
             if (_levelEnd != null && _save != null)
             {
                 _levelEnd.Show(_save.Session.completedZones);
@@ -167,7 +188,10 @@ namespace ProfessorSprat.Gameplay.Flow
         {
             State = ZoneFlowState.Invalid;
             Debug.LogError($"{nameof(ZoneFlow)}: {reason}; gameplay disabled for this scene.", this);
-            _input?.SetGameplayEnabled(false);
+            if (_input != null)
+            {
+                _input.SetGameplayEnabled(false);
+            }
         }
 
         #endregion

@@ -18,12 +18,14 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         #region Fields
 
         private const int KeyShotPriority = 20;
+        private static readonly Vector3 KeyShotOffset = new Vector3(0f, 4.2f, -8.5f);
 
         [SerializeField] private CameraConfig _config;
         [SerializeField] private CinemachineCamera _followCamera;
         [SerializeField] private CinemachineFollow _follow;
         [SerializeField] private CinemachineRotationComposer _composer;
         [SerializeField] private CinemachineCamera _keyShotCamera;
+        [SerializeField] private CinemachineFollow _keyShotFollow;
         [SerializeField] private CinemachineTargetGroup _keyGroup;
 
         private readonly List<Collider> _zones = new List<Collider>();
@@ -145,6 +147,13 @@ namespace ProfessorSprat.Gameplay.CameraSystem
             _keyGroup.Targets.Clear();
             _keyGroup.AddMember(_target, 1f, 0.5f);
             _keyGroup.AddMember(spawned.Key, 1f, 0.5f);
+            if (_keyShotFollow != null)
+            {
+                // Same direction as the follow camera, higher and farther: frames Professor + key without crossing level walls.
+                _keyShotFollow.TrackerSettings.BindingMode = BindingMode.WorldSpace;
+                _keyShotFollow.FollowOffset = Quaternion.Euler(0f, ActiveYaw, 0f) * KeyShotOffset;
+            }
+
             _keyShotCamera.Priority.Value = KeyShotPriority;
             _keyShotRemaining = _config.KeyShotHold;
         }

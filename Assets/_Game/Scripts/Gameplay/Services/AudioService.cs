@@ -126,13 +126,19 @@ namespace ProfessorSprat.Gameplay.Services
         {
             _oneFlyLeft = false;
             Play("MUS_KeyMotif", spawned.KeyPosition);
-            _keyCeremony?.TransitionTo(0.2f);
+            if (_keyCeremony != null)
+            {
+                _keyCeremony.TransitionTo(0.2f);
+            }
             Invoke(nameof(RestoreGameplaySnapshot), 1.2f);
         }
 
         private void RestoreGameplaySnapshot()
         {
-            _gameplay?.TransitionTo(0.3f);
+            if (_gameplay != null)
+            {
+                _gameplay.TransitionTo(0.3f);
+            }
         }
 
         private void OnCrabProximity(CrabProximityEvent proximity)
@@ -149,7 +155,11 @@ namespace ProfessorSprat.Gameplay.Services
 
         private void OnPauseChanged(PauseChangedEvent changed)
         {
-            (changed.Paused ? _paused : _gameplay)?.TransitionTo(0.1f);
+            AudioMixerSnapshot snapshot = changed.Paused ? _paused : _gameplay;
+            if (snapshot != null)
+            {
+                snapshot.TransitionTo(0.1f);
+            }
         }
 
         #endregion

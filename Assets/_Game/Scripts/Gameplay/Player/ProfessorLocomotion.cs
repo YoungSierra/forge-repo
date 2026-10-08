@@ -20,6 +20,7 @@ namespace ProfessorSprat.Gameplay.Player
         [Header("Same body")]
         [SerializeField] private ProfessorJump _jump;
         [SerializeField] private ProfessorStomp _stomp;
+        [SerializeField] private BodyInterpolation _interpolation;
 
         private readonly LocomotionModel _model = new LocomotionModel();
         private CharacterController _controller;
@@ -31,6 +32,9 @@ namespace ProfessorSprat.Gameplay.Player
         #region Public Methods
 
         public LocomotionConfig Config => _config;
+
+        /// <summary>The rendered body (interpolated between physics steps): what camera, Sprat and the shadow follow.</summary>
+        public Transform Body => _interpolation != null ? _interpolation.Body : transform;
 
         public bool IsGrounded => _model.Grounded;
 

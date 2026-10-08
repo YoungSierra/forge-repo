@@ -66,9 +66,21 @@ namespace V57.GoldPath.Tests
             Assert.AreEqual("S1.expect", document.Steps[1].Id);
         }
 
+        [Test]
+        public void MoveWithoutSecondsIsHeldUntilRelease()
+        {
+            List<string> errors = new List<string>();
+            GoldPathDocument document = GoldPathStepParser.ParseGoldPathJson(
+                @"{ ""steps"": [ { ""do"": ""move"", ""action"": ""Player/Move"", ""value"": ""1,0"" }, { ""do"": ""release"", ""action"": ""Player/Move"" } ] }", "test", errors);
+
+            Assert.That(errors, Is.Empty);
+            Assert.AreEqual(GoldPathStepType.Move, document.Steps[0].Type);
+            Assert.AreEqual(0f, document.Steps[0].Seconds);
+            Assert.AreEqual(GoldPathStepType.Release, document.Steps[1].Type);
+        }
+
         [TestCase(@"{ ""steps"": [ { ""do"": ""jump"", ""action"": ""Player/Jump"" } ] }")]
         [TestCase(@"{ ""steps"": [ { ""do"": ""press"" } ] }")]
-        [TestCase(@"{ ""steps"": [ { ""do"": ""move"", ""action"": ""Player/Move"", ""value"": ""0,1"" } ] }")]
         [TestCase(@"{ ""steps"": [ { ""id"": ""S9"" } ] }")]
         [TestCase(@"{ ""steps"": [ { ""expect"": ""score"", ""op"": ""~="", ""value"": 1 } ] }")]
         public void InvalidStepsReportErrors(string json)

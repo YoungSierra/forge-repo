@@ -103,11 +103,11 @@ namespace ProfessorSprat.Gameplay.Flow
             _professor.Teleport(_content.Spawn.position, _content.Spawn.rotation);
             if (_cameraRig != null)
             {
-                _cameraRig.Bind(_professor.transform, _content.DefaultYaw, _content.CameraZones, _content.CameraZoneYaws);
+                _cameraRig.Bind(_professor.Body, _content.DefaultYaw, _content.CameraZones, _content.CameraZoneYaws);
             }
             if (_sprat != null)
             {
-                _sprat.Bind(_professor.transform);
+                _sprat.Bind(_professor.Body);
             }
             if (_respawn != null)
             {

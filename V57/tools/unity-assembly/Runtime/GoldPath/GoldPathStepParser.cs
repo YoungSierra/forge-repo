@@ -150,11 +150,6 @@ namespace V57.GoldPath
                 return false;
             }
 
-            if (type == GoldPathStepType.Move && dto.seconds <= 0f)
-            {
-                errors.Add($"step {id}: 'move' needs seconds > 0");
-                return false;
-            }
 
             steps.Add(new GoldPathStep(type, id, target, dto.value, dto.seconds, dto.frames, null, 0f, capture));
             return true;

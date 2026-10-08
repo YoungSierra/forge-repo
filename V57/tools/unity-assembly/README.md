@@ -188,6 +188,7 @@ Files are read with `JsonUtility` after `JsonPreprocessor` strips `"key": null` 
 - A step with both `do` and `expect` runs as two steps: the input first, then the check.
 - `press` goes down on frame N and up on frame N+1 or later.
 - `hold` without `seconds` stays down until a matching `release`.
+- `move` without `seconds` keeps the stick at `value` until a matching `release` (a later `move` on the same action changes the direction). Pair it with `wait_until` steps on probe positions for closed-loop routes (walk to a ledge, jump, land) instead of timed moves.
 - Every wait uses unscaled wall-clock time.
 
 **Built-in probe keys:** `scene.active` (string), `scene.<Name>` (bool), `marker.<Kind>.<Id>` (bool), `time.level`, `time.unscaled`, `frame`.

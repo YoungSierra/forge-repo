@@ -75,7 +75,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Player.DropShadow
   _config: {fileID: 11400000, guid: a7233034cb2417747aa0a6b06c0d850d, type: 2}
-  _professor: {fileID: 8861271945272891685}
+  _professor: {fileID: 9144766756515072532}
   _projector: {fileID: 358829743332053507}
   _surfaces:
     serializedVersion: 2
@@ -162,6 +162,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8745184534131852868}
+    - targetCorrespondingSourceObject: {fileID: 8082164218761521759, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3848516617074228640}
   m_SourcePrefab: {fileID: 100100000, guid: f04213f91563c2a4b821045ba2065364, type: 3}
 --- !u!95 &2884714155122364526 stripped
 Animator:
@@ -213,6 +216,7 @@ MonoBehaviour:
   _config: {fileID: 11400000, guid: ca42260392afbcf489179f988d48439b, type: 2}
   _jump: {fileID: 3830563800889397248}
   _stomp: {fileID: 8707023168133139916}
+  _interpolation: {fileID: 3848516617074228640}
 --- !u!114 &3830563800889397248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,8 +262,26 @@ MonoBehaviour:
   _animator: {fileID: 2884714155122364526}
   _locomotion: {fileID: 2761263806204546977}
   _stomp: {fileID: 8707023168133139916}
+--- !u!114 &3848516617074228640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5117077507456589595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a963abb2090c0848b3eaf9adca76bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Player.BodyInterpolation
+  _body: {fileID: 9144766756515072532}
 --- !u!4 &8861271945272891685 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5607984883513191521, guid: f04213f91563c2a4b821045ba2065364, type: 3}
+  m_PrefabInstance: {fileID: 3975024155256976708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9144766756515072532 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5314990286312685392, guid: f04213f91563c2a4b821045ba2065364, type: 3}
   m_PrefabInstance: {fileID: 3975024155256976708}
   m_PrefabAsset: {fileID: 0}

@@ -98,7 +98,7 @@ namespace V57.GoldPath
 
             result.detail = detail;
             yield return CoWait(step.Seconds, Mathf.Max(1, step.Frames));
-            if (step.Type == GoldPathStepType.Hold && step.Seconds <= 0f)
+            if ((step.Type == GoldPathStepType.Hold || step.Type == GoldPathStepType.Move) && step.Seconds <= 0f)
             {
                 result.pass = true;
                 result.detail = detail + " (held until release)";

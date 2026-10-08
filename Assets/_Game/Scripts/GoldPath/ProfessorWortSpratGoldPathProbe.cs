@@ -60,6 +60,7 @@ namespace ProfessorSprat.GoldPath
                 case "flies.collected": value = _flies.CollectedCount; return true;
                 case "flies.total": value = _flies.ZoneTotal; return true;
                 case "crabs.defeated": value = CountDefeated(zone); return true;
+                case "crab.distance": value = NearestCrabDistance(zone, position); return true;
                 case "zone.index": value = _flow.ActiveZoneIndex; return true;
                 case "respawn.count": value = _respawn != null ? _respawn.RespawnCount : 0; return true;
                 case "camera.yaw": value = _camera != null ? _camera.ActiveYaw : 0f; return true;
@@ -100,7 +101,29 @@ namespace ProfessorSprat.GoldPath
 
         #region Private Methods
 
-        private static float CountDefeated(ZoneRuntime zone)
+        /// <summary>Horizontal distance to the nearest undefeated crab of the zone (999 when none).</summary>
+        private static float NearestCrabDistance(ZoneRuntime zone, Vector3 position)
+        {
+            float nearest = 999f;
+            if (zone == null)
+            {
+                return nearest;
+            }
+
+            foreach (CrabController crab in zone.Crabs)
+            {
+                if (crab != null && !crab.IsDefeated)
+                {
+                    Vector3 offset = crab.transform.position - position;
+                    offset.y = 0f;
+                    nearest = Mathf.Min(nearest, offset.magnitude);
+                }
+            }
+
+            return nearest;
+        }
+
+                private static float CountDefeated(ZoneRuntime zone)
         {
             int count = 0;
             if (zone == null)

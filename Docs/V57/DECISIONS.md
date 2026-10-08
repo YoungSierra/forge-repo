@@ -772,3 +772,13 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Options:** A) a 3rd round — no V57-side fix exists without placeholders or editing provider art; B) close M3 as failed-timeboxed and carry the defects to M4.
 - **Choice:** B. M3 gate = failed-timeboxed; defects listed as open in the M4 report and in MISSING_ASSETS (provider deliveries). Gameplay items keep their tool-verified status.
 - **Reversal cost:** low (re-run the review when the art arrives) · **Type:** timebox
+
+### D-021 — Test route left to right; smoothed body and camera; closed-loop gold path
+- **When:** 2026-10-07 · **Stage:** post-M4 owner feedback · **Commit:** pending
+- **Context:** Owner review: spawn and exit too close together, flies bunched at one end, a strange camera motion when moving or jumping, and the gold path failing at the crab stomp (timed open-loop steps against a patrolling crab). Cause of the camera motion: the CharacterController moves in FixedUpdate (50 Hz) while frames render at 300+ fps, so the followed transform stepped; also the composer's look-ahead included Y, so the camera pitched on every jump, and Y damping was 0.05 instead of the TDD §11.5 0.3 s.
+- **Choice:**
+  - **Route (replaces D-016):** the test placement (D-013) runs the whole map from left to right (+X, `Marker_CameraZone_Default` yaw 90°). Spawn at the open mouth of the left tunnel (x −16.6), one fly on each platform, the map's own key anchor (x 8.1) and zone door (right tunnel arch), the crab patrolling across the right tunnel (`Marker_Patrol_MechanicalCrab_01`), exit inside the right tunnel (x 20.5).
+  - **Body:** physics stays at a fixed step. `BodyInterpolation` places the model (`SK_Professor`) between the last two physics poses each frame; camera, Sprat and the drop shadow follow `ProfessorLocomotion.Body`.
+  - **Camera:** CinemachineBrain update LateUpdate; position damping 0.3 s on every axis; look-ahead 0.25 s ignores Y, with smoothing 0.3.
+  - **Gold path:** closed loop. A held `move` (V57 core: `move` without `seconds` is held until `release`) plus `wait_until` on probe positions. A new game probe key `crab.distance` times the stomp.
+- **Reversal cost:** low · **Type:** other

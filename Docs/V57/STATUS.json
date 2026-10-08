@@ -4,10 +4,10 @@
   "mode": "VerticalSlice",
   "branch": "v57/setup",
   "engine_pin": "6000.6.2f1",
-  "stage": "M3",
+  "stage": "M4",
   "stage_state": "running",
   "status": "running",
-  "next": "M3 craft + independent review",
+  "next": "M4 acceptance report",
   "next_spec": null,
   "hard_stop": null,
   "gates": {
@@ -42,11 +42,11 @@
       "at_utc": "2026-10-08T00:41:09Z"
     },
     "M3": {
-      "state": "pending",
-      "evidence": null,
-      "at_utc": null,
-      "review_round": 0,
-      "min_area_score": null
+      "state": "failed-timeboxed",
+      "evidence": "Docs/V57/evidence/review/20261008T004911Z/review.json",
+      "at_utc": "2026-10-08T00:51:21Z",
+      "review_round": 2,
+      "min_area_score": 5
     },
     "M4": {
       "state": "pending",
@@ -120,11 +120,11 @@
     "pass": true,
     "checks_path": "Docs/V57/evidence/goldpath/20261008T003925Z/checks.json"
   },
-  "last_green_commit": "75b740a",
+  "last_green_commit": "2f46ff6",
   "last_decision": null,
   "status_word": "implemented",
   "blockers": [],
-  "updated_utc": "2026-10-08T00:41:11Z",
+  "updated_utc": "2026-10-08T00:51:23Z",
   "_notes": {
     "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
     "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",

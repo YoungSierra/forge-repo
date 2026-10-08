@@ -89,24 +89,11 @@ namespace V57.Assembly.Build
 
         private static Dictionary<string, GameObject> VisualPrefabsByModel()
         {
+            // Same deterministic model → Visual prefab map the prefab builder uses (no ambiguity between naming generations).
             Dictionary<string, GameObject> byModel = new Dictionary<string, GameObject>();
-            if (!AssetDatabase.IsValidFolder(AssemblyPaths.VisualPrefabRoot))
+            foreach (KeyValuePair<string, string> pair in VisualPrefabPaths.ExistingByModel())
             {
-                return byModel;
-            }
-
-            foreach (string guid in AssetDatabase.FindAssets("t:Prefab", new[] { AssemblyPaths.VisualPrefabRoot }))
-            {
-                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(AssetDatabase.GUIDToAssetPath(guid));
-                foreach (Transform child in prefab.transform)
-                {
-                    GameObject source = PrefabUtility.GetCorrespondingObjectFromOriginalSource(child.gameObject);
-                    string modelPath = source != null ? AssetDatabase.GetAssetPath(source) : null;
-                    if (!string.IsNullOrEmpty(modelPath) && !byModel.ContainsKey(modelPath))
-                    {
-                        byModel.Add(modelPath, prefab);
-                    }
-                }
+                byModel.Add(pair.Key, AssetDatabase.LoadAssetAtPath<GameObject>(pair.Value));
             }
 
             return byModel;

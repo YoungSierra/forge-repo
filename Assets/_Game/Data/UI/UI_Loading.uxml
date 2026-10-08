@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="PS_UI.uss" />
+    <ui:VisualElement name="loading-cover" class="screen loading-cover" picking-mode="Ignore" />
+</ui:UXML>

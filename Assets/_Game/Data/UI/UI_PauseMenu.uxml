@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="PS_UI.uss" />
+    <ui:VisualElement name="pause-menu" class="panel">
+        <ui:Label text="Paused" class="panel-title" />
+        <ui:Button name="resume" text="Resume" class="menu-button" />
+        <ui:Button name="restart" text="Restart zone" class="menu-button" />
+        <ui:Button name="quit" text="Quit to menu" class="menu-button" />
+    </ui:VisualElement>
+</ui:UXML>

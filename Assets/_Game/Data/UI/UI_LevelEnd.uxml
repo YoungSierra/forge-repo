@@ -1,0 +1,8 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="PS_UI.uss" />
+    <ui:VisualElement name="level-end" class="panel">
+        <ui:Label text="Level complete" class="panel-title" />
+        <ui:Label name="level-end-results" text="" class="panel-text" />
+        <ui:Button name="continue" text="Continue" class="menu-button" />
+    </ui:VisualElement>
+</ui:UXML>

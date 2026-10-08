@@ -64,6 +64,35 @@ namespace V57.Assembly.Build
             return File.Exists(AssemblyPaths.ToFullPath(assetPath));
         }
 
+        /// <summary>Existing Visual prefab path per source model path (first by path order), from the nested model instances.</summary>
+        public static System.Collections.Generic.Dictionary<string, string> ExistingByModel()
+        {
+            System.Collections.Generic.Dictionary<string, string> byModel = new System.Collections.Generic.Dictionary<string, string>();
+            if (!AssetDatabase.IsValidFolder(AssemblyPaths.VisualPrefabRoot))
+            {
+                return byModel;
+            }
+
+            string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { AssemblyPaths.VisualPrefabRoot });
+            string[] paths = Array.ConvertAll(guids, AssetDatabase.GUIDToAssetPath);
+            Array.Sort(paths, StringComparer.Ordinal);
+            foreach (string path in paths)
+            {
+                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                foreach (Transform child in prefab.transform)
+                {
+                    GameObject source = PrefabUtility.GetCorrespondingObjectFromOriginalSource(child.gameObject);
+                    string model = source != null ? AssetDatabase.GetAssetPath(source) : null;
+                    if (!string.IsNullOrEmpty(model) && !byModel.ContainsKey(model))
+                    {
+                        byModel.Add(model, path);
+                    }
+                }
+            }
+
+            return byModel;
+        }
+
         #endregion
 
         #region Private Methods

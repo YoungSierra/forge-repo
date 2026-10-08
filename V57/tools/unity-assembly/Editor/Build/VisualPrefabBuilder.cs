@@ -34,6 +34,7 @@ namespace V57.Assembly.Build
                 return;
             }
 
+            System.Collections.Generic.Dictionary<string, string> existingByModel = VisualPrefabPaths.ExistingByModel();
             foreach (AssetEntryDto entry in manifest.assets)
             {
                 if (entry == null || !VisualPrefabPaths.IsVisualType(entry))
@@ -48,6 +49,11 @@ namespace V57.Assembly.Build
                 }
 
                 string prefabPath = VisualPrefabPaths.PrefabPath(entry, modelPath);
+                if (existingByModel.TryGetValue(modelPath, out string existing) && existing != prefabPath)
+                {
+                    // One Visual prefab per model: a prefab built under an earlier naming rule is reused, never duplicated.
+                    prefabPath = existing;
+                }
                 if (VisualPrefabPaths.Exists(prefabPath) && !AssemblyOptions.Force)
                 {
                     AssemblyContext.Counts.skipped_existing++;

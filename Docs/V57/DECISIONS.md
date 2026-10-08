@@ -722,3 +722,22 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTPROPZONEDOOR001); provider may rename in a later delivery
 - **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
 <!-- v57-intake-key: 37a7a5169583 -->
+
+### D-013 — Temporary test placement on the delivered test map
+- **When:** 2026-10-07 · **Stage:** M1 · **Commit:** pending
+- **Context:** The delivered layout (`LevelMaps/Montaje`, owner: test map only) has no §6 level-contract markers, no crabs, and its flies/creatures use old `AST-CHAR-*` ids with no model, so no zone can be played.
+- **Options:** A) stop until the provider delivers the contract; B) temporary V57 test placement inside the level containers; C) hand-edit the provider JSON (forbidden).
+- **Choice:** B. A compact test zone on the flat start platform (x −26…−15, y 2.2, z 3…9): `Marker_Spawn_Player`, `Marker_Zone_Z1`, `Marker_Exit_Z1`, `Marker_Kill_01`, `Marker_CameraZone_Default` (yaw 90°, level forward = +X), 6 `Fly`, 1 static `MechanicalCrab` (with a fly above it, LR-07), a test `AccessKey` and `ZoneDoor`, and the `Shark` at its layout position. It lives under `_Environment/_Markers` and `_Gameplay/Level/TestPlacement`, so `RebuildLevelContent` removes it when the final map arrives. The provider's own key/door (outside `Marker_Zone_Z1`) are ignored with a contract warning.
+- **Reversal cost:** low (delete `TestPlacement`) · **Type:** other
+
+### D-014 — Duplicate Visual prefabs after the intake naming change
+- **When:** 2026-10-07 · **Stage:** I2 · **Commit:** pending
+- **Context:** I2 built 26 `PRF_ASTENV…/ASTPROP…_Visual` prefabs (new sanitized asset names) for models that already had `PRF_AST-ENV-…_Visual` prefabs used by both scenes.
+- **Choice:** deleted the 26 unused duplicates; core fix (V57 `fd…` "one Visual prefab per model") reuses the existing prefab for a model instead of creating a second one.
+- **Reversal cost:** low · **Type:** revert
+
+### D-015 — Amber ramp spans the whole key ceremony
+- **When:** 2026-10-07 · **Stage:** M1 · **Commit:** pending
+- **Context:** TDD §B KeyMaterialisation feedback says "dissolve-in 0.4 s, amber 0 → 4.0" while AC-KEY-02 requires the light to reach 4.0 at 1.2 s ± 0.05 s.
+- **Choice:** the acceptance criterion wins: the amber light ramps 0 → 4.0 over the 1.2 s ceremony (`AccessKeyConfig.amberRampDuration = 1.2`); the visual appears at ceremony start.
+- **Reversal cost:** low (config value) · **Type:** conflict

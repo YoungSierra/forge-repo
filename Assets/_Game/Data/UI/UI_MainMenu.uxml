@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="PS_UI.uss" />
+    <ui:VisualElement name="main-menu" class="screen menu-root">
+        <ui:VisualElement class="menu-column">
+            <ui:Label text="Professor Wort &amp; Sprat" class="title" />
+            <ui:Button name="start" text="Start" class="menu-button" />
+            <ui:Button name="continue" text="Continue" class="menu-button" />
+            <ui:Button name="quit" text="Quit" class="menu-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

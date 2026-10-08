@@ -4,11 +4,11 @@
   "mode": "VerticalSlice",
   "branch": "v57/setup",
   "engine_pin": "6000.6.2f1",
-  "stage": "F",
+  "stage": "M2",
   "stage_state": "running",
   "status": "running",
-  "next": "F specs: tests per spec (locomotion first)",
-  "next_spec": "locomotion",
+  "next": "M2 scene = game: main menu scene, lint, hierarchy diff, collision check",
+  "next_spec": null,
   "hard_stop": null,
   "gates": {
     "A0": {
@@ -32,9 +32,9 @@
       "at_utc": "2026-10-08T00:27:06Z"
     },
     "F": {
-      "state": "pending",
-      "evidence": null,
-      "at_utc": null
+      "state": "passed",
+      "evidence": "Docs/V57/reports/F-locomotion-ProfessorWortSprat.md",
+      "at_utc": "2026-10-08T00:34:35Z"
     },
     "M2": {
       "state": "pending",
@@ -63,18 +63,68 @@
       "conflict": 4
     }
   },
-  "specs": [],
+  "specs": [
+    {
+      "id": "locomotion",
+      "path": "V57/specs/ProfessorWortSprat/features/locomotion.yaml",
+      "state": "green",
+      "attempts": 1,
+      "status_word": "agent-verified"
+    },
+    {
+      "id": "jump",
+      "path": "V57/specs/ProfessorWortSprat/features/jump.yaml",
+      "state": "green",
+      "attempts": 1,
+      "status_word": "agent-verified"
+    },
+    {
+      "id": "stomp",
+      "path": "V57/specs/ProfessorWortSprat/features/stomp.yaml",
+      "state": "green",
+      "attempts": 1,
+      "status_word": "agent-verified"
+    },
+    {
+      "id": "crab_encounter",
+      "path": "V57/specs/ProfessorWortSprat/features/crab_encounter.yaml",
+      "state": "green",
+      "attempts": 1,
+      "status_word": "agent-verified"
+    },
+    {
+      "id": "fly_collection",
+      "path": "V57/specs/ProfessorWortSprat/features/fly_collection.yaml",
+      "state": "green",
+      "attempts": 1,
+      "status_word": "agent-verified"
+    },
+    {
+      "id": "key_materialisation",
+      "path": "V57/specs/ProfessorWortSprat/features/key_materialisation.yaml",
+      "state": "green",
+      "attempts": 1,
+      "status_word": "agent-verified"
+    },
+    {
+      "id": "sprat_companion",
+      "path": "V57/specs/ProfessorWortSprat/features/sprat_companion.yaml",
+      "state": "green",
+      "attempts": 1,
+      "status_word": "agent-verified"
+    }
+  ],
   "goldpath": {
-    "last_run_utc": "2026-10-08T00:27:06Z",
-    "commit": "2f13ff8",
+    "last_run_utc": "2026-10-08T00:34:35Z",
+    "commit": "020d26f",
     "pass": true,
-    "checks_path": "Docs/V57/evidence/goldpath/20261008T002433Z/checks.json"
+    "checks_path": "Docs/V57/evidence/goldpath/20261008T003358Z/checks.json"
   },
-  "last_green_commit": "2f13ff8",
+  "last_green_commit": "020d26f",
   "last_decision": null,
   "status_word": "implemented",
   "blockers": [],
-  "updated_utc": "2026-10-08T00:27:08Z",
+  "updated_utc": "2026-10-08T00:34:36Z",
   "_notes": {
     "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
     "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",

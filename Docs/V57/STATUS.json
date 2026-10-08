@@ -4,11 +4,11 @@
   "mode": "VerticalSlice",
   "branch": "v57/setup",
   "engine_pin": "6000.6.2f1",
-  "stage": "M1",
+  "stage": "F",
   "stage_state": "running",
   "status": "running",
-  "next": "M1 plan, context, specs, greybox gold path",
-  "next_spec": null,
+  "next": "F specs: tests per spec (locomotion first)",
+  "next_spec": "locomotion",
   "hard_stop": null,
   "gates": {
     "A0": {
@@ -27,9 +27,9 @@
       "at_utc": "2026-10-07T23:54:10Z"
     },
     "M1": {
-      "state": "pending",
-      "evidence": null,
-      "at_utc": null
+      "state": "passed",
+      "evidence": "Docs/V57/evidence/goldpath/20261008T002433Z/checks.json",
+      "at_utc": "2026-10-08T00:27:06Z"
     },
     "F": {
       "state": "pending",
@@ -65,16 +65,16 @@
   },
   "specs": [],
   "goldpath": {
-    "last_run_utc": null,
-    "commit": null,
-    "pass": null,
-    "checks_path": null
+    "last_run_utc": "2026-10-08T00:27:06Z",
+    "commit": "2f13ff8",
+    "pass": true,
+    "checks_path": "Docs/V57/evidence/goldpath/20261008T002433Z/checks.json"
   },
-  "last_green_commit": "c9b10b2",
+  "last_green_commit": "2f13ff8",
   "last_decision": null,
   "status_word": "implemented",
   "blockers": [],
-  "updated_utc": "2026-10-07T23:54:12Z",
+  "updated_utc": "2026-10-08T00:27:08Z",
   "_notes": {
     "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
     "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",

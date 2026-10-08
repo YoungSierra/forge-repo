@@ -67,12 +67,24 @@ namespace V57.Assembly.Build
             return containers;
         }
 
-        /// <summary>Removes the level content (all of <c>_Environment</c> and <c>_Gameplay/Level</c>); returns removed objects.</summary>
+        /// <summary>
+        /// Removes the level content (children of <c>_Environment</c>, <c>_Environment/_Markers</c> and <c>_Gameplay/Level</c>);
+        /// the containers themselves stay, so serialized references from gameplay systems to them survive a new map.
+        /// </summary>
         public int ClearLevelContent()
         {
-            int removed = DestroyChildren(Environment) + DestroyChildren(LevelActors);
-            Markers = CreateChild(Environment, "_Markers");
-            return removed;
+            int removed = DestroyChildren(Markers);
+            for (int i = Environment.childCount - 1; i >= 0; i--)
+            {
+                Transform child = Environment.GetChild(i);
+                if (child != Markers)
+                {
+                    Object.DestroyImmediate(child.gameObject);
+                    removed++;
+                }
+            }
+
+            return removed + DestroyChildren(LevelActors);
         }
 
         public static Transform CreateChild(Transform parent, string name)

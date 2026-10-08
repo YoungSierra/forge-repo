@@ -49,7 +49,7 @@ _Environment/
 _Gameplay/
   Player                   ← PRF_<Asset> (gameplay variant) instance at Marker_Spawn_Player
   Collectibles/Coin        ← PRF_<Asset> instances or a spawner with serialized prefab ref
-  Level/<Layer>            ← gameplay prefabs placed by the level delivery (LevelMaps layout); with _Environment this is the level content that `AssemblyRunner.RebuildLevelContent()` replaces when a new map arrives — everything else (player, systems, UI, cameras) is kept
+  Level/<Layer>            ← gameplay prefabs placed by the level delivery (LevelMaps layout); with _Environment this is the level content that `AssemblyRunner.RebuildLevelContent()` replaces when a new map arrives — everything else (player, systems, UI, cameras) is kept. The containers `_Environment/_Markers` and `_Gameplay/Level` are never deleted (only emptied), so systems reference those containers and traverse their children at Init — they never hold references to individual level objects
   Spawned                  ← empty parent for runtime-instantiated prefabs (the only runtime-created content allowed)
 _Systems/
   GameBootstrap            ← serialized refs + ordered Init only

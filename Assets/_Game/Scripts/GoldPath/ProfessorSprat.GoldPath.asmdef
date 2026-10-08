@@ -1,0 +1,18 @@
+{
+    "name": "ProfessorSprat.GoldPath",
+    "rootNamespace": "ProfessorSprat.GoldPath",
+    "references": [
+        "ProfessorSprat.Core",
+        "ProfessorSprat.Gameplay",
+        "V57.GoldPath"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

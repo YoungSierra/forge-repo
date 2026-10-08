@@ -1,0 +1,134 @@
+{
+    "started": "2026-10-08T00:58:00.3153261Z",
+    "finished": "2026-10-08T00:58:05.3249050Z",
+    "source": "E:\\Repositorio\\ProfesorSprat\\Docs/V57/gold_path.json",
+    "scene": "Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity",
+    "evidence_dir": "E:\\Repositorio\\ProfesorSprat\\Docs/V57/evidence/goldpath\\20261008T005800Z",
+    "steps": [
+        {
+            "index": 0,
+            "id": "S01",
+            "type": "WaitUntil",
+            "arg": "zone.state == Playing (timeout 8s)",
+            "pass": true,
+            "elapsed": 0.24918746948242188,
+            "detail": "zone.state='Playing' == 'Playing'",
+            "screenshot": "00_S01.png"
+        },
+        {
+            "index": 1,
+            "id": "S02",
+            "type": "WaitUntil",
+            "arg": "flies.total == 6 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.00284576416015625,
+            "detail": "flies.total=6 == 6",
+            "screenshot": ""
+        },
+        {
+            "index": 2,
+            "id": "S03",
+            "type": "WaitUntil",
+            "arg": "hud.counter == 0 / 6 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.006351470947265625,
+            "detail": "hud.counter='0 / 6' == '0 / 6'",
+            "screenshot": ""
+        },
+        {
+            "index": 3,
+            "id": "S04",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1 for 0,65s",
+            "pass": true,
+            "elapsed": 0.6631202697753906,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 4,
+            "id": "S05",
+            "type": "WaitUntil",
+            "arg": "flies.collected >= 2 (timeout 1,5s)",
+            "pass": true,
+            "elapsed": 0.00234222412109375,
+            "detail": "flies.collected=2 >= 2",
+            "screenshot": ""
+        },
+        {
+            "index": 5,
+            "id": "S06",
+            "type": "Wait",
+            "arg": "0,6s",
+            "pass": true,
+            "elapsed": 0.6008415222167969,
+            "detail": "waited",
+            "screenshot": ""
+        },
+        {
+            "index": 6,
+            "id": "S07",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1 for 0,15s",
+            "pass": true,
+            "elapsed": 0.15581512451171875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 7,
+            "id": "S08",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.006378173828125,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 8,
+            "id": "S09",
+            "type": "Wait",
+            "arg": "0,42s",
+            "pass": true,
+            "elapsed": 0.4201316833496094,
+            "detail": "waited",
+            "screenshot": ""
+        },
+        {
+            "index": 9,
+            "id": "S10",
+            "type": "Press",
+            "arg": "Gameplay/Stomp",
+            "pass": true,
+            "elapsed": 0.004337310791015625,
+            "detail": "action Gameplay/Stomp → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 10,
+            "id": "S11",
+            "type": "WaitUntil",
+            "arg": "crabs.defeated == 1 (timeout 2s)",
+            "pass": false,
+            "elapsed": 2.256092071533203,
+            "detail": "timeout 2s: crabs.defeated=0 == 1",
+            "screenshot": "10_fail_S11.png"
+        },
+        {
+            "index": 11,
+            "id": "final",
+            "type": "Capture",
+            "arg": "final",
+            "pass": true,
+            "elapsed": 0.0,
+            "detail": "",
+            "screenshot": "11_final.png"
+        }
+    ],
+    "parse_errors": [],
+    "console_errors": 0,
+    "console_error_samples": [],
+    "fps_avg": 335.4111633300781,
+    "pass": false
+}

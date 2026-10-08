@@ -4,10 +4,10 @@
   "mode": "VerticalSlice",
   "branch": "v57/setup",
   "engine_pin": "6000.6.2f1",
-  "stage": "M2",
+  "stage": "M3",
   "stage_state": "running",
   "status": "running",
-  "next": "M2 scene = game: main menu scene, lint, hierarchy diff, collision check",
+  "next": "M3 craft + independent review",
   "next_spec": null,
   "hard_stop": null,
   "gates": {
@@ -37,9 +37,9 @@
       "at_utc": "2026-10-08T00:34:35Z"
     },
     "M2": {
-      "state": "pending",
-      "evidence": null,
-      "at_utc": null
+      "state": "passed",
+      "evidence": "Docs/V57/reports/M2-scene-ProfessorWortSprat.md",
+      "at_utc": "2026-10-08T00:41:09Z"
     },
     "M3": {
       "state": "pending",
@@ -115,16 +115,16 @@
     }
   ],
   "goldpath": {
-    "last_run_utc": "2026-10-08T00:34:35Z",
-    "commit": "020d26f",
+    "last_run_utc": "2026-10-08T00:41:09Z",
+    "commit": "75b740a",
     "pass": true,
-    "checks_path": "Docs/V57/evidence/goldpath/20261008T003358Z/checks.json"
+    "checks_path": "Docs/V57/evidence/goldpath/20261008T003925Z/checks.json"
   },
-  "last_green_commit": "020d26f",
+  "last_green_commit": "75b740a",
   "last_decision": null,
   "status_word": "implemented",
   "blockers": [],
-  "updated_utc": "2026-10-08T00:34:36Z",
+  "updated_utc": "2026-10-08T00:41:11Z",
   "_notes": {
     "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
     "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",

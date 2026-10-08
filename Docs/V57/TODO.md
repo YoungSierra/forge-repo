@@ -23,12 +23,12 @@ Legend: `[ ]` open · `[~]` implemented · `[x]` agent-verified · `[-]` cut (D-
 
 ## M2 — scene = game
 
-- [~] Gameplay prefab variants for all run-scope actors
+- [x] Gameplay prefab variants for all run-scope actors
 - [~] UI screens (UXML/USS from §9.1 + palette; no mockups delivered)
-- [ ] SCN_MainMenu_Boot scene
-- [ ] Audio events bound (slots empty until delivery)
-- [ ] VFX wired (slots empty until delivery)
-- [ ] Runtime lint clean · hierarchy diff clean · collision-with-mesh check
+- [x] SCN_MainMenu_Boot scene
+- [~] Audio events bound (slots empty until delivery)
+- [~] VFX wired (slots empty until delivery)
+- [x] Runtime lint clean · hierarchy diff clean · collision-with-mesh check
 
 ## M3 — craft areas
 

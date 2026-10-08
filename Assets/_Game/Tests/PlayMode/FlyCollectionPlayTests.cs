@@ -86,7 +86,7 @@ namespace ProfessorSprat.Tests.PlayMode
         {
             yield return LoadScene("SCN_FlyCollection_Test");
             _tracker = Object.FindAnyObjectByType<ZoneFlyTracker>();
-            _flies = new List<FlyController>(Object.FindObjectsByType<FlyController>(FindObjectsSortMode.None));
+            _flies = new List<FlyController>(Object.FindObjectsByType<FlyController>(FindObjectsInactive.Exclude));
             _flies.Sort((a, b) => string.CompareOrdinal(a.name, b.name));
             _tracker.BeginZone("Z1", _flies.GetRange(0, count));
         }

@@ -1,0 +1,22 @@
+{
+    "scene": "Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity",
+    "edit_captured_utc": "2026-10-08T00:38:29.5164327Z",
+    "play_captured_utc": "2026-10-08T00:38:39.5782105Z",
+    "edit_nodes": 1372,
+    "play_nodes": 1372,
+    "spawn_roots": [
+        "_Gameplay/Spawned"
+    ],
+    "created_allowed": [],
+    "created_violations": [],
+    "destroyed": [],
+    "components_added": [],
+    "components_removed": [],
+    "renderer_toggled": [],
+    "activation_changed": [
+        "_Gameplay/Level/Gameplay/AST-PROP-ACCESSKEY-001_01/AST-PROP-ACCESSKEY-001: True→False",
+        "_Gameplay/Level/TestPlacement/AccessKey_Z1/AST-PROP-ACCESSKEY-001: True→False"
+    ],
+    "ignored": [],
+    "pass": true
+}

@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Game/Scenes/SCN_MainMenu_Boot.unity
+    guid: 9010528267f1a0347a87d2dcd31997b1
+  - enabled: 1
     path: Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity
     guid: 720f16a29cac31e48a9aa398fa43aac6
   - enabled: 1

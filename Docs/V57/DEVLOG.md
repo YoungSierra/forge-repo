@@ -32,3 +32,6 @@ GF-PROGRESS stage=M1 spec=none done=1 total=1 gate=pass status_word=agent-verifi
 
 ## 2026-10-08T00:34:35Z — F specs
 GF-PROGRESS stage=F spec=all done=7 total=7 gate=pass status_word=agent-verified action="EditMode 13/13, PlayMode 28/28, gold path 23/23 green after the queue"
+
+## 2026-10-08T00:41:09Z — M2 scene = game
+GF-PROGRESS stage=M2 spec=none done=1 total=1 gate=pass status_word=agent-verified action="lint 0 errors, hierarchy diff pass, collision-with-mesh 0 violations, gold path 23/23, menu scene"

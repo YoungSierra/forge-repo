@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using ProfessorSprat.Core;
 using ProfessorSprat.Gameplay.Animation;
 using ProfessorSprat.Gameplay.Config;
@@ -18,7 +17,8 @@ namespace ProfessorSprat.Gameplay.Sprat
 
     /// <summary>
     /// TDD §B SpratCompanion: Aku-Aku-style companion floating at the Professor's shoulder. Follows with SmoothDamp, snaps
-    /// on respawn, reacts with its delivered clips. No collider and no influence on any gameplay value.
+    /// on respawn, reacts with its delivered clips (<see cref="SpratReactions"/>). No collider and no influence on any
+    /// gameplay value.
     /// </summary>
     public sealed class SpratCompanion : MonoBehaviour
     {
@@ -28,12 +28,9 @@ namespace ProfessorSprat.Gameplay.Sprat
         [SerializeField] private Transform _professor;
         [SerializeField] private Animator _animator;
 
-        private readonly Dictionary<string, Vector3> _nearCrabs = new Dictionary<string, Vector3>();
+        private readonly SpratReactions _reactions = new SpratReactions();
         private AnimatorStatePlayer _player;
         private Vector3 _velocity;
-        private float _spinRemaining;
-        private float _excitedRemaining;
-        private bool _frozen;
 
         #endregion
 
@@ -90,10 +87,8 @@ namespace ProfessorSprat.Gameplay.Sprat
         private void LateUpdate()
         {
             float deltaTime = Time.deltaTime;
-            _spinRemaining = Mathf.Max(0f, _spinRemaining - deltaTime);
-            _excitedRemaining = Mathf.Max(0f, _excitedRemaining - deltaTime);
+            State = _reactions.Tick(deltaTime);
             Follow(deltaTime);
-            State = Resolve();
             _player?.Play(State.ToString());
         }
 
@@ -118,7 +113,7 @@ namespace ProfessorSprat.Gameplay.Sprat
             }
 
             Vector3 look = _professor.forward;
-            if (State == SpratState.Hazard && TryNearestCrab(out Vector3 crab))
+            if (State == SpratState.Hazard && _reactions.TryNearestCrab(transform.position, out Vector3 crab))
             {
                 look = crab - transform.position;
             }
@@ -129,43 +124,6 @@ namespace ProfessorSprat.Gameplay.Sprat
                 Quaternion wanted = Quaternion.LookRotation(look, Vector3.up);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, wanted, _config.YawRate * deltaTime);
             }
-        }
-
-        private SpratState Resolve()
-        {
-            if (_spinRemaining > 0f)
-            {
-                return SpratState.Spin;
-            }
-
-            if (_frozen)
-            {
-                return SpratState.Freeze;
-            }
-
-            if (_nearCrabs.Count > 0)
-            {
-                return SpratState.Hazard;
-            }
-
-            return _excitedRemaining > 0f ? SpratState.Excited : SpratState.Idle;
-        }
-
-        private bool TryNearestCrab(out Vector3 nearest)
-        {
-            nearest = Vector3.zero;
-            float best = float.MaxValue;
-            foreach (Vector3 position in _nearCrabs.Values)
-            {
-                float distance = (position - transform.position).sqrMagnitude;
-                if (distance < best)
-                {
-                    best = distance;
-                    nearest = position;
-                }
-            }
-
-            return best < float.MaxValue;
         }
 
         private void Snap()
@@ -179,32 +137,22 @@ namespace ProfessorSprat.Gameplay.Sprat
             _velocity = Vector3.zero;
         }
 
-        private void OnFlyCollected(FlyCollectedEvent collected) => _excitedRemaining = _config.ExcitedDuration;
+        private void OnFlyCollected(FlyCollectedEvent collected) => _reactions.Excite(_config.ExcitedDuration);
 
-        private void OnZoneCompleted(ZoneCompletedEvent completed) => _excitedRemaining = _config.ExcitedDuration;
+        private void OnZoneCompleted(ZoneCompletedEvent completed) => _reactions.Excite(_config.ExcitedDuration);
 
-        private void OnKeySpawned(KeySpawnedEvent spawned) => _spinRemaining = _config.SpinDuration;
+        private void OnKeySpawned(KeySpawnedEvent spawned) => _reactions.Spin(_config.SpinDuration);
 
-        private void OnStunBegan(StunBeganEvent stun) => _frozen = true;
+        private void OnStunBegan(StunBeganEvent stun) => _reactions.Frozen = true;
 
-        private void OnStunEnded(StunEndedEvent stun) => _frozen = false;
+        private void OnStunEnded(StunEndedEvent stun) => _reactions.Frozen = false;
+
+        private void OnCrabProximity(CrabProximityEvent proximity) => _reactions.SetCrabNear(proximity.CrabId, proximity.Near, proximity.Position);
 
         private void OnRespawned(PlayerRespawnedEvent respawned)
         {
-            _frozen = false;
+            _reactions.Frozen = false;
             Snap();
-        }
-
-        private void OnCrabProximity(CrabProximityEvent proximity)
-        {
-            if (proximity.Near)
-            {
-                _nearCrabs[proximity.CrabId] = proximity.Position;
-            }
-            else
-            {
-                _nearCrabs.Remove(proximity.CrabId);
-            }
         }
 
         #endregion

@@ -38,3 +38,6 @@ GF-PROGRESS stage=M2 spec=none done=1 total=1 gate=pass status_word=agent-verifi
 
 ## 2026-10-08T00:51:21Z — M3 craft + independent review
 GF-PROGRESS stage=M3 spec=none done=2 total=3 gate=fail status_word=implemented action="review rounds 1-2 below 7 (5-6); remaining defects are provider art gaps; failed-timeboxed (D-020)"
+
+## 2026-10-08T00:52:05Z — M4 acceptance
+GF-PROGRESS stage=M4 spec=none done=1 total=1 gate=pass status_word=pending owner review action="final report; gameplay agent-verified; visual defects open (art gaps)"

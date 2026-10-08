@@ -39,4 +39,4 @@ Legend: `[ ]` open · `[~]` implemented · `[x]` agent-verified · `[-]` cut (D-
 
 ## M4 — acceptance
 
-- [ ] Playability cert · QA · final report
+- [x] Playability cert · QA · final report (M4-final)

@@ -5,9 +5,9 @@
   "branch": "v57/setup",
   "engine_pin": "6000.6.2f1",
   "stage": "M4",
-  "stage_state": "running",
-  "status": "running",
-  "next": "M4 acceptance report",
+  "stage_state": "passed",
+  "status": "done",
+  "next": "owner review; provider deliveries (MISSING_ASSETS) then RebuildLevelContent + M3 re-review",
   "next_spec": null,
   "hard_stop": null,
   "gates": {
@@ -49,9 +49,9 @@
       "min_area_score": 5
     },
     "M4": {
-      "state": "pending",
-      "evidence": null,
-      "at_utc": null
+      "state": "passed",
+      "evidence": "Docs/V57/reports/M4-final-ProfessorWortSprat.md",
+      "at_utc": "2026-10-08T00:52:05Z"
     }
   },
   "intake": {
@@ -118,13 +118,13 @@
     "last_run_utc": "2026-10-08T00:41:09Z",
     "commit": "75b740a",
     "pass": true,
-    "checks_path": "Docs/V57/evidence/goldpath/20261008T003925Z/checks.json"
+    "checks_path": "Docs/V57/evidence/goldpath/20261008T004902Z/checks.json"
   },
-  "last_green_commit": "2f46ff6",
+  "last_green_commit": "93026c9",
   "last_decision": null,
-  "status_word": "implemented",
+  "status_word": "pending owner review",
   "blockers": [],
-  "updated_utc": "2026-10-08T00:51:23Z",
+  "updated_utc": "2026-10-08T00:52:06Z",
   "_notes": {
     "stage": "I0 | I1 | I2 | M1 | F | M2 | M3 | M4 | CR",
     "stage_state": "pending | running | passed | failed | failed-timeboxed | stopped",

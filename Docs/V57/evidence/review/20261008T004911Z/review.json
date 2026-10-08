@@ -1,0 +1,101 @@
+{
+  "round": 2,
+  "reviewer": "fresh-subagent-m3-round2",
+  "min_score": 7,
+  "areas": [
+    {
+      "area": "Camera & composition",
+      "score": 6,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_crab_defeated_01.png",
+        "shots/SCN_HydroStation_Gameplay_zone_complete_01.png",
+        "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+        "shots/SCN_HydroStation_Gameplay_level_end_01.png"
+      ],
+      "notes": "The behind-and-above follow framing roughly fits the authored Crash-style row (FOV 50, ~15-19 deg down-pitch, Professor centred). Problems: every gameplay shot is built around a flat dark slab in dead centre that dominates the frame. In crab_defeated the foreground clutter (grate crate, pipes, lamp) fills the lower half while the Professor is small in mid-distance. zone_complete is a skewed diagonal angle. The key-shot numbers claim the Professor and key are framed as a group, but no distinct key is visible in either listed shot (only a glow on the Professor's chest in zone_complete). In level_end and end_state the camera is jammed inside the tube with arches filling both sides, and the modal hides the Professor."
+    },
+    {
+      "area": "Lighting & exposure",
+      "score": 5,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_zone_complete_01.png"
+      ],
+      "notes": "The tube glass reads as a flat, near-emissive, bright saturated sky-blue sheet with no falloff, and it is the brightest thing on screen. The central slab is a flat dark plane with no shading. The water/ground plane is a uniform gradient with no planar-water character. The steel kit itself is shaded acceptably, with cast shadows present, and no bloom/DOF is visible (consistent with the white-listed post stack)."
+    },
+    {
+      "area": "Materials & palette",
+      "score": 5,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_crab_defeated_01.png",
+        "shots/SCN_HydroStation_Gameplay_key_carried_01.png"
+      ],
+      "notes": "The large door/back-wall slab has no textured material: it is a flat navy rectangle in every gameplay shot, reading as a missing asset. Station Amber (#FF8C00), which should be reserved for the key and door, is spread over hazard stripes, pipes, lamps and crate panels, while the door itself is not amber. Accent Cyan appears on the background jellyfish tanks. The steel textures are more grungy-PBR than hand-painted, but the specular is low. Lab White and Deep Ocean Blue are used correctly in the UI."
+    },
+    {
+      "area": "UI vs mockups",
+      "score": null,
+      "evidence": [],
+      "notes": "n/a: no UI mockups delivered."
+    },
+    {
+      "area": "Gameplay readability",
+      "score": 5,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+        "shots/SCN_HydroStation_Gameplay_level_end_01.png"
+      ],
+      "notes": "The background is not 30 % desaturated: saturated cyan jellyfish tanks and bright blue tube glass compete with the characters. Flies are tiny (~20 px) blue specks stacked against the dark slab and are hard to read. Landing surfaces are not visibly lighter on top. The key is not visible on the Professor in key_carried. The HUD shows a text label 'KEY' rather than a key glyph. The amber hazard stripes are everywhere, so amber no longer signals key or door. The fly counter is legible and the HUD is minimal as §9 requires."
+    },
+    {
+      "area": "VFX & feedback",
+      "score": null,
+      "evidence": [],
+      "notes": "n/a: no VFX delivered."
+    },
+    {
+      "area": "Animation",
+      "score": null,
+      "evidence": [],
+      "notes": "n/a: no animation previews delivered."
+    },
+    {
+      "area": "Overall style match",
+      "score": 5,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_crab_defeated_01.png",
+        "shots/SCN_MainMenu_Boot_menu_01.png"
+      ],
+      "notes": "The stylized 3D kit environment and the character read as the intended genre. However, the untextured central slab, the flat glass and ground planes, and palette roles that break the §8 reservations (amber everywhere, cyan in the background) keep it well short of the style. The main menu is a bare flat navy screen with no art."
+    }
+  ],
+  "worst_defects": [
+    {
+      "rank": 1,
+      "area": "Materials & palette",
+      "shot": "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+      "problem": "A large flat, untextured dark-navy rectangle (door/back wall) sits in the centre of every gameplay frame. It has no material detail or shading and reads as a missing asset. It is also not Station Amber, although amber is reserved for the door.",
+      "reference": "style.md TDD §8: hand-painted stylized 3D kit; amber reserved for key and door"
+    },
+    {
+      "rank": 2,
+      "area": "Gameplay readability",
+      "shot": "shots/SCN_HydroStation_Gameplay_start_01.png",
+      "problem": "The background is fully saturated: cyan jellyfish tanks and bright blue glass are not desaturated. Cyan is used in the background, and amber is spread across hazard stripes, pipes and lamps. The flies are tiny blue specks against the dark slab.",
+      "reference": "style.md TDD §8 Readability: 30 % desaturated background; cyan only for flies/Sprat; amber only for key/door"
+    },
+    {
+      "rank": 3,
+      "area": "Camera & composition",
+      "shot": "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+      "problem": "numbers.json says the key shot frames the Professor and key as a group, but in key_carried and zone_complete no distinct key object is visible. The carried key cannot be seen on the Professor, and the HUD shows a text label 'KEY' instead of a key glyph.",
+      "reference": "style.md TDD §11.5: key shot frames Professor and key anchor; §9: key glyph while carried"
+    }
+  ],
+  "verdict": "below_threshold"
+}

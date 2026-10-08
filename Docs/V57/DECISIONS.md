@@ -765,3 +765,10 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Context:** Several TDD PlayMode criteria are system-level (double `OnZoneComplete`, late fly registration, stun reactions) and cannot be produced by player input; the V57 rule forbids direct gameplay calls only in input-driven acceptance tests (`Tests/PlayMode/Acceptance*`).
 - **Choice:** each criterion is a PlayMode test (`*PlayTests`) in its §13.2 test scene with real FixedUpdate physics, driving the mechanic through its public API or publishing the triggering event; no `Physics.Simulate`, time-scale changes or collision disabling. The full input-driven acceptance is the gold path (real Input System devices on the real scene). `MoveBasis` was extracted from `InputHandler` so AC-LOC-05 is testable.
 - **Reversal cost:** medium (input-driven variants per criterion) · **Type:** other
+
+### D-020 — M3 closed after round 2 (remaining defects are delivery gaps)
+- **When:** 2026-10-07 · **Stage:** M3 · **Commit:** pending
+- **Context:** Independent review rounds 1 and 2 scored 5–6 (min 7). After the round-1 fixes (camera, MSAA) the 3 worst defects of round 2 are: the delivered ZoneDoor has no texture (flat colour from the manifest), the delivered sky/glass art is saturated cyan against the TDD §8 "30 % desaturated background", and the key glyph is text because `ICO_AccessKey` is missing; the main menu has no UI art.
+- **Options:** A) a 3rd round — no V57-side fix exists without placeholders or editing provider art; B) close M3 as failed-timeboxed and carry the defects to M4.
+- **Choice:** B. M3 gate = failed-timeboxed; defects listed as open in the M4 report and in MISSING_ASSETS (provider deliveries). Gameplay items keep their tool-verified status.
+- **Reversal cost:** low (re-run the review when the art arrives) · **Type:** timebox

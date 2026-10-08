@@ -1,0 +1,51 @@
+{
+  "areas": [
+    {
+      "area": "Camera & composition",
+      "compare": [
+        "style.md (TDD §11.5 camera row)",
+        "numbers.json camera"
+      ]
+    },
+    {
+      "area": "Lighting & exposure",
+      "compare": [
+        "style.md (TDD §8)"
+      ]
+    },
+    {
+      "area": "Materials & palette",
+      "compare": [
+        "style.md (TDD §8 palette)",
+        "numbers.json palette_tdd"
+      ]
+    },
+    {
+      "area": "UI vs mockups",
+      "status": "n/a",
+      "reason": "no UI mockups delivered"
+    },
+    {
+      "area": "Gameplay readability",
+      "compare": [
+        "style.md (TDD §8 Readability, §9 Principle)"
+      ]
+    },
+    {
+      "area": "VFX & feedback",
+      "status": "n/a",
+      "reason": "no VFX delivered"
+    },
+    {
+      "area": "Animation",
+      "status": "n/a",
+      "reason": "no animation previews delivered"
+    },
+    {
+      "area": "Overall style match",
+      "compare": [
+        "style.md"
+      ]
+    }
+  ]
+}

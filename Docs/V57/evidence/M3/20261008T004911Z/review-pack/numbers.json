@@ -1,0 +1,57 @@
+{
+  "reference_resolution": [
+    1920,
+    1080
+  ],
+  "camera": {
+    "type": "perspective",
+    "fov_deg": 50,
+    "follow_offset_m": [
+      0,
+      3.2,
+      -6.5
+    ],
+    "level_default_yaw_deg": 270,
+    "look_height_m": 1,
+    "tdd": "TDD §11.5: offset (0, 3.2, -6.5) rotated by camera-zone yaw, FOV 50°, look target +1.0 m",
+    "position_damping_s": [
+      0.3,
+      0.05,
+      0.3
+    ]
+  },
+  "performance": {
+    "fps_avg_editor": 290,
+    "budget_fps": 60
+  },
+  "gold_path": {
+    "checks_passed": 23,
+    "checks_total": 23,
+    "console_errors": 0
+  },
+  "palette_tdd": [
+    "#FF8C00",
+    "#0A1F3C",
+    "#4A3728",
+    "#00E5FF",
+    "#FFD600",
+    "#FFFFFF"
+  ],
+  "camera_key_shot": {
+    "offset_m": [
+      0,
+      3.4,
+      -7
+    ],
+    "rotated_by_level_yaw_deg": 270,
+    "target": "group (Professor + key), equal weights",
+    "active_for_s": 1.2,
+    "blend_s": 0.5,
+    "tdd": "TDD §11.5: key shot on OnKeySpawned frames Professor and key anchor for 1.2 s",
+    "shots_possibly_in_key_shot": [
+      "shots/SCN_HydroStation_Gameplay_zone_complete_01.png",
+      "shots/SCN_HydroStation_Gameplay_key_carried_01.png"
+    ]
+  },
+  "anti_aliasing": "MSAA 4x"
+}

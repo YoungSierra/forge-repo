@@ -1,0 +1,100 @@
+{
+  "round": 1,
+  "reviewer": "fresh-subagent-m3-round1",
+  "min_score": 7,
+  "areas": [
+    {
+      "area": "Camera & composition",
+      "score": 5,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_crab_defeated_01.png",
+        "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+        "shots/SCN_HydroStation_Gameplay_zone_complete_01.png"
+      ],
+      "notes": "numbers.json claims a fixed follow offset (0, 3.2, -6.5), FOV 50 and a +1 m look target, but the framing changes a lot between shots. start_01 is a high, distant view (the Professor is about 10% of frame height, low centre). crab_defeated_01 is steep and nearly top-down. In key_carried_01 and zone_complete_01 the Professor is far down the tunnel, roughly 8-10 m away, and zone_complete_01 is yawed off-axis. A 6.5 m-back, 3.2 m-up follow would keep him large and constant. The tunnel ring frames fill and block the frame edges in key_carried, level_end and end_state. The numbers contradict the images."
+    },
+    {
+      "area": "Lighting & exposure",
+      "score": 6,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_zone_complete_01.png",
+        "shots/SCN_HydroStation_Gameplay_level_end_01.png",
+        "shots/SCN_HydroStation_Gameplay_start_01.png"
+      ],
+      "notes": "Exposure is usable and nothing is crushed or black. Specular is low, as required. The tunnel glass reads as flat, near-overexposed light-blue panels with jagged sawtooth edges at the top (zone_complete_01 and level_end_01, top-left). The large dark slab at the tunnel end gets no lighting and looks flat-unlit next to the lit kit. The warm point light on the Professor in zone_complete_01 is the only lighting accent."
+    },
+    {
+      "area": "Materials & palette",
+      "score": 5,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_zone_complete_01.png"
+      ],
+      "notes": "The kit pieces (perforated decks, rusty ring frames, crates) are hand-painted and use the palette (Deep Ocean Blue, Rust Brown, Station Amber stripes). But the end of the tunnel is a large untextured dark navy rectangle (key_carried_01, zone_complete_01, crab_defeated_01), which reads as a missing material or placeholder slab. The ground and water is a featureless flat blue plane, and the tunnel glass is plain light blue. Both are off-palette fills, not painted surfaces."
+    },
+    {
+      "area": "UI vs mockups",
+      "score": null,
+      "evidence": [],
+      "notes": "n/a: no UI mockups delivered."
+    },
+    {
+      "area": "Gameplay readability",
+      "score": 6,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+        "shots/SCN_HydroStation_Gameplay_crab_defeated_01.png"
+      ],
+      "notes": "The HUD follows §9: only the N / T counter, plus KEY while carried, and the counter is legible. Landing surfaces have hazard-striped edges and a drop shadow is visible. Several things break the rules. The background is not desaturated: start_01 shows saturated cyan jellyfish tanks and a saturated blue jellyfish structure, and cyan is meant to be reserved for flies and Sprat. The flies are tiny at this camera distance. The Professor is small and in key_carried_01 sits against the dark slab with low contrast. The key glyph is a text label 'KEY', not a shaped glyph, so it relies on colour and text."
+    },
+    {
+      "area": "VFX & feedback",
+      "score": null,
+      "evidence": [],
+      "notes": "n/a: no VFX delivered."
+    },
+    {
+      "area": "Animation",
+      "score": null,
+      "evidence": [],
+      "notes": "n/a: no animation previews delivered."
+    },
+    {
+      "area": "Overall style match",
+      "score": 5,
+      "evidence": [
+        "shots/SCN_HydroStation_Gameplay_start_01.png",
+        "shots/SCN_HydroStation_Gameplay_zone_complete_01.png",
+        "shots/SCN_MainMenu_Boot_menu_01.png"
+      ],
+      "notes": "The delivered kit and characters fit the hand-painted closed-palette brief. The scene as composed does not. The flat blue plane, flat glass and dark slab at the tunnel end look unfinished. The background is saturated, not 30% desaturated. The camera framing departs from the authored follow. The main menu (SCN_MainMenu_Boot_menu_01) is a plain flat navy screen with text buttons and no art."
+    }
+  ],
+  "worst_defects": [
+    {
+      "rank": 1,
+      "area": "Materials & palette",
+      "shot": "shots/SCN_HydroStation_Gameplay_key_carried_01.png",
+      "problem": "A large untextured, unlit dark navy rectangle closes the end of the tunnel behind the Professor. It also appears in zone_complete_01, crab_defeated_01 and start_01. It reads as a missing material or placeholder slab and is the focal point of the corridor.",
+      "reference": "style.md §8: hand-painted stylized 3D, kit-based environments; amber reserved for the key and door."
+    },
+    {
+      "rank": 2,
+      "area": "Camera & composition",
+      "shot": "shots/SCN_HydroStation_Gameplay_zone_complete_01.png",
+      "problem": "The framing varies a lot between shots: high and distant (start_01), steep top-down (crab_defeated_01), yawed off-axis with the Professor about 8-10 m away (zone_complete_01). This contradicts numbers.json, which reports a fixed follow offset (0, 3.2, -6.5) and FOV 50. The Professor stays small, and the ring frames block the frame edges.",
+      "reference": "style.md TDD §11.5: follow offset (0, 3.2, -6.5) m rotated by zone yaw, look target +1.0 m, FOV 50°, Crash Bandicoot 3 style authored follow."
+    },
+    {
+      "rank": 3,
+      "area": "Gameplay readability",
+      "shot": "shots/SCN_HydroStation_Gameplay_start_01.png",
+      "problem": "The background is fully saturated: bright cyan jellyfish tank panorama and a saturated blue jellyfish structure. This breaks the cyan reservation, and the tiny cyan flies compete with it. The ground and water and the tunnel glass are flat, featureless blue fills, with sawtooth edge artifacts on the glass (zone_complete_01, level_end_01).",
+      "reference": "style.md §8 Readability: characters read over a 30% desaturated background; cyan reserved for flies and Sprat."
+    }
+  ],
+  "verdict": "below_threshold"
+}

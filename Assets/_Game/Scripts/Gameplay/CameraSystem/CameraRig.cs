@@ -18,7 +18,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         #region Fields
 
         private const int KeyShotPriority = 20;
-        private static readonly Vector3 KeyShotOffset = new Vector3(0f, 4.2f, -8.5f);
+        private static readonly Vector3 KeyShotOffset = new Vector3(0f, 3.4f, -7.0f);
 
         [SerializeField] private CameraConfig _config;
         [SerializeField] private CinemachineCamera _followCamera;

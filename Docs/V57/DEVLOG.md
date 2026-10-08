@@ -35,3 +35,6 @@ GF-PROGRESS stage=F spec=all done=7 total=7 gate=pass status_word=agent-verified
 
 ## 2026-10-08T00:41:09Z — M2 scene = game
 GF-PROGRESS stage=M2 spec=none done=1 total=1 gate=pass status_word=agent-verified action="lint 0 errors, hierarchy diff pass, collision-with-mesh 0 violations, gold path 23/23, menu scene"
+
+## 2026-10-08T00:51:21Z — M3 craft + independent review
+GF-PROGRESS stage=M3 spec=none done=2 total=3 gate=fail status_word=implemented action="review rounds 1-2 below 7 (5-6); remaining defects are provider art gaps; failed-timeboxed (D-020)"

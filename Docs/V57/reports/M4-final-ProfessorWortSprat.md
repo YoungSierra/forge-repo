@@ -13,7 +13,7 @@ TDD `Docs/Design/TDD.md` 1.0.0 (TDD Standard 2.1.0) · Unity 6000.6.2f1 · branc
 | F | 7 specs: EditMode + PlayMode + gold path | passed — EditMode 13/13, PlayMode 28/28 | `Docs/V57/reports/F-*-ProfessorWortSprat.md` |
 | M2 | lint, hierarchy diff, collision with mesh, gold path | passed — lint 0 errors, diff pass, 0 collision violations | `Docs/V57/reports/M2-scene-ProfessorWortSprat.md` |
 | M3 | independent review (min 7) | **failed-timeboxed** — rounds 1–2 scored 5–6; remaining defects are art not delivered (D-020) | `Docs/V57/evidence/review/20261008T004911Z/review.json` |
-| M4 | playability from evidence | gold path 23/23 with 0 console errors on the final commit; the full loop (move → jump → stomp → collect 6 → key → door → exit → level end) plays with real input and physics | `Docs/V57/evidence/goldpath/20261008T004902Z`* |
+| M4 | playability from evidence | gold path 23/23 with 0 console errors on the final commit; the full loop (move → jump → stomp → collect 6 → key → door → exit → level end) plays with real input and physics | `Docs/V57/evidence/goldpath/20261008T004902Z` |
 
 \* latest gold path run folder of the M3 round-2 capture (see `STATUS.json → goldpath`).
 

@@ -1,0 +1,8 @@
+{
+  "_note": "V57-owned (D-010, D-022): the rigged character deliveries supersede the static AST-CHAR exports placed by the level layouts. The rigged models face +Z, the static exports -Z, so every instance turns 180 degrees.",
+  "aliases": {
+    "AST-CHAR-NEONFLY-001": { "model": "Fly", "yaw_deg": 180 },
+    "AST-CHAR-JELLYFISH-001": { "model": "Jellyfish", "yaw_deg": 180 },
+    "AST-CHAR-RADIOACTIVESHARK-001": { "model": "Shark", "yaw_deg": 180 }
+  }
+}

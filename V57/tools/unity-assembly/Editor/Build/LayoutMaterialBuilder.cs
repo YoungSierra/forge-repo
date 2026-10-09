@@ -60,15 +60,36 @@ namespace V57.Assembly.Build
 
         private static void Apply(LayoutMaterialDto entry, Material material)
         {
-            if (material.GetTexture("_BaseMap") == null)
+            // Maps the manifest names explicitly win over the texture-folder guess of MaterialBuilder.
+            Texture2D albedo = Load(entry.albedo);
+            if (albedo != null || material.GetTexture("_BaseMap") == null)
             {
-                Texture2D albedo = string.IsNullOrEmpty(entry.albedo) ? null : AssetDatabase.LoadAssetAtPath<Texture2D>(entry.albedo);
                 material.SetTexture("_BaseMap", albedo);
                 material.SetTexture("_MainTex", albedo);
                 material.SetColor("_BaseColor", ToColor(entry.base_color));
             }
 
-            if (material.GetTexture("_MetallicGlossMap") == null)
+            Texture2D normal = Load(entry.normal);
+            if (normal != null)
+            {
+                material.SetTexture("_BumpMap", normal);
+                material.SetFloat("_BumpScale", 1f);
+                material.EnableKeyword("_NORMALMAP");
+            }
+
+            Texture2D metallicSmoothness = Load(entry.metallic_smoothness);
+            if (metallicSmoothness != null)
+            {
+                material.SetTexture("_MetallicGlossMap", metallicSmoothness);
+                material.SetFloat("_SmoothnessTextureChannel", 0f);
+                material.EnableKeyword("_METALLICSPECGLOSSMAP");
+            }
+
+            if (material.GetTexture("_MetallicGlossMap") != null)
+            {
+                material.SetFloat("_Smoothness", Mathf.Clamp01(entry.smoothness));
+            }
+            else
             {
                 material.SetFloat("_Metallic", entry.metallic);
                 material.SetFloat("_Smoothness", entry.smoothness);
@@ -93,6 +114,11 @@ namespace V57.Assembly.Build
             {
                 AssemblyContext.Warn(Step, $"{material.name}: alpha_mode BLEND requested — transparent surface left to the material craft step (opaque kept)");
             }
+        }
+
+        private static Texture2D Load(string path)
+        {
+            return string.IsNullOrEmpty(path) ? null : AssetDatabase.LoadAssetAtPath<Texture2D>(path);
         }
 
         private static string ModelFor(LayoutDto layout, string assetId)

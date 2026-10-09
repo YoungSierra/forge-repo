@@ -32,7 +32,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-096 ASSET_ORPHAN
+      - I-232 ASSET_ORPHAN
   - asset_id: INV-Fly
     asset_name: Fly
     category: character
@@ -74,7 +74,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-097 ASSET_ORPHAN
+      - I-233 ASSET_ORPHAN
   - asset_id: INV-Jellyfish
     asset_name: Jellyfish
     category: character
@@ -106,7 +106,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-098 ASSET_ORPHAN
+      - I-234 ASSET_ORPHAN
   - asset_id: INV-MechanicalCrab
     asset_name: MechanicalCrab
     category: character
@@ -142,7 +142,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-099 ASSET_ORPHAN
+      - I-235 ASSET_ORPHAN
   - asset_id: INV-Professor
     asset_name: Professor
     category: character
@@ -180,7 +180,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-100 ASSET_ORPHAN
+      - I-236 ASSET_ORPHAN
   - asset_id: INV-Shark
     asset_name: Shark
     category: character
@@ -213,7 +213,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-101 ASSET_ORPHAN
+      - I-237 ASSET_ORPHAN
   - asset_id: INV-Sprat
     asset_name: Sprat
     category: character
@@ -249,7 +249,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-102 ASSET_ORPHAN
+      - I-238 ASSET_ORPHAN
   - asset_id: INV-ASTENVCORALROCK001
     asset_name: ASTENVCORALROCK001
     category: model
@@ -258,7 +258,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Meshes/AST-ENV-CORALROCK-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_AST-ENV-CORALROCK-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -275,7 +279,37 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-103 ASSET_ORPHAN
+      - I-239 ASSET_ORPHAN
+  - asset_id: INV-ASTENVCORALROCK002
+    asset_name: ASTENVCORALROCK002
+    category: model
+    type: model
+    serves: []
+    files:
+      mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Meshes/AST-ENV-CORALROCK-002.fbx
+      textures:
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Roughness.jpg
+      animations: []
+      sprites: []
+      vfx: []
+      other: []
+    size_m: null
+    pivot: null
+    side: null
+    collision: simple
+    tris_lod0: null
+    texture_size: null
+    bones: null
+    rig: null
+    status: provisional
+    animations: []
+    source: inventory
+    issues:
+      - I-240 ASSET_ORPHAN
   - asset_id: INV-ASTENVHYDRODOMETOWER001
     asset_name: ASTENVHYDRODOMETOWER001
     category: model
@@ -284,7 +318,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_AST-ENV-HYDRODOMETOWER-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -301,7 +339,189 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-104 ASSET_ORPHAN
+      - I-241 ASSET_ORPHAN
+  - asset_id: INV-ASTENVOCEANBOAT001
+    asset_name: ASTENVOCEANBOAT001
+    category: model
+    type: model
+    serves: []
+    files:
+      mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Meshes/AST-ENV-OCEANBOAT-001.fbx
+      textures:
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Roughness.jpg
+      animations: []
+      sprites: []
+      vfx: []
+      other: []
+    size_m: null
+    pivot: null
+    side: null
+    collision: simple
+    tris_lod0: null
+    texture_size: null
+    bones: null
+    rig: null
+    status: provisional
+    animations: []
+    source: inventory
+    issues:
+      - I-242 ASSET_ORPHAN
+  - asset_id: INV-ASTENVOCEANLEAVES001
+    asset_name: ASTENVOCEANLEAVES001
+    category: model
+    type: model
+    serves: []
+    files:
+      mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Meshes/AST-ENV-OCEANLEAVES-001.fbx
+      textures:
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Roughness.jpg
+      animations: []
+      sprites: []
+      vfx: []
+      other: []
+    size_m: null
+    pivot: null
+    side: null
+    collision: simple
+    tris_lod0: null
+    texture_size: null
+    bones: null
+    rig: null
+    status: provisional
+    animations: []
+    source: inventory
+    issues:
+      - I-243 ASSET_ORPHAN
+  - asset_id: INV-ASTENVOCEANROCKS001
+    asset_name: ASTENVOCEANROCKS001
+    category: model
+    type: model
+    serves: []
+    files:
+      mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Meshes/AST-ENV-OCEANROCKS-001.fbx
+      textures:
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Roughness.jpg
+      animations: []
+      sprites: []
+      vfx: []
+      other: []
+    size_m: null
+    pivot: null
+    side: null
+    collision: simple
+    tris_lod0: null
+    texture_size: null
+    bones: null
+    rig: null
+    status: provisional
+    animations: []
+    source: inventory
+    issues:
+      - I-244 ASSET_ORPHAN
+  - asset_id: INV-ASTENVOCEANSKELETON001
+    asset_name: ASTENVOCEANSKELETON001
+    category: model
+    type: model
+    serves: []
+    files:
+      mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Meshes/AST-ENV-OCEANSKELETON-001.fbx
+      textures:
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Roughness.jpg
+      animations: []
+      sprites: []
+      vfx: []
+      other: []
+    size_m: null
+    pivot: null
+    side: null
+    collision: simple
+    tris_lod0: null
+    texture_size: null
+    bones: null
+    rig: null
+    status: provisional
+    animations: []
+    source: inventory
+    issues:
+      - I-245 ASSET_ORPHAN
+  - asset_id: INV-ASTENVSEABED001
+    asset_name: ASTENVSEABED001
+    category: model
+    type: model
+    serves: []
+    files:
+      mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Meshes/AST-ENV-SEABED-001.fbx
+      textures:
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Albedo.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AO.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Detail_Albedo.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Detail_Normal.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Normal.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Roughness.png
+      animations: []
+      sprites: []
+      vfx: []
+      other: []
+    size_m: null
+    pivot: null
+    side: null
+    collision: simple
+    tris_lod0: null
+    texture_size: null
+    bones: null
+    rig: null
+    status: provisional
+    animations: []
+    source: inventory
+    issues:
+      - I-246 ASSET_ORPHAN
+  - asset_id: INV-ASTENVVEGETATION001
+    asset_name: ASTENVVEGETATION001
+    category: model
+    type: model
+    serves: []
+    files:
+      mesh: Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Meshes/AST-ENV-VEGETATION-001.fbx
+      textures:
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Roughness.jpg
+      animations: []
+      sprites: []
+      vfx: []
+      other: []
+    size_m: null
+    pivot: null
+    side: null
+    collision: simple
+    tris_lod0: null
+    texture_size: null
+    bones: null
+    rig: null
+    status: provisional
+    animations: []
+    source: inventory
+    issues:
+      - I-247 ASSET_ORPHAN
   - asset_id: INV-ASTENVWATERSURFACE001
     asset_name: ASTENVWATERSURFACE001
     category: model
@@ -326,7 +546,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-105 ASSET_ORPHAN
+      - I-248 ASSET_ORPHAN
   - asset_id: INV-ASTENVB17ARCH001
     asset_name: ASTENVB17ARCH001
     category: model
@@ -335,7 +555,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Meshes/AST-ENV-B17ARCH-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_AST-ENV-B17ARCH-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -352,7 +576,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-106 ASSET_ORPHAN
+      - I-249 ASSET_ORPHAN
   - asset_id: INV-ASTENVB17FLOORPLATE001
     asset_name: ASTENVB17FLOORPLATE001
     category: model
@@ -361,7 +585,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Meshes/AST-ENV-B17FLOORPLATE-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_AST-ENV-B17FLOORPLATE-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -378,7 +606,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-107 ASSET_ORPHAN
+      - I-250 ASSET_ORPHAN
   - asset_id: INV-ASTENVBULKHEAD001
     asset_name: ASTENVBULKHEAD001
     category: model
@@ -387,7 +615,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Meshes/AST-ENV-BULKHEAD-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_AST-ENV-BULKHEAD-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -404,7 +636,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-108 ASSET_ORPHAN
+      - I-251 ASSET_ORPHAN
   - asset_id: INV-ASTENVCRYSTALPANEL001
     asset_name: ASTENVCRYSTALPANEL001
     category: model
@@ -413,7 +645,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Meshes/AST-ENV-CRYSTALPANEL-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_AST-ENV-CRYSTALPANEL-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -430,7 +666,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-109 ASSET_ORPHAN
+      - I-252 ASSET_ORPHAN
   - asset_id: INV-ASTENVGRATEPLATFORM001
     asset_name: ASTENVGRATEPLATFORM001
     category: model
@@ -439,7 +675,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Meshes/AST-ENV-GRATEPLATFORM-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_AST-ENV-GRATEPLATFORM-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Normal.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -456,7 +696,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-110 ASSET_ORPHAN
+      - I-253 ASSET_ORPHAN
   - asset_id: INV-ASTENVHATCHPANEL001
     asset_name: ASTENVHATCHPANEL001
     category: model
@@ -465,7 +705,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Meshes/AST-ENV-HATCHPANEL-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_AST-ENV-HATCHPANEL-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -482,7 +726,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-111 ASSET_ORPHAN
+      - I-254 ASSET_ORPHAN
   - asset_id: INV-ASTENVLABDOOR001
     asset_name: ASTENVLABDOOR001
     category: model
@@ -491,7 +735,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Meshes/AST-ENV-LABDOOR-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_AST-ENV-LABDOOR-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -508,7 +756,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-112 ASSET_ORPHAN
+      - I-255 ASSET_ORPHAN
   - asset_id: INV-ASTENVLABFLOOR001
     asset_name: ASTENVLABFLOOR001
     category: model
@@ -517,7 +765,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Meshes/AST-ENV-LABFLOOR-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_AST-ENV-LABFLOOR-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -534,7 +786,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-113 ASSET_ORPHAN
+      - I-256 ASSET_ORPHAN
   - asset_id: INV-ASTENVPIPE001
     asset_name: ASTENVPIPE001
     category: model
@@ -543,7 +795,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Meshes/AST-ENV-PIPE-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_AST-ENV-PIPE-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -560,7 +816,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-114 ASSET_ORPHAN
+      - I-257 ASSET_ORPHAN
   - asset_id: INV-ASTENVPIPE002
     asset_name: ASTENVPIPE002
     category: model
@@ -569,7 +825,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Meshes/AST-ENV-PIPE-002.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_AST-ENV-PIPE-002_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Normal.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -586,7 +846,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-115 ASSET_ORPHAN
+      - I-258 ASSET_ORPHAN
   - asset_id: INV-ASTENVPLATFORMMODULE001
     asset_name: ASTENVPLATFORMMODULE001
     category: model
@@ -612,7 +872,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-116 ASSET_ORPHAN
+      - I-259 ASSET_ORPHAN
   - asset_id: INV-ASTENVSCAFFOLD001
     asset_name: ASTENVSCAFFOLD001
     category: model
@@ -621,7 +881,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Meshes/AST-ENV-SCAFFOLD-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_AST-ENV-SCAFFOLD-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -638,7 +902,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-117 ASSET_ORPHAN
+      - I-260 ASSET_ORPHAN
   - asset_id: INV-ASTENVSTEELCOLUMN001
     asset_name: ASTENVSTEELCOLUMN001
     category: model
@@ -647,7 +911,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Meshes/AST-ENV-STEELCOLUMN-001.fbx
       textures:
-        - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_AST-ENV-STEELCOLUMN-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Albedo.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Metallic.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Normal.jpg
+        - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -664,7 +932,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-118 ASSET_ORPHAN
+      - I-261 ASSET_ORPHAN
   - asset_id: INV-Sky
     asset_name: Sky
     category: texture
@@ -690,7 +958,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-119 ASSET_ORPHAN
+      - I-262 ASSET_ORPHAN
   - asset_id: INV-ASTPROPBEACONCRATE001
     asset_name: ASTPROPBEACONCRATE001
     category: model
@@ -699,7 +967,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Meshes/AST-PROP-BEACONCRATE-001.fbx
       textures:
-        - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_AST-PROP-BEACONCRATE-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Metallic.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Normal.png
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -716,7 +988,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-120 ASSET_ORPHAN
+      - I-263 ASSET_ORPHAN
   - asset_id: INV-ASTPROPCONSOLE002
     asset_name: ASTPROPCONSOLE002
     category: model
@@ -725,7 +997,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Meshes/AST-PROP-CONSOLE-002.fbx
       textures:
-        - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_AST-PROP-CONSOLE-002_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Metallic.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Normal.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -742,7 +1018,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-121 ASSET_ORPHAN
+      - I-264 ASSET_ORPHAN
   - asset_id: INV-ASTPROPHOSE001
     asset_name: ASTPROPHOSE001
     category: model
@@ -751,7 +1027,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Meshes/AST-PROP-HOSE-001.fbx
       textures:
-        - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_AST-PROP-HOSE-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Metallic.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Normal.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -768,7 +1048,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-122 ASSET_ORPHAN
+      - I-265 ASSET_ORPHAN
   - asset_id: INV-ASTPROPLANTERN001
     asset_name: ASTPROPLANTERN001
     category: model
@@ -777,7 +1057,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Meshes/AST-PROP-LANTERN-001.fbx
       textures:
-        - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_AST-PROP-LANTERN-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Metallic.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Normal.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -794,7 +1078,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-123 ASSET_ORPHAN
+      - I-266 ASSET_ORPHAN
   - asset_id: INV-ASTPROPRAILING001
     asset_name: ASTPROPRAILING001
     category: model
@@ -803,7 +1087,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Meshes/AST-PROP-RAILING-001.fbx
       textures:
-        - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_AST-PROP-RAILING-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Metallic.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Normal.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -820,7 +1108,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-124 ASSET_ORPHAN
+      - I-267 ASSET_ORPHAN
   - asset_id: INV-ASTPROPWARNINGSIGN001
     asset_name: ASTPROPWARNINGSIGN001
     category: model
@@ -829,7 +1117,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Meshes/AST-PROP-WARNINGSIGN-001.fbx
       textures:
-        - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_AST-PROP-WARNINGSIGN-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Metallic.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Normal.jpg
+        - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -846,7 +1138,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-125 ASSET_ORPHAN
+      - I-268 ASSET_ORPHAN
   - asset_id: INV-ASTPROPACCESSKEY001
     asset_name: ASTPROPACCESSKEY001
     category: model
@@ -871,7 +1163,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-126 ASSET_ORPHAN
+      - I-269 ASSET_ORPHAN
   - asset_id: INV-ASTPROPCONSOLE001
     asset_name: ASTPROPCONSOLE001
     category: model
@@ -880,7 +1172,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Meshes/AST-PROP-CONSOLE-001.fbx
       textures:
-        - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_AST-PROP-CONSOLE-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Metallic.jpg
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Normal.png
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -897,7 +1193,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-127 ASSET_ORPHAN
+      - I-270 ASSET_ORPHAN
   - asset_id: INV-ASTPROPHATCH001
     asset_name: ASTPROPHATCH001
     category: model
@@ -906,7 +1202,11 @@ assets:
     files:
       mesh: Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Meshes/AST-PROP-HATCH-001.fbx
       textures:
-        - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_AST-PROP-HATCH-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Albedo.jpg
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Metallic.jpg
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_MetallicSmoothness.png
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Normal.jpg
+        - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Roughness.jpg
       animations: []
       sprites: []
       vfx: []
@@ -923,7 +1223,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-128 ASSET_ORPHAN
+      - I-271 ASSET_ORPHAN
   - asset_id: INV-ASTPROPZONEDOOR001
     asset_name: ASTPROPZONEDOOR001
     category: model
@@ -948,7 +1248,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-129 ASSET_ORPHAN
+      - I-272 ASSET_ORPHAN
 orphans:
   - Assets/_Game/Art/Characters/Fish/Animations/ANIM_Fish_HoverIdle.fbx
   - Assets/_Game/Art/Characters/Fish/Fish_export.json
@@ -1031,52 +1331,184 @@ orphans:
   - Assets/_Game/Art/Characters/Sprat/Textures/Sprat_normal.jpg
   - Assets/_Game/Art/Characters/Sprat/Textures/Sprat_roughness.JPEG
   - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Meshes/AST-ENV-CORALROCK-001.fbx
-  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_AST-ENV-CORALROCK-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Roughness.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Meshes/AST-ENV-CORALROCK-002.fbx
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Roughness.jpg
   - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
-  - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_AST-ENV-HYDRODOMETOWER-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Roughness.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Meshes/AST-ENV-OCEANBOAT-001.fbx
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Roughness.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Meshes/AST-ENV-OCEANLEAVES-001.fbx
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Roughness.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Meshes/AST-ENV-OCEANROCKS-001.fbx
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Roughness.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Meshes/AST-ENV-OCEANSKELETON-001.fbx
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Roughness.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Meshes/AST-ENV-SEABED-001.fbx
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Albedo.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AO.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Detail_Albedo.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Detail_Normal.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Normal.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Roughness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Meshes/AST-ENV-VEGETATION-001.fbx
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Decoration/AST-ENV-WATERSURFACE-001/Meshes/AST-ENV-WATERSURFACE-001.fbx
   - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Meshes/AST-ENV-B17ARCH-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_AST-ENV-B17ARCH-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Meshes/AST-ENV-B17FLOORPLATE-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_AST-ENV-B17FLOORPLATE-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Meshes/AST-ENV-BULKHEAD-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_AST-ENV-BULKHEAD-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Meshes/AST-ENV-CRYSTALPANEL-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_AST-ENV-CRYSTALPANEL-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Meshes/AST-ENV-GRATEPLATFORM-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_AST-ENV-GRATEPLATFORM-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Normal.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Meshes/AST-ENV-HATCHPANEL-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_AST-ENV-HATCHPANEL-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Meshes/AST-ENV-LABDOOR-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_AST-ENV-LABDOOR-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Meshes/AST-ENV-LABFLOOR-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_AST-ENV-LABFLOOR-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Meshes/AST-ENV-PIPE-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_AST-ENV-PIPE-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Meshes/AST-ENV-PIPE-002.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_AST-ENV-PIPE-002_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Normal.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-PLATFORMMODULE-001/Meshes/AST-ENV-PLATFORMMODULE-001.fbx
   - Assets/_Game/Art/Environment/Kits/AST-ENV-PLATFORMMODULE-001/Textures/AST-ENV-PLATFORMMODULE-001_AST-ENV-PLATFORMMODULE-001_Albedo.png
   - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Meshes/AST-ENV-SCAFFOLD-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_AST-ENV-SCAFFOLD-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Meshes/AST-ENV-STEELCOLUMN-001.fbx
-  - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_AST-ENV-STEELCOLUMN-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Albedo.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Metallic.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Normal.jpg
+  - Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Roughness.jpg
   - Assets/_Game/Art/Environment/Sky/Skybox.png
   - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Meshes/AST-PROP-BEACONCRATE-001.fbx
-  - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_AST-PROP-BEACONCRATE-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Metallic.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Normal.png
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Roughness.jpg
   - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Meshes/AST-PROP-CONSOLE-002.fbx
-  - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_AST-PROP-CONSOLE-002_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Metallic.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Normal.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Roughness.jpg
   - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Meshes/AST-PROP-HOSE-001.fbx
-  - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_AST-PROP-HOSE-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Metallic.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Normal.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Roughness.jpg
   - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Meshes/AST-PROP-LANTERN-001.fbx
-  - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_AST-PROP-LANTERN-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Metallic.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Normal.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Roughness.jpg
   - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Meshes/AST-PROP-RAILING-001.fbx
-  - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_AST-PROP-RAILING-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Metallic.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Normal.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Roughness.jpg
   - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Meshes/AST-PROP-WARNINGSIGN-001.fbx
-  - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_AST-PROP-WARNINGSIGN-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Metallic.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Normal.jpg
+  - Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Roughness.jpg
   - Assets/_Game/Art/Props/Gameplay/AST-PROP-ACCESSKEY-001/Meshes/AST-PROP-ACCESSKEY-001.fbx
   - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Meshes/AST-PROP-CONSOLE-001.fbx
-  - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_AST-PROP-CONSOLE-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Metallic.jpg
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Normal.png
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Roughness.jpg
   - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Meshes/AST-PROP-HATCH-001.fbx
-  - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_AST-PROP-HATCH-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Albedo.jpg
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Metallic.jpg
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_MetallicSmoothness.png
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Normal.jpg
+  - Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Roughness.jpg
   - Assets/_Game/Art/Props/Gameplay/AST-PROP-ZONEDOOR-001/Meshes/AST-PROP-ZONEDOOR-001.fbx

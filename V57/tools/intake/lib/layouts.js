@@ -126,9 +126,36 @@ function normalizeMaterials(manifest, textures) {
   return out;
 }
 
+/**
+ * V57-owned layout aliases (Docs/V57/layout_aliases.json, logged as a D-###): a layout asset_id served by another delivered
+ * model, e.g. a static export superseded by a rigged character. `yaw_deg` turns each instance about its own up axis
+ * (model facing differs). Shape: { "aliases": { "<asset_id>": { "model": "<model stem>", "yaw_deg": 180 } } }.
+ */
+function readAliases(root, issues) {
+  const rel = 'Docs/V57/layout_aliases.json';
+  if (!fs.existsSync(path.join(root, rel))) return new Map();
+  const doc = readJson(root, rel, issues, 'LAYOUT_ALIASES_UNREADABLE');
+  const out = new Map();
+  for (const [id, a] of Object.entries((doc && doc.aliases) || {})) {
+    if (a && a.model) out.set(id.toLowerCase(), { model: String(a.model), yaw: Number(a.yaw_deg) || 0 });
+  }
+  return out;
+}
+
+/** Local yaw about Y applied after the instance rotation (quaternion x,y,z,w). */
+function withYaw(q, deg) {
+  if (!deg) return q;
+  const h = (deg * Math.PI) / 360;
+  const s = Math.sin(h);
+  const c = Math.cos(h);
+  const [x, y, z, w] = q;
+  return [x * c - z * s, w * s + y * c, z * c + x * s, w * c - y * s];
+}
+
 /** @returns {Array<{level_id, source, manifest, objects, materials}>} */
 function readLayouts(root, inv, issues) {
   const models = modelIndex(inv);
+  const aliases = readAliases(root, issues);
   const textures = textureIndex(inv);
   const layouts = [];
   for (const rel of inv.docs.filter((d) => LAYOUT_RE.test(d))) {
@@ -149,21 +176,29 @@ function readLayouts(root, inv, issues) {
     const markerNames = new Set();
     const renamedLayers = new Map();
     const missing = new Set();
+    const aliased = new Set();
     const objects = raw.map((o, i) => {
       const src = o.capa || o.layer || '';
       const layer = englishLayer(src);
       if (layer.renamed) renamedLayers.set(src, layer.name);
       const marker = isMarker(o);
-      const model = marker ? null : models.get(String(o.asset_id || '').toLowerCase()) || null;
+      const alias = marker ? null : aliases.get(String(o.asset_id || '').toLowerCase()) || null;
+      const model = marker ? null : models.get((alias ? alias.model : String(o.asset_id || '')).toLowerCase()) || null;
+      if (alias) aliased.add(`${o.asset_id}→${alias.model}`);
       if (!marker && !model) missing.add(o.asset_id);
       return { name: marker ? markerName(o, markerNames) : names[i], kind: marker ? 'marker' : 'model', shape: marker ? markerShape(o) : null,
         source_name: o.nombre || o.name || null, asset_id: marker ? 'Marker' : o.asset_id, model, layer: marker ? 'Markers' : layer.name,
-        position: (o.position || [0, 0, 0]).slice(0, 3), rotation: (o.rotation || [0, 0, 0, 1]).slice(0, 4), scale: (o.scale || [1, 1, 1]).slice(0, 3) };
+        position: (o.position || [0, 0, 0]).slice(0, 3), rotation: withYaw((o.rotation || [0, 0, 0, 1]).slice(0, 4), alias ? alias.yaw : 0), scale: (o.scale || [1, 1, 1]).slice(0, 3) };
     });
     if (renamedLayers.size) {
       issues.add({ code: 'LAYOUT_LAYER_RENAMED', level: 'fixable', area: 'design', where: rel,
         message: `layer names are not English PascalCase: ${[...renamedLayers].map(([a, b]) => `${a}→${b}`).join(', ')}`,
         fix: 'scene groups use the English names; provider should export English layer names', refs: [rel] });
+    }
+    if (aliased.size) {
+      issues.add({ code: 'LAYOUT_ASSET_ALIASED', level: 'fixable', area: 'cross', where: rel,
+        message: `layout asset_id(s) placed with another delivered model (Docs/V57/layout_aliases.json): ${[...aliased].join(', ')}`,
+        fix: 'aliased instances use the mapped model and yaw; provider should export the final asset ids', refs: [...aliased] });
     }
     if (missing.size) {
       issues.add({ code: 'LAYOUT_ASSET_MISSING', level: 'missing', area: 'cross', where: rel,

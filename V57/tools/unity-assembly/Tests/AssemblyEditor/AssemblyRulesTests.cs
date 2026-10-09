@@ -24,6 +24,8 @@ namespace V57.Assembly.Tests
         [TestCase("T_Koala_BC")]
         [TestCase("SkyBox_1")]
         [TestCase("albedo")]
+        [TestCase("AST-ENV-SEABED-001_Detail_Albedo")]
+        [TestCase("Rock_detail_normal")]
         public void IgnoresContractAndUnknownNames(string stem)
         {
             Assert.IsFalse(AssetNaming.TrySplitDccTexture(stem, out _));

@@ -75,6 +75,7 @@ namespace V57.Assembly.Data
         /// <summary>
         /// DCC-style texture name <c>&lt;Anything&gt;_albedo|_normal|_MetallicSmoothness|_metallic|_roughness|_ao|_emission</c>
         /// (any case) → contract suffix BC, N, MS, M, R, AO or E. The asset is the texture's asset folder, not the stem.
+        /// <c>_Detail_&lt;map&gt;</c> textures are not main maps (no suffix).
         /// </summary>
         public static bool TrySplitDccTexture(string stem, out string suffix)
         {
@@ -86,6 +87,12 @@ namespace V57.Assembly.Data
             }
 
             string tail = stem.Substring(last + 1);
+            // Detail maps (<Asset>_Detail_Albedo / _Detail_Normal) tile on top of the main maps; they are never the main map.
+            if (stem.Substring(0, last).EndsWith("_Detail", StringComparison.OrdinalIgnoreCase))
+            {
+                return false;
+            }
+
             foreach (string[] pair in DccTextureSuffixes)
             {
                 if (string.Equals(tail, pair[0], StringComparison.OrdinalIgnoreCase))

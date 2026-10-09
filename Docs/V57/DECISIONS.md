@@ -782,3 +782,1153 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Camera:** CinemachineBrain update LateUpdate; position damping 0.3 s on every axis; look-ahead 0.25 s ignores Y, with smoothing 0.3.
   - **Gold path:** closed loop. A held `move` (V57 core: `move` without `seconds` is held until `release`) plus `wait_until` on probe positions. A new game probe key `crab.distance` times the stomp.
 - **Reversal cost:** low · **Type:** other
+
+## D-091 · I0 INTAKE · conflict · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AO.png`
+- **Decision:** file kept as-is; imported by folder rule; provider should rename in a later delivery
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: cba067e1b240 -->
+
+## D-092 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/UI Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 41fc36e92971 -->
+
+## D-093 · I0 INTAKE · fixable · LAYOUT_ASSET_ALIASED
+- **Issue:** layout asset_id(s) placed with another delivered model (Docs/V57/layout_aliases.json): AST-CHAR-JELLYFISH-001→Jellyfish, AST-CHAR-NEONFLY-001→Fly, AST-CHAR-RADIOACTIVESHARK-001→Shark
+- **Where:** `Docs/Design/LevelMaps/Level_01/unity_scene.json`
+- **Decision:** aliased instances use the mapped model and yaw; provider should export the final asset ids
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 3bc1f6947af4 -->
+
+## D-094 · I0 INTAKE · fixable · LAYOUT_LINKED_BY_ROLE
+- **Issue:** layout Level_01 has no TDD scene SCN_Level_01*
+- **Where:** `Docs/Design/LevelMaps/Level_01/unity_scene.json`
+- **Decision:** linked to the only gameplay scene SCN_HydroStation_Gameplay
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 99436de02f76 -->
+
+## D-095 · I0 INTAKE · fixable · LAYOUT_LAYER_RENAMED
+- **Issue:** layer names are not English PascalCase: Oceano→Ocean, Eventos→Events, Estructura→Structure, Vestido→Dressing
+- **Where:** `Docs/Design/LevelMaps/Level_01/unity_scene.json`
+- **Decision:** scene groups use the English names; provider should export English layer names
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: b6b45efdbb26 -->
+
+## D-096 · I0 INTAKE · fixable · DOCS_UNEXPECTED
+- **Issue:** file not part of the Docs/ contract tree (brief §1)
+- **Where:** `Docs/Design/LevelMaps/Level_01/Level_01_Lateral.png`
+- **Decision:** ignored by intake
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 3e4ebd19287f -->
+
+## D-097 · I0 INTAKE · fixable · DOCS_UNEXPECTED
+- **Issue:** file not part of the Docs/ contract tree (brief §1)
+- **Where:** `Docs/Design/LevelMaps/Level_01/Level_01_Perspective.png`
+- **Decision:** ignored by intake
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 5edce3c3dacb -->
+
+## D-098 · I0 INTAKE · fixable · DOCS_UNEXPECTED
+- **Issue:** file not part of the Docs/ contract tree (brief §1)
+- **Where:** `Docs/Design/LevelMaps/Level_01/Level_01_Top.png`
+- **Decision:** ignored by intake
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8c481e85b774 -->
+
+## D-099 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 04de41e2ff0d -->
+
+## D-100 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f5af0a08ec93 -->
+
+## D-101 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: fc6813d0d381 -->
+
+## D-102 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 5864ff265d92 -->
+
+## D-103 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d766656c9dcc -->
+
+## D-104 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Meshes/AST-ENV-CORALROCK-002.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVCORALROCK002); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 63adb696a23b -->
+
+## D-105 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK002_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 578903449eca -->
+
+## D-106 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK002_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 733655416f73 -->
+
+## D-107 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK002_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 0d3d940d9a84 -->
+
+## D-108 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK002_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: b36fcf7d072b -->
+
+## D-109 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK002_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 86ad28619112 -->
+
+## D-110 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHYDRODOMETOWER001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2b3a97d4b7c9 -->
+
+## D-111 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHYDRODOMETOWER001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 3db156143efc -->
+
+## D-112 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHYDRODOMETOWER001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a48aa11022c1 -->
+
+## D-113 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHYDRODOMETOWER001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8cc18b5b8e35 -->
+
+## D-114 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHYDRODOMETOWER001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 0a9aee9d9305 -->
+
+## D-115 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Meshes/AST-ENV-OCEANBOAT-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVOCEANBOAT001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 4c85de84ec33 -->
+
+## D-116 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANBOAT001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ae7fa9b5a0ad -->
+
+## D-117 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANBOAT001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2f176c3ab4e3 -->
+
+## D-118 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANBOAT001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 0b84131119f2 -->
+
+## D-119 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANBOAT001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: da75cc223ce9 -->
+
+## D-120 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST-ENV-OCEANBOAT-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANBOAT001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: bf9490ab702e -->
+
+## D-121 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Meshes/AST-ENV-OCEANLEAVES-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVOCEANLEAVES001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: aff842505f67 -->
+
+## D-122 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 20156bd24062 -->
+
+## D-123 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 72668bb35e0e -->
+
+## D-124 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: dcf400ae6583 -->
+
+## D-125 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 6d186a9f38ad -->
+
+## D-126 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST-ENV-OCEANLEAVES-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 557a98d70145 -->
+
+## D-127 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Meshes/AST-ENV-OCEANROCKS-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVOCEANROCKS001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f6e34a49e58e -->
+
+## D-128 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKS001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 098accc356e4 -->
+
+## D-129 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKS001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 48a074355327 -->
+
+## D-130 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKS001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: b7b87996344d -->
+
+## D-131 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKS001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1ee463a497ca -->
+
+## D-132 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKS001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8d552d7d9d1b -->
+
+## D-133 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Meshes/AST-ENV-OCEANSKELETON-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVOCEANSKELETON001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2492dfde3135 -->
+
+## D-134 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANSKELETON001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7a58c49c22a9 -->
+
+## D-135 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANSKELETON001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a3f40907f465 -->
+
+## D-136 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANSKELETON001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 979c65b7c508 -->
+
+## D-137 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANSKELETON001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 74a08252affe -->
+
+## D-138 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST-ENV-OCEANSKELETON-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANSKELETON001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 21850fee194d -->
+
+## D-139 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Meshes/AST-ENV-SEABED-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVSEABED001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2fc2f297bde3 -->
+
+## D-140 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Albedo.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 76c5e8f4a652 -->
+
+## D-141 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Detail_Albedo.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1f6546de2b21 -->
+
+## D-142 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Detail_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 91a06f3f0864 -->
+
+## D-143 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ccf597f83ad6 -->
+
+## D-144 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: adff879e67dc -->
+
+## D-145 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_Roughness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a79b08bd5744 -->
+
+## D-146 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Meshes/AST-ENV-VEGETATION-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVVEGETATION001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 30589e185681 -->
+
+## D-147 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: db429740b6b9 -->
+
+## D-148 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: c4f63d82f904 -->
+
+## D-149 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 6049a67bdc0d -->
+
+## D-150 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ab1420ecd6d2 -->
+
+## D-151 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 9f98f2f6f4e2 -->
+
+## D-152 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17ARCH001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 4ed0e817605d -->
+
+## D-153 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17ARCH001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 0336adf923f1 -->
+
+## D-154 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17ARCH001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2fa7e0ea0604 -->
+
+## D-155 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17ARCH001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d5fc522bae6b -->
+
+## D-156 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17ARCH001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: c14070566bef -->
+
+## D-157 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17FLOORPLATE001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7b1bdee75ce1 -->
+
+## D-158 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17FLOORPLATE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a854532999e9 -->
+
+## D-159 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17FLOORPLATE001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 256a63e7c1c0 -->
+
+## D-160 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17FLOORPLATE001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: bb507c3eac14 -->
+
+## D-161 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVB17FLOORPLATE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 41b01ce7bf35 -->
+
+## D-162 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVBULKHEAD001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 59af67e495eb -->
+
+## D-163 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVBULKHEAD001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2740a34a2ade -->
+
+## D-164 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVBULKHEAD001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 18114117b76a -->
+
+## D-165 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVBULKHEAD001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f0e382a5cfa1 -->
+
+## D-166 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVBULKHEAD001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 54be92f1c60f -->
+
+## D-167 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCRYSTALPANEL001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: bfaf631f345d -->
+
+## D-168 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCRYSTALPANEL001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f9ec3521af8e -->
+
+## D-169 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCRYSTALPANEL001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 6d2da29f2bdc -->
+
+## D-170 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCRYSTALPANEL001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: c686e2fad3e6 -->
+
+## D-171 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCRYSTALPANEL001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: b5b2a67fbf41 -->
+
+## D-172 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVGRATEPLATFORM001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 9429318a3897 -->
+
+## D-173 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVGRATEPLATFORM001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 36dde223c4b8 -->
+
+## D-174 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVGRATEPLATFORM001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: cc838cb8f373 -->
+
+## D-175 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVGRATEPLATFORM001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f89242aedacc -->
+
+## D-176 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVGRATEPLATFORM001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: c1055ebc7420 -->
+
+## D-177 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHATCHPANEL001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7ca17e4709c2 -->
+
+## D-178 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHATCHPANEL001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 3a4f859d3c26 -->
+
+## D-179 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHATCHPANEL001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7bbfbcde081a -->
+
+## D-180 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHATCHPANEL001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 41e550adc007 -->
+
+## D-181 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVHATCHPANEL001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 12310bae8212 -->
+
+## D-182 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABDOOR001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ac0595f41641 -->
+
+## D-183 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABDOOR001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 224c4e51d479 -->
+
+## D-184 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABDOOR001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 07e4f4976908 -->
+
+## D-185 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABDOOR001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8304a34ebe7a -->
+
+## D-186 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABDOOR001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 985485396fe4 -->
+
+## D-187 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABFLOOR001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 01482429c948 -->
+
+## D-188 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABFLOOR001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2a9149fa10dd -->
+
+## D-189 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABFLOOR001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 0d08448cce41 -->
+
+## D-190 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABFLOOR001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 99fb2a211266 -->
+
+## D-191 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABFLOOR001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ceeb40beb8fd -->
+
+## D-192 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: bef808787684 -->
+
+## D-193 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 76691229428b -->
+
+## D-194 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1e2bc3f1cd17 -->
+
+## D-195 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a03841d5f00f -->
+
+## D-196 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 88023b7662ac -->
+
+## D-197 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE002_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 057fd61d6f12 -->
+
+## D-198 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE002_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1f1a08efe4d1 -->
+
+## D-199 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE002_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: e82dc770c1be -->
+
+## D-200 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE002_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 02c515c7f728 -->
+
+## D-201 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVPIPE002_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 241d1493c887 -->
+
+## D-202 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSCAFFOLD001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: be322e2f5cd6 -->
+
+## D-203 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSCAFFOLD001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: e07f87cd8f41 -->
+
+## D-204 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSCAFFOLD001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 20fb729f04da -->
+
+## D-205 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSCAFFOLD001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7dd7a0ac6e90 -->
+
+## D-206 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSCAFFOLD001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f5cb31c650e7 -->
+
+## D-207 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSTEELCOLUMN001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: e04268c363a9 -->
+
+## D-208 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSTEELCOLUMN001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 17ef79751691 -->
+
+## D-209 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSTEELCOLUMN001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ba9889b4819b -->
+
+## D-210 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSTEELCOLUMN001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8762914ae968 -->
+
+## D-211 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSTEELCOLUMN001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f87f30bc3322 -->
+
+## D-212 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPBEACONCRATE001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 32671805d690 -->
+
+## D-213 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPBEACONCRATE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d9974bbd9b0b -->
+
+## D-214 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPBEACONCRATE001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a556e36aa3c4 -->
+
+## D-215 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPBEACONCRATE001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d1922dcce54f -->
+
+## D-216 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPBEACONCRATE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 16110ad5cf7e -->
+
+## D-217 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE002_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a4f11f996c52 -->
+
+## D-218 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE002_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 718d2ea88d53 -->
+
+## D-219 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE002_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: aa4146a54505 -->
+
+## D-220 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE002_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: c4afb2434024 -->
+
+## D-221 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE002_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 747489bc1e94 -->
+
+## D-222 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHOSE001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 9e1a59176c99 -->
+
+## D-223 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHOSE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a24185714ef4 -->
+
+## D-224 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHOSE001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 532aeecf5b87 -->
+
+## D-225 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHOSE001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8f2286b5d73f -->
+
+## D-226 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHOSE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8e8dbd47055f -->
+
+## D-227 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPLANTERN001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 05e33028bf60 -->
+
+## D-228 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPLANTERN001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f3beae998f7d -->
+
+## D-229 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPLANTERN001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 5fb49c2084f6 -->
+
+## D-230 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPLANTERN001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 44d0df6a08f2 -->
+
+## D-231 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPLANTERN001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ba4b29ea1c69 -->
+
+## D-232 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPRAILING001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: fceaef26224c -->
+
+## D-233 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPRAILING001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 51e91b794d84 -->
+
+## D-234 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPRAILING001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7b0f8dc41750 -->
+
+## D-235 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPRAILING001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 85d042ea4606 -->
+
+## D-236 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPRAILING001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d49abbe46f70 -->
+
+## D-237 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPWARNINGSIGN001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 5c8164b99cb3 -->
+
+## D-238 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPWARNINGSIGN001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: b6401a83470c -->
+
+## D-239 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPWARNINGSIGN001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: dfcb9d5aef59 -->
+
+## D-240 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPWARNINGSIGN001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ac0548735893 -->
+
+## D-241 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPWARNINGSIGN001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: cf40df4f39c1 -->
+
+## D-242 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 286d86c13700 -->
+
+## D-243 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: fc026dcdf2c9 -->
+
+## D-244 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: defb09fdbcaf -->
+
+## D-245 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 498e56377d8f -->
+
+## D-246 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPCONSOLE001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 6ac926150343 -->
+
+## D-247 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHATCH001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a0c15a02c7a4 -->
+
+## D-248 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Metallic.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHATCH001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 4e58152a2c95 -->
+
+## D-249 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHATCH001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 100aec7bbd8b -->
+
+## D-250 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHATCH001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 9c94f098f14a -->
+
+## D-251 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_Roughness.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTPROPHATCH001_ORM); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f3599c8fcfbc -->
+
+### D-252 — Level_01 V06 delivery integrated (LODs, full maps, new ocean assets)
+- **When:** 2026-10-09 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:** Owner delivered `Level_01_V06`: `manifest.json` + `unity_scene.json` (817 objects), 33 FBX with LOD groups, albedo/normal/metallic-smoothness maps (+ metallic/roughness), 7 new ocean assets (CORALROCK-002, OCEANBOAT, OCEANLEAVES, OCEANROCKS, OCEANSKELETON, SEABED, VEGETATION). It supersedes `LevelMaps/Montaje`.
+- **Choice:**
+  - Placed with the D-002 rules: FBX replaced in place (GUIDs kept), new maps added, old `<id>_<id>_Albedo.jpg` removed, new assets in `Art/Environment/Decoration/<id>/`. JSON and captures go in `Docs/Design/LevelMaps/Level_01/`, and `LevelMaps/Montaje` is removed.
+  - The `AST-CHAR-*` static exports are not copied (D-010). `Docs/V57/layout_aliases.json` maps them to the rigged `Fly`/`Jellyfish`/`Shark` with +180° yaw; this is a new V57 core intake feature.
+  - V57 core fixes found on the way: `_Detail_<map>` textures are not main maps; layout materials apply the manifest's albedo, normal and metallic-smoothness.
+  - The floor gameplay prefabs (LABFLOOR, GRATEPLATFORM, B17FLOORPLATE) had colliders sized for the old meshes. The new meshes are larger (1.0 → 1.5 m, 2.0 → 3.7 m), so each BoxCollider is re-fitted to its LOD0 bounds.
+  - The 7 new Visual prefabs came with a default BoxCollider. They are removed: the seabed box was 340 × 14 × 340 m and enclosed the whole level, the rest are unreachable scenery, and Visual prefabs carry no collision.
+- **Reversal cost:** low (git history) · **Type:** absorption
+
+### D-253 — Temporary level contract on Level_01 (replaces D-013/D-021 placement)
+- **When:** 2026-10-09 · **Stage:** post-M4 · **Commit:** pending
+- **Context:** Level_01 V06 has no markers, no ZoneDoor instance and no crabs. `RebuildLevelContent` emptied `_Markers` and the old test placement, as designed.
+- **Choice:** temporary contract in `_Environment/_Markers` + `_Gameplay/Level/TestPlacement`. A provider map with markers replaces it on the next `RebuildLevelContent`.
+  - **Spawn:** left tunnel at x −19.4; the camera, 6.5 m behind, stays inside the tunnel and in front of the closed lab door.
+  - **Zone and kill:** Zone_Z1 covers x −30..28. Kill_01 covers y −7..−2, below the lowest platform (top 0.03).
+  - **Camera:** default yaw 90°.
+  - **Door, crab, exit:** the ZoneDoor sits at x 15 inside the right tunnel. The arch at x 23.6 already holds the closed LABDOOR pair, so a door there would overlap it. The crab patrols across the tunnel at x 18.5, and the exit is at x 21.5.
+  - **Map content:** the flies, key and sharks are the provider's own positions. The fly at x −10 floats 1.4 m above its platform and needs a jump.
+  - **Gold path:** 79 closed-loop steps, green 3 runs in a row, 0 respawns.
+- **Reversal cost:** low · **Type:** other

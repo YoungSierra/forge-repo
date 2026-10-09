@@ -1954,3 +1954,48 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Zoom:** new `Gameplay/Zoom` action, bound to the mouse wheel (`zoomStep` 10 % per notch) and the gamepad d-pad up/down (`stickZoomSpeed` 80 %/s). It scales the follow distance within `zoomRange` 0.6×–1.6× and persists; it is not recentered.
   - **Code:** the logic lives in the plain class `CameraLook`, used by `CameraRig` and covered by 3 EditMode tests.
 - **Reversal cost:** low · **Type:** conflict
+
+### D-256 — Lighting: Rayman Legends/Origins-style underwater look, readable shadows, caustics
+- **When:** 2026-10-09 · **Stage:** post-M4 (owner request, pending approval) · **Commit:** pending
+- **Context:** The owner shared a "Lighting Language" reference, then asked for a look closer to Rayman Legends/Origins and for the scenery to cast visible shadows. No ADD file has been delivered.
+- **Choice:**
+  - **Key light:** warm sun at 50°/200°, intensity 2.0, shadow strength 0.85.
+  - **Shadows:** URP uses 4 cascades over 60 m at 4096 with soft shadows. The crystal panels cast no shadow, so the tunnels receive sun.
+  - **Caustics:** a looping flipbook of 64 tiling cookies (`Settings/Rendering/Caustics/T_Caustics_00..63.png`, 256², single channel). They are baked from a procedural Voronoi pattern with domain warping: computed, not drawn, matching the owner's second reference (wobbly bright web, darker cells). `CausticsDrift` plays them at 16 fps on the sun and slides them slowly; tile 5 m, sun 3.0 to compensate the darker cells. The first attempt, a realtime CustomRenderTexture, reached URP black and removed the sun entirely.
+  - **Fill:** cyan rim light from the level's forward direction (0.7, no shadows), blue/violet trilight ambient, reflections at 0.5.
+  - **Fog:** linear teal from 18 m to 110 m, so the foreground stays crisp and the background layers fade.
+  - **Post-processing:** Neutral tonemapping, soft wide bloom, saturation +38, violet-blue shadows and warm highlights, vignette, SSAO renderer feature.
+  - **Color grading mode:** LDR. HDR grading rendered the first frame flat cyan.
+  - **Camera:** Stop NaN on.
+  - **Lamps:** warm point lights on the lantern and beacon-crate Visual prefabs.
+- **Reversal cost:** low (volume, cookie, lights and URP settings) · **Type:** other
+
+### D-257 — Follow camera is a Cinemachine FreeLook (owner request)
+- **When:** 2026-10-09 · **Stage:** post-M4 (owner request, pending approval) · **Commit:** pending
+- **Context:** The owner asked to use Cinemachine's FreeLook camera for the camera movement, because the custom orbit (D-254/D-255) was not smooth enough.
+- **Choice:**
+  - **Camera:** `CM_Follow` = CinemachineCamera + `CinemachineOrbitalFollow` (sphere, world-space binding, position damping 0.25/0.35/0.25) + RotationComposer (damping 0.25/0.35) + `FreeLookInput`.
+  - **Input:** `FreeLookInput` is an `InputAxisControllerBase` with its own reader. It turns mouse per-frame deltas into rates and uses stick and d-pad rates as they are, so both feel the same at any frame rate. The wheel moves one step per notch. Gains come from `CameraConfig`.
+  - **Orbit:** `CameraRig` derives the radius and elevation from the authored follow offset. The pitch range, zoom range and recentering (1.5 s wait, 0.5 s ease, axis center) come from `CameraConfig`. The horizontal center follows the camera-zone yaw, and a zone change turns the whole orbit.
+  - **Movement basis:** `CameraRig.LookYaw` = orbit value − zone yaw, added immediately.
+  - **Cleanup:** the custom `CameraLook` class and its tests are removed.
+- **Limitation:** no camera collision. Cinemachine's Deoccluder needs colliders, and the tunnel glass and frames are scenery without collision.
+- **Reversal cost:** low · **Type:** conflict
+
+### D-258 — Level music delivered by the owner: intro once, loop the body, playback gain
+- **When:** 2026-10-09 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:** The owner delivered `Puff_and_Rebellion_2026-10-09T223844.wav` (60 s, 48 kHz, 16-bit stereo) for gameplay and flagged that the volume may be too high. Measured: peak 0 dBFS (2 clipped samples), intro 0–12 s at about −20 dB RMS, then +5–6 dB (body about −15 dB RMS). Tempo about 150 BPM: 12–60 s = 48 s = 30 bars. The file ends at full level, so a whole-file loop would jump back to the soft intro with a click.
+- **Choice:**
+  - **File:** stored as `Assets/_Game/Audio/Music/MUS_PuffAndRebellion.wav` (V57 name; the content is untouched). Imported by the V57 Music rule: streaming, Vorbis 0.7, load in background.
+  - **Looping:** `MusicLooper` (`_Systems/…/AudioService/LevelMusic`, 2 sources, 2D) plays the intro once, then loops 12 s → end. The next pass is scheduled on the DSP clock 0.3 s before the end, from 11.7 s, with an equal-power crossfade, so there is no click or level jump.
+  - **Volume:** playback 0.35 (about −9 dB), so the music sits under future SFX; the file is not edited.
+- **Not covered yet:** the TDD §10 intensity layer, menu cue, level-end sting, key motif and door cadence (MISSING_ASSETS).
+- **Reversal cost:** low · **Type:** absorption
+
+### D-259 — Gold path input: no stale device state between queued events; stable route at the raised fly
+- **When:** 2026-10-09 · **Stage:** post-M4 · **Commit:** pending
+- **Context:** The gold path failed intermittently at different steps (the Professor not moving, or moving the wrong way after a stick change). The V57 input simulator queues full-device state events built from the device's *current* state. A second write queued before the first one is processed (stick change + tap, release + next press) can carry a stale value and undo it. Separately, the hop for the raised fly at x −10 was done running; momentum carried the Professor to the platform edge (x −8.3), and the next diagonal jump sometimes fell.
+- **Choice:**
+  - **V57 core:** `GoldPathInputSimulator` remembers every control value it wrote (released ones at 0) and writes all of them into each event (`GoldPathInputWriter.Queue`). While something is held, it re-writes them before every input update (keep-alive).
+  - **Gold path:** stop under the fly, hop in place, then walk to the take-off point. 5 runs in a row green.
+- **Reversal cost:** low · **Type:** other

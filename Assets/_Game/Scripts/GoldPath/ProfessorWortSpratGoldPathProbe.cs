@@ -64,6 +64,7 @@ namespace ProfessorSprat.GoldPath
                 case "zone.index": value = _flow.ActiveZoneIndex; return true;
                 case "respawn.count": value = _respawn != null ? _respawn.RespawnCount : 0; return true;
                 case "camera.yaw": value = _camera != null ? _camera.ActiveYaw : 0f; return true;
+                case "camera.look_yaw": value = _camera != null ? _camera.LookYaw : 0f; return true;
                 default: value = 0f; return false;
             }
         }

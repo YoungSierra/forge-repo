@@ -7,81 +7,59 @@ using UnityEngine.InputSystem.LowLevel;
 namespace V57.GoldPath
 {
     /// <summary>
-    /// Queues state events on simulated devices (same technique as InputTestFixture.Set): capture the device's
-    /// current state into an event, write the new control values, queue it. Several controls of one device are
-    /// written into a single event so they do not overwrite each other within a frame.
+    /// Queues state events on simulated devices (same technique as InputTestFixture.Set). A state event carries the whole
+    /// device, captured from its current state — which can be stale while earlier events are still queued. So the caller
+    /// passes every control value the gold path owns (held inputs and released ones at 0), and all of them are written
+    /// into each event: queued writes can never undo each other (a refresh re-pressing a button just released, a tap
+    /// restoring an old stick value).
     /// </summary>
     public static class GoldPathInputWriter
     {
         #region Public Methods
 
-        public static void Apply(GoldPathInputTarget target, bool down, Vector2 value)
+        /// <summary>Control values for <paramref name="target"/> held at <paramref name="value"/> or released.</summary>
+        public static List<KeyValuePair<InputControl, Vector2>> Values(GoldPathInputTarget target, bool down, Vector2 value)
         {
-            if (target.Touch != null)
-            {
-                if (down)
-                {
-                    target.TouchPosition = new Vector2(value.x * Screen.width, value.y * Screen.height);
-                }
-
-                UnityEngine.InputSystem.TouchPhase phase = down ? UnityEngine.InputSystem.TouchPhase.Began : UnityEngine.InputSystem.TouchPhase.Ended;
-                InputSystem.QueueStateEvent(target.Touch, new TouchState { touchId = 1, phase = phase, position = target.TouchPosition });
-                return;
-            }
-
+            List<KeyValuePair<InputControl, Vector2>> values = new List<KeyValuePair<InputControl, Vector2>>();
             if (target.Vector != null)
             {
-                WriteVector(target.Vector, down ? value : Vector2.zero);
-                return;
+                values.Add(new KeyValuePair<InputControl, Vector2>(target.Vector, down ? value : Vector2.zero));
             }
-
-            if (target.IsComposite)
+            else if (target.IsComposite)
             {
-                List<InputControl<float>> controls = new List<InputControl<float>>();
-                List<float> values = new List<float>();
-                AddPart(controls, values, target.Up, down && value.y > 0.5f);
-                AddPart(controls, values, target.Down, down && value.y < -0.5f);
-                AddPart(controls, values, target.Left, down && value.x < -0.5f);
-                AddPart(controls, values, target.Right, down && value.x > 0.5f);
-                WriteFloats(controls, values);
-                return;
+                AddPart(values, target.Up, down && value.y > 0.5f);
+                AddPart(values, target.Down, down && value.y < -0.5f);
+                AddPart(values, target.Left, down && value.x < -0.5f);
+                AddPart(values, target.Right, down && value.x > 0.5f);
             }
-
-            if (target.Button != null)
+            else if (target.Button != null)
             {
                 float pressValue = Mathf.Approximately(value.x, 0f) ? 1f : value.x;
-                WriteFloats(new List<InputControl<float>> { target.Button }, new List<float> { down ? pressValue : 0f });
+                values.Add(new KeyValuePair<InputControl, Vector2>(target.Button, new Vector2(down ? pressValue : 0f, 0f)));
             }
+
+            return values;
         }
 
-        #endregion
-
-        #region Private Methods
-
-        private static void AddPart(List<InputControl<float>> controls, List<float> values, InputControl<float> part, bool pressed)
+        /// <summary>Touch begin/end (touch state is its own event type).</summary>
+        public static void ApplyTouch(GoldPathInputTarget target, bool down, Vector2 value)
         {
-            if (part != null)
+            if (down)
             {
-                controls.Add(part);
-                values.Add(pressed ? 1f : 0f);
+                target.TouchPosition = new Vector2(value.x * Screen.width, value.y * Screen.height);
             }
+
+            UnityEngine.InputSystem.TouchPhase phase = down ? UnityEngine.InputSystem.TouchPhase.Began : UnityEngine.InputSystem.TouchPhase.Ended;
+            InputSystem.QueueStateEvent(target.Touch, new TouchState { touchId = 1, phase = phase, position = target.TouchPosition });
         }
 
-        private static void WriteVector(InputControl<Vector2> control, Vector2 value)
-        {
-            using (NativeArray<byte> buffer = StateEvent.From(control.device, out InputEventPtr eventPtr))
-            {
-                control.WriteValueIntoEvent(value, eventPtr);
-                InputSystem.QueueEvent(eventPtr);
-            }
-        }
-
-        private static void WriteFloats(List<InputControl<float>> controls, List<float> values)
+        /// <summary>Queues one state event per device with every owned control value written into it.</summary>
+        public static void Queue(IReadOnlyDictionary<InputControl, Vector2> owned)
         {
             List<InputDevice> devices = new List<InputDevice>();
-            foreach (InputControl<float> control in controls)
+            foreach (InputControl control in owned.Keys)
             {
-                if (!devices.Contains(control.device))
+                if (control.device.added && !devices.Contains(control.device))
                 {
                     devices.Add(control.device);
                 }
@@ -91,16 +69,37 @@ namespace V57.GoldPath
             {
                 using (NativeArray<byte> buffer = StateEvent.From(device, out InputEventPtr eventPtr))
                 {
-                    for (int i = 0; i < controls.Count; i++)
+                    foreach (KeyValuePair<InputControl, Vector2> pair in owned)
                     {
-                        if (controls[i].device == device)
+                        if (pair.Key.device != device)
                         {
-                            controls[i].WriteValueIntoEvent(values[i], eventPtr);
+                            continue;
+                        }
+
+                        if (pair.Key is InputControl<Vector2> vector)
+                        {
+                            vector.WriteValueIntoEvent(pair.Value, eventPtr);
+                        }
+                        else if (pair.Key is InputControl<float> axis)
+                        {
+                            axis.WriteValueIntoEvent(pair.Value.x, eventPtr);
                         }
                     }
 
                     InputSystem.QueueEvent(eventPtr);
                 }
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private static void AddPart(List<KeyValuePair<InputControl, Vector2>> values, InputControl<float> part, bool pressed)
+        {
+            if (part != null)
+            {
+                values.Add(new KeyValuePair<InputControl, Vector2>(part, new Vector2(pressed ? 1f : 0f, 0f)));
             }
         }
 

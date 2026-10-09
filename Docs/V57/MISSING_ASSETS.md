@@ -13,7 +13,8 @@ Single list of resources the game needs but the delivery lacks (TDD 1.0.0 §6, �
 | Art Direction Document | Doc | lighting, camera framing references, post, UI layouts | `Docs/ArtDirection/ArtDirectionDocument.md` | blocks: visual review references | missing |
 | UI mockups (`UI_HUDCounter`, `UI_MainMenu`, `UI_PauseMenu`, `UI_Loading`, `UI_LevelEnd`) | UI | TDD §9.1 | `Docs/ArtDirection/UIMockups/<ScreenId>.png` | blocks: visual (UI built from UXML/USS + palette) | missing |
 | UI sprites per screen, icons `ICO_Fly`, `ICO_AccessKey`, rounded sans font | UI | TDD §9.1, §13.1 | `Assets/_Game/Art/UI/Sprites/<ScreenId>/`, `Art/UI/Icons/`, `Art/UI/Fonts/` | blocks: visual | missing |
-| Music: menu cue, level two-layer cue, key motif, level-end sting | Audio | TDD §10, §13.1 | `Assets/_Game/Audio/Music/` | blocks: audio | missing |
+| Music: level base cue | Audio | TDD §10 | `Assets/_Game/Audio/Music/` | — | delivered (`MUS_PuffAndRebellion.wav`, D-258) |
+| Music: level intensity layer (synchronised with the base cue), menu cue, key motif (1.2 s), door-unlock cadence, level-end sting | Audio | TDD §10, §13.1 | `Assets/_Game/Audio/Music/` | blocks: audio | missing |
 | SFX (≈ 30: footsteps, jump/land, stomp, crab patter/contact/defeat, fly pop, key, door, UI) | Audio | TDD §10, §B feedback | `Assets/_Game/Audio/SFX/<Category>/` | blocks: audio | missing |
 | Ambience beds (3 zone themes) | Audio | TDD §10 | `Assets/_Game/Audio/Ambience/` | blocks: audio | missing |
 | VO (≈ 22 non-verbal: Professor efforts, Sprat tonals) | Audio | TDD §10 | `Assets/_Game/Audio/Voice/` | blocks: audio | missing |

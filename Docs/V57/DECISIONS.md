@@ -1945,3 +1945,12 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Cursor:** locked and hidden while gameplay input is on; released by pause, level end, respawn fade and menus.
   - **Tests:** the gold path's simulated devices have no mouse, so its runs are unchanged.
 - **Reversal cost:** low (remove the Look action; LookYaw stays 0) · **Type:** conflict
+
+### D-255 — Camera recentering and zoom (owner request)
+- **When:** 2026-10-09 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** Follow-up to D-254: the owner asked for the orbit to recenter and for zoom in/out.
+- **Choice:**
+  - **Recentering:** after `CameraConfig.recenterDelay` (1.5 s) without look input, yaw and pitch ease back to 0 (`recenterTime` 0.5 s). The camera returns behind the Professor along the camera-zone yaw, and the movement basis follows that ease.
+  - **Zoom:** new `Gameplay/Zoom` action, bound to the mouse wheel (`zoomStep` 10 % per notch) and the gamepad d-pad up/down (`stickZoomSpeed` 80 %/s). It scales the follow distance within `zoomRange` 0.6×–1.6× and persists; it is not recentered.
+  - **Code:** the logic lives in the plain class `CameraLook`, used by `CameraRig` and covered by 3 EditMode tests.
+- **Reversal cost:** low · **Type:** conflict

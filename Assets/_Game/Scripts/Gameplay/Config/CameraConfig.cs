@@ -21,6 +21,16 @@ namespace ProfessorSprat.Gameplay.Config
         [SerializeField] private float _stickLookSpeed = 140f;
         [Tooltip("Pitch range (degrees) around the authored follow offset; positive raises the camera.")]
         [SerializeField] private Vector2 _pitchRange = new Vector2(-20f, 35f);
+        [Tooltip("Seconds without look input before the camera eases back behind the Professor (D-255).")]
+        [SerializeField] private float _recenterDelay = 1.5f;
+        [Tooltip("Smoothing time (seconds) of the recenter ease.")]
+        [SerializeField] private float _recenterTime = 0.5f;
+        [Tooltip("Follow-distance multiplier range (closest, farthest).")]
+        [SerializeField] private Vector2 _zoomRange = new Vector2(0.6f, 1.6f);
+        [Tooltip("Relative distance change per mouse-wheel notch.")]
+        [SerializeField] private float _zoomStep = 0.1f;
+        [Tooltip("Relative distance change per second while the gamepad zoom is held.")]
+        [SerializeField] private float _stickZoomSpeed = 0.8f;
 
         public Vector3 FollowOffset => _followOffset;
         public float LookHeight => _lookHeight;
@@ -32,5 +42,10 @@ namespace ProfessorSprat.Gameplay.Config
         public float MouseSensitivity => _mouseSensitivity;
         public float StickLookSpeed => _stickLookSpeed;
         public Vector2 PitchRange => _pitchRange;
+        public float RecenterDelay => _recenterDelay;
+        public float RecenterTime => _recenterTime;
+        public Vector2 ZoomRange => _zoomRange;
+        public float ZoomStep => _zoomStep;
+        public float StickZoomSpeed => _stickZoomSpeed;
     }
 }

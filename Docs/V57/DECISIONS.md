@@ -1932,3 +1932,16 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Map content:** the flies, key and sharks are the provider's own positions. The fly at x −10 floats 1.4 m above its platform and needs a jump.
   - **Gold path:** 79 closed-loop steps, green 3 runs in a row, 0 respawns.
 - **Reversal cost:** low · **Type:** other
+
+### D-254 — Player camera orbit with mouse / right stick (owner request)
+- **When:** 2026-10-09 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** The owner asked for a camera that moves with the mouse. TDD §11.5 / G-14 says `Look: none (authored camera)`. The TDD is read-only, so this is logged as a conflict won by the owner's direct request.
+- **Choice:**
+  - **Input:** new `Gameplay/Look` action, bound to `<Mouse>/delta` and `<Gamepad>/rightStick`.
+  - **Camera:** `CameraRig.AddLook` orbits the follow camera around the Professor. Yaw is added to the camera-zone yaw. Pitch rotates the authored offset and stays within `CameraConfig.pitchRange` (−20°..35°).
+  - **Sensitivity:** mouse 0.15°/px, stick 140°/s. Moving the mouse up looks up.
+  - **Movement:** stays camera-relative. `MoveBasis.ToWorld(stick, lookYaw)` adds the orbit immediately, while camera-zone changes keep their deferral.
+  - **Key shot:** follows the orbited direction.
+  - **Cursor:** locked and hidden while gameplay input is on; released by pause, level end, respawn fade and menus.
+  - **Tests:** the gold path's simulated devices have no mouse, so its runs are unchanged.
+- **Reversal cost:** low (remove the Look action; LookYaw stays 0) · **Type:** conflict

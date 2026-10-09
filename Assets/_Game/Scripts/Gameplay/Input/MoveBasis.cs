@@ -49,7 +49,13 @@ namespace ProfessorSprat.Gameplay.Input
         /// <summary>World XZ direction for a stick value (x = right, y = up).</summary>
         public Vector3 ToWorld(Vector2 stick)
         {
-            return Quaternion.Euler(0f, Yaw, 0f) * new Vector3(stick.x, 0f, stick.y);
+            return ToWorld(stick, 0f);
+        }
+
+        /// <summary>World XZ direction with the player's camera orbit added (applies immediately, no deferral).</summary>
+        public Vector3 ToWorld(Vector2 stick, float lookYaw)
+        {
+            return Quaternion.Euler(0f, Yaw + lookYaw, 0f) * new Vector3(stick.x, 0f, stick.y);
         }
 
         #endregion

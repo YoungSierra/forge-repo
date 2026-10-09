@@ -115,10 +115,10 @@
     }
   ],
   "goldpath": {
-    "last_run_utc": "2026-10-09T17:52:30Z",
+    "last_run_utc": "2026-10-09T21:51:43Z",
     "commit": "pending",
     "pass": true,
-    "checks_path": "Docs/V57/evidence/goldpath/20261009T175230Z/checks.json"
+    "checks_path": "Docs/V57/evidence/goldpath/20261009T215143Z/checks.json"
   },
   "last_green_commit": "93026c9",
   "last_decision": null,

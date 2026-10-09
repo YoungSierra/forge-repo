@@ -14,6 +14,13 @@ namespace ProfessorSprat.Gameplay.Config
         [SerializeField] private float _keyShotBlend = 0.5f;
         [Tooltip("Stick magnitude below which a new camera-zone basis is applied immediately.")]
         [SerializeField] private float _basisSwitchStick = 0.2f;
+        [Header("Player look (owner request, D-254)")]
+        [Tooltip("Degrees of orbit per pixel of mouse movement.")]
+        [SerializeField] private float _mouseSensitivity = 0.15f;
+        [Tooltip("Degrees per second at full right-stick deflection.")]
+        [SerializeField] private float _stickLookSpeed = 140f;
+        [Tooltip("Pitch range (degrees) around the authored follow offset; positive raises the camera.")]
+        [SerializeField] private Vector2 _pitchRange = new Vector2(-20f, 35f);
 
         public Vector3 FollowOffset => _followOffset;
         public float LookHeight => _lookHeight;
@@ -22,5 +29,8 @@ namespace ProfessorSprat.Gameplay.Config
         public float KeyShotHold => _keyShotHold;
         public float KeyShotBlend => _keyShotBlend;
         public float BasisSwitchStick => _basisSwitchStick;
+        public float MouseSensitivity => _mouseSensitivity;
+        public float StickLookSpeed => _stickLookSpeed;
+        public Vector2 PitchRange => _pitchRange;
     }
 }

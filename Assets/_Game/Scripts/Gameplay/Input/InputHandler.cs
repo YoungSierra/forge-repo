@@ -9,6 +9,7 @@ namespace ProfessorSprat.Gameplay.Input
     /// TDD §B-S InputHandler: reads the Input System actions (§11.3) and dispatches them. <c>Move</c> is converted to world
     /// XZ in the active camera-zone basis; a new basis applies only when the stick drops below the switch threshold or
     /// after the zone blend, so directions never flip mid-press. Jump and Stomp share a button; each mechanic gates itself.
+    /// <c>Look</c> (mouse delta / right stick, D-254) orbits the camera; the cursor is locked while gameplay input is on.
     /// </summary>
     public sealed class InputHandler : MonoBehaviour
     {
@@ -26,6 +27,7 @@ namespace ProfessorSprat.Gameplay.Input
         private InputAction _move;
         private InputAction _jumpAction;
         private InputAction _stompAction;
+        private InputAction _look;
         private MoveBasis _basis;
 
         #endregion
@@ -39,6 +41,8 @@ namespace ProfessorSprat.Gameplay.Input
         public void SetGameplayEnabled(bool enabledState)
         {
             GameplayEnabled = enabledState;
+            Cursor.lockState = enabledState ? CursorLockMode.Locked : CursorLockMode.None;
+            Cursor.visible = !enabledState;
             if (!enabledState && _locomotion != null)
             {
                 _locomotion.SetMoveInput(Vector3.zero);
@@ -61,6 +65,7 @@ namespace ProfessorSprat.Gameplay.Input
             _move = _actions.FindAction("Gameplay/Move", true);
             _jumpAction = _actions.FindAction("Gameplay/Jump", true);
             _stompAction = _actions.FindAction("Gameplay/Stomp", true);
+            _look = _actions.FindAction("Gameplay/Look", true);
             _basis = new MoveBasis(_cameraRig != null ? _cameraRig.ActiveYaw : 0f, _basisSwitchStick, _basisSwitchDelay);
         }
 
@@ -89,7 +94,8 @@ namespace ProfessorSprat.Gameplay.Input
 
             Vector2 stick = _move.ReadValue<Vector2>();
             _basis.Update(_cameraRig != null ? _cameraRig.ActiveYaw : _basis.Yaw, stick.magnitude, Time.time);
-            _locomotion.SetMoveInput(_basis.ToWorld(stick));
+            ApplyLook();
+            _locomotion.SetMoveInput(_basis.ToWorld(stick, _cameraRig != null ? _cameraRig.LookYaw : 0f));
             if (_jumpAction.WasPressedThisFrame())
             {
                 _jump.PressJump();
@@ -98,6 +104,28 @@ namespace ProfessorSprat.Gameplay.Input
             if (_stompAction.WasPressedThisFrame())
             {
                 _stomp.PressStomp();
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private void ApplyLook()
+        {
+            if (_cameraRig == null || _cameraRig.Config == null)
+            {
+                return;
+            }
+
+            Vector2 look = _look.ReadValue<Vector2>();
+            bool mouse = _look.activeControl != null && _look.activeControl.device is Mouse;
+            Vector2 degrees = mouse
+                ? look * _cameraRig.Config.MouseSensitivity
+                : look * (_cameraRig.Config.StickLookSpeed * Time.unscaledDeltaTime);
+            if (degrees.sqrMagnitude > 0f)
+            {
+                _cameraRig.AddLook(new Vector2(degrees.x, -degrees.y));
             }
         }
 

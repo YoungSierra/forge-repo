@@ -12,6 +12,8 @@ namespace ProfessorSprat.Gameplay.CameraSystem
     /// camera keeps a world-space offset rotated by the active camera-zone yaw (blend 0.8 s); <c>Marker_CameraZone_*</c>
     /// volumes set the yaw. On <see cref="KeySpawnedEvent"/> a key-shot camera frames Professor + key for 1.2 s; a respawn
     /// cuts. <see cref="ActiveYaw"/> is the movement basis used by InputHandler.
+    /// Owner request (D-254, overrides TDD §11.5 "Look: none"): the player orbits the follow camera with the mouse or right
+    /// stick (<see cref="AddLook"/>); <see cref="LookYaw"/> is added to the movement basis so input stays camera-relative.
     /// </summary>
     public sealed class CameraRig : MonoBehaviour
     {
@@ -35,6 +37,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         private float _yaw;
         private float _yawVelocity;
         private float _keyShotRemaining;
+        private float _lookPitch;
 
         #endregion
 
@@ -46,6 +49,18 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         public float CurrentYaw => _yaw;
 
         public bool KeyShotActive => _keyShotRemaining > 0f;
+
+        public CameraConfig Config => _config;
+
+        /// <summary>Player orbit (degrees) added to the camera-zone yaw.</summary>
+        public float LookYaw { get; private set; }
+
+        /// <summary>Player look in degrees (x = yaw, y = pitch, positive raises the camera).</summary>
+        public void AddLook(Vector2 degrees)
+        {
+            LookYaw = Mathf.Repeat(LookYaw + degrees.x + 180f, 360f) - 180f;
+            _lookPitch = Mathf.Clamp(_lookPitch + degrees.y, _config.PitchRange.x, _config.PitchRange.y);
+        }
 
         public void Bind(Transform target, float defaultYaw, IReadOnlyList<Collider> zones, IReadOnlyList<float> zoneYaws)
         {
@@ -130,7 +145,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         private void Apply()
         {
             _follow.TrackerSettings.BindingMode = BindingMode.WorldSpace;
-            _follow.FollowOffset = Quaternion.Euler(0f, _yaw, 0f) * _config.FollowOffset;
+            _follow.FollowOffset = Quaternion.Euler(0f, _yaw + LookYaw, 0f) * (Quaternion.Euler(_lookPitch, 0f, 0f) * _config.FollowOffset);
             if (_composer != null)
             {
                 _composer.TargetOffset = Vector3.up * _config.LookHeight;
@@ -151,7 +166,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
             {
                 // Same direction as the follow camera, higher and farther: frames Professor + key without crossing level walls.
                 _keyShotFollow.TrackerSettings.BindingMode = BindingMode.WorldSpace;
-                _keyShotFollow.FollowOffset = Quaternion.Euler(0f, ActiveYaw, 0f) * KeyShotOffset;
+                _keyShotFollow.FollowOffset = Quaternion.Euler(0f, ActiveYaw + LookYaw, 0f) * KeyShotOffset;
             }
 
             _keyShotCamera.Priority.Value = KeyShotPriority;

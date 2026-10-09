@@ -2,6 +2,7 @@ using NUnit.Framework;
 using ProfessorSprat.Gameplay.Config;
 using ProfessorSprat.Gameplay.Crab;
 using ProfessorSprat.Gameplay.Flies;
+using ProfessorSprat.Gameplay.Input;
 using ProfessorSprat.Gameplay.Player;
 using UnityEditor;
 using UnityEngine;
@@ -12,6 +13,16 @@ namespace ProfessorSprat.Tests.EditMode
     public sealed class ModelTests
     {
         #region Public Methods
+
+        [Test]
+        public void LookYawTurnsTheMoveBasisImmediately()
+        {
+            MoveBasis basis = new MoveBasis(90f, 0.2f, 0.8f);
+            Vector3 forward = basis.ToWorld(Vector2.up, 0f);
+            Vector3 orbited = basis.ToWorld(Vector2.up, 90f);
+            Assert.That(Vector3.Distance(forward, Vector3.right), Is.LessThan(0.001f));
+            Assert.That(Vector3.Distance(orbited, Vector3.back), Is.LessThan(0.001f));
+        }
 
         [Test]
         public void ACJMP02_PeakHeightFromConfig()

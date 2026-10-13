@@ -1999,3 +1999,33 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **V57 core:** `GoldPathInputSimulator` remembers every control value it wrote (released ones at 0) and writes all of them into each event (`GoldPathInputWriter.Queue`). While something is held, it re-writes them before every input update (keep-alive).
   - **Gold path:** stop under the fly, hop in place, then walk to the take-off point. 5 runs in a row green.
 - **Reversal cost:** low · **Type:** other
+
+### D-260 — Lab doors slide open when the Professor is near (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** The owner asked for the double doors of the B-17 doorways (`AST-ENV-LABDOOR-001`, one leaf per instance, two mirrored leaves per `AST-ENV-B17ARCH-001`) to open, each leaf to its own side, when the character is near. The leaves are scenery: a single mesh each, no collider.
+- **Choice:**
+  - **Component:** `ProximityDoor` (Gameplay/Environment) on each arch instance (`B17ARCH_01` west, `_02` east), with the two leaves serialized.
+  - **Open direction:** each leaf slides 1.6 m (its own width) away from the arch centre along the arch's width axis. The direction comes from where the leaf sits, so mirrored instances need no setup.
+  - **Trigger:** `PlayerMovedEvent` (same pattern as `ZoneDoorController`). Opens within 3.5 m horizontally (±3 m height), closes beyond 4.25 m. Open and close take 0.6 s, smoothstep eased.
+  - **Collision:** none; the leaves have no collider. If a doorway becomes walkable, the leaf gameplay prefab gets its collider (it moves with the leaf).
+- **Verified:** Play Mode. The Professor at x −24 opens the west leaves (z 5.20/6.81 → 3.60/8.41); back at the spawn they close to the authored positions.
+- **Reversal cost:** low · **Type:** other
+
+### D-261 — The scene fog reaches the skybox (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** URP fog only affects geometry. The provider's panoramic sky (`MAT_Skybox`, `V4_Skybox.png`) stayed crisp behind fogged 3D rocks.
+- **Choice:**
+  - **Shader:** `ProfessorSprat/Skybox/Panoramic Fog` (`Settings/Rendering/Shaders/SH_SkyboxPanoramicFog.shader`). It has the same properties as Skybox/Panoramic (lat-long), so `MAT_Skybox` keeps the provider's texture, tint, exposure and rotation; only its shader changes.
+  - **Blend:** the sky has no distance, so the scene fog colour (`unity_FogColor`) is blended by view elevation: 1.0 at and below the horizon, fading to 0.35 at elevation sin 0.6. The light shafts painted up high stay visible.
+  - **Fog off:** with the scene fog off (no `FOG_*` keyword), the sky is unfogged.
+- **Verified:** offscreen render with and without fog. The painted far rocks fade into the fog like the 3D ones.
+- **Reversal cost:** low (set `MAT_Skybox` back to Skybox/Panoramic) · **Type:** other
+
+### D-262 — Gold path starts from the moved spawn point (owner edit)
+- **When:** 2026-10-13 · **Stage:** post-M4 · **Commit:** pending
+- **Context:** The owner moved `Marker_Spawn_Player` to (−40, 9.59, 7.5), on the grate platform at y 9.3 west of the level. It ends at x −36.5; the main lab floor (y 2.2) starts at x −28, with nothing in between. The gold path still started from x −19.4 and collected the first fly by walking back.
+- **Choice:**
+  - **Opening:** align to the doorway lane (z ≤ 6.2), run at full stick, jump at x ≥ −37, land on the lab floor. Running speed 5.5 m/s and a 6.6 impulse falling 7 m carry about 9 m, so the Professor lands at x ≈ −27.5 in the B-17 doorway, which opens (D-260). Then walk forward through both first flies.
+  - **Raised fly at x −10:** after stopping under it, the Professor sat at z ≈ 3.93, 0.45 m from the fly (z 4.36), at the edge of the pickup radius, and 1 run in 5 missed. The route now nudges to z ≥ 4.2, stops, then hops.
+- **Verified:** 11 runs in a row green after the alignment fix (last `20261013T165736Z`).
+- **Reversal cost:** low · **Type:** other

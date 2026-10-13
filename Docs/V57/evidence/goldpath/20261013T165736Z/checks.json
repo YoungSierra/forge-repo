@@ -1,0 +1,954 @@
+{
+    "started": "2026-10-13T16:57:36.9115460Z",
+    "finished": "2026-10-13T16:58:04.6634139Z",
+    "source": "E:\\Repositorio\\ProfesorSprat\\Docs/V57/gold_path.json",
+    "scene": "Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity",
+    "evidence_dir": "E:\\Repositorio\\ProfesorSprat\\Docs/V57/evidence/goldpath\\20261013T165736Z",
+    "steps": [
+        {
+            "index": 0,
+            "id": "S01",
+            "type": "WaitUntil",
+            "arg": "zone.state == Playing (timeout 8s)",
+            "pass": true,
+            "elapsed": 0.6873617172241211,
+            "detail": "zone.state='Playing' == 'Playing'",
+            "screenshot": "00_S01.png"
+        },
+        {
+            "index": 1,
+            "id": "S02",
+            "type": "WaitUntil",
+            "arg": "flies.total == 6 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.014255523681640625,
+            "detail": "flies.total=6 == 6",
+            "screenshot": ""
+        },
+        {
+            "index": 2,
+            "id": "S03",
+            "type": "WaitUntil",
+            "arg": "hud.counter == 0 / 6 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.005253791809082031,
+            "detail": "hud.counter='0 / 6' == '0 / 6'",
+            "screenshot": ""
+        },
+        {
+            "index": 3,
+            "id": "L_LANE",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0.6,0",
+            "pass": true,
+            "elapsed": 0.01800251007080078,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 4,
+            "id": "L_Z",
+            "type": "WaitUntil",
+            "arg": "player.z <= 6.2 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.5560169219970703,
+            "detail": "player.z=6.139641 <= 6.2",
+            "screenshot": ""
+        },
+        {
+            "index": 5,
+            "id": "L_RUN",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1",
+            "pass": true,
+            "elapsed": 0.0038814544677734375,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 6,
+            "id": "L_EDGE",
+            "type": "WaitUntil",
+            "arg": "player.x >= -37.0 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.7162466049194336,
+            "detail": "player.x=-36.96278 >= -37.0",
+            "screenshot": ""
+        },
+        {
+            "index": 7,
+            "id": "L_JUMP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.010615348815917969,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 8,
+            "id": "L_UP",
+            "type": "WaitUntil",
+            "arg": "player.grounded == false (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.009625434875488281,
+            "detail": "player.grounded=False == false",
+            "screenshot": ""
+        },
+        {
+            "index": 9,
+            "id": "L_LAND",
+            "type": "WaitUntil",
+            "arg": "player.grounded == true (timeout 4s)",
+            "pass": true,
+            "elapsed": 1.700779914855957,
+            "detail": "player.grounded=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 10,
+            "id": "L_FLOOR",
+            "type": "WaitUntil",
+            "arg": "player.y <= 3.0 (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.3221454620361328,
+            "detail": "player.y=2.233427 <= 3.0",
+            "screenshot": "10_L_FLOOR.png"
+        },
+        {
+            "index": 11,
+            "id": "L_ACROSS",
+            "type": "WaitUntil",
+            "arg": "player.x >= -28.5 (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.005846977233886719,
+            "detail": "player.x=-27.50279 >= -28.5",
+            "screenshot": ""
+        },
+        {
+            "index": 12,
+            "id": "T_RUN0",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.6",
+            "pass": true,
+            "elapsed": 0.013885498046875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 13,
+            "id": "T_FLY1",
+            "type": "WaitUntil",
+            "arg": "flies.collected >= 1 (timeout 4s)",
+            "pass": true,
+            "elapsed": 1.4778528213500977,
+            "detail": "flies.collected=1 >= 1",
+            "screenshot": ""
+        },
+        {
+            "index": 14,
+            "id": "T_FLY2",
+            "type": "WaitUntil",
+            "arg": "flies.collected >= 2 (timeout 4s)",
+            "pass": true,
+            "elapsed": 1.5596895217895508,
+            "detail": "flies.collected=2 >= 2",
+            "screenshot": ""
+        },
+        {
+            "index": 15,
+            "id": "T_MOUTH",
+            "type": "WaitUntil",
+            "arg": "player.x >= -16.2 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.004364967346191406,
+            "detail": "player.x=-15.58837 >= -16.2",
+            "screenshot": ""
+        },
+        {
+            "index": 16,
+            "id": "T_LANE",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0.6,0",
+            "pass": true,
+            "elapsed": 0.004136085510253906,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 17,
+            "id": "T_Z",
+            "type": "WaitUntil",
+            "arg": "player.z <= 4.6 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.4303617477416992,
+            "detail": "player.z=4.541504 <= 4.6",
+            "screenshot": ""
+        },
+        {
+            "index": 18,
+            "id": "T_RUN2",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.6",
+            "pass": true,
+            "elapsed": 0.0034875869750976563,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 19,
+            "id": "T_EDGE",
+            "type": "WaitUntil",
+            "arg": "player.x >= -15.2 (timeout 4s)",
+            "pass": true,
+            "elapsed": 0.018251419067382813,
+            "detail": "player.x=-15.19664 >= -15.2",
+            "screenshot": ""
+        },
+        {
+            "index": 20,
+            "id": "J1_JUMP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.0073604583740234375,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 21,
+            "id": "J1_UP",
+            "type": "WaitUntil",
+            "arg": "player.grounded == false (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.011359214782714844,
+            "detail": "player.grounded=False == false",
+            "screenshot": ""
+        },
+        {
+            "index": 22,
+            "id": "J1_LAND",
+            "type": "WaitUntil",
+            "arg": "player.grounded == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 1.3815584182739258,
+            "detail": "player.grounded=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 23,
+            "id": "P1_RUN",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.4",
+            "pass": true,
+            "elapsed": 0.0036182403564453125,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 24,
+            "id": "P1_UNDER",
+            "type": "WaitUntil",
+            "arg": "player.x >= -10.3 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.5738067626953125,
+            "detail": "player.x=-10.26277 >= -10.3",
+            "screenshot": ""
+        },
+        {
+            "index": 25,
+            "id": "P1_STOP",
+            "type": "Release",
+            "arg": "Gameplay/Move",
+            "pass": true,
+            "elapsed": 0.0034847259521484375,
+            "detail": "released action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 26,
+            "id": "P1_STILL",
+            "type": "WaitUntil",
+            "arg": "player.speed <= 0.05 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.09745979309082031,
+            "detail": "player.speed=0 <= 0.05",
+            "screenshot": ""
+        },
+        {
+            "index": 27,
+            "id": "P1_ALIGN",
+            "type": "Move",
+            "arg": "Gameplay/Move = -0.25,0",
+            "pass": true,
+            "elapsed": 0.004039764404296875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 28,
+            "id": "P1_ALIGN_Z",
+            "type": "WaitUntil",
+            "arg": "player.z >= 4.2 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.5967445373535156,
+            "detail": "player.z=4.210273 >= 4.2",
+            "screenshot": ""
+        },
+        {
+            "index": 29,
+            "id": "P1_ALIGN_STOP",
+            "type": "Release",
+            "arg": "Gameplay/Move",
+            "pass": true,
+            "elapsed": 0.003704071044921875,
+            "detail": "released action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 30,
+            "id": "P1_ALIGN_STILL",
+            "type": "WaitUntil",
+            "arg": "player.speed <= 0.05 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.03596305847167969,
+            "detail": "player.speed=0 <= 0.05",
+            "screenshot": ""
+        },
+        {
+            "index": 31,
+            "id": "P1_HOP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.0074291229248046875,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 32,
+            "id": "J1_FLY3",
+            "type": "WaitUntil",
+            "arg": "flies.collected >= 3 (timeout 1,5s)",
+            "pass": true,
+            "elapsed": 0.03216743469238281,
+            "detail": "flies.collected=3 >= 3",
+            "screenshot": ""
+        },
+        {
+            "index": 33,
+            "id": "P1_HOP_LAND",
+            "type": "WaitUntil",
+            "arg": "player.grounded == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 1.161062240600586,
+            "detail": "player.grounded=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 34,
+            "id": "P1_FWD",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.4",
+            "pass": true,
+            "elapsed": 0.003814697265625,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 35,
+            "id": "P1_EDGE",
+            "type": "WaitUntil",
+            "arg": "player.x >= -9.0 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.6753044128417969,
+            "detail": "player.x=-8.994954 >= -9.0",
+            "screenshot": ""
+        },
+        {
+            "index": 36,
+            "id": "P1_DIAG",
+            "type": "Move",
+            "arg": "Gameplay/Move = -0.4,0.6",
+            "pass": true,
+            "elapsed": 0.0034923553466796875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 37,
+            "id": "J2_JUMP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.00675201416015625,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 38,
+            "id": "J2_UP",
+            "type": "WaitUntil",
+            "arg": "player.grounded == false (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.010553359985351563,
+            "detail": "player.grounded=False == false",
+            "screenshot": ""
+        },
+        {
+            "index": 39,
+            "id": "J2_LAND",
+            "type": "WaitUntil",
+            "arg": "player.grounded == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 1.0381717681884766,
+            "detail": "player.grounded=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 40,
+            "id": "J2_LET",
+            "type": "Release",
+            "arg": "Gameplay/Move",
+            "pass": true,
+            "elapsed": 0.003170013427734375,
+            "detail": "released action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 41,
+            "id": "P2_LANE",
+            "type": "Move",
+            "arg": "Gameplay/Move = -0.6,0",
+            "pass": true,
+            "elapsed": 0.0035076141357421875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 42,
+            "id": "P2_Z",
+            "type": "WaitUntil",
+            "arg": "player.z >= 7.1 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.2744598388671875,
+            "detail": "player.z=7.109137 >= 7.1",
+            "screenshot": ""
+        },
+        {
+            "index": 43,
+            "id": "P2_RUN",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.6",
+            "pass": true,
+            "elapsed": 0.0066661834716796875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 44,
+            "id": "P2_EDGE",
+            "type": "WaitUntil",
+            "arg": "player.x >= -3.3 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.7338981628417969,
+            "detail": "player.x=-3.2787 >= -3.3",
+            "screenshot": ""
+        },
+        {
+            "index": 45,
+            "id": "J3_JUMP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.0069732666015625,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 46,
+            "id": "J3_UP",
+            "type": "WaitUntil",
+            "arg": "player.grounded == false (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.010309219360351563,
+            "detail": "player.grounded=False == false",
+            "screenshot": ""
+        },
+        {
+            "index": 47,
+            "id": "J3_LAND",
+            "type": "WaitUntil",
+            "arg": "player.grounded == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 1.0420722961425781,
+            "detail": "player.grounded=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 48,
+            "id": "P3_LANE",
+            "type": "Move",
+            "arg": "Gameplay/Move = -0.6,0",
+            "pass": true,
+            "elapsed": 0.00395965576171875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 49,
+            "id": "P3_Z",
+            "type": "WaitUntil",
+            "arg": "player.z >= 9.3 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.6756019592285156,
+            "detail": "player.z=9.329762 >= 9.3",
+            "screenshot": ""
+        },
+        {
+            "index": 50,
+            "id": "P3_FLIES",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.4",
+            "pass": true,
+            "elapsed": 0.0050868988037109375,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 51,
+            "id": "P3_FLY5",
+            "type": "WaitUntil",
+            "arg": "flies.collected >= 5 (timeout 4s)",
+            "pass": true,
+            "elapsed": 0.8557701110839844,
+            "detail": "flies.collected=5 >= 5",
+            "screenshot": ""
+        },
+        {
+            "index": 52,
+            "id": "P3_BACKZ",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0.6,0",
+            "pass": true,
+            "elapsed": 0.00553131103515625,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 53,
+            "id": "P3_Z2",
+            "type": "WaitUntil",
+            "arg": "player.z <= 7.1 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.87322998046875,
+            "detail": "player.z=7.076845 <= 7.1",
+            "screenshot": ""
+        },
+        {
+            "index": 54,
+            "id": "P3_BACKX",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,-0.6",
+            "pass": true,
+            "elapsed": 0.004047393798828125,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 55,
+            "id": "P3_X",
+            "type": "WaitUntil",
+            "arg": "player.x <= -0.2 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.8553867340087891,
+            "detail": "player.x=-0.2263614 <= -0.2",
+            "screenshot": ""
+        },
+        {
+            "index": 56,
+            "id": "P3_RUN",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,1",
+            "pass": true,
+            "elapsed": 0.0042858123779296875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 57,
+            "id": "P3_EDGE",
+            "type": "WaitUntil",
+            "arg": "player.x >= 2.0 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.7747230529785156,
+            "detail": "player.x=2.016137 >= 2.0",
+            "screenshot": ""
+        },
+        {
+            "index": 58,
+            "id": "P3_AIM",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0.45,0.9",
+            "pass": true,
+            "elapsed": 0.0035533905029296875,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 59,
+            "id": "J4_JUMP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.00675201416015625,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 60,
+            "id": "J4_UP",
+            "type": "WaitUntil",
+            "arg": "player.grounded == false (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.010316848754882813,
+            "detail": "player.grounded=False == false",
+            "screenshot": ""
+        },
+        {
+            "index": 61,
+            "id": "J4_LAND",
+            "type": "WaitUntil",
+            "arg": "player.grounded == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.9621257781982422,
+            "detail": "player.grounded=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 62,
+            "id": "J4_LET",
+            "type": "Release",
+            "arg": "Gameplay/Move",
+            "pass": true,
+            "elapsed": 0.0043811798095703125,
+            "detail": "released action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 63,
+            "id": "P4_FLY",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0.8,0.1",
+            "pass": true,
+            "elapsed": 0.0038204193115234375,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 64,
+            "id": "S04",
+            "type": "WaitUntil",
+            "arg": "zone.complete == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.05382728576660156,
+            "detail": "zone.complete=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 65,
+            "id": "P4_STOP",
+            "type": "Release",
+            "arg": "Gameplay/Move",
+            "pass": true,
+            "elapsed": 0.32892417907714844,
+            "detail": "released action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": "65_P4_STOP.png"
+        },
+        {
+            "index": 66,
+            "id": "S05",
+            "type": "WaitUntil",
+            "arg": "key.carried == true (timeout 4s)",
+            "pass": true,
+            "elapsed": 1.1871929168701172,
+            "detail": "key.carried=True == true",
+            "screenshot": "66_S05.png"
+        },
+        {
+            "index": 67,
+            "id": "S06",
+            "type": "WaitUntil",
+            "arg": "hud.key_visible == true (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.011377334594726563,
+            "detail": "hud.key_visible=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 68,
+            "id": "P4_LANE",
+            "type": "Move",
+            "arg": "Gameplay/Move = -0.6,-0.5",
+            "pass": true,
+            "elapsed": 0.014560699462890625,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 69,
+            "id": "P4_Z",
+            "type": "WaitUntil",
+            "arg": "player.z >= 5 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.3726634979248047,
+            "detail": "player.z=5.066667 >= 5",
+            "screenshot": ""
+        },
+        {
+            "index": 70,
+            "id": "P4_BACK",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,-0.5",
+            "pass": true,
+            "elapsed": 0.0035648345947265625,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 71,
+            "id": "P4_X",
+            "type": "WaitUntil",
+            "arg": "player.x <= 6.6 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.0766448974609375,
+            "detail": "player.x=6.589596 <= 6.6",
+            "screenshot": ""
+        },
+        {
+            "index": 72,
+            "id": "P4_RUN",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.7",
+            "pass": true,
+            "elapsed": 0.0035762786865234375,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 73,
+            "id": "P4_EDGE",
+            "type": "WaitUntil",
+            "arg": "player.x >= 8.6 (timeout 3s)",
+            "pass": true,
+            "elapsed": 0.8382911682128906,
+            "detail": "player.x=8.668886 >= 8.6",
+            "screenshot": ""
+        },
+        {
+            "index": 74,
+            "id": "J5_JUMP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.0069446563720703125,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 75,
+            "id": "J5_UP",
+            "type": "WaitUntil",
+            "arg": "player.grounded == false (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.010915756225585938,
+            "detail": "player.grounded=False == false",
+            "screenshot": ""
+        },
+        {
+            "index": 76,
+            "id": "J5_LAND",
+            "type": "WaitUntil",
+            "arg": "player.grounded == true (timeout 3s)",
+            "pass": true,
+            "elapsed": 1.2235374450683594,
+            "detail": "player.grounded=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 77,
+            "id": "P5_DOOR",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.6",
+            "pass": true,
+            "elapsed": 0.003810882568359375,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 78,
+            "id": "S07",
+            "type": "WaitUntil",
+            "arg": "door.open == true (timeout 5s)",
+            "pass": true,
+            "elapsed": 0.7581748962402344,
+            "detail": "door.open=True == true",
+            "screenshot": ""
+        },
+        {
+            "index": 79,
+            "id": "P5_IN",
+            "type": "WaitUntil",
+            "arg": "player.x >= 16.9 (timeout 4s)",
+            "pass": true,
+            "elapsed": 0.2955894470214844,
+            "detail": "player.x=16.92587 >= 16.9",
+            "screenshot": ""
+        },
+        {
+            "index": 80,
+            "id": "P5_STOP",
+            "type": "Release",
+            "arg": "Gameplay/Move",
+            "pass": true,
+            "elapsed": 0.003391265869140625,
+            "detail": "released action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 81,
+            "id": "P5_WAIT_CRAB",
+            "type": "WaitUntil",
+            "arg": "crab.distance <= 1.7 (timeout 10s)",
+            "pass": true,
+            "elapsed": 0.12000656127929688,
+            "detail": "crab.distance=1.698282 <= 1.7",
+            "screenshot": ""
+        },
+        {
+            "index": 82,
+            "id": "P5_GO",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.6",
+            "pass": true,
+            "elapsed": 0.004970550537109375,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 83,
+            "id": "P5_JUMP",
+            "type": "Press",
+            "arg": "Gameplay/Jump",
+            "pass": true,
+            "elapsed": 0.00730133056640625,
+            "detail": "action Gameplay/Jump → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 84,
+            "id": "P5_OVER",
+            "type": "WaitUntil",
+            "arg": "crab.distance <= 0.8 (timeout 1,5s)",
+            "pass": true,
+            "elapsed": 0.3627891540527344,
+            "detail": "crab.distance=0.7513459 <= 0.8",
+            "screenshot": ""
+        },
+        {
+            "index": 85,
+            "id": "P5_STOMP",
+            "type": "Press",
+            "arg": "Gameplay/Stomp",
+            "pass": true,
+            "elapsed": 0.007354736328125,
+            "detail": "action Gameplay/Stomp → /V57GoldPathGamepad/buttonSouth",
+            "screenshot": ""
+        },
+        {
+            "index": 86,
+            "id": "S08",
+            "type": "WaitUntil",
+            "arg": "crabs.defeated == 1 (timeout 2s)",
+            "pass": true,
+            "elapsed": 0.5405769348144531,
+            "detail": "crabs.defeated=1 == 1",
+            "screenshot": "86_S08.png"
+        },
+        {
+            "index": 87,
+            "id": "P6_EXIT",
+            "type": "Move",
+            "arg": "Gameplay/Move = 0,0.8",
+            "pass": true,
+            "elapsed": 0.002346038818359375,
+            "detail": "action Gameplay/Move → /V57GoldPathGamepad/leftStick (held until release)",
+            "screenshot": ""
+        },
+        {
+            "index": 88,
+            "id": "S09",
+            "type": "WaitUntil",
+            "arg": "levelend.visible == true (timeout 6s)",
+            "pass": true,
+            "elapsed": 0.8016395568847656,
+            "detail": "levelend.visible=True == true",
+            "screenshot": "88_S09.png"
+        },
+        {
+            "index": 89,
+            "id": "P6_LET",
+            "type": "Release",
+            "arg": "Gameplay/Move",
+            "pass": true,
+            "elapsed": 0.00225067138671875,
+            "detail": "released action Gameplay/Move → /V57GoldPathGamepad/leftStick",
+            "screenshot": ""
+        },
+        {
+            "index": 90,
+            "id": "S10",
+            "type": "WaitUntil",
+            "arg": "hud.counter == 6 / 6 (timeout 1s)",
+            "pass": true,
+            "elapsed": 0.004817962646484375,
+            "detail": "hud.counter='6 / 6' == '6 / 6'",
+            "screenshot": ""
+        },
+        {
+            "index": 91,
+            "id": "S10b",
+            "type": "Expect",
+            "arg": "respawn.count == 0",
+            "pass": true,
+            "elapsed": 0.000030517578125,
+            "detail": "respawn.count=0 == 0",
+            "screenshot": ""
+        },
+        {
+            "index": 92,
+            "id": "S11",
+            "type": "Capture",
+            "arg": "end_state",
+            "pass": true,
+            "elapsed": 0.10283660888671875,
+            "detail": "",
+            "screenshot": "92_end_state.png"
+        },
+        {
+            "index": 93,
+            "id": "final",
+            "type": "Capture",
+            "arg": "final",
+            "pass": true,
+            "elapsed": 0.0,
+            "detail": "",
+            "screenshot": "93_final.png"
+        }
+    ],
+    "parse_errors": [],
+    "console_errors": 0,
+    "console_error_samples": [],
+    "fps_avg": 246.73745727539063,
+    "pass": true
+}

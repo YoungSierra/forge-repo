@@ -2020,3 +2020,12 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Fog off:** with the scene fog off (no `FOG_*` keyword), the sky is unfogged.
 - **Verified:** offscreen render with and without fog. The painted far rocks fade into the fog like the 3D ones.
 - **Reversal cost:** low (set `MAT_Skybox` back to Skybox/Panoramic) · **Type:** other
+
+### D-262 — Gold path starts from the moved spawn point (owner edit)
+- **When:** 2026-10-13 · **Stage:** post-M4 · **Commit:** pending
+- **Context:** The owner moved `Marker_Spawn_Player` to (−40, 9.59, 7.5), on the grate platform at y 9.3 west of the level. It ends at x −36.5; the main lab floor (y 2.2) starts at x −28, with nothing in between. The gold path still started from x −19.4 and collected the first fly by walking back.
+- **Choice:**
+  - **Opening:** align to the doorway lane (z ≤ 6.2), run at full stick, jump at x ≥ −37, land on the lab floor. Running speed 5.5 m/s and a 6.6 impulse falling 7 m carry about 9 m, so the Professor lands at x ≈ −27.5 in the B-17 doorway, which opens (D-260). Then walk forward through both first flies.
+  - **Raised fly at x −10:** after stopping under it, the Professor sat at z ≈ 3.93, 0.45 m from the fly (z 4.36), at the edge of the pickup radius, and 1 run in 5 missed. The route now nudges to z ≥ 4.2, stops, then hops.
+- **Verified:** 11 runs in a row green after the alignment fix (last `20261013T165736Z`).
+- **Reversal cost:** low · **Type:** other

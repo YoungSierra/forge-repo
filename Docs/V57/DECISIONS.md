@@ -2115,3 +2115,26 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - Publishing jump and land events plays both cues, with no missing-cue warning.
   - In the Editor the first frame of Play stalls about 4 s (Editor overhead), then the decoder takes about 2 s to prepare.
 - **Reversal cost:** low · **Type:** other
+
+### D-267 — Seaweed oxygen bubbles VFX (owner spec, owner textures)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** The owner delivered `bubble.png` and `bubblesheet.png` (the 2x2 pop flipbook; the request called it `bubble_pop_sheet.png`). Both are 1254² with alpha, placed in the `Assets/` root. The owner specified a cartoon VFX (Cartoon FX Remaster style) of oxygen bubbles rising from the test algae, with exact values and paths under `Assets/VFX/Bubbles/`. That path is outside the V57 write list, used because the owner named it.
+- **Choice (as specified):**
+  - **Textures:**
+    - Default, Alpha Is Transparency, no mips, Clamp, max 256 / 512.
+    - Moved to `Assets/VFX/Bubbles/Textures/` next to the materials and renamed `T_Bubble.png` / `T_BubblePopSheet.png` (owner request; GUIDs kept).
+  - **Materials:** `M_Bubble` and `M_BubblePop`: URP/Particles/Unlit, Transparent, Alpha blend, no soft particles.
+  - **Prefab `VFX_SeaweedBubbles`:**
+    - **Main:** loop; lifetime 2–4; speed 0.2–0.5; size 0.05–0.2; gravity −0.15; World space.
+    - **Emission:** 3/s, plus a burst of 2–4 every 1.5 s at probability 0.5.
+    - **Noise:** 0.3 / 0.5 / 0.3.
+    - **Size over lifetime:** 0 → 1.15 (10 %) → 1.0 (20 %) → 1.0.
+    - **Colour over lifetime:** `#BFF4FF`, alpha 1 until 90 %, then 0.
+    - **Renderer:** billboard.
+    - **Sub-emitter on Death `Pop`:** 2x2 sheet over 0.25 s, burst of 1, start size 1 × Inherit Size.
+  - **Box shape:** it emits along its local +Z, so the shape is turned −90° on X with local scale (0.3, 0.3, 0). That gives the specified flat 0.3 × 0 × 0.3 footprint at the base, emitting upward.
+  - **Instances:** one per test alga (8), as a child at the base (+0.05 m), scale 1. Scaling mode Local ignores the alga's scale. The VFX turns on and off with `TMP_AlgaeTest` (currently off).
+- **Verified:**
+  - Play Mode with the test algae turned on for the session only (not saved): 8 systems, about 100 bubbles alive, pops on every death.
+  - No new console errors; only the existing "not delivered" notices.
+- **Reversal cost:** low · **Type:** conflict (owner path outside the V57 write list)

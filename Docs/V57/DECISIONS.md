@@ -2118,13 +2118,13 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 
 ### D-267 — Seaweed oxygen bubbles VFX (owner spec, owner textures)
 - **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
-- **Context:** The owner delivered `bubble.png` and `bubblesheet.png` (the 2x2 pop flipbook; the request called it `bubble_pop_sheet.png`). Both are 1254² with alpha, placed in the `Assets/` root. The owner specified a cartoon VFX (Cartoon FX Remaster style) of oxygen bubbles rising from the test algae, with exact values and paths under `Assets/VFX/Bubbles/`. That path is outside the V57 write list, used because the owner named it.
+- **Context:** The owner delivered `bubble.png` and `bubblesheet.png` (the 2x2 pop flipbook; the request called it `bubble_pop_sheet.png`). Both are 1254² with alpha, placed in the `Assets/` root. The owner specified a cartoon VFX (Cartoon FX Remaster style) of oxygen bubbles rising from the test algae, with exact values. It was first built under `Assets/VFX/Bubbles/` as the request named. At the owner's follow-up it now follows the `_Game` conventions.
 - **Choice (as specified):**
   - **Textures:**
     - Default, Alpha Is Transparency, no mips, Clamp, max 256 / 512.
-    - Moved to `Assets/VFX/Bubbles/Textures/` next to the materials and renamed `T_Bubble.png` / `T_BubblePopSheet.png` (owner request; GUIDs kept).
-  - **Materials:** `M_Bubble` and `M_BubblePop`: URP/Particles/Unlit, Transparent, Alpha blend, no soft particles.
-  - **Prefab `VFX_SeaweedBubbles`:**
+    - `Assets/_Game/Art/VFX/Bubbles/Textures/T_Bubble.png` / `T_BubblePopSheet.png` (renamed and moved, GUIDs kept).
+  - **Materials:** `Assets/_Game/Art/VFX/Bubbles/Materials/M_Bubble`, `M_BubblePop`: URP/Particles/Unlit, Transparent, Alpha blend, no soft particles.
+  - **Prefab `Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab`:**
     - **Main:** loop; lifetime 2–4; speed 0.2–0.5; size 0.05–0.2; gravity −0.15; World space.
     - **Emission:** 3/s, plus a burst of 2–4 every 1.5 s at probability 0.5.
     - **Noise:** 0.3 / 0.5 / 0.3.
@@ -2133,8 +2133,15 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
     - **Renderer:** billboard.
     - **Sub-emitter on Death `Pop`:** 2x2 sheet over 0.25 s, burst of 1, start size 1 × Inherit Size.
   - **Box shape:** it emits along its local +Z, so the shape is turned −90° on X with local scale (0.3, 0.3, 0). That gives the specified flat 0.3 × 0 × 0.3 footprint at the base, emitting upward.
-  - **Instances:** one per test alga (8), as a child at the base (+0.05 m), scale 1. Scaling mode Local ignores the alga's scale. The VFX turns on and off with `TMP_AlgaeTest` (currently off).
+  - **Instances:**
+    - **Map algae:** one per alga in the current map, all 52 (`_Environment/Ocean`: 28 `OCEANLEAVES`, 24 `VEGETATION` rock clusters), at each pivot +0.05 m.
+      - They sit in their own root container `_VFX/SeaweedBubbles`, not under the scenery, so replacing the scenery does not remove them (owner request).
+      - The large `VEGETATION` clusters (up to 16 m wide) get a single emitter at their pivot.
+    - **Test algae:** one per test alga (8), as a child at the base, so they turn on and off with `TMP_AlgaeTest` (currently off).
+    - **Scale:** 1; scaling mode Local ignores the parent's scale.
 - **Verified:**
   - Play Mode with the test algae turned on for the session only (not saved): 8 systems, about 100 bubbles alive, pops on every death.
   - No new console errors; only the existing "not delivered" notices.
-- **Reversal cost:** low · **Type:** conflict (owner path outside the V57 write list)
+- **Also:** the unused `V7_Skybox.png` was deleted (owner request; the sky uses V8).
+- **Verified (map):** Play Mode: 52 systems playing, about 600 bubbles alive after 3 s, with pops; no new console errors.
+- **Reversal cost:** low · **Type:** other

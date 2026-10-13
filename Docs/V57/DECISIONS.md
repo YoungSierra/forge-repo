@@ -2145,3 +2145,46 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Also:** the unused `V7_Skybox.png` was deleted (owner request; the sky uses V8).
 - **Verified (map):** Play Mode: 52 systems playing, about 600 bubbles alive after 3 s, with pops; no new console errors.
 - **Reversal cost:** low · **Type:** other
+
+### D-268 — UI art from the owner's sprite sheet v02, integrated in UI Toolkit
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:** The owner delivered `sprite_sheet_ui_v.02.png` (2048², RGBA, transparent background) and asked to import everything needed and integrate it.
+  - **Contents:** cyan and amber frames, objective marker, key, starburst, skull, fly, iron bar, small banner, glowing slot, "WORT ADVENTURES" logo panel, 4 button bars, skull panel, plain panel, bracket caps, gems, rivet.
+  - **Before:** the UI was text and flat colours.
+- **Choice:**
+  - **Slicing:** elements detected by alpha (connected components) and cropped tight with 4 px padding. The sheet's divider line was skipped; the cyan frame and the starburst touched and were split at an empty row.
+    - **Files:** `Art/UI/Icons/ICO_*`, `Art/UI/Sprites/Common/UI_*`, `Art/UI/Sprites/UI_HUDCounter/*`, `Art/UI/Sprites/UI_MainMenu/UI_Logo`.
+    - **Source:** the sheet is kept as `Art/UI/Atlases/UI_SpriteSheet_v02.png` for re-slicing.
+  - **Import:** Sprite (single, Full Rect), no mips, Clamp, alpha is transparency, compressed HQ.
+    - 9-slice borders on the buttons, panels, frames, iron bar and HUD banner.
+    - USS references the Sprite sub-asset (fileID 21300000), so UI Toolkit uses the borders; `-unity-slice-scale` fits them.
+  - **Mapping:**
+    - **HUD:** fly icon over the small banner with the counter.
+      - Last fly: a pulsing amber halo behind the banner (`counter-group--last`); caps and rivets stay on top. It was first an overlay frame, which covered the caps (owner feedback).
+      - The starburst flares behind the fly on each collect (`HUDController`).
+      - The key sits in the glowing slot while carried.
+    - **Buttons:** normal = plain bar; hover = sparkle bar; focus = bright haloed bar (amber text, 1.04×); pressed = tinted, 0.97×.
+    - **Pause / Level end:** plain dark panel (9-slice).
+    - **Main menu:** logo panel above the buttons.
+    - **Loading:** stays a black fade.
+  - **Unchanged:** element names and the HUD API (`CounterText`, `KeyGlyphVisible`), so the gold path probe and the tests still hold.
+- **Imported, not used yet:** skull panel and skull icon (no death or defeat screen in this game), objective marker, iron bar, cyan frame, alternate button bar, bracket caps, gems, rivet.
+- **Verified:**
+  - Play Mode captures (end-of-frame screen capture, which includes overlay UI) of the HUD (last fly + key), pause, level end and main menu.
+  - No USS warnings after giving `-unity-slice-scale` its unit.
+  - PlayMode tests 28/28 green.
+- **Still missing:** the rounded sans font (TDD §9.1); text uses the default font.
+- **Reversal cost:** low · **Type:** absorption
+
+### D-269 — Fly pickup SFX (owner delivery)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:** The owner delivered `09.wav` (#9 `SFX_FlyPop`) and `10.wav` (#10 `SFX_FlyPopLast`) from `SFX_PROMPTS_ELEVENLABS.md`.
+  - **Format:** 0.48 s each, 48 kHz stereo, start at 0 ms.
+  - **Level:** they peaked at −0.1 and −1.1 dBFS, about 6 dB over the other SFX (jump −6.6, land −8, footstep −4.7).
+  - **Ending:** both ended abruptly; FlyPop's last 25 ms rise from −68 to −36 dB, a likely click.
+- **Choice:**
+  - **Files:** `Assets/_Game/Audio/SFX/Flies/SFX_FlyPop.wav` and `SFX_FlyPopLast.wav`.
+  - **Processing:** the same −6 dB on both (their relative level is kept; peaks now −6.2 / −7.2 dBFS) and a 20 ms fade-out at the end. No other processing.
+  - **Wiring:** both are cues in `AudioService`; the trigger was already wired (`FlyCollectedEvent`, the last fly plays `SFX_FlyPopLast`).
+- **Verified:** Play Mode. Publishing a normal and a last-fly collect plays each cue, with no missing-cue warning.
+- **Reversal cost:** low · **Type:** absorption

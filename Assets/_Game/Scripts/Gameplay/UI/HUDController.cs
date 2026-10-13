@@ -6,7 +6,8 @@ namespace ProfessorSprat.Gameplay.UI
 {
     /// <summary>
     /// TDD §9.1 UI_HUDCounter via §B-S HUDController: the fly counter "N / T" (pop 1.0 → 1.35 → 1.0 in 200 ms on each
-    /// collect) and the key glyph while the key is carried. Text only until UI art is delivered.
+    /// collect, with the starburst flaring behind the fly icon) and the key glyph while the key is carried. Art: the owner's
+    /// UI sheet v02 (D-268); a pulsing amber halo behind the banner marks the last fly.
     /// </summary>
     [RequireComponent(typeof(UIDocument))]
     public sealed class HUDController : MonoBehaviour
@@ -15,8 +16,13 @@ namespace ProfessorSprat.Gameplay.UI
 
         private const float PopDuration = 0.2f;
         private const float PopScale = 1.35f;
+        private const float LastPulseSpeed = 4f;
 
         private Label _counter;
+        private VisualElement _counterGroup;
+        private VisualElement _burst;
+        private VisualElement _lastFrame;
+        private bool _lastFly;
         private VisualElement _keyGlyph;
         private int _collected;
         private int _total;
@@ -39,6 +45,9 @@ namespace ProfessorSprat.Gameplay.UI
             VisualElement root = GetComponent<UIDocument>().rootVisualElement;
             _counter = root?.Q<Label>("fly-counter");
             _keyGlyph = root?.Q<VisualElement>("key-glyph");
+            _counterGroup = root?.Q<VisualElement>("counter-group");
+            _burst = root?.Q<VisualElement>("fly-burst");
+            _lastFrame = root?.Q<VisualElement>("counter-frame");
             Refresh();
             ShowKey(false);
             EventBus.Subscribe<ZoneStartedEvent>(OnZoneStarted);
@@ -55,6 +64,12 @@ namespace ProfessorSprat.Gameplay.UI
 
         private void Update()
         {
+            if (_lastFly && _lastFrame != null)
+            {
+                // Last fly: the amber halo behind the banner breathes (unscaled, so it keeps pulsing in pause).
+                _lastFrame.style.opacity = 0.55f + 0.45f * Mathf.Sin(Time.unscaledTime * LastPulseSpeed);
+            }
+
             if (_counter == null || _popElapsed >= PopDuration)
             {
                 return;
@@ -64,6 +79,13 @@ namespace ProfessorSprat.Gameplay.UI
             float t = Mathf.Clamp01(_popElapsed / PopDuration);
             float scale = 1f + (PopScale - 1f) * Mathf.Sin(t * Mathf.PI);
             _counter.style.scale = new Scale(new Vector3(scale, scale, 1f));
+            if (_burst != null)
+            {
+                float flare = 0.6f + 0.7f * t;
+                _burst.style.opacity = Mathf.Sin(t * Mathf.PI);
+                _burst.style.scale = new Scale(new Vector3(flare, flare, 1f));
+                _burst.style.rotate = new Rotate(new Angle(40f * t, AngleUnit.Degree));
+            }
         }
 
         #endregion
@@ -96,7 +118,9 @@ namespace ProfessorSprat.Gameplay.UI
             if (_counter != null)
             {
                 _counter.text = $"{_collected} / {_total}";
-                _counter.EnableInClassList("hud-counter--last", _total > 0 && _total - _collected == 1);
+                _lastFly = _total > 0 && _total - _collected == 1;
+                _counter.EnableInClassList("hud-counter--last", _lastFly);
+                _counterGroup?.EnableInClassList("counter-group--last", _lastFly);
             }
         }
 

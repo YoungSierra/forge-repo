@@ -1,9 +1,16 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="PS_UI.uss" />
     <ui:VisualElement name="hud" class="screen hud" picking-mode="Ignore">
-        <ui:Label name="fly-counter" text="0 / 0" class="hud-counter" />
-        <ui:VisualElement name="key-glyph" class="key-glyph">
-            <ui:Label text="KEY" />
+        <ui:VisualElement name="counter-group" class="counter-group" picking-mode="Ignore">
+            <ui:VisualElement name="fly-burst" class="fly-burst" picking-mode="Ignore" />
+            <ui:VisualElement name="counter-frame" class="counter-frame" picking-mode="Ignore" />
+            <ui:VisualElement name="counter-banner" class="counter-banner" picking-mode="Ignore">
+                <ui:Label name="fly-counter" text="0 / 0" class="hud-counter" picking-mode="Ignore" />
+            </ui:VisualElement>
+            <ui:VisualElement name="fly-icon" class="fly-icon" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="key-glyph" class="key-glyph" picking-mode="Ignore">
+            <ui:VisualElement class="key-icon" picking-mode="Ignore" />
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

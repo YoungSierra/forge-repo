@@ -14537,6 +14537,12 @@ MonoBehaviour:
   - _id: SFX_Land
     _clip: {fileID: 8300000, guid: 1ad7080257b4afa42812ce811c7096b1, type: 3}
     _variations: []
+  - _id: SFX_FlyPop
+    _clip: {fileID: 8300000, guid: deab73bb4ec947046b172afcde0bc20a, type: 3}
+    _variations: []
+  - _id: SFX_FlyPopLast
+    _clip: {fileID: 8300000, guid: d7db8825bb5d7f4419a4e136e1b037fd, type: 3}
+    _variations: []
   _gameplay: {fileID: 0}
   _keyCeremony: {fileID: 0}
   _paused: {fileID: 0}

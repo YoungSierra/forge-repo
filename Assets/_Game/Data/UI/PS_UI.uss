@@ -1,4 +1,5 @@
-/* Professor Wort & Sprat — UI Toolkit styles from the TDD §8 palette. Text only until UI art is delivered. */
+/* Professor Wort & Sprat — UI Toolkit styles. TDD §8 palette + the owner's UI sprite sheet v02 (D-268).
+   Sprites live in Assets/_Game/Art/UI (9-slice borders set on the sprites; -unity-slice-scale fits them to the element). */
 :root {
     --amber: #FF8C00;
     --ocean: #0A1F3C;
@@ -10,30 +11,62 @@
 
 .screen { position: absolute; left: 0; top: 0; right: 0; bottom: 0; }
 
-.hud { padding: 32px; flex-direction: row; justify-content: space-between; align-items: flex-start; }
+/* ---- HUD (UI_HUDCounter) ---- */
+.hud { padding: 36px 48px; flex-direction: row; justify-content: space-between; align-items: flex-start; }
+.counter-group { width: 420px; height: 130px; justify-content: center; }
+.counter-banner {
+    position: absolute; left: 60px; top: 18px; width: 340px; height: 96px;
+    background-image: url("project://database/Assets/_Game/Art/UI/Sprites/UI_HUDCounter/UI_HUD_Banner.png?fileID=21300000&guid=406e1d4e5230bcb49a5a2a908c1101f7&type=3#UI_HUD_Banner"); -unity-slice-scale: 0.68px;
+    justify-content: center; align-items: center; padding-left: 50px;
+}
+.counter-frame {
+    /* Behind the banner (caps and rivets stay on top): only a halo shows around it; pulsed by HUDController. */
+    position: absolute; left: 66px; top: 12px; width: 328px; height: 108px;
+    background-image: url("project://database/Assets/_Game/Art/UI/Sprites/Common/UI_Frame_Amber.png?fileID=21300000&guid=d897ff63ce5789d43b08d5ae57169bad&type=3#UI_Frame_Amber"); -unity-slice-scale: 0.6px; display: none;
+}
+.counter-group--last .counter-frame { display: flex; }
 .hud-counter {
-    font-size: 56px; -unity-font-style: bold; color: var(--cyan);
-    background-color: rgba(10, 31, 60, 0.75); border-radius: 16px; padding: 8px 24px;
-    -unity-text-outline-width: 1px; -unity-text-outline-color: var(--ocean);
+    font-size: 54px; -unity-font-style: bold; color: var(--white); -unity-text-align: middle-center;
+    -unity-text-outline-width: 2px; -unity-text-outline-color: var(--ocean); padding: 0; margin: 0;
 }
 .hud-counter--last { color: var(--caution); }
-.key-glyph { background-color: rgba(10, 31, 60, 0.75); border-radius: 16px; padding: 8px 20px; }
-.key-glyph Label { font-size: 40px; -unity-font-style: bold; color: var(--amber); }
+.fly-burst {
+    position: absolute; left: -30px; top: -35px; width: 200px; height: 196px;
+    background-image: url("project://database/Assets/_Game/Art/UI/Sprites/UI_HUDCounter/FX_Starburst.png?fileID=21300000&guid=eb879aa5ee7db954fabf246ee04172e3&type=3#FX_Starburst"); opacity: 0;
+}
+.fly-icon { position: absolute; left: 0; top: 2px; width: 126px; height: 127px; background-image: url("project://database/Assets/_Game/Art/UI/Icons/ICO_Fly.png?fileID=21300000&guid=8f3dcdecb111ba045976181529a816c1&type=3#ICO_Fly"); }
+.key-glyph { width: 116px; height: 115px; background-image: url("project://database/Assets/_Game/Art/UI/Sprites/UI_HUDCounter/UI_HUD_KeySlot.png?fileID=21300000&guid=fab381b93b53bbb4793bc0afa2a57080&type=3#UI_HUD_KeySlot"); justify-content: center; align-items: center; }
+.key-icon { width: 54px; height: 82px; background-image: url("project://database/Assets/_Game/Art/UI/Icons/ICO_AccessKey.png?fileID=21300000&guid=dcbbda8d21938d74b94a1418048d3c39&type=3#ICO_AccessKey"); }
 
+/* ---- Panels (UI_PauseMenu, UI_LevelEnd) ---- */
 .panel {
-    position: absolute; left: 30%; right: 30%; top: 22%;
-    background-color: rgba(10, 31, 60, 0.92); border-radius: 24px; padding: 40px;
-    border-width: 4px; border-color: var(--amber); align-items: stretch;
+    position: absolute; left: 34%; right: 34%; top: 20%;
+    background-image: url("project://database/Assets/_Game/Art/UI/Sprites/Common/UI_Panel_Dark.png?fileID=21300000&guid=c5272e972cb749a48aff2e752fcb34eb&type=3#UI_Panel_Dark"); -unity-slice-scale: 0.75px;
+    padding: 48px 56px 44px 56px; align-items: stretch;
 }
-.panel-title { font-size: 48px; -unity-font-style: bold; color: var(--white); -unity-text-align: middle-center; margin-bottom: 24px; }
-.panel-text { font-size: 30px; color: var(--white); -unity-text-align: middle-center; margin-bottom: 24px; white-space: normal; }
-.menu-button {
-    font-size: 32px; color: var(--ocean); background-color: var(--white); border-radius: 12px;
-    margin: 8px 0; padding: 12px; -unity-font-style: bold; border-width: 0;
+.panel-title {
+    font-size: 52px; -unity-font-style: bold; color: var(--white); -unity-text-align: middle-center; margin-bottom: 24px;
+    -unity-text-outline-width: 2px; -unity-text-outline-color: var(--ocean);
 }
-.menu-button:hover, .menu-button:focus { background-color: var(--amber); color: var(--white); }
+.panel-text { font-size: 32px; color: var(--white); -unity-text-align: middle-center; margin-bottom: 28px; white-space: normal; }
 
-.loading-cover { background-color: rgb(0, 0, 0); }
-.title { font-size: 72px; -unity-font-style: bold; color: var(--amber); -unity-text-align: middle-center; margin-bottom: 40px; }
+/* ---- Buttons ---- */
+.menu-button {
+    height: 88px; margin: 8px 0; padding: 0 0 4px 0; border-width: 0; border-radius: 0;
+    background-color: rgba(0, 0, 0, 0); background-image: url("project://database/Assets/_Game/Art/UI/Sprites/Common/UI_Button_Normal.png?fileID=21300000&guid=d6fc2b5eddef63e449e8646c2b9f6572&type=3#UI_Button_Normal"); -unity-slice-scale: 0.6px;
+    font-size: 36px; -unity-font-style: bold; color: var(--white); -unity-text-align: middle-center;
+    -unity-text-outline-width: 2px; -unity-text-outline-color: var(--ocean);
+    transition-property: scale; transition-duration: 0.08s;
+}
+.menu-button:hover { background-image: url("project://database/Assets/_Game/Art/UI/Sprites/Common/UI_Button_Hover.png?fileID=21300000&guid=3794fcd45bbf0d740b05cddb79a1dc7f&type=3#UI_Button_Hover"); background-color: rgba(0, 0, 0, 0); }
+.menu-button:focus { background-image: url("project://database/Assets/_Game/Art/UI/Sprites/Common/UI_Button_Focus.png?fileID=21300000&guid=f431d73f5f9fac0459d1b2924638ecc0&type=3#UI_Button_Focus"); background-color: rgba(0, 0, 0, 0); color: var(--caution); scale: 1.04 1.04; }
+.menu-button:active { -unity-background-image-tint-color: rgb(190, 190, 190); scale: 0.97 0.97; }
+
+/* ---- Main menu (UI_MainMenu) ---- */
 .menu-root { background-color: var(--ocean); justify-content: center; align-items: center; }
-.menu-column { width: 520px; }
+.menu-column { width: 700px; align-items: stretch; }
+.menu-column .menu-button { margin: 8px 70px; }
+.logo { width: 700px; height: 362px; background-image: url("project://database/Assets/_Game/Art/UI/Sprites/UI_MainMenu/UI_Logo.png?fileID=21300000&guid=8e2472591c1eb5e4ebc8a8fcf4d5e2f6&type=3#UI_Logo"); align-self: center; margin-bottom: 36px; }
+
+/* ---- Loading (UI_Loading) ---- */
+.loading-cover { background-color: rgb(0, 0, 0); }

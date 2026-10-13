@@ -35,8 +35,8 @@ Plataformas 3D estilizado, tono caricaturesco y juguetón (referencia: Rayman Le
 | 6 | `SFX_StompImpact` | Player | 0.8 s | no | 2 | conectado | ☐ |
 | 7 | `SFX_FallOut` | Player | 1.2 s | no | 1 | por conectar | ☐ |
 | 8 | `SFX_Respawn` | Player | 1.0 s | no | 1 | por conectar | ☐ |
-| 9 | `SFX_FlyPop` | Flies | 0.4 s | no | 3 | conectado | ☐ |
-| 10 | `SFX_FlyPopLast` | Flies | 0.6 s | no | 1 | conectado | ☐ |
+| 9 | `SFX_FlyPop` | Flies | 0.4 s | no | 3 | conectado | ☑ entregado, −6 dB (D-269) |
+| 10 | `SFX_FlyPopLast` | Flies | 0.6 s | no | 1 | conectado | ☑ entregado, −6 dB (D-269) |
 | 11 | `SFX_FlyBuzz` | Flies | 2.0 s | sí | 1 | por conectar | ☐ |
 | 12 | `SFX_ZoneComplete` | Flies | 1.5 s | no | 1 | por conectar | ☐ |
 | 13 | `SFX_KeyMaterialise` | Key | 1.5 s | no | 1 | por conectar | ☐ |

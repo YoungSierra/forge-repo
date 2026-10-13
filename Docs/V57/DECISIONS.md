@@ -2188,3 +2188,504 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Wiring:** both are cues in `AudioService`; the trigger was already wired (`FlyCollectedEvent`, the last fly plays `SFX_FlyPopLast`).
 - **Verified:** Play Mode. Publishing a normal and a last-fly collect plays each cue, with no missing-cue warning.
 - **Reversal cost:** low · **Type:** absorption
+
+## D-252 · I0 INTAKE · conflict · REPO_FOLDER
+- **Issue:** path is outside the V57 contract tree (brief §1)
+- **Where:** `Assets/_Game/Art/Cinematics/CIN_Intro.mp4`
+- **Decision:** not imported by folder rules; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: f625cd850f60 -->
+
+## D-253 · I0 INTAKE · conflict · REPO_FOLDER
+- **Issue:** path is outside the V57 contract tree (brief §1)
+- **Where:** `Assets/_Game/Art/UI/Atlases/UI_SpriteSheet_v02.png`
+- **Decision:** not imported by folder rules; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: cef545120d13 -->
+
+## D-254 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/AST_ENV_OCEANLEAVES-001_lambert4_Albedo.jpg`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 3ad99162cd2d -->
+
+## D-255 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/AST_ENV_OCEANLEAVES-001_lambert4_MetallicSmoothness.png`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 60efa5d26d97 -->
+
+## D-256 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/AST_ENV_OCEANLEAVES-001_lambert4_Normal.jpg`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 48926ccbd604 -->
+
+## D-257 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/AST_ENV_OCEANLEAVES-001.fbx`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: d358967d8705 -->
+
+## D-258 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/AST-ENV-VEGETATION-001_lambert2_Albedo.jpg`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 5418c8168de5 -->
+
+## D-259 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/AST-ENV-VEGETATION-001_lambert2_Normal.jpg`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 564ae9bdf06f -->
+
+## D-260 · I0 INTAKE · conflict · REPO_OUTSIDE_GAME
+- **Issue:** file under Assets/ outside Assets/_Game/
+- **Where:** `Assets/AST-ENV-VEGETATION-001.fbx`
+- **Decision:** not imported by V57 assembly; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 70c75883688f -->
+
+## D-261 · I0 INTAKE · fixable · LAYOUT_ASSET_ALIASED
+- **Issue:** layout asset_id(s) placed with another delivered model (Docs/V57/layout_aliases.json): AST-CHAR-NEONFLY-001→Fly, AST-CHAR-RADIOACTIVESHARK-001→Shark, AST_ENV_OCEANBOAT-001→AST-ENV-OCEANBOAT-001, AST_ENV_OCEANLEAVES-001→AST-ENV-OCEANLEAVES-001, AST_ENV_OCEANROCKLEAVES-001→AST-ENV-OCEANROCKLEAVES-001, AST_ENV_OCEANROCKS-001→AST-ENV-OCEANROCKS-001, AST_ENV_OCEANSKELETON-001→AST-ENV-OCEANSKELETON-001, AST-CHAR-FISH-001→Fish, AST-CHAR-JELLYFISH-001→Jellyfish, marker Door→PRF_ZoneDoor_Lab.prefab, marker Patrol→PRF_MechanicalCrab.prefab
+- **Where:** `Docs/Design/LevelMaps/Level_01/unity_scene.json`
+- **Decision:** aliased instances use the mapped model and yaw; provider should export the final asset ids
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: dbf7dd6d726c -->
+
+## D-262 · I0 INTAKE · fixable · DOCS_UNEXPECTED
+- **Issue:** file not part of the Docs/ contract tree (brief §1)
+- **Where:** `Docs/Design/LevelMaps/Level_01/Level_01_Perfil_Alturas.png`
+- **Decision:** ignored by intake
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ed3103c0b071 -->
+
+## D-263 · I0 INTAKE · fixable · DOCS_UNEXPECTED
+- **Issue:** file not part of the Docs/ contract tree (brief §1)
+- **Where:** `Docs/Design/LevelMaps/Level_01/Level_01_Trayectorias_V03.json`
+- **Decision:** ignored by intake
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7ab6c731aaa0 -->
+
+## D-264 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_lambert35_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVCORALROCK002_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 51352826ef85 -->
+
+## D-265 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST_ENV_OCEANBOAT-001_lambert5_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANBOAT001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d8c9bf85d318 -->
+
+## D-266 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d2834a9c2a47 -->
+
+## D-267 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ce06346f8fc0 -->
+
+## D-268 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANLEAVES001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 96831598afae -->
+
+## D-269 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Meshes/AST-ENV-OCEANROCKLEAVES-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVOCEANROCKLEAVES001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 05e71868e6e8 -->
+
+## D-270 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKLEAVES001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 4d0c4c3de108 -->
+
+## D-271 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKLEAVES001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f344e59599df -->
+
+## D-272 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKLEAVES001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 202d5894bf32 -->
+
+## D-273 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST_ENV_OCEANROCKS-001_lambert3_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANROCKS001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 67cc290391fa -->
+
+## D-274 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST_ENV_OCEANSKELETON-001_lambert5.001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVOCEANSKELETON001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 4a832896369c -->
+
+## D-275 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Meshes/AST-ENV-ROCKVEGETATION-001.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_ASTENVROCKVEGETATION001); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d7f71bd34821 -->
+
+## D-276 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVROCKVEGETATION001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1104752ba941 -->
+
+## D-277 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVROCKVEGETATION001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 67b15561fb80 -->
+
+## D-278 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVROCKVEGETATION001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 358d65d0dcd0 -->
+
+## D-279 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_Albedo.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 067484569f50 -->
+
+## D-280 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 8ba3777e9410 -->
+
+## D-281 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVSEABED001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 552e5ab52624 -->
+
+## D-282 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_A_Ocean_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: bec845142db3 -->
+
+## D-283 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_A_Ocean_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 05b84ae6fbe1 -->
+
+## D-284 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_A_Ocean_Normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVVEGETATION001_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1a788c29aebd -->
+
+## D-285 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_AST-ENV-LABFLOOR-001.001_Albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_ASTENVLABFLOOR001_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 0900a5dba891 -->
+
+## D-286 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Bar_Iron.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIBarIron); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ee80e4262ec2 -->
+
+## D-287 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Button_Alt.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIButtonAlt); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 65264c565fd8 -->
+
+## D-288 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Button_Focus.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIButtonFocus); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: bf8a78d562be -->
+
+## D-289 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Button_Hover.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIButtonHover); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d4e290709971 -->
+
+## D-290 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Button_Normal.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIButtonNormal); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 6b421b0af0d5 -->
+
+## D-291 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Cap_Left.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UICapLeft); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: f334047a94e9 -->
+
+## D-292 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Cap_Right.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UICapRight); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d093e812c83d -->
+
+## D-293 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Frame_Amber.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIFrameAmber); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 3b8e66fcaae9 -->
+
+## D-294 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Frame_Cyan.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIFrameCyan); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: bfd53f053573 -->
+
+## D-295 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Gem_Large.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIGemLarge); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 493f2eec3ae2 -->
+
+## D-296 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Gem_Small.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIGemSmall); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: b72b92a97b30 -->
+
+## D-297 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Panel_Dark.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIPanelDark); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: dc4b391edbfa -->
+
+## D-298 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Panel_Skull.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIPanelSkull); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 23807428362b -->
+
+## D-299 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/Common/UI_Rivet.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_Common_UIRivet); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: a380a18a3d75 -->
+
+## D-300 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/UI_HUDCounter/FX_Starburst.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_UI_HUDCounter_FXStarburst); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: c4efcdeb2238 -->
+
+## D-301 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/UI_HUDCounter/UI_HUD_Banner.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_UI_HUDCounter_UIHUDBanner); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 4fd375d254e2 -->
+
+## D-302 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/UI_HUDCounter/UI_HUD_KeySlot.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_UI_HUDCounter_UIHUDKeySlot); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1fdc48eda76b -->
+
+## D-303 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SPR_<Id>_<State>[_9s-<px>]
+- **Where:** `Assets/_Game/Art/UI/Sprites/UI_MainMenu/UI_Logo.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SPR_UI_MainMenu_UILogo); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: ff81cfdcb0a0 -->
+
+## D-304 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow VFX_<Name>
+- **Where:** `Assets/_Game/Art/VFX/Bubbles/Textures/T_Bubble.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name VFX_Bubble); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 2b18eb5f610e -->
+
+## D-305 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow VFX_<Name>
+- **Where:** `Assets/_Game/Art/VFX/Bubbles/Textures/T_BubblePopSheet.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name VFX_BubblePopSheet); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 7ada61faacb7 -->
+
+### D-270 — Level_01 V10 delivery integrated: map contract 1.1 (markers, paths, props), 2 zones, ambient life on paths, lab zone doors, final algae
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:** The owner delivered `Level_01_V10`. The level grew from about 70 m to about 240 m (height profile `Level_01_Perfil_Alturas.png`).
+  - **Map:** `unity_scene.json` (contract 1.1) with 1931 objects, a separate `marcadores` array (43 markers), 23 `trayectorias` (11 crab, 8 fish, 4 school) and per-object `props`.
+  - **Files:** 36 FBX and 44 textures.
+  - **Contract:** 2 zones (Z1: 6 flies, Z2: 12), 2 keys, 2 doors with consoles, 11 crab patrols, kill water at −0.25, a shark loop event.
+  - **Ambient life:** 46 fish on paths and 14 jellyfish.
+  - **Algae:** now separate meshes (`VEGETATION`, `OCEANLEAVES`; rock versions `ROCKVEGETATION`, `OCEANROCKLEAVES`).
+  - **Gap:** V57 read none of the contract 1.1 extras.
+- **Choice:**
+  - **V57 core (generic, base repo):** see `V57/knowledge/asset-intake.md`, "contract 1.1 extras".
+    - `marcadores` → markers (box volumes scaled by `tamano`, Patrol markers moved to their route end).
+    - `props` → `V57LayoutProps`; `trayectorias` → `_Environment/_Paths` + `V57Path`.
+    - `layout_aliases` `static:false` and `marker_actors`.
+    - Fixes: stale FBX material remaps after a re-delivery; the `V57KeepShader` tag.
+    - Intake tests 32/32; Assembly 15/15; GoldPath 51/51.
+  - **Art (D-252 rules):**
+    - FBX replaced in place (GUIDs kept). The five `AST_ENV_*` ids map to their `AST-ENV-*` meshes through aliases (no renamed or duplicate files).
+    - New assets in `Decoration/` (`ROCKVEGETATION`, `OCEANROCKLEAVES`). New maps added.
+    - Earlier maps kept: 29 assets came with albedo only, and their V06 normal/metallic maps still apply; only the five delivered sets replace theirs.
+  - **Visual prefabs:**
+    - Six were rebuilt because their FBX lost LODs in V10: `VEGETATION`, `OCEANLEAVES`, `OCEANBOAT`, `OCEANROCKS`, `OCEANSKELETON`, `SEABED`.
+    - Default BoxColliders removed from the eight new and rebuilt Visual prefabs.
+    - The `B17FLOORPLATE` and `GRATEPLATFORM` gameplay colliders were re-fitted to the smaller V10 meshes.
+  - **Actors:**
+    - **Crabs:** `PRF_MechanicalCrab` per Patrol marker, named after it, at the route start facing the end.
+    - **Zone doors:** `PRF_ZoneDoor_Lab` (ZoneDoorController, leaves mode) per Door marker. The four `AST-ENV-LABDOOR-001` leaves become gameplay prefabs with their collider and `DoorLeaf`; each door takes the leaves within 3 m and slides them apart when unlocked.
+    - **Fish:** `PRF_Fish` + `PathSwimmer` (path, speed, phase, offset, scale, clip offset from the props).
+    - **Jellyfish:** `PRF_Jellyfish` + `JellyfishDrift` (drift radius `deriva_m`).
+    - **Sharks:** `SharkLoop` on `PRF_Shark` swims the `Marker_Event_shark` ellipse (radius 1 × scale 18 × 9).
+  - **Zones:** `LevelContent` takes an actor's zone from the map (`zona` on the actor, or on the nearest marker within 1.5 m) before the volumes, because Z1 and Z2 overlap at z 9–14.
+  - **Camera:** it starts behind the Professor as spawned, because `Marker_CameraZone_Default` carries no yaw.
+  - **Algae:**
+    - The final `MAT_AST-ENV-VEGETATION-001` / `MAT_AST-ENV-OCEANLEAVES-001` use Algae Sway (heights 0.85 / 1.0 m, two-sided).
+    - The 80 pure algae are dynamic; the rock versions stay static Lit.
+    - The preview FBX and maps in the `Assets/` root and the `_Sway` preview materials are deleted, as agreed for the final delivery.
+    - Bubbles regenerated on all 160 algae (`_VFX/SeaweedBubbles`); `AlgaePush` moved to `_Systems`.
+  - **Docs:** the delivery's JSON, path file and captures replace `Docs/Design/LevelMaps/Level_01`.
+- **Verified:**
+  - Rebuild: 1944 instances, 43 markers, 0 missing, 0 missing refs.
+  - Play Mode:
+    - Zone Playing, HUD 0 / 6, 18 flies, 2 keys, 11 crabs.
+    - Both doors with 2 leaves each.
+    - 46/46 fish moving on their paths, 2 sharks on the loop, 14 jellyfish.
+    - Camera behind the Professor at the spawn.
+  - Game EditMode 14/14, PlayMode 28/28.
+- **Open (MISSING_ASSETS):**
+  - **Second shark:** no path; it joins the single loop at its own height.
+  - **Algae:** no vertex colours, so sway weight comes from height.
+  - **Door consoles (`Switch`):** not a TDD mechanic; markers only (the door opens with the key, as the TDD says).
+  - **Z2 crabs:** 8, over the TDD LR-04 limit of 4 per zone (conflict).
+  - **Naming:** five `AST_ENV_*` ids.
+  - **Mirrored leaves:** two LABDOOR leaves are exported with negative scale (BoxCollider warning; collision forced positive).
+- **Still to do:** the gold path still describes the V06 route and must be re-authored for the V10 level (2 zones, 18 flies).
+- **Reversal cost:** medium (git history) · **Type:** absorption
+
+### D-271 — One fly count for the whole level; the key appears at the final door; every crab patrols from the start (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** In play the HUD showed 0 / 6 (zone 1 only) although the level has 18 flies. The owner asked for the total count and for the key to move accordingly. Z2 crabs stood still: crabs only started patrolling when their zone began, and zone 2 began after door 1.
+- **Choice (`ZoneFlow.BeginRun`, overrides the TDD per-zone count):**
+  - **Count:** every zone's flies count toward one total (HUD 0 / 18).
+  - **Key:** the last zone's key (`key_anchor_1`, beside the final door 2) materialises when all 18 are collected. The Z1 key stays dormant.
+  - **Earlier doors:** door 1 is a passage. It opens on approach without a key (same 1.5 m radius and slide).
+  - **Crabs:** all 11 patrol from the start.
+  - **Level end:** door 2 open and the Professor in `Marker_Exit_Z2`.
+- **Verified:**
+  - Play: HUD 0 / 18; door 1 opens on approach; door 2 locked; key 2 dormant in Z2; all crabs moving.
+  - Game EditMode and PlayMode suites green.
+  - The gold path fails at its first check (`flies.total == 6`): it still describes the V06 route (D-270, still to do).
+- **Reversal cost:** low · **Type:** owner request
+
+### D-272 — Collision for every solid scenery piece, LODGroup fixes, caustics only where the sun reaches, faster algae (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:**
+  - **Collision:** the owner found crates, doors and edges without collision. Only floors and door leaves had colliders; every other piece was a Visual prefab without one.
+  - **Caustics:** they showed inside the roofed spawn corridor. The sun's shadow strength was 0.85, so 15 % of the sun, and its caustics cookie, still reached shadowed areas.
+  - **Console:** every LOD renderer was registered in two LODGroups. Several V10 FBX now import with their own LODGroup, and the Visual prefab added a second one. `B17FLOORPLATE`, `CRYSTALPANEL` and `PIPE-002` (LOD0/1/3, no importer group) had no LODGroup at all, so all their levels rendered at once.
+- **Choice:**
+  - **Collision prefabs** (Gameplay/Environment, the collider lives with the mesh):
+    - **Box fitted to LOD0:** `BEACONCRATE`, `STEELCOLUMN`, `CONSOLE-001/002`, `HATCH`, `WARNINGSIGN`, `HOSE`, `PIPE-001/002`, `RAILING`, `SCAFFOLD`, `HATCHPANEL`.
+    - **Mesh collider on LOD0:** `B17ARCH`, `BULKHEAD`, `CRYSTALPANEL`, `HYDRODOMETOWER`, `CORALROCK-001/002`, `OCEANROCKS`.
+    - **No collision:** lanterns (hanging decoration), algae (they bend, `AlgaePush`), seabed, boat and skeleton (below the kill water).
+    - **Door leaves:** the LABDOOR leaf collider is a convex mesh collider, so the two mirrored leaves (negative scale) collide without the BoxCollider warning.
+  - **V57 core:**
+    - **Static scenery:** a gameplay prefab with no game scripts (collision only) is placed as static scenery under `_Environment`, not in `_Gameplay/Level`.
+    - **LODGroups:** the Visual prefab adds no LODGroup when the model has its own, and kept prefabs refresh theirs after a re-delivery.
+  - **Lighting:**
+    - Sun shadow strength 1.0: no direct light or caustics under roofs.
+    - Structure renderers cast two-sided shadows. Roof and wall plates are placed upside down or sideways.
+  - **Algae:** sway speed 0.9 → 1.25 and flutter 3.5 → 4.5 on both final algae materials.
+- **Verified:**
+  - Rebuild: 0 missing. Every solid piece has a collider; 0 Visual prefabs with duplicate or missing LODGroups.
+  - Play console: only the listed missing `VFX_LandSplash` warning.
+  - Spawn corridor dark under the roof; caustics only in open areas.
+  - EditMode 80/80 (game + core), PlayMode 28/28.
+- **Reversal cost:** low · **Type:** owner request
+
+### D-273 — Neon Fly glow: TDD emissive + pulsing screen-space outline (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:**
+  - **Problem:** the flies (0.27 m) were nearly invisible in the larger V10 level.
+  - **TDD §B FlyCollection:** asks for "emissive material + halo sprite", `glowIntensity 2.5`, and no real-time light (INV-11).
+  - **Current state:** `glowIntensity` was unused (`MAT_Fly` had no emission). The halo sprite is one of the undelivered VFX textures (`MISSING_ASSETS.md`).
+- **Choice:**
+  - **Emissive (TDD):** `MAT_Fly` emits its own albedo. `FlyController` sets the tint `FlyConfig.GlowColor` × `GlowIntensity` (2.5) per fly. The new `GlowColor` field is a dark cyan, `(0.04, 0.22, 0.28)`.
+  - **Outline (owner's alternative to the missing halo):**
+    - **Shader:** `SH_FlyGlowOutline`, material `MAT_Fly_Outline`, the second slot of the fly renderer. It is an additive inverted hull.
+    - **Width:** constant in screen pixels (3 px + 6 mm), so a fly reads at any distance.
+    - **Pulse and flash:** a soft pulse (0.8 Hz, 45–100 %) plus a short brighter, wider flash every 3 s. Each fly has its own phase from its name.
+    - **Fog:** keeps at least 40 % of the glow, so far flies show through the underwater fog.
+  - **No real-time light (INV-11).**
+  - **The halo sprite stays missing:** it can be added on top when delivered.
+- **Verified:**
+  - Play: flies read as cyan glows from the spawn corridor and from about 10 m, with no overexposure.
+  - EditMode 80/80.
+- **Reversal cost:** low · **Type:** owner request
+
+### D-274 — The run starts with the camera fully zoomed in (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Choice:** `CameraRig.Bind` sets the orbit's radial axis to the minimum of `CameraConfig.ZoomRange` (0.6× the authored distance; the owner chose "lo más cerca"). The player zooms out from there (up to 1.6×). Respawns keep the player's zoom.
+- **Verified:** Play: radial 0.6, camera 4.35 m from the Professor at the spawn.
+- **Reversal cost:** low · **Type:** owner request

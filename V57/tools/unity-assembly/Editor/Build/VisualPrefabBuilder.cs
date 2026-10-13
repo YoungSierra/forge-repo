@@ -58,6 +58,7 @@ namespace V57.Assembly.Build
                 {
                     AssemblyContext.Counts.skipped_existing++;
                     AssemblyContext.TrackAsset(prefabPath);
+                    RefreshLods(prefabPath, modelPath);
                     continue;
                 }
 
@@ -70,6 +71,35 @@ namespace V57.Assembly.Build
         #endregion
 
         #region Private Methods
+
+        /// <summary>Kept prefab, re-delivered model: its LODGroup follows the model's current <c>_LOD#</c> nodes.</summary>
+        private static void RefreshLods(string prefabPath, string modelPath)
+        {
+            GameObject root = PrefabUtility.LoadPrefabContents(prefabPath);
+            try
+            {
+                GameObject instance = null;
+                foreach (Transform child in root.transform)
+                {
+                    GameObject source = PrefabUtility.GetCorrespondingObjectFromOriginalSource(child.gameObject);
+                    if (source != null && AssetDatabase.GetAssetPath(source) == modelPath)
+                    {
+                        instance = child.gameObject;
+                        break;
+                    }
+                }
+
+                if (instance != null && LodGroupBuilder.Refresh(root, instance))
+                {
+                    PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
+                    Debug.Log($"V57.Assembly: {prefabPath} LODGroup refreshed to the model's LOD nodes ({modelPath})");
+                }
+            }
+            finally
+            {
+                PrefabUtility.UnloadPrefabContents(root);
+            }
+        }
 
         private static void Build(AssetEntryDto entry, string modelPath, string prefabPath)
         {

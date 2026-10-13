@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: AST-ENV-OCEANLEAVES-001
+      name: C_Ocean
     second: {fileID: 2100000, guid: 60ca8926fbbc45649839fa7ed2be4f98, type: 2}
   materials:
     materialImportMode: 2

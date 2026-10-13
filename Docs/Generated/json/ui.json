@@ -10,7 +10,7 @@
         "HUDController"
       ],
       "presentation": null,
-      "sprites": null,
+      "sprites": "Assets/_Game/Art/UI/Sprites/UI_HUDCounter",
       "asset_id": null,
       "text_keys": [],
       "source": "tdd"
@@ -25,7 +25,7 @@
         "standalone"
       ],
       "presentation": null,
-      "sprites": null,
+      "sprites": "Assets/_Game/Art/UI/Sprites/UI_MainMenu",
       "asset_id": null,
       "text_keys": [],
       "source": "tdd"

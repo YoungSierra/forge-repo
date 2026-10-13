@@ -4,76 +4,6 @@
   "blender_version": "5.1.2",
   "assets": [
     {
-      "asset_id": "AST-CHAR-JELLYFISH-001",
-      "fbx": "Models/AST-CHAR-JELLYFISH-001.fbx",
-      "source": "original",
-      "has_armature": false,
-      "animation": null,
-      "export_yaw_z_deg": 180.0,
-      "bounds_blender": {
-        "min": [
-          -0.37556764483451843,
-          -0.37150776386260986,
-          -5.312877328833565e-05
-        ],
-        "max": [
-          0.3752157390117645,
-          0.37157362699508667,
-          1.5
-        ]
-      },
-      "lods": [
-        {
-          "name": "AST-CHAR-JELLYFISH-001_LOD0",
-          "level": 0
-        },
-        {
-          "name": "AST-CHAR-JELLYFISH-001_LOD1",
-          "level": 1,
-          "tris": 7292,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-CHAR-JELLYFISH-001_LOD2",
-          "level": 2,
-          "tris": 4862,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-CHAR-JELLYFISH-001_LOD3",
-          "level": 3,
-          "tris": 2430,
-          "method": "M3",
-          "status": "ok"
-        }
-      ],
-      "materials": [
-        {
-          "name": "AST-CHAR-JELLYFISH-001",
-          "albedo": "Textures/AST-CHAR-JELLYFISH-001_Albedo.jpg",
-          "normal": "Textures/AST-CHAR-JELLYFISH-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-CHAR-JELLYFISH-001_MetallicSmoothness.png",
-          "base_color": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
-          "alpha_mode": "OPAQUE",
-          "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-CHAR-JELLYFISH-001_Roughness.jpg",
-            "metallic": "Textures/AST-CHAR-JELLYFISH-001_Metallic.jpg"
-          }
-        }
-      ]
-    },
-    {
       "asset_id": "AST-CHAR-NEONFLY-001",
       "fbx": "Models/AST-CHAR-NEONFLY-001.fbx",
       "source": "original",
@@ -82,14 +12,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.10004563629627228,
-          -0.09311060607433319,
-          -0.08691458404064178
+          -0.0999961569905281,
+          -0.10005564242601395,
+          -0.10000000149011612
         ],
         "max": [
-          0.09999998658895493,
-          0.09305494278669357,
-          0.08693473041057587
+          0.10000371932983398,
+          0.09999611973762512,
+          0.10000000149011612
         ]
       },
       "lods": [
@@ -100,46 +30,42 @@
         {
           "name": "AST-CHAR-NEONFLY-001_LOD1",
           "level": 1,
-          "tris": 11359,
-          "method": "M3",
+          "tris": 720,
+          "method": "M2",
           "status": "ok"
         },
         {
           "name": "AST-CHAR-NEONFLY-001_LOD2",
           "level": 2,
-          "tris": 7573,
-          "method": "M3",
+          "tris": 480,
+          "method": "M2",
           "status": "ok"
         },
         {
           "name": "AST-CHAR-NEONFLY-001_LOD3",
           "level": 3,
-          "tris": 3785,
-          "method": "M3",
+          "tris": 240,
+          "method": "M2",
           "status": "ok"
         }
       ],
       "materials": [
         {
           "name": "AST-CHAR-NEONFLY-001",
-          "albedo": "Textures/AST-CHAR-NEONFLY-001_Albedo.jpg",
-          "normal": "Textures/AST-CHAR-NEONFLY-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-CHAR-NEONFLY-001_MetallicSmoothness.png",
+          "albedo": null,
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
-            1.0,
-            1.0,
+            0.0,
+            0.8999999761581421,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-CHAR-NEONFLY-001_Metallic.jpg",
-            "roughness": "Textures/AST-CHAR-NEONFLY-001_Roughness.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -152,64 +78,34 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -4.869452953338623,
-          -8.487983703613281,
-          -0.007380318362265825
+          -4.862172603607178,
+          -8.484978675842285,
+          -2.0745920892295544e-07
         ],
         "max": [
-          4.873257637023926,
-          8.494539260864258,
+          4.862180233001709,
+          8.484971046447754,
           8.0
         ]
       },
-      "lods": [
-        {
-          "name": "AST-CHAR-RADIOACTIVESHARK-001_LOD0",
-          "level": 0
-        },
-        {
-          "name": "AST-CHAR-RADIOACTIVESHARK-001_LOD1",
-          "level": 1,
-          "tris": 10880,
-          "method": "M2",
-          "status": "ok"
-        },
-        {
-          "name": "AST-CHAR-RADIOACTIVESHARK-001_LOD2",
-          "level": 2,
-          "tris": 7254,
-          "method": "M2",
-          "status": "ok"
-        },
-        {
-          "name": "AST-CHAR-RADIOACTIVESHARK-001_LOD3",
-          "level": 3,
-          "tris": 3625,
-          "method": "M3",
-          "status": "ok"
-        }
-      ],
+      "lods": [],
       "materials": [
         {
           "name": "AST-CHAR-RADIOACTIVESHARK-001",
-          "albedo": "Textures/AST-CHAR-RADIOACTIVESHARK-001_Albedo.jpg",
-          "normal": "Textures/AST-CHAR-RADIOACTIVESHARK-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-CHAR-RADIOACTIVESHARK-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-CHAR-RADIOACTIVESHARK-001_AST-CHAR-RADIOACTIVESHARK-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.4472135901451111,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-CHAR-RADIOACTIVESHARK-001_Roughness.jpg",
-            "metallic": "Textures/AST-CHAR-RADIOACTIVESHARK-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -222,14 +118,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -2.485769748687744,
-          -0.7919113636016846,
-          -0.003236318239942193
+          -2.13370418548584,
+          -0.6797793507575989,
+          -0.0027779557276517153
         ],
         "max": [
-          2.485769748687744,
-          0.7919655442237854,
-          5.358999729156494
+          2.133711814880371,
+          0.6797716617584229,
+          4.599999904632568
         ]
       },
       "lods": [
@@ -262,24 +158,20 @@
       "materials": [
         {
           "name": "AST-ENV-B17ARCH-001",
-          "albedo": "Textures/AST-ENV-B17ARCH-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-B17ARCH-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-B17ARCH-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-B17ARCH-001_AST-ENV-B17ARCH-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-B17ARCH-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-B17ARCH-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -292,14 +184,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -1.8527673482894897,
-          -1.3205325603485107,
+          -1.0009509325027466,
+          -0.7134308218955994,
           0.0
         ],
         "max": [
-          1.8527675867080688,
-          1.3205883502960205,
-          0.4109218716621399
+          1.000958800315857,
+          0.7134308218955994,
+          0.22199994325637817
         ]
       },
       "lods": [
@@ -315,8 +207,8 @@
           "status": "ok"
         },
         {
-          "name": "AST-ENV-B17FLOORPLATE-001_LOD2",
-          "level": 2,
+          "name": "AST-ENV-B17FLOORPLATE-001_LOD3",
+          "level": 3,
           "tris": 1212,
           "method": "M3",
           "status": "ok"
@@ -325,24 +217,20 @@
       "materials": [
         {
           "name": "AST-ENV-B17FLOORPLATE-001",
-          "albedo": "Textures/AST-ENV-B17FLOORPLATE-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-B17FLOORPLATE-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-B17FLOORPLATE-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-B17FLOORPLATE-001_AST-ENV-B17FLOORPLATE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-B17FLOORPLATE-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-B17FLOORPLATE-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -355,14 +243,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -3.9625966548919678,
-          -1.9609593152999878,
-          -4.822564733331092e-05
+          -2.715963840484619,
+          -1.3440626859664917,
+          -3.30539041897282e-05
         ],
         "max": [
-          3.9625961780548096,
-          1.9493094682693481,
-          6.711400032043457
+          2.715970993041992,
+          1.3360391855239868,
+          4.599999904632568
         ]
       },
       "lods": [
@@ -395,24 +283,20 @@
       "materials": [
         {
           "name": "AST-ENV-BULKHEAD-001",
-          "albedo": "Textures/AST-ENV-BULKHEAD-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-BULKHEAD-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-BULKHEAD-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-BULKHEAD-001_AST-ENV-BULKHEAD-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-ENV-BULKHEAD-001_Metallic.jpg",
-            "roughness": "Textures/AST-ENV-BULKHEAD-001_Roughness.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -425,14 +309,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -23.192012786865234,
-          -23.11882209777832,
-          -7.264103540904898e-09
+          -2.9238505363464355,
+          -2.914630651473999,
+          -9.157972158391203e-10
         ],
         "max": [
-          23.179723739624023,
-          23.118881225585938,
-          38.885963439941406
+          2.922308921813965,
+          2.914630889892578,
+          4.902415752410889
         ]
       },
       "lods": [
@@ -465,24 +349,20 @@
       "materials": [
         {
           "name": "AST-ENV-CORALROCK-001",
-          "albedo": "Textures/AST-ENV-CORALROCK-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-CORALROCK-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-CORALROCK-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-CORALROCK-001_AST-ENV-CORALROCK-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-CORALROCK-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-CORALROCK-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -495,14 +375,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -8.294873237609863,
-          -7.5280561447143555,
-          -0.030348442494869232
+          -0.5010153651237488,
+          -0.4547084867954254,
+          -0.0018330782186239958
         ],
         "max": [
-          8.306077003479004,
-          7.522181510925293,
-          11.40787124633789
+          0.501699686050415,
+          0.4543418884277344,
+          0.6890475749969482
         ]
       },
       "lods": [
@@ -534,25 +414,21 @@
       ],
       "materials": [
         {
-          "name": "AST-ENV-CORALROCK-002",
-          "albedo": "Textures/AST-ENV-CORALROCK-002_Albedo.jpg",
-          "normal": "Textures/AST-ENV-CORALROCK-002_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-CORALROCK-002_MetallicSmoothness.png",
+          "name": "lambert35",
+          "albedo": "Textures/AST-ENV-CORALROCK-002_lambert35_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.4472135901451111,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-CORALROCK-002_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-CORALROCK-002_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -565,13 +441,13 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -1.6134992837905884,
-          -0.6954699158668518,
+          -1.6134964227676392,
+          -0.6955096125602722,
           0.0
         ],
         "max": [
-          1.613511323928833,
-          0.6970986127853394,
+          1.6135141849517822,
+          0.697058916091919,
           4.599999904632568
         ]
       },
@@ -588,8 +464,8 @@
           "status": "ok"
         },
         {
-          "name": "AST-ENV-CRYSTALPANEL-001_LOD2",
-          "level": 2,
+          "name": "AST-ENV-CRYSTALPANEL-001_LOD3",
+          "level": 3,
           "tris": 2169,
           "method": "M3",
           "status": "ok"
@@ -598,24 +474,20 @@
       "materials": [
         {
           "name": "AST-ENV-CRYSTALPANEL-001",
-          "albedo": "Textures/AST-ENV-CRYSTALPANEL-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-CRYSTALPANEL-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-CRYSTALPANEL-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-CRYSTALPANEL-001_AST-ENV-CRYSTALPANEL-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-CRYSTALPANEL-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-CRYSTALPANEL-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -628,14 +500,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.741401195526123,
-          -0.7426793575286865,
-          -0.05613367632031441
+          -0.5642293691635132,
+          -0.5652328133583069,
+          -0.04271969199180603
         ],
         "max": [
-          0.7447367906570435,
-          0.7391026616096497,
-          0.6154235005378723
+          0.5667735934257507,
+          0.5624551177024841,
+          0.4683588445186615
         ]
       },
       "lods": [
@@ -668,24 +540,20 @@
       "materials": [
         {
           "name": "AST-ENV-GRATEPLATFORM-001",
-          "albedo": "Textures/AST-ENV-GRATEPLATFORM-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-GRATEPLATFORM-001_Normal.png",
-          "metallic_smoothness": "Textures/AST-ENV-GRATEPLATFORM-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-GRATEPLATFORM-001_AST-ENV-GRATEPLATFORM-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-GRATEPLATFORM-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-GRATEPLATFORM-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -698,14 +566,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.7248371839523315,
-          -0.19769500195980072,
+          -0.5975536108016968,
+          -0.16301056742668152,
           0.0
         ],
         "max": [
-          0.7248371839523315,
-          0.19777394831180573,
-          1.9408514499664307
+          0.597561240196228,
+          0.16301493346691132,
+          1.6000423431396484
         ]
       },
       "lods": [
@@ -738,24 +606,20 @@
       "materials": [
         {
           "name": "AST-ENV-HATCHPANEL-001",
-          "albedo": "Textures/AST-ENV-HATCHPANEL-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-HATCHPANEL-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-HATCHPANEL-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-HATCHPANEL-001_AST-ENV-HATCHPANEL-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-HATCHPANEL-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-HATCHPANEL-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -768,14 +632,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -11.366604804992676,
-          -11.349837303161621,
+          -4.315335750579834,
+          -4.308988094329834,
           0.0
         ],
         "max": [
-          11.366604804992676,
-          11.34991455078125,
-          34.24226760864258
+          4.315343379974365,
+          4.30898904800415,
+          13.000101089477539
         ]
       },
       "lods": [
@@ -808,24 +672,20 @@
       "materials": [
         {
           "name": "AST-ENV-HYDRODOMETOWER-001",
-          "albedo": "Textures/AST-ENV-HYDRODOMETOWER-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-HYDRODOMETOWER-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-HYDRODOMETOWER-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-HYDRODOMETOWER-001_AST-ENV-HYDRODOMETOWER-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-ENV-HYDRODOMETOWER-001_Metallic.jpg",
-            "roughness": "Textures/AST-ENV-HYDRODOMETOWER-001_Roughness.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -838,14 +698,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.8125107288360596,
-          -0.217690110206604,
+          -0.7586439847946167,
+          -0.2032976597547531,
           0.0
         ],
         "max": [
-          0.8125107288360596,
-          0.2177731841802597,
-          3.1059000492095947
+          0.7586497068405151,
+          0.20329739153385162,
+          2.9000000953674316
         ]
       },
       "lods": [
@@ -878,24 +738,20 @@
       "materials": [
         {
           "name": "AST-ENV-LABDOOR-001",
-          "albedo": "Textures/AST-ENV-LABDOOR-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-LABDOOR-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-LABDOOR-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-LABDOOR-001_AST-ENV-LABDOOR-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-LABDOOR-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-LABDOOR-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -908,13 +764,13 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.7384054660797119,
-          -0.7508158087730408,
+          -0.7384026050567627,
+          -0.7508580088615417,
           -0.030369266867637634
         ],
         "max": [
-          0.7363412380218506,
-          0.7488395571708679,
+          0.7363440990447998,
+          0.7487973570823669,
           0.112882599234581
         ]
       },
@@ -947,305 +803,21 @@
       ],
       "materials": [
         {
-          "name": "AST-ENV-LABFLOOR-001",
-          "albedo": "Textures/AST-ENV-LABFLOOR-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-LABFLOOR-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-LABFLOOR-001_MetallicSmoothness.png",
+          "name": "AST-ENV-LABFLOOR-001.001",
+          "albedo": "Textures/AST-ENV-LABFLOOR-001_AST-ENV-LABFLOOR-001.001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-LABFLOOR-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-LABFLOOR-001_Metallic.jpg"
-          }
-        }
-      ]
-    },
-    {
-      "asset_id": "AST-ENV-OCEANBOAT-001",
-      "fbx": "Models/AST-ENV-OCEANBOAT-001.fbx",
-      "source": "original",
-      "has_armature": false,
-      "animation": null,
-      "export_yaw_z_deg": 180.0,
-      "bounds_blender": {
-        "min": [
-          -24.34623908996582,
-          -33.753379821777344,
-          -16.575870513916016
-        ],
-        "max": [
-          24.31017303466797,
-          0.0206122025847435,
-          16.5670223236084
-        ]
-      },
-      "lods": [
-        {
-          "name": "AST-ENV-OCEANBOAT-001_LOD0",
-          "level": 0
-        },
-        {
-          "name": "AST-ENV-OCEANBOAT-001_LOD1",
-          "level": 1,
-          "tris": 41948,
-          "method": "M2",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANBOAT-001_LOD2",
-          "level": 2,
-          "tris": 27963,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANBOAT-001_LOD3",
-          "level": 3,
-          "tris": 13981,
-          "method": "M3",
-          "status": "ok"
-        }
-      ],
-      "materials": [
-        {
-          "name": "AST-ENV-OCEANBOAT-001",
-          "albedo": "Textures/AST-ENV-OCEANBOAT-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-OCEANBOAT-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-OCEANBOAT-001_MetallicSmoothness.png",
-          "base_color": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
-          "alpha_mode": "OPAQUE",
-          "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-ENV-OCEANBOAT-001_Metallic.jpg",
-            "roughness": "Textures/AST-ENV-OCEANBOAT-001_Roughness.jpg"
-          }
-        }
-      ]
-    },
-    {
-      "asset_id": "AST-ENV-OCEANLEAVES-001",
-      "fbx": "Models/AST-ENV-OCEANLEAVES-001.fbx",
-      "source": "original",
-      "has_armature": false,
-      "animation": null,
-      "export_yaw_z_deg": 180.0,
-      "bounds_blender": {
-        "min": [
-          -1.1958457231521606,
-          -1.1500731706619263,
-          -0.00535420561209321
-        ],
-        "max": [
-          1.195845603942871,
-          1.141572117805481,
-          3.2719945907592773
-        ]
-      },
-      "lods": [
-        {
-          "name": "AST-ENV-OCEANLEAVES-001_LOD0",
-          "level": 0
-        },
-        {
-          "name": "AST-ENV-OCEANLEAVES-001_LOD1",
-          "level": 1,
-          "tris": 3081,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANLEAVES-001_LOD2",
-          "level": 2,
-          "tris": 2053,
-          "method": "M2",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANLEAVES-001_LOD3",
-          "level": 3,
-          "tris": 1539,
-          "method": "M3",
-          "status": "ok"
-        }
-      ],
-      "materials": [
-        {
-          "name": "AST-ENV-OCEANLEAVES-001",
-          "albedo": "Textures/AST-ENV-OCEANLEAVES-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-OCEANLEAVES-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-OCEANLEAVES-001_MetallicSmoothness.png",
-          "base_color": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
-          "alpha_mode": "OPAQUE",
-          "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-ENV-OCEANLEAVES-001_Metallic.jpg",
-            "roughness": "Textures/AST-ENV-OCEANLEAVES-001_Roughness.jpg"
-          }
-        }
-      ]
-    },
-    {
-      "asset_id": "AST-ENV-OCEANROCKS-001",
-      "fbx": "Models/AST-ENV-OCEANROCKS-001.fbx",
-      "source": "original",
-      "has_armature": false,
-      "animation": null,
-      "export_yaw_z_deg": 180.0,
-      "bounds_blender": {
-        "min": [
-          -3.3535406589508057,
-          -3.819086790084839,
-          -0.0034340776037424803
-        ],
-        "max": [
-          3.3619091510772705,
-          3.82070255279541,
-          6.309874057769775
-        ]
-      },
-      "lods": [
-        {
-          "name": "AST-ENV-OCEANROCKS-001_LOD0",
-          "level": 0
-        },
-        {
-          "name": "AST-ENV-OCEANROCKS-001_LOD1",
-          "level": 1,
-          "tris": 10212,
-          "method": "M2",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANROCKS-001_LOD2",
-          "level": 2,
-          "tris": 6808,
-          "method": "M2",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANROCKS-001_LOD3",
-          "level": 3,
-          "tris": 3404,
-          "method": "M2",
-          "status": "ok"
-        }
-      ],
-      "materials": [
-        {
-          "name": "AST-ENV-OCEANROCKS-001",
-          "albedo": "Textures/AST-ENV-OCEANROCKS-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-OCEANROCKS-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-OCEANROCKS-001_MetallicSmoothness.png",
-          "base_color": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
-          "alpha_mode": "OPAQUE",
-          "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-ENV-OCEANROCKS-001_Metallic.jpg",
-            "roughness": "Textures/AST-ENV-OCEANROCKS-001_Roughness.jpg"
-          }
-        }
-      ]
-    },
-    {
-      "asset_id": "AST-ENV-OCEANSKELETON-001",
-      "fbx": "Models/AST-ENV-OCEANSKELETON-001.fbx",
-      "source": "original",
-      "has_armature": false,
-      "animation": null,
-      "export_yaw_z_deg": 180.0,
-      "bounds_blender": {
-        "min": [
-          -4.876914024353027,
-          -3.6728334426879883,
-          -0.013736042194068432
-        ],
-        "max": [
-          4.868431568145752,
-          3.6610522270202637,
-          4.123859882354736
-        ]
-      },
-      "lods": [
-        {
-          "name": "AST-ENV-OCEANSKELETON-001_LOD0",
-          "level": 0
-        },
-        {
-          "name": "AST-ENV-OCEANSKELETON-001_LOD1",
-          "level": 1,
-          "tris": 9443,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANSKELETON-001_LOD2",
-          "level": 2,
-          "tris": 6295,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-OCEANSKELETON-001_LOD3",
-          "level": 3,
-          "tris": 3148,
-          "method": "M2",
-          "status": "ok"
-        }
-      ],
-      "materials": [
-        {
-          "name": "AST-ENV-OCEANSKELETON-001",
-          "albedo": "Textures/AST-ENV-OCEANSKELETON-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-OCEANSKELETON-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-OCEANSKELETON-001_MetallicSmoothness.png",
-          "base_color": [
-            1.0,
-            1.0,
-            1.0,
-            1.0
-          ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
-          "alpha_mode": "OPAQUE",
-          "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-OCEANSKELETON-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-OCEANSKELETON-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1258,13 +830,13 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.3001430332660675,
-          -0.29895687103271484,
+          -0.3001401722431183,
+          -0.29900211095809937,
           -2.755876448645722e-05
         ],
         "max": [
-          0.3000451922416687,
-          0.299089640378952,
+          0.3000480532646179,
+          0.2990444004535675,
           0.9630334973335266
         ]
       },
@@ -1298,24 +870,20 @@
       "materials": [
         {
           "name": "AST-ENV-PIPE-001",
-          "albedo": "Textures/AST-ENV-PIPE-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-PIPE-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-PIPE-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-PIPE-001_AST-ENV-PIPE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-PIPE-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-PIPE-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1328,14 +896,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.3057901859283447,
-          -0.5253084897994995,
-          -9.64809260040056e-06
+          -0.29979050159454346,
+          -0.515052855014801,
+          -9.458914064452983e-06
         ],
         "max": [
-          0.3057902455329895,
-          0.5253283381462097,
-          1.0546799898147583
+          0.2997981905937195,
+          0.5149832963943481,
+          1.034000039100647
         ]
       },
       "lods": [
@@ -1351,8 +919,8 @@
           "status": "ok"
         },
         {
-          "name": "AST-ENV-PIPE-002_LOD2",
-          "level": 2,
+          "name": "AST-ENV-PIPE-002_LOD3",
+          "level": 3,
           "tris": 2932,
           "method": "M3",
           "status": "ok"
@@ -1361,9 +929,75 @@
       "materials": [
         {
           "name": "AST-ENV-PIPE-002",
-          "albedo": "Textures/AST-ENV-PIPE-002_Albedo.jpg",
-          "normal": "Textures/AST-ENV-PIPE-002_Normal.png",
-          "metallic_smoothness": "Textures/AST-ENV-PIPE-002_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-PIPE-002_AST-ENV-PIPE-002_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-ENV-ROCKVEGETATION-001",
+      "fbx": "Models/AST-ENV-ROCKVEGETATION-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.4997558295726776,
+          -0.4982643127441406,
+          2.8938431650971097e-09
+        ],
+        "max": [
+          0.499755859375,
+          0.4983177185058594,
+          0.4335937798023224
+        ]
+      },
+      "lods": [
+        {
+          "name": "AST-ENV-ROCKVEGETATION-001_LOD0",
+          "level": 0
+        },
+        {
+          "name": "AST-ENV-ROCKVEGETATION-001_LOD1",
+          "level": 1,
+          "tris": 6279,
+          "method": "M3",
+          "status": "ok"
+        },
+        {
+          "name": "AST-ENV-ROCKVEGETATION-001_LOD2",
+          "level": 2,
+          "tris": 4187,
+          "method": "M3",
+          "status": "ok"
+        },
+        {
+          "name": "AST-ENV-ROCKVEGETATION-001_LOD3",
+          "level": 3,
+          "tris": 2092,
+          "method": "M3",
+          "status": "ok"
+        }
+      ],
+      "materials": [
+        {
+          "name": "A_Ocean",
+          "albedo": "Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_Albedo.jpg",
+          "normal": "Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_Normal.jpg",
+          "metallic_smoothness": "Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_MetallicSmoothness.png",
           "base_color": [
             1.0,
             1.0,
@@ -1374,11 +1008,7 @@
           "smoothness": 1.0,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-PIPE-002_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-PIPE-002_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1391,13 +1021,13 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.3525410592556,
-          -0.3614518642425537,
+          -0.35253724455833435,
+          -0.3614976108074188,
           0.3353925347328186
         ],
         "max": [
-          0.35428687930107117,
-          0.3694821894168854,
+          0.3542906939983368,
+          0.36943644285202026,
           2.0977272987365723
         ]
       },
@@ -1431,24 +1061,20 @@
       "materials": [
         {
           "name": "AST-ENV-SCAFFOLD-001",
-          "albedo": "Textures/AST-ENV-SCAFFOLD-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-SCAFFOLD-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-SCAFFOLD-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-SCAFFOLD-001_AST-ENV-SCAFFOLD-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-ENV-SCAFFOLD-001_Metallic.jpg",
-            "roughness": "Textures/AST-ENV-SCAFFOLD-001_Roughness.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1461,13 +1087,13 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -170.00006103515625,
-          -170.00001525878906,
+          -170.0000457763672,
+          -170.0000457763672,
           -1.4889801740646362
         ],
         "max": [
-          170.00006103515625,
-          170.00010681152344,
+          170.0000762939453,
+          170.0000762939453,
           12.465005874633789
         ]
       },
@@ -1479,14 +1105,14 @@
         {
           "name": "AST-ENV-SEABED-001_LOD1",
           "level": 1,
-          "tris": 17009,
+          "tris": 17067,
           "method": "M1",
           "status": "ok"
         },
         {
-          "name": "AST-ENV-SEABED-001_LOD2",
-          "level": 2,
-          "tris": 12573,
+          "name": "AST-ENV-SEABED-001_LOD3",
+          "level": 3,
+          "tris": 12693,
           "method": "M1",
           "status": "ok"
         }
@@ -1494,9 +1120,9 @@
       "materials": [
         {
           "name": "AST-ENV-SEABED-001",
-          "albedo": "Textures/AST-ENV-SEABED-001_Albedo.png",
-          "normal": "Textures/AST-ENV-SEABED-001_Normal.png",
-          "metallic_smoothness": "Textures/AST-ENV-SEABED-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_Albedo.png",
+          "normal": "Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_Normal.png",
+          "metallic_smoothness": "Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_MetallicSmoothness.png",
           "base_color": [
             1.0,
             1.0,
@@ -1507,13 +1133,7 @@
           "smoothness": 1.0,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "ao": "Textures/AST-ENV-SEABED-001_AO.png",
-            "roughness": "Textures/AST-ENV-SEABED-001_Roughness.png",
-            "detail_albedo": "Textures/AST-ENV-SEABED-001_Detail_Albedo.png",
-            "detail_normal": "Textures/AST-ENV-SEABED-001_Detail_Normal.png"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1526,14 +1146,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.21414150297641754,
-          -0.20365773141384125,
+          -0.19592085480690002,
+          -0.1863718330860138,
           0.0
         ],
         "max": [
-          0.21414150297641754,
-          0.20380111038684845,
-          1.4208999872207642
+          0.19592085480690002,
+          0.1864175796508789,
+          1.2999999523162842
         ]
       },
       "lods": [
@@ -1566,24 +1186,20 @@
       "materials": [
         {
           "name": "AST-ENV-STEELCOLUMN-001",
-          "albedo": "Textures/AST-ENV-STEELCOLUMN-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-STEELCOLUMN-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-STEELCOLUMN-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-ENV-STEELCOLUMN-001_AST-ENV-STEELCOLUMN-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-ENV-STEELCOLUMN-001_Roughness.jpg",
-            "metallic": "Textures/AST-ENV-STEELCOLUMN-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1596,49 +1212,23 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -3.363856554031372,
-          -3.3539247512817383,
-          -0.002472138265147805
+          -0.469482421875,
+          -0.26486584544181824,
+          0.04443359375
         ],
         "max": [
-          3.363856792449951,
-          3.3540687561035156,
-          5.735153675079346
+          0.4538574516773224,
+          0.09939192235469818,
+          0.8520507216453552
         ]
       },
-      "lods": [
-        {
-          "name": "AST-ENV-VEGETATION-001_LOD0",
-          "level": 0
-        },
-        {
-          "name": "AST-ENV-VEGETATION-001_LOD1",
-          "level": 1,
-          "tris": 7931,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-VEGETATION-001_LOD2",
-          "level": 2,
-          "tris": 5287,
-          "method": "M3",
-          "status": "ok"
-        },
-        {
-          "name": "AST-ENV-VEGETATION-001_LOD3",
-          "level": 3,
-          "tris": 2644,
-          "method": "M3",
-          "status": "ok"
-        }
-      ],
+      "lods": [],
       "materials": [
         {
-          "name": "AST-ENV-VEGETATION-001",
-          "albedo": "Textures/AST-ENV-VEGETATION-001_Albedo.jpg",
-          "normal": "Textures/AST-ENV-VEGETATION-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-ENV-VEGETATION-001_MetallicSmoothness.png",
+          "name": "A_Ocean",
+          "albedo": "Textures/AST-ENV-VEGETATION-001_A_Ocean_Albedo.jpg",
+          "normal": "Textures/AST-ENV-VEGETATION-001_A_Ocean_Normal.jpg",
+          "metallic_smoothness": "Textures/AST-ENV-VEGETATION-001_A_Ocean_MetallicSmoothness.png",
           "base_color": [
             1.0,
             1.0,
@@ -1649,11 +1239,7 @@
           "smoothness": 1.0,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-ENV-VEGETATION-001_Metallic.jpg",
-            "roughness": "Textures/AST-ENV-VEGETATION-001_Roughness.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1667,12 +1253,12 @@
       "bounds_blender": {
         "min": [
           -0.02700001560151577,
-          -0.12692713737487793,
+          -0.12697330117225647,
           0.0
         ],
         "max": [
           0.02700001560151577,
-          0.12707287073135376,
+          0.12702670693397522,
           0.5870000123977661
         ]
       },
@@ -1707,12 +1293,12 @@
       "bounds_blender": {
         "min": [
           -0.43507057428359985,
-          -0.43325892090797424,
+          -0.4333091080188751,
           -0.00037063006311655045
         ],
         "max": [
           0.4347500205039978,
-          0.43326595425605774,
+          0.43321576714515686,
           1.100027084350586
         ]
       },
@@ -1746,24 +1332,20 @@
       "materials": [
         {
           "name": "AST-PROP-BEACONCRATE-001",
-          "albedo": "Textures/AST-PROP-BEACONCRATE-001_Albedo.jpg",
-          "normal": "Textures/AST-PROP-BEACONCRATE-001_Normal.png",
-          "metallic_smoothness": "Textures/AST-PROP-BEACONCRATE-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-BEACONCRATE-001_AST-PROP-BEACONCRATE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-PROP-BEACONCRATE-001_Roughness.jpg",
-            "metallic": "Textures/AST-PROP-BEACONCRATE-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1777,12 +1359,12 @@
       "bounds_blender": {
         "min": [
           -0.33739376068115234,
-          -0.3132852613925934,
+          -0.31333571672439575,
           -9.217489423463121e-05
         ],
         "max": [
           0.33739376068115234,
-          0.31343191862106323,
+          0.31338146328926086,
           1.2300000190734863
         ]
       },
@@ -1816,24 +1398,20 @@
       "materials": [
         {
           "name": "AST-PROP-CONSOLE-001",
-          "albedo": "Textures/AST-PROP-CONSOLE-001_Albedo.jpg",
-          "normal": "Textures/AST-PROP-CONSOLE-001_Normal.png",
-          "metallic_smoothness": "Textures/AST-PROP-CONSOLE-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-CONSOLE-001_AST-PROP-CONSOLE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-PROP-CONSOLE-001_Roughness.jpg",
-            "metallic": "Textures/AST-PROP-CONSOLE-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1847,12 +1425,12 @@
       "bounds_blender": {
         "min": [
           -0.3796940743923187,
-          -0.45793095231056213,
+          -0.457981675863266,
           -5.301822511682985e-06
         ],
         "max": [
           0.37969404458999634,
-          0.45834866166114807,
+          0.4582979381084442,
           0.49000078439712524
         ]
       },
@@ -1886,24 +1464,20 @@
       "materials": [
         {
           "name": "AST-PROP-CONSOLE-002",
-          "albedo": "Textures/AST-PROP-CONSOLE-002_Albedo.jpg",
-          "normal": "Textures/AST-PROP-CONSOLE-002_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-PROP-CONSOLE-002_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-CONSOLE-002_AST-PROP-CONSOLE-002_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-PROP-CONSOLE-002_Metallic.jpg",
-            "roughness": "Textures/AST-PROP-CONSOLE-002_Roughness.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1917,12 +1491,12 @@
       "bounds_blender": {
         "min": [
           -0.5471751093864441,
-          -0.5414264798164368,
+          -0.541477382183075,
           0.0
         ],
         "max": [
           0.5471749305725098,
-          0.5415744781494141,
+          0.5415235757827759,
           0.5049999952316284
         ]
       },
@@ -1956,24 +1530,20 @@
       "materials": [
         {
           "name": "AST-PROP-HATCH-001",
-          "albedo": "Textures/AST-PROP-HATCH-001_Albedo.jpg",
-          "normal": "Textures/AST-PROP-HATCH-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-PROP-HATCH-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-HATCH-001_AST-PROP-HATCH-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-PROP-HATCH-001_Roughness.jpg",
-            "metallic": "Textures/AST-PROP-HATCH-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -1986,14 +1556,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.30124664306640625,
-          -0.25472089648246765,
-          -7.667409226996824e-05
+          -0.25124821066856384,
+          -0.2124832719564438,
+          -6.394836964318529e-05
         ],
         "max": [
-          0.30048224329948425,
-          0.25486883521080017,
-          1.4388000965118408
+          0.25061070919036865,
+          0.2125290036201477,
+          1.2000000476837158
         ]
       },
       "lods": [
@@ -2026,24 +1596,20 @@
       "materials": [
         {
           "name": "AST-PROP-HOSE-001",
-          "albedo": "Textures/AST-PROP-HOSE-001_Albedo.jpg",
-          "normal": "Textures/AST-PROP-HOSE-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-PROP-HOSE-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-HOSE-001_AST-PROP-HOSE-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-PROP-HOSE-001_Roughness.jpg",
-            "metallic": "Textures/AST-PROP-HOSE-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -2056,14 +1622,14 @@
       "export_yaw_z_deg": 180.0,
       "bounds_blender": {
         "min": [
-          -0.1534028798341751,
-          -0.1533285677433014,
-          -8.681946928845719e-05
+          -0.12194187194108963,
+          -0.12191899120807648,
+          -6.901388405822217e-05
         ],
         "max": [
-          0.1534028798341751,
-          0.15347717702388763,
-          0.54093998670578
+          0.12194187194108963,
+          0.12196475267410278,
+          0.4300000071525574
         ]
       },
       "lods": [
@@ -2096,24 +1662,20 @@
       "materials": [
         {
           "name": "AST-PROP-LANTERN-001",
-          "albedo": "Textures/AST-PROP-LANTERN-001_Albedo.jpg",
-          "normal": "Textures/AST-PROP-LANTERN-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-PROP-LANTERN-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-LANTERN-001_AST-PROP-LANTERN-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "metallic": "Textures/AST-PROP-LANTERN-001_Metallic.jpg",
-            "roughness": "Textures/AST-PROP-LANTERN-001_Roughness.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -2127,12 +1689,12 @@
       "bounds_blender": {
         "min": [
           -0.5478687882423401,
-          -0.09654521197080612,
+          -0.09659683704376221,
           0.0
         ],
         "max": [
           0.5478687882423401,
-          0.09669423848390579,
+          0.09664261341094971,
           0.675000011920929
         ]
       },
@@ -2166,24 +1728,20 @@
       "materials": [
         {
           "name": "AST-PROP-RAILING-001",
-          "albedo": "Textures/AST-PROP-RAILING-001_Albedo.jpg",
-          "normal": "Textures/AST-PROP-RAILING-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-PROP-RAILING-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-RAILING-001_AST-PROP-RAILING-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
           "base_color": [
             1.0,
             1.0,
             1.0,
             1.0
           ],
-          "metallic": 1.0,
-          "smoothness": 1.0,
+          "metallic": 0.0,
+          "smoothness": 0.5,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-PROP-RAILING-001_Roughness.jpg",
-            "metallic": "Textures/AST-PROP-RAILING-001_Metallic.jpg"
-          }
+          "double_sided": true
         }
       ]
     },
@@ -2197,12 +1755,12 @@
       "bounds_blender": {
         "min": [
           -0.3264845311641693,
-          -0.16688914597034454,
+          -0.16694098711013794,
           0.0
         ],
         "max": [
           0.32638752460479736,
-          0.16703860461711884,
+          0.16698676347732544,
           1.4700593948364258
         ]
       },
@@ -2236,9 +1794,115 @@
       "materials": [
         {
           "name": "AST-PROP-WARNINGSIGN-001",
-          "albedo": "Textures/AST-PROP-WARNINGSIGN-001_Albedo.jpg",
-          "normal": "Textures/AST-PROP-WARNINGSIGN-001_Normal.jpg",
-          "metallic_smoothness": "Textures/AST-PROP-WARNINGSIGN-001_MetallicSmoothness.png",
+          "albedo": "Textures/AST-PROP-WARNINGSIGN-001_AST-PROP-WARNINGSIGN-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST_ENV_OCEANBOAT-001",
+      "fbx": "Models/AST_ENV_OCEANBOAT-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -24.34623908996582,
+          -33.753395080566406,
+          -16.575870513916016
+        ],
+        "max": [
+          24.31017303466797,
+          0.02059648558497429,
+          16.5670223236084
+        ]
+      },
+      "lods": [
+        {
+          "name": "AST_ENV_OCEANBOAT-001_LOD0",
+          "level": 0
+        },
+        {
+          "name": "AST_ENV_OCEANBOAT-001_LOD1",
+          "level": 1,
+          "tris": 41948,
+          "method": "M2",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANBOAT-001_LOD2",
+          "level": 2,
+          "tris": 27963,
+          "method": "M3",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANBOAT-001_LOD3",
+          "level": 3,
+          "tris": 13981,
+          "method": "M3",
+          "status": "ok"
+        }
+      ],
+      "materials": [
+        {
+          "name": "lambert5",
+          "albedo": "Textures/AST_ENV_OCEANBOAT-001_lambert5_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.4472135901451111,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST_ENV_OCEANLEAVES-001",
+      "fbx": "Models/AST_ENV_OCEANLEAVES-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.342529296875,
+          -0.3249206244945526,
+          -1.50221666217476e-08
+        ],
+        "max": [
+          0.356689453125,
+          0.324005126953125,
+          0.9995116591453552
+        ]
+      },
+      "lods": [],
+      "materials": [
+        {
+          "name": "C_Ocean",
+          "albedo": "Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_Albedo.jpg",
+          "normal": "Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_Normal.jpg",
+          "metallic_smoothness": "Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_MetallicSmoothness.png",
           "base_color": [
             1.0,
             1.0,
@@ -2249,14 +1913,275 @@
           "smoothness": 1.0,
           "alpha_mode": "OPAQUE",
           "alpha_cutoff": 0.5,
-          "double_sided": true,
-          "extra": {
-            "roughness": "Textures/AST-PROP-WARNINGSIGN-001_Roughness.jpg",
-            "metallic": "Textures/AST-PROP-WARNINGSIGN-001_Metallic.jpg"
-          }
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST_ENV_OCEANROCKLEAVES-001",
+      "fbx": "Models/AST_ENV_OCEANROCKLEAVES-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.3661055266857147,
+          -0.35147321224212646,
+          -0.0008992448565550148
+        ],
+        "max": [
+          0.3654784560203552,
+          0.3489074409008026,
+          0.890625
+        ]
+      },
+      "lods": [
+        {
+          "name": "AST_ENV_OCEANROCKLEAVES-001_LOD0",
+          "level": 0
+        },
+        {
+          "name": "AST_ENV_OCEANROCKLEAVES-001_LOD1",
+          "level": 1,
+          "tris": 1374,
+          "method": "M3",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANROCKLEAVES-001_LOD2",
+          "level": 2,
+          "tris": 915,
+          "method": "M3",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANROCKLEAVES-001_LOD3",
+          "level": 3,
+          "tris": 457,
+          "method": "M3",
+          "status": "ok"
+        }
+      ],
+      "materials": [
+        {
+          "name": "C_Ocean",
+          "albedo": "Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_Albedo.jpg",
+          "normal": "Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_Normal.jpg",
+          "metallic_smoothness": "Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_MetallicSmoothness.png",
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 1.0,
+          "smoothness": 1.0,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST_ENV_OCEANROCKS-001",
+      "fbx": "Models/AST_ENV_OCEANROCKS-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.4388302266597748,
+          -0.4997253119945526,
+          -0.00044936896301805973
+        ],
+        "max": [
+          0.43992528319358826,
+          0.49998536705970764,
+          0.82568359375
+        ]
+      },
+      "lods": [
+        {
+          "name": "AST_ENV_OCEANROCKS-001_LOD0",
+          "level": 0
+        },
+        {
+          "name": "AST_ENV_OCEANROCKS-001_LOD1",
+          "level": 1,
+          "tris": 10212,
+          "method": "M2",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANROCKS-001_LOD2",
+          "level": 2,
+          "tris": 6808,
+          "method": "M2",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANROCKS-001_LOD3",
+          "level": 3,
+          "tris": 3404,
+          "method": "M2",
+          "status": "ok"
+        }
+      ],
+      "materials": [
+        {
+          "name": "lambert3",
+          "albedo": "Textures/AST_ENV_OCEANROCKS-001_lambert3_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.4472135901451111,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST_ENV_OCEANSKELETON-001",
+      "fbx": "Models/AST_ENV_OCEANSKELETON-001.fbx",
+      "source": "original",
+      "has_armature": false,
+      "animation": null,
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": {
+        "min": [
+          -0.5011729598045349,
+          -0.3774108290672302,
+          -0.0014115755911916494
+        ],
+        "max": [
+          0.5003012418746948,
+          0.3762512505054474,
+          0.4237858057022095
+        ]
+      },
+      "lods": [
+        {
+          "name": "AST_ENV_OCEANSKELETON-001_LOD0",
+          "level": 0
+        },
+        {
+          "name": "AST_ENV_OCEANSKELETON-001_LOD1",
+          "level": 1,
+          "tris": 9443,
+          "method": "M3",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANSKELETON-001_LOD2",
+          "level": 2,
+          "tris": 6295,
+          "method": "M3",
+          "status": "ok"
+        },
+        {
+          "name": "AST_ENV_OCEANSKELETON-001_LOD3",
+          "level": 3,
+          "tris": 3148,
+          "method": "M2",
+          "status": "ok"
+        }
+      ],
+      "materials": [
+        {
+          "name": "lambert5.001",
+          "albedo": "Textures/AST_ENV_OCEANSKELETON-001_lambert5.001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.4472135901451111,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-CHAR-FISH-001",
+      "fbx": "Models/AST-CHAR-FISH-001.fbx",
+      "source": "original",
+      "has_armature": true,
+      "animation": {
+        "name": "HoverIdle",
+        "frame_start": 1,
+        "frame_end": 97,
+        "fps": 24
+      },
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": null,
+      "lods": [],
+      "materials": [
+        {
+          "name": "lambert36",
+          "albedo": "Textures/AST-CHAR-FISH-001_lambert36_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
+        }
+      ]
+    },
+    {
+      "asset_id": "AST-CHAR-JELLYFISH-001",
+      "fbx": "Models/AST-CHAR-JELLYFISH-001.fbx",
+      "source": "original",
+      "has_armature": true,
+      "animation": {
+        "name": "PulseIdle",
+        "frame_start": 1,
+        "frame_end": 97,
+        "fps": 24
+      },
+      "export_yaw_z_deg": 180.0,
+      "bounds_blender": null,
+      "lods": [],
+      "materials": [
+        {
+          "name": "AST-CHAR-JELLYFISH-001",
+          "albedo": "Textures/AST-CHAR-JELLYFISH-001_AST-CHAR-JELLYFISH-001_Albedo.jpg",
+          "normal": null,
+          "metallic_smoothness": null,
+          "base_color": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "metallic": 0.0,
+          "smoothness": 0.5,
+          "alpha_mode": "OPAQUE",
+          "alpha_cutoff": 0.5,
+          "double_sided": true
         }
       ]
     }
-  ],
-  "texture_naming": "<asset_id>_<Map>.<ext>  (Albedo | Normal | MetallicSmoothness[R=metallic, A=smoothness] | extra: Metallic, Roughness, AO, Detail_*)"
+  ]
 }

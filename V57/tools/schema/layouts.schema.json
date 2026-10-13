@@ -3,6 +3,27 @@
   "title": "layouts",
   "description": "Level layouts from Docs/Design/LevelMaps/<LevelId>/unity_scene.json (+ manifest.json), normalized by intake: English layer groups, <Name>_NN instance names, delivered model/texture paths; Marker_* objects are level markers (kind marker).",
   "type": "object",
+  "$defs": {
+    "props": {
+      "type": "array",
+      "description": "DCC custom properties flattened to strings (arrays comma-joined, objects as JSON)",
+      "items": {
+        "type": "object",
+        "required": [
+          "key",
+          "value"
+        ],
+        "properties": {
+          "key": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
   "required": [
     "layouts"
   ],
@@ -109,6 +130,69 @@
                   },
                   "minItems": 3,
                   "maxItems": 3
+                },
+                "prefab": {
+                  "type": [
+                    "string",
+                    "null"
+                  ],
+                  "description": "gameplay prefab instanced instead of a model (marker actors from Docs/V57/layout_aliases.json marker_actors)"
+                },
+                "dynamic": {
+                  "type": "boolean",
+                  "description": "true = never marked static (layout_aliases static:false, marker actors)"
+                },
+                "props": {
+                  "$ref": "#/$defs/props"
+                }
+              }
+            }
+          },
+          "paths": {
+            "type": "array",
+            "description": "unity_scene/1.1 trayectorias: sampled curves in Unity axes; points flattened x,y,z,...",
+            "items": {
+              "type": "object",
+              "required": [
+                "name",
+                "points"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "kind": {
+                  "type": "string"
+                },
+                "actor": {
+                  "type": "string"
+                },
+                "loop": {
+                  "type": "boolean"
+                },
+                "mode": {
+                  "type": "string"
+                },
+                "speed": {
+                  "type": "number"
+                },
+                "zone": {
+                  "type": "string"
+                },
+                "points": {
+                  "type": "array",
+                  "items": {
+                    "type": "number"
+                  }
+                },
+                "instances": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "props": {
+                  "$ref": "#/$defs/props"
                 }
               }
             }

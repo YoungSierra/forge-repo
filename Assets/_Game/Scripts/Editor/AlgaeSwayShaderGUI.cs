@@ -54,6 +54,9 @@ namespace ProfessorSprat.Editor
             bool receiveShadows = !material.HasProperty("_ReceiveShadows") || material.GetFloat("_ReceiveShadows") > 0.5f;
             SetKeyword(material, "_RECEIVE_SHADOWS_OFF", !receiveShadows);
 
+            // The V57 material builder keeps this shader on re-runs (Lit-compatible properties; D-270).
+            material.SetOverrideTag("V57KeepShader", "true");
+
             // Opaque only (sway is for solid plants).
             material.SetFloat("_Surface", 0f);
             material.SetFloat("_SrcBlend", (float)BlendMode.One);

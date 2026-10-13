@@ -115,13 +115,17 @@ namespace V57.Assembly.Build
             return best;
         }
 
-        /// <summary>Remaps whose target material no longer exists are removed so the embedded materials come back.</summary>
+        /// <summary>
+        /// Remaps that no longer apply are removed so the embedded materials come back: the target material was deleted, or
+        /// the source material is no longer in the FBX (a re-delivered model with renamed materials).
+        /// </summary>
         private static void DropStaleRemaps(ModelImporter importer, string path)
         {
+            HashSet<Material> used = UsedMaterials(path);
             List<AssetImporter.SourceAssetIdentifier> stale = new List<AssetImporter.SourceAssetIdentifier>();
             foreach (KeyValuePair<AssetImporter.SourceAssetIdentifier, Object> pair in importer.GetExternalObjectMap())
             {
-                if (pair.Key.type == typeof(Material) && pair.Value == null)
+                if (pair.Key.type == typeof(Material) && (pair.Value == null || !used.Contains(pair.Value as Material)))
                 {
                     stale.Add(pair.Key);
                 }
@@ -134,11 +138,20 @@ namespace V57.Assembly.Build
 
             stale.ForEach(key => importer.RemoveRemap(key));
             importer.SaveAndReimport();
-            ImportLog.Record(path, "material-remap", $"removed {stale.Count} remap(s) to deleted materials");
+            ImportLog.Record(path, "material-remap", $"removed {stale.Count} remap(s) to deleted or no-longer-present materials");
         }
 
+        /// <summary>
+        /// Already remapped only when the remap is in effect: its target is a material the imported model's renderers use.
+        /// A remap keyed by a source material the re-delivered FBX no longer has is never applied (target unused).
+        /// </summary>
         private static bool IsAlreadyRemapped(ModelImporter importer, Material material)
         {
+            if (!UsedMaterials(importer.assetPath).Contains(material))
+            {
+                return false;
+            }
+
             foreach (KeyValuePair<AssetImporter.SourceAssetIdentifier, Object> pair in importer.GetExternalObjectMap())
             {
                 if (pair.Key.type == typeof(Material) && pair.Value == material)
@@ -148,6 +161,25 @@ namespace V57.Assembly.Build
             }
 
             return false;
+        }
+
+        /// <summary>Materials on the imported model's renderers (remap targets in effect plus embedded ones).</summary>
+        private static HashSet<Material> UsedMaterials(string path)
+        {
+            HashSet<Material> used = new HashSet<Material>();
+            GameObject model = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+            foreach (Renderer renderer in model != null ? model.GetComponentsInChildren<Renderer>(true) : new Renderer[0])
+            {
+                foreach (Material material in renderer.sharedMaterials)
+                {
+                    if (material != null)
+                    {
+                        used.Add(material);
+                    }
+                }
+            }
+
+            return used;
         }
 
         #endregion

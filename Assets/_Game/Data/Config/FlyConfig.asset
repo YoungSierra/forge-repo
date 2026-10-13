@@ -15,3 +15,4 @@ MonoBehaviour:
   _triggerRadius: 0.6
   _popDuration: 0.25
   _glowIntensity: 2.5
+  _glowColor: {r: 0.04, g: 0.22, b: 0.28, a: 1}

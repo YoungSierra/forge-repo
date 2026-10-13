@@ -18,6 +18,12 @@ namespace V57.Assembly.Build
 
         private const string Step = "BuildMaterials";
 
+        /// <summary>
+        /// Material override tag: "true" keeps a game shader (Lit-compatible properties, e.g. a vertex-animated variant)
+        /// instead of resetting it to URP Lit; textures and values are still applied.
+        /// </summary>
+        public const string KeepShaderTag = "V57KeepShader";
+
         #endregion
 
         #region Public Methods
@@ -110,7 +116,7 @@ namespace V57.Assembly.Build
                 material = new Material(lit) { name = "MAT_" + set.AssetName };
                 AssetDatabase.CreateAsset(material, set.MaterialPath);
             }
-            else if (material.shader != lit)
+            else if (material.shader != lit && material.GetTag(KeepShaderTag, false) != "true")
             {
                 material.shader = lit;
             }

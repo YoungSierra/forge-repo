@@ -127,19 +127,86 @@ function normalizeMaterials(manifest, textures) {
 }
 
 /**
- * V57-owned layout aliases (Docs/V57/layout_aliases.json, logged as a D-###): a layout asset_id served by another delivered
- * model, e.g. a static export superseded by a rigged character. `yaw_deg` turns each instance about its own up axis
- * (model facing differs). Shape: { "aliases": { "<asset_id>": { "model": "<model stem>", "yaw_deg": 180 } } }.
+ * V57-owned layout aliases (Docs/V57/layout_aliases.json, logged as a D-###):
+ * - `aliases`: a layout asset_id served by another delivered model (e.g. a static export superseded by a rigged character);
+ *   `yaw_deg` turns each instance about its own up axis (model facing differs); `static: false` keeps the instances
+ *   dynamic (not static-batched: vertex-animated plants, moving pieces). `model` is optional when only `static` is set.
+ * - `marker_actors`: a gameplay prefab instanced for every layout marker of a type (`tipo`), named after the marker id,
+ *   at the marker pose (`anchor: "marker"`) or at the start of the marker's path facing its end (`anchor: "path"`).
+ * Shape: { "aliases": { "<asset_id>": { "model": "<stem>", "yaw_deg": 180, "static": false } },
+ *          "marker_actors": { "<Tipo>": { "prefab": "Assets/...prefab", "layer": "Enemies", "anchor": "path" } } }.
  */
-function readAliases(root, issues) {
+function readAliasConfig(root, issues) {
   const rel = 'Docs/V57/layout_aliases.json';
-  if (!fs.existsSync(path.join(root, rel))) return new Map();
+  const out = { aliases: new Map(), markerActors: new Map() };
+  if (!fs.existsSync(path.join(root, rel))) return out;
   const doc = readJson(root, rel, issues, 'LAYOUT_ALIASES_UNREADABLE');
-  const out = new Map();
   for (const [id, a] of Object.entries((doc && doc.aliases) || {})) {
-    if (a && a.model) out.set(id.toLowerCase(), { model: String(a.model), yaw: Number(a.yaw_deg) || 0 });
+    if (a && (a.model || a.static === false)) {
+      out.aliases.set(id.toLowerCase(), { model: a.model ? String(a.model) : null, yaw: Number(a.yaw_deg) || 0, dynamic: a.static === false });
+    }
+  }
+  for (const [type, a] of Object.entries((doc && doc.marker_actors) || {})) {
+    if (a && a.prefab) {
+      out.markerActors.set(type.toLowerCase(), { prefab: String(a.prefab), layer: a.layer ? englishLayer(a.layer).name : 'Gameplay', anchor: a.anchor === 'path' ? 'path' : 'marker' });
+    }
   }
   return out;
+}
+
+function readAliases(root, issues) {
+  return readAliasConfig(root, issues).aliases;
+}
+
+/** DCC custom properties → flat [{ key, value }] (strings; arrays comma-joined, objects as JSON) so Unity's JsonUtility reads them. */
+function flattenProps(props) {
+  const out = [];
+  for (const [key, v] of Object.entries(props || {})) {
+    if (v === null || v === undefined) continue;
+    const value = Array.isArray(v) ? v.map((x) => (typeof x === 'object' ? JSON.stringify(x) : String(x))).join(',')
+      : typeof v === 'object' ? JSON.stringify(v) : String(v);
+    out.push({ key: String(key), value });
+  }
+  return out;
+}
+
+/** unity_scene/1.1 `marcadores` (markers without mesh) → `Marker_<Type>_<Id>` names; `MarkerPatrol_X` → `Marker_Patrol_X`. */
+function contractMarkerName(m, taken) {
+  const raw = String(m.nombre || m.name || '').trim();
+  let name;
+  if (/^Marker_/.test(raw)) name = raw;
+  else if (/^Marker[A-Z][A-Za-z]*_.+$/.test(raw)) name = raw.replace(/^Marker([A-Z][A-Za-z]*)_(.+)$/, 'Marker_$1_$2');
+  else name = `Marker_${cleanBase(m.tipo || m.type || 'Other')}_${cleanBase(m.id || raw || 'Marker')}`;
+  return markerName({ nombre: name }, taken);
+}
+
+/** `Marker_<Type>_<Id>` → the id part (actor names follow it, e.g. a crab named after its patrol marker). */
+function markerIdOf(name) {
+  const m = String(name).match(/^Marker_[^_]+_(.+)$/);
+  return m ? m[1] : String(name).replace(/^Marker_/, '');
+}
+
+/** Yaw quaternion (x,y,z,w) turning local +X towards the horizontal direction (dx, dz). */
+function yawFacingX(dx, dz) {
+  const yaw = Math.atan2(-dz, dx);
+  return [0, Math.sin(yaw / 2), 0, Math.cos(yaw / 2)];
+}
+
+/** unity_scene/1.1 `trayectorias`: sampled curves in Unity axes. Points are flattened (x,y,z,…) for JsonUtility. */
+function readPaths(doc) {
+  const known = new Set(['nombre', 'name', 'tipo', 'type', 'actor', 'ciclo', 'loop', 'modo', 'mode', 'velocidad_mps', 'speed_mps',
+    'zona', 'zone', 'puntos', 'points', 'puntos_control', 'instancias', 'instances']);
+  return (doc.trayectorias || doc.paths || []).filter((t) => t && Array.isArray(t.puntos || t.points)).map((t) => {
+    const props = {};
+    for (const [k, v] of Object.entries(t)) if (!known.has(k)) props[k] = v;
+    return {
+      name: cleanBase(t.nombre || t.name || 'Path'), kind: String(t.tipo || t.type || ''), actor: String(t.actor || ''),
+      loop: !!(t.ciclo ?? t.loop), mode: String(t.modo || t.mode || ''), speed: Number(t.velocidad_mps ?? t.speed_mps) || 0,
+      zone: String(t.zona || t.zone || ''), points: (t.puntos || t.points).flatMap((p) => p.slice(0, 3).map(Number)),
+      instances: (t.instancias || t.instances || []).map((i) => String(typeof i === 'object' ? i.nombre || i.name : i)),
+      props: flattenProps(props),
+    };
+  });
 }
 
 /** Local yaw about Y applied after the instance rotation (quaternion x,y,z,w). */
@@ -155,7 +222,8 @@ function withYaw(q, deg) {
 /** @returns {Array<{level_id, source, manifest, objects, materials}>} */
 function readLayouts(root, inv, issues) {
   const models = modelIndex(inv);
-  const aliases = readAliases(root, issues);
+  const aliasConfig = readAliasConfig(root, issues);
+  const aliases = aliasConfig.aliases;
   const textures = textureIndex(inv);
   const layouts = [];
   for (const rel of inv.docs.filter((d) => LAYOUT_RE.test(d))) {
@@ -183,13 +251,48 @@ function readLayouts(root, inv, issues) {
       if (layer.renamed) renamedLayers.set(src, layer.name);
       const marker = isMarker(o);
       const alias = marker ? null : aliases.get(String(o.asset_id || '').toLowerCase()) || null;
-      const model = marker ? null : models.get((alias ? alias.model : String(o.asset_id || '')).toLowerCase()) || null;
-      if (alias) aliased.add(`${o.asset_id}→${alias.model}`);
+      const model = marker ? null : models.get((alias && alias.model ? alias.model : String(o.asset_id || '')).toLowerCase()) || null;
+      if (alias && alias.model) aliased.add(`${o.asset_id}→${alias.model}`);
       if (!marker && !model) missing.add(o.asset_id);
       return { name: marker ? markerName(o, markerNames) : names[i], kind: marker ? 'marker' : 'model', shape: marker ? markerShape(o) : null,
         source_name: o.nombre || o.name || null, asset_id: marker ? 'Marker' : o.asset_id, model, layer: marker ? 'Markers' : layer.name,
-        position: (o.position || [0, 0, 0]).slice(0, 3), rotation: withYaw((o.rotation || [0, 0, 0, 1]).slice(0, 4), alias ? alias.yaw : 0), scale: (o.scale || [1, 1, 1]).slice(0, 3) };
+        position: (o.position || [0, 0, 0]).slice(0, 3), rotation: withYaw((o.rotation || [0, 0, 0, 1]).slice(0, 4), alias ? alias.yaw : 0), scale: (o.scale || [1, 1, 1]).slice(0, 3),
+        prefab: null, dynamic: !!(alias && alias.dynamic), props: flattenProps(o.props) };
     });
+    const paths = readPaths(doc);
+    // unity_scene/1.1 markers: a separate `marcadores` array (Spawn/Zone/Exit/Kill/CameraZone/Patrol + typed gameplay markers).
+    const actorNames = new Set();
+    for (const m of doc.marcadores || doc.markers || []) {
+      const name = contractMarkerName(m, markerNames);
+      const vol = m.volumen || m.volume || null;
+      const box = !!vol && /^(box|cube|caja|cubo)$/i.test(String(vol.forma || vol.shape || ''));
+      const size = box && Array.isArray(vol.tamano || vol.size) ? (vol.tamano || vol.size) : [1, 1, 1];
+      const type = String(m.tipo || m.type || '');
+      const props = { ...(m.props || {}), tipo: type };
+      if (vol && !box) Object.assign(props, { volume_shape: vol.forma || vol.shape, volume_radius: vol.radio ?? vol.radius });
+      const path = paths.find((p) => p.actor === String(m.nombre || m.name || '') || (m.props && m.props.path && p.name === cleanBase(m.props.path)));
+      const pts = path ? path.points : null;
+      // A patrol marker is the END of its route (V57 contract); the provider's marker sits mid-route, so it moves there.
+      const position = /^patrol$/i.test(type) && pts && pts.length >= 6 ? pts.slice(-3) : (m.position || [0, 0, 0]).slice(0, 3);
+      objects.push({ name, kind: 'marker', shape: box ? 'box' : 'point', source_name: m.nombre || m.name || null, asset_id: 'Marker', model: null,
+        layer: 'Markers', position, rotation: (m.rotation || [0, 0, 0, 1]).slice(0, 4),
+        scale: (m.scale || [1, 1, 1]).slice(0, 3).map((s, i) => s * (Number(size[i]) || 1)), prefab: null, dynamic: false, props: flattenProps(props) });
+      const actor = aliasConfig.markerActors.get(type.toLowerCase());
+      if (actor) {
+        let aPos = (m.position || [0, 0, 0]).slice(0, 3);
+        let aRot = (m.rotation || [0, 0, 0, 1]).slice(0, 4);
+        if (actor.anchor === 'path' && pts && pts.length >= 6) {
+          aPos = pts.slice(0, 3);
+          aRot = yawFacingX(pts[pts.length - 3] - pts[0], pts[pts.length - 1] - pts[2]);
+        }
+        let actorName = markerIdOf(name);
+        for (let n = 2; actorNames.has(actorName); n++) actorName = `${markerIdOf(name)}_${String(n).padStart(2, '0')}`;
+        actorNames.add(actorName);
+        objects.push({ name: actorName, kind: 'model', shape: null, source_name: m.nombre || m.name || null, asset_id: `Marker:${type}`, model: null,
+          layer: actor.layer, position: aPos, rotation: aRot, scale: [1, 1, 1], prefab: actor.prefab, dynamic: true, props: flattenProps(props) });
+        aliased.add(`marker ${type}→${actor.prefab.split('/').pop()}`);
+      }
+    }
     if (renamedLayers.size) {
       issues.add({ code: 'LAYOUT_LAYER_RENAMED', level: 'fixable', area: 'design', where: rel,
         message: `layer names are not English PascalCase: ${[...renamedLayers].map(([a, b]) => `${a}→${b}`).join(', ')}`,
@@ -205,9 +308,10 @@ function readLayouts(root, inv, issues) {
         message: `${missing.size} layout asset_id(s) without a model on disk: ${[...missing].join(', ')}`,
         fix: 'instances skipped (slot left empty); listed in MISSING_ASSETS.md', refs: [...missing] });
     }
-    layouts.push({ level_id: levelId, source: rel, manifest: manifest ? manifestRel : null, objects, materials: normalizeMaterials(manifest, textures) });
+    layouts.push({ level_id: levelId, source: rel, manifest: manifest ? manifestRel : null, objects, paths, materials: normalizeMaterials(manifest, textures) });
   }
   return layouts;
 }
 
-module.exports = { readLayouts, englishLayer, splitInstanceName, instanceNames, isMarker, markerName, markerShape, LAYOUT_RE };
+module.exports = { readLayouts, englishLayer, splitInstanceName, instanceNames, isMarker, markerName, markerShape, flattenProps,
+  contractMarkerName, yawFacingX, readPaths, LAYOUT_RE };

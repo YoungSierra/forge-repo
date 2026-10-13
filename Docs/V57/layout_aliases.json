@@ -1,8 +1,19 @@
 {
-  "_note": "V57-owned (D-010, D-022): the rigged character deliveries supersede the static AST-CHAR exports placed by the level layouts. The rigged models face +Z, the static exports -Z, so every instance turns 180 degrees.",
+  "_note": "V57-owned (D-010, D-022, D-252, D-270). aliases: the rigged character deliveries supersede the static AST-CHAR exports (rigged models face +Z, the static exports -Z, so every instance turns 180 degrees); Level_01 V10 exports five ocean ids with underscores (AST_ENV_*) for the meshes delivered as AST-ENV-*; the pure algae stay dynamic (static:false) so the vertex sway shader is not broken by static batching. marker_actors: crabs at the start of their patrol path facing its end (the Patrol marker is the route end), lab zone doors at the map's Door markers.",
   "aliases": {
     "AST-CHAR-NEONFLY-001": { "model": "Fly", "yaw_deg": 180 },
     "AST-CHAR-JELLYFISH-001": { "model": "Jellyfish", "yaw_deg": 180 },
-    "AST-CHAR-RADIOACTIVESHARK-001": { "model": "Shark", "yaw_deg": 180 }
+    "AST-CHAR-RADIOACTIVESHARK-001": { "model": "Shark", "yaw_deg": 180 },
+    "AST-CHAR-FISH-001": { "model": "Fish", "yaw_deg": 180 },
+    "AST_ENV_OCEANBOAT-001": { "model": "AST-ENV-OCEANBOAT-001" },
+    "AST_ENV_OCEANROCKS-001": { "model": "AST-ENV-OCEANROCKS-001" },
+    "AST_ENV_OCEANSKELETON-001": { "model": "AST-ENV-OCEANSKELETON-001" },
+    "AST_ENV_OCEANROCKLEAVES-001": { "model": "AST-ENV-OCEANROCKLEAVES-001" },
+    "AST_ENV_OCEANLEAVES-001": { "model": "AST-ENV-OCEANLEAVES-001", "static": false },
+    "AST-ENV-VEGETATION-001": { "static": false }
+  },
+  "marker_actors": {
+    "Patrol": { "prefab": "Assets/_Game/Prefabs/Gameplay/Characters/PRF_MechanicalCrab.prefab", "layer": "Enemies", "anchor": "path" },
+    "Door": { "prefab": "Assets/_Game/Prefabs/Gameplay/Props/PRF_ZoneDoor_Lab.prefab", "layer": "Doors", "anchor": "marker" }
   }
 }

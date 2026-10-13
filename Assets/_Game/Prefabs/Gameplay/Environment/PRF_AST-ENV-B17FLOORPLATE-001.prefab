@@ -48,6 +48,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2344199121378438825, guid: bcc50985a66f3614b88774f2981e58d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7601915223139808264, guid: bcc50985a66f3614b88774f2981e58d1, type: 3}
       propertyPath: m_Name
       value: PRF_AST-ENV-B17FLOORPLATE-001
@@ -59,6 +63,14 @@ PrefabInstance:
     - target: {fileID: 7601915223139808264, guid: bcc50985a66f3614b88774f2981e58d1, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254828614701129650, guid: bcc50985a66f3614b88774f2981e58d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135527193364131280, guid: bcc50985a66f3614b88774f2981e58d1, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -92,5 +104,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 3.705535, y: 0.41092184, z: 2.641121}
-  m_Center: {x: -0.00000035762787, y: 0.20546092, z: -0.000027894974}
+  m_Size: {x: 2.0019097, y: 0.22199994, z: 1.4268615}
+  m_Center: {x: -0.000004172325, y: 0.11099997, z: 0}

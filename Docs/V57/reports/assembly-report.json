@@ -1,52 +1,81 @@
 {
-    "generated_utc": "2026-10-09T17:42:35.3032895Z",
+    "generated_utc": "2026-10-13T22:42:49.0165727Z",
     "unity_version": "6000.6.2f1",
     "data_problems": "",
     "pass": true,
     "counts": {
-        "import_log_entries": 288,
-        "materials": 37,
+        "import_log_entries": 0,
+        "materials": 0,
         "orm_packed_textures": 0,
-        "metallic_smoothness_packed": 1,
+        "metallic_smoothness_packed": 0,
         "skyboxes": 0,
         "atlases": 0,
         "animator_controllers": 0,
         "visual_prefabs": 0,
-        "scenes": 1,
-        "layout_instances": 817,
+        "scenes": 0,
+        "layout_instances": 0,
         "layout_missing": 0,
-        "layout_gameplay": 337,
+        "layout_gameplay": 0,
         "gameplay_linked": 0,
         "level_data": 0,
         "markers": 0,
         "dressed": 0,
-        "skipped_existing": 0,
+        "skipped_existing": 42,
         "missing_refs": 0
     },
     "steps": [
         {
-            "name": "ApplyImportRules",
+            "name": "BuildVisualPrefabs",
             "ok": true,
-            "duration_s": 47.974037170410156,
-            "detail": ""
-        },
-        {
-            "name": "BuildMaterials",
-            "ok": true,
-            "duration_s": 0.8481907844543457,
-            "detail": ""
-        },
-        {
-            "name": "RebuildLevelContent",
-            "ok": true,
-            "duration_s": 1.0426020622253418,
+            "duration_s": 1.7811803817749023,
             "detail": ""
         }
     ],
     "errors": [],
     "warnings": [],
     "created_assets": [
-        "Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity"
+        "Assets/_Game/Prefabs/Visual/Characters/PRF_Fish_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Characters/PRF_Fly_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Characters/PRF_Jellyfish_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Characters/PRF_MechanicalCrab_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Characters/PRF_Professor_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Characters/PRF_Shark_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Characters/PRF_Sprat_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-CORALROCK-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVCORALROCK002_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-HYDRODOMETOWER-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVOCEANBOAT001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVOCEANLEAVES001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVOCEANROCKLEAVES001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVOCEANROCKS001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVOCEANSKELETON001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVROCKVEGETATION001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVSEABED001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_ASTENVVEGETATION001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-WATERSURFACE-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-B17ARCH-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-B17FLOORPLATE-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-BULKHEAD-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-CRYSTALPANEL-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-GRATEPLATFORM-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-HATCHPANEL-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-LABDOOR-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-LABFLOOR-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-PIPE-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-PIPE-002_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-PLATFORMMODULE-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-SCAFFOLD-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Environment/PRF_AST-ENV-STEELCOLUMN-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-BEACONCRATE-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-CONSOLE-002_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-HOSE-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-LANTERN-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-RAILING-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-WARNINGSIGN-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-ACCESSKEY-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-CONSOLE-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-HATCH-001_Visual.prefab",
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-ZONEDOOR-001_Visual.prefab"
     ],
     "missing_refs": [],
     "import_log": [
@@ -126,7 +155,7 @@
             "path": "Assets/_Game/Art/Characters/Fish/Materials/T_Fish_MS.png",
             "rule": "texture",
             "decision": "Default linear (sRGB off) mips=on",
-            "utc": "2026-10-09T17:42:20.9012531Z"
+            "utc": "2026-10-13T22:07:45.7782533Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Albedo.jpg",
@@ -1158,7 +1187,7 @@
             "path": "Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Meshes/AST-PROP-HATCH-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPHATCH001",
-            "utc": "2026-10-09T17:42:15.9552794Z"
+            "utc": "2026-10-13T21:53:41.0552548Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/MechanicalCrab/Animations/ANIM_MechanicalCrab_ScuttleR.fbx",
@@ -1188,13 +1217,13 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Meshes/AST-ENV-PIPE-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVPIPE001",
-            "utc": "2026-10-09T17:42:16.0609039Z"
+            "utc": "2026-10-13T21:53:42.0407027Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Meshes/AST-ENV-VEGETATION-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVVEGETATION001",
-            "utc": "2026-10-09T17:42:16.0926773Z"
+            "utc": "2026-10-13T22:05:50.5747893Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Professor/Animations/ANIM_Professor_Run.fbx",
@@ -1236,7 +1265,7 @@
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Meshes/AST-ENV-OCEANSKELETON-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVOCEANSKELETON001",
-            "utc": "2026-10-09T17:42:16.2458763Z"
+            "utc": "2026-10-13T22:05:48.3991539Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/MechanicalCrab/Animations/ANIM_MechanicalCrab_Death.fbx",
@@ -1278,13 +1307,13 @@
             "path": "Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Meshes/AST-PROP-CONSOLE-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPCONSOLE001",
-            "utc": "2026-10-09T17:42:16.3842862Z"
+            "utc": "2026-10-13T21:53:44.1261525Z"
         },
         {
             "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Meshes/AST-PROP-CONSOLE-002.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPCONSOLE002",
-            "utc": "2026-10-09T17:42:16.4242669Z"
+            "utc": "2026-10-13T21:53:44.9911305Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Fly/Animations/ANIM_Fly_FixedGazeHover.fbx",
@@ -1302,13 +1331,13 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Meshes/AST-ENV-LABDOOR-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVLABDOOR001",
-            "utc": "2026-10-09T17:42:16.4880140Z"
+            "utc": "2026-10-13T21:53:45.5848035Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Meshes/AST-ENV-LABFLOOR-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVLABFLOOR001",
-            "utc": "2026-10-09T17:42:16.5022726Z"
+            "utc": "2026-10-13T22:05:52.0426464Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Professor/Animations/ANIM_Professor_Idle.fbx",
@@ -1338,7 +1367,7 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Meshes/AST-ENV-SCAFFOLD-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVSCAFFOLD001",
-            "utc": "2026-10-09T17:42:16.6646548Z"
+            "utc": "2026-10-13T21:53:46.9772974Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Fly/Animations/ANIM_Fly_AscentBurstInPlace.fbx",
@@ -1356,13 +1385,13 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Meshes/AST-ENV-CRYSTALPANEL-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVCRYSTALPANEL001",
-            "utc": "2026-10-09T17:42:16.7304885Z"
+            "utc": "2026-10-13T21:53:47.4927102Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Meshes/AST-ENV-CORALROCK-002.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVCORALROCK002",
-            "utc": "2026-10-09T17:42:16.7640035Z"
+            "utc": "2026-10-13T22:05:13.6414611Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Fly/Animations/ANIM_Fly_OrbitLoopInPlace.fbx",
@@ -1380,13 +1409,13 @@
             "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Meshes/AST-PROP-RAILING-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPRAILING001",
-            "utc": "2026-10-09T17:42:16.8198261Z"
+            "utc": "2026-10-13T21:53:48.7321282Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Meshes/AST-ENV-SEABED-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVSEABED001",
-            "utc": "2026-10-09T17:42:16.8535775Z"
+            "utc": "2026-10-13T21:53:49.2167918Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Fish/Animations/ANIM_Fish_HoverIdle.fbx",
@@ -1416,7 +1445,7 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Meshes/AST-ENV-STEELCOLUMN-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVSTEELCOLUMN001",
-            "utc": "2026-10-09T17:42:17.0349550Z"
+            "utc": "2026-10-13T21:56:39.5992874Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Shark/Meshes/SK_Shark.fbx",
@@ -1428,7 +1457,7 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Meshes/AST-ENV-PIPE-002.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVPIPE002",
-            "utc": "2026-10-09T17:42:17.1315139Z"
+            "utc": "2026-10-13T21:56:40.4863406Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Sprat/Animations/ANIM_Sprat_Idle.fbx",
@@ -1446,7 +1475,7 @@
             "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Meshes/AST-PROP-HOSE-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPHOSE001",
-            "utc": "2026-10-09T17:42:17.1990399Z"
+            "utc": "2026-10-13T21:56:41.2960485Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-PLATFORMMODULE-001/Meshes/AST-ENV-PLATFORMMODULE-001.fbx",
@@ -1470,7 +1499,7 @@
             "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Meshes/AST-PROP-LANTERN-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPLANTERN001",
-            "utc": "2026-10-09T17:42:17.2816213Z"
+            "utc": "2026-10-13T21:56:42.2557517Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Fly/Animations/ANIM_Fly_CruiseFlight.fbx",
@@ -1542,7 +1571,7 @@
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Meshes/AST-ENV-OCEANROCKS-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVOCEANROCKS001",
-            "utc": "2026-10-09T17:42:17.5218265Z"
+            "utc": "2026-10-13T22:05:40.9152179Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_PassiveTransit.fbx",
@@ -1572,19 +1601,19 @@
             "path": "Assets/_Game/Art/Props/Gameplay/AST-PROP-ACCESSKEY-001/Meshes/AST-PROP-ACCESSKEY-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPACCESSKEY001",
-            "utc": "2026-10-09T17:42:17.6336133Z"
+            "utc": "2026-10-13T21:56:48.4349401Z"
         },
         {
             "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Meshes/AST-PROP-WARNINGSIGN-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPWARNINGSIGN001",
-            "utc": "2026-10-09T17:42:17.6484451Z"
+            "utc": "2026-10-13T21:56:48.4554694Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVHYDRODOMETOWER001",
-            "utc": "2026-10-09T17:42:17.6878920Z"
+            "utc": "2026-10-13T21:56:49.0627179Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Fly/Animations/ANIM_Fly_LazyCircleDrift.fbx",
@@ -1626,13 +1655,13 @@
             "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Meshes/AST-PROP-BEACONCRATE-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTPROPBEACONCRATE001",
-            "utc": "2026-10-09T17:42:17.9221147Z"
+            "utc": "2026-10-13T21:56:52.8058722Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Meshes/AST-ENV-B17FLOORPLATE-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVB17FLOORPLATE001",
-            "utc": "2026-10-09T17:42:17.9601945Z"
+            "utc": "2026-10-13T21:56:53.4363748Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/MechanicalCrab/Meshes/SK_MechanicalCrab.fbx",
@@ -1662,19 +1691,19 @@
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Meshes/AST-ENV-CORALROCK-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVCORALROCK001",
-            "utc": "2026-10-09T17:42:18.1424981Z"
+            "utc": "2026-10-13T21:56:53.9711647Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Meshes/AST-ENV-B17ARCH-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVB17ARCH001",
-            "utc": "2026-10-09T17:42:18.2136607Z"
+            "utc": "2026-10-13T21:56:56.7357983Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Meshes/AST-ENV-OCEANLEAVES-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVOCEANLEAVES001",
-            "utc": "2026-10-09T17:42:18.2515597Z"
+            "utc": "2026-10-13T22:05:35.3961239Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Professor/Meshes/SK_Professor.fbx",
@@ -1722,7 +1751,7 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Meshes/AST-ENV-BULKHEAD-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVBULKHEAD001",
-            "utc": "2026-10-09T17:42:18.4493776Z"
+            "utc": "2026-10-13T21:56:57.6047543Z"
         },
         {
             "path": "Assets/_Game/Art/Props/Gameplay/AST-PROP-ZONEDOOR-001/Meshes/AST-PROP-ZONEDOOR-001.fbx",
@@ -1734,7 +1763,7 @@
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Meshes/AST-ENV-GRATEPLATFORM-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVGRATEPLATFORM001",
-            "utc": "2026-10-09T17:42:18.5195359Z"
+            "utc": "2026-10-13T21:57:00.6506046Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Professor/Animations/ANIM_Professor_Death.fbx",
@@ -1764,19 +1793,541 @@
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Meshes/AST-ENV-OCEANBOAT-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVOCEANBOAT001",
-            "utc": "2026-10-09T17:42:18.6237034Z"
+            "utc": "2026-10-13T22:05:24.9217346Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Meshes/AST-ENV-HATCHPANEL-001.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVHATCHPANEL001",
-            "utc": "2026-10-09T17:42:18.7956844Z"
+            "utc": "2026-10-13T21:57:12.7800144Z"
         },
         {
             "path": "Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx",
             "rule": "model",
             "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=Generic (avatar from this model) manifest=INV-Jellyfish",
             "utc": "2026-10-09T17:42:18.8252585Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/Music/MUS_PuffAndRebellion.wav",
+            "rule": "audio",
+            "decision": "Music/Ambience: Streaming Vorbis q0.7",
+            "utc": "2026-10-09T22:51:41.4097372Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Sky/V4_Skybox.png",
+            "rule": "sky",
+            "decision": "lat-long sky sRGB mips=off wrapU=repeat wrapV=clamp max=2048",
+            "utc": "2026-10-13T16:46:19.9791478Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Sky/V7_Skybox.png",
+            "rule": "sky",
+            "decision": "lat-long sky sRGB mips=off wrapU=repeat wrapV=clamp max=2048",
+            "utc": "2026-10-13T17:28:34.4865378Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Sky/V8_Skybox.png",
+            "rule": "sky",
+            "decision": "lat-long sky sRGB mips=off wrapU=repeat wrapV=clamp max=2048",
+            "utc": "2026-10-13T17:27:51.4847779Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Player/SFX_Footstep_Steel_01.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T18:18:35.6270974Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Player/SFX_Footstep_Steel_02.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T18:18:35.6766442Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Player/SFX_Footstep_Steel_03.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T18:18:35.7264765Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Player/SFX_Footstep_Steel.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T18:25:29.3383626Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Player/SFX_Jump.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T18:38:03.7934124Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Player/SFX_Land.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T18:39:11.7096731Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/UI_HUDCounter/UI_HUD_Banner.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.9674537Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Rivet.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.8345442Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Bar_Iron.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:44.9823538Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Icons/ICO_Skull.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:44.9218780Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Cap_Right.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.3830078Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Button_Focus.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.1219664Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Panel_Dark.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.6866534Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Button_Normal.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.2569072Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Button_Hover.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.1912498Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Atlases/UI_SpriteSheet_v02.png",
+            "rule": "texture",
+            "decision": "no naming rule matched (importer defaults kept)",
+            "utc": "2026-10-13T20:20:44.6345381Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Button_Alt.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.0514087Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Gem_Large.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.5654565Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Frame_Amber.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.4412101Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Frame_Cyan.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.5047970Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Cap_Left.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.3218089Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Icons/ICO_Marker.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:44.8571390Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/UI_HUDCounter/UI_HUD_KeySlot.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:46.0290036Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/UI_HUDCounter/FX_Starburst.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.8992754Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Gem_Small.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.6248598Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Icons/ICO_AccessKey.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:44.7239397Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/Common/UI_Panel_Skull.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:45.7617701Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Sprites/UI_MainMenu/UI_Logo.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:46.0963735Z"
+        },
+        {
+            "path": "Assets/_Game/Art/UI/Icons/ICO_Fly.png",
+            "rule": "sprite",
+            "decision": "Sprite Single mips=off clamp border=none",
+            "utc": "2026-10-13T20:20:44.7953505Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Flies/SFX_FlyPopLast.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T20:39:41.6441855Z"
+        },
+        {
+            "path": "Assets/_Game/Audio/SFX/Flies/SFX_FlyPop.wav",
+            "rule": "audio",
+            "decision": "SFX: DecompressOnLoad",
+            "utc": "2026-10-13T20:39:41.7026443Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Textures/AST-ENV-HYDRODOMETOWER-001_AST-ENV-HYDRODOMETOWER-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:57.0882473Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST_ENV_OCEANROCKS-001_lambert3_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:57.4516482Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Textures/AST-ENV-CORALROCK-002_lambert35_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:57.8159615Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Gameplay/AST-PROP-CONSOLE-001/Textures/AST-PROP-CONSOLE-001_AST-PROP-CONSOLE-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:58.1770986Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_A_Ocean_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:58.5296637Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-B17FLOORPLATE-001/Textures/AST-ENV-B17FLOORPLATE-001_AST-ENV-B17FLOORPLATE-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:58.9060584Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_Normal.jpg",
+            "rule": "texture",
+            "decision": "NormalMap mips=on",
+            "utc": "2026-10-13T21:57:59.2206688Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Textures/AST-ENV-LABFLOOR-001_AST-ENV-LABFLOOR-001.001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:59.5760835Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-002/Textures/AST-ENV-PIPE-002_AST-ENV-PIPE-002_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:57:59.9363426Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_Normal.jpg",
+            "rule": "texture",
+            "decision": "NormalMap mips=on",
+            "utc": "2026-10-13T21:58:00.2655803Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-RAILING-001/Textures/AST-PROP-RAILING-001_AST-PROP-RAILING-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:00.6012336Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-LABDOOR-001/Textures/AST-ENV-LABDOOR-001_AST-ENV-LABDOOR-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:00.9609686Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_MetallicSmoothness.png",
+            "rule": "texture",
+            "decision": "Default linear (sRGB off) mips=on",
+            "utc": "2026-10-13T21:58:01.4068136Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_AST-ENV-B17ARCH-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:01.7495629Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Textures/AST_ENV_OCEANSKELETON-001_lambert5.001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:02.1036292Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-SCAFFOLD-001/Textures/AST-ENV-SCAFFOLD-001_AST-ENV-SCAFFOLD-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:02.4622274Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-BEACONCRATE-001/Textures/AST-PROP-BEACONCRATE-001_AST-PROP-BEACONCRATE-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:02.8228383Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:03.1776193Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-PIPE-001/Textures/AST-ENV-PIPE-001_AST-ENV-PIPE-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:03.5499391Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Textures/AST_ENV_OCEANBOAT-001_lambert5_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:03.9137339Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_Normal.jpg",
+            "rule": "texture",
+            "decision": "NormalMap mips=on",
+            "utc": "2026-10-13T21:58:04.2325480Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-BULKHEAD-001/Textures/AST-ENV-BULKHEAD-001_AST-ENV-BULKHEAD-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:04.5956497Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-WARNINGSIGN-001/Textures/AST-PROP-WARNINGSIGN-001_AST-PROP-WARNINGSIGN-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:04.9493926Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_A_Ocean_Normal.jpg",
+            "rule": "texture",
+            "decision": "NormalMap mips=on",
+            "utc": "2026-10-13T21:58:05.2800619Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Gameplay/AST-PROP-HATCH-001/Textures/AST-PROP-HATCH-001_AST-PROP-HATCH-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:05.6403738Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Textures/AST-ENV-ROCKVEGETATION-001_A_Ocean_MetallicSmoothness.png",
+            "rule": "texture",
+            "decision": "Default linear (sRGB off) mips=on",
+            "utc": "2026-10-13T21:58:06.0770501Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-STEELCOLUMN-001/Textures/AST-ENV-STEELCOLUMN-001_AST-ENV-STEELCOLUMN-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:06.4437266Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_A_Ocean_MetallicSmoothness.png",
+            "rule": "texture",
+            "decision": "Default linear (sRGB off) mips=on",
+            "utc": "2026-10-13T21:58:06.8698147Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-CONSOLE-002/Textures/AST-PROP-CONSOLE-002_AST-PROP-CONSOLE-002_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:07.2256906Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-GRATEPLATFORM-001/Textures/AST-ENV-GRATEPLATFORM-001_AST-ENV-GRATEPLATFORM-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:07.5892096Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_Albedo.png",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:08.0085463Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_Normal.png",
+            "rule": "texture",
+            "decision": "NormalMap mips=on",
+            "utc": "2026-10-13T21:58:08.2383410Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_MetallicSmoothness.png",
+            "rule": "texture",
+            "decision": "Default linear (sRGB off) mips=on",
+            "utc": "2026-10-13T21:58:08.6180127Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-LANTERN-001/Textures/AST-PROP-LANTERN-001_AST-PROP-LANTERN-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:08.9477942Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-HATCHPANEL-001/Textures/AST-ENV-HATCHPANEL-001_AST-ENV-HATCHPANEL-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:09.3421288Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Textures/AST_ENV_OCEANROCKLEAVES-001_C_Ocean_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:09.6914533Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-001/Textures/AST-ENV-CORALROCK-001_AST-ENV-CORALROCK-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:10.0621725Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Props/Dressing/AST-PROP-HOSE-001/Textures/AST-PROP-HOSE-001_AST-PROP-HOSE-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:10.4202636Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-CRYSTALPANEL-001/Textures/AST-ENV-CRYSTALPANEL-001_AST-ENV-CRYSTALPANEL-001_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:10.7828684Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Textures/AST_ENV_OCEANLEAVES-001_C_Ocean_Albedo.jpg",
+            "rule": "texture",
+            "decision": "Default sRGB mips=on",
+            "utc": "2026-10-13T21:58:11.1372923Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-SEABED-001/Textures/AST-ENV-SEABED-001_AST-ENV-SEABED-001_MetallicSmoothness.png",
+            "rule": "texture",
+            "decision": "Default linear (sRGB off) mips=on",
+            "utc": "2026-10-13T21:58:11.3214662Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Meshes/AST-ENV-ROCKVEGETATION-001.fbx",
+            "rule": "model",
+            "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVROCKVEGETATION001",
+            "utc": "2026-10-13T21:59:18.8255668Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Meshes/AST-ENV-OCEANROCKLEAVES-001.fbx",
+            "rule": "model",
+            "decision": "globalScale=1 useFileScale=true cameras=off lights=off materials=ViaDescription/InPrefab readable=False rig=unchanged manifest=INV-ASTENVOCEANROCKLEAVES001",
+            "utc": "2026-10-13T21:59:18.6245448Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Meshes/AST-ENV-OCEANROCKLEAVES-001.fbx",
+            "rule": "material-remap",
+            "decision": "'C_Ocean' → Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKLEAVES-001/Materials/MAT_AST-ENV-OCEANROCKLEAVES-001.mat",
+            "utc": "2026-10-13T21:59:18.6701084Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Meshes/AST-ENV-ROCKVEGETATION-001.fbx",
+            "rule": "material-remap",
+            "decision": "'A_Ocean' → Assets/_Game/Art/Environment/Decoration/AST-ENV-ROCKVEGETATION-001/Materials/MAT_AST-ENV-ROCKVEGETATION-001.mat",
+            "utc": "2026-10-13T21:59:18.8829995Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Meshes/AST-ENV-CORALROCK-002.fbx",
+            "rule": "material-remap",
+            "decision": "'lambert35' → Assets/_Game/Art/Environment/Decoration/AST-ENV-CORALROCK-002/Materials/MAT_AST-ENV-CORALROCK-002.mat",
+            "utc": "2026-10-13T22:05:14.2880240Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Meshes/AST-ENV-OCEANBOAT-001.fbx",
+            "rule": "material-remap",
+            "decision": "'lambert5' → Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANBOAT-001/Materials/MAT_AST-ENV-OCEANBOAT-001.mat",
+            "utc": "2026-10-13T22:05:35.1649440Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Meshes/AST-ENV-OCEANLEAVES-001.fbx",
+            "rule": "material-remap",
+            "decision": "'C_Ocean' → Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANLEAVES-001/Materials/MAT_AST-ENV-OCEANLEAVES-001.mat",
+            "utc": "2026-10-13T22:05:35.5162934Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Meshes/AST-ENV-OCEANROCKS-001.fbx",
+            "rule": "material-remap",
+            "decision": "'lambert3' → Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Materials/MAT_AST-ENV-OCEANROCKS-001.mat",
+            "utc": "2026-10-13T22:05:46.3472092Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Meshes/AST-ENV-OCEANSKELETON-001.fbx",
+            "rule": "material-remap",
+            "decision": "'lambert5.001' → Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANSKELETON-001/Materials/MAT_AST-ENV-OCEANSKELETON-001.mat",
+            "utc": "2026-10-13T22:05:50.3464078Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Meshes/AST-ENV-VEGETATION-001.fbx",
+            "rule": "material-remap",
+            "decision": "'A_Ocean' → Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Materials/MAT_AST-ENV-VEGETATION-001.mat",
+            "utc": "2026-10-13T22:05:50.6794931Z"
+        },
+        {
+            "path": "Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Meshes/AST-ENV-LABFLOOR-001.fbx",
+            "rule": "material-remap",
+            "decision": "'AST-ENV-LABFLOOR-001.001' → Assets/_Game/Art/Environment/Kits/AST-ENV-LABFLOOR-001/Materials/MAT_AST-ENV-LABFLOOR-001.mat",
+            "utc": "2026-10-13T22:05:53.2860397Z"
         }
     ]
 }

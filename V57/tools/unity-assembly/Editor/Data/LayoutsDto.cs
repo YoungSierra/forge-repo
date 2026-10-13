@@ -21,7 +21,32 @@ namespace V57.Assembly.Data
         public string source;
         public string manifest;
         public LayoutObjectDto[] objects;
+        public LayoutPathDto[] paths;
         public LayoutMaterialDto[] materials;
+    }
+
+    /// <summary>A DCC custom property flattened to strings (arrays comma-joined, objects as JSON).</summary>
+    [Serializable]
+    public sealed class LayoutPropDto
+    {
+        public string key;
+        public string value;
+    }
+
+    /// <summary>A sampled curve from unity_scene/1.1 <c>trayectorias</c> (Unity axes); <c>points</c> = x,y,z,x,y,z,…</summary>
+    [Serializable]
+    public sealed class LayoutPathDto
+    {
+        public string name;
+        public string kind;
+        public string actor;
+        public bool loop;
+        public string mode;
+        public float speed;
+        public string zone;
+        public float[] points;
+        public string[] instances;
+        public LayoutPropDto[] props;
     }
 
     /// <summary>One placed instance (<c>kind</c> model) or level marker (<c>kind</c> marker, <c>Marker_&lt;Type&gt;_&lt;Id&gt;</c>, no model);
@@ -39,6 +64,11 @@ namespace V57.Assembly.Data
         public float[] position;
         public float[] rotation;
         public float[] scale;
+        /// <summary>Gameplay prefab instanced instead of a model (marker actors); null for models and markers.</summary>
+        public string prefab;
+        /// <summary>True = never marked static (layout_aliases <c>static: false</c>, marker actors).</summary>
+        public bool dynamic;
+        public LayoutPropDto[] props;
     }
 
     /// <summary>Material values authored in the DCC export manifest.</summary>

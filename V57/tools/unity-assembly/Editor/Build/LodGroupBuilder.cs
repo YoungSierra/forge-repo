@@ -5,7 +5,11 @@ using UnityEngine;
 
 namespace V57.Assembly.Build
 {
-    /// <summary>Adds a LODGroup on the prefab root when the model has <c>*_LOD0</c>, <c>*_LOD1</c>… nodes (≥2 levels).</summary>
+    /// <summary>
+    /// Adds a LODGroup on the prefab root when the model has <c>*_LOD0</c>, <c>*_LOD1</c>… nodes (≥2 levels) and the
+    /// imported model carries no LODGroup of its own (Unity's importer creates one for some files; a second group would
+    /// register every renderer twice).
+    /// </summary>
     public static class LodGroupBuilder
     {
         #region Fields
@@ -19,7 +23,95 @@ namespace V57.Assembly.Build
         /// <summary>Returns the number of LOD levels configured (0 when none).</summary>
         public static int Apply(GameObject root, GameObject modelInstance)
         {
+            SortedDictionary<int, List<Renderer>> levels = Levels(modelInstance);
+            if (levels.Count < 2)
+            {
+                return 0;
+            }
+
+            LOD[] lods = new LOD[levels.Count];
+            int index = 0;
+            foreach (KeyValuePair<int, List<Renderer>> level in levels)
+            {
+                float height = 0.5f / (1 << index);
+                if (index == levels.Count - 1)
+                {
+                    height = Mathf.Min(0.02f, height);
+                }
+
+                lods[index] = new LOD(height, level.Value.ToArray());
+                index++;
+            }
+
+            LODGroup group = root.AddComponent<LODGroup>();
+            group.SetLODs(lods);
+            group.RecalculateBounds();
+            return levels.Count;
+        }
+
+        /// <summary>
+        /// Existing prefab after a model re-delivery: rebuilds the root LODGroup when it no longer matches the model's
+        /// <c>_LOD#</c> nodes (levels added, removed or renamed; missing renderers). Returns true when it changed.
+        /// Without a LODGroup every LOD node renders at once (overlapping meshes, shadows cast N times).
+        /// </summary>
+        public static bool Refresh(GameObject root, GameObject modelInstance)
+        {
+            SortedDictionary<int, List<Renderer>> levels = Levels(modelInstance);
+            LODGroup current = root.GetComponent<LODGroup>();
+            if (Matches(current, levels))
+            {
+                return false;
+            }
+
+            if (current != null)
+            {
+                Object.DestroyImmediate(current);
+            }
+
+            Apply(root, modelInstance);
+            return true;
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private static bool Matches(LODGroup current, SortedDictionary<int, List<Renderer>> levels)
+        {
+            if (current == null)
+            {
+                return levels.Count < 2;
+            }
+
+            LOD[] lods = current.GetLODs();
+            if (levels.Count < 2 || lods.Length != levels.Count)
+            {
+                return false;
+            }
+
+            int index = 0;
+            foreach (KeyValuePair<int, List<Renderer>> level in levels)
+            {
+                HashSet<Renderer> assigned = new HashSet<Renderer>(lods[index].renderers);
+                if (assigned.Contains(null) || !assigned.SetEquals(level.Value))
+                {
+                    return false;
+                }
+
+                index++;
+            }
+
+            return true;
+        }
+
+        private static SortedDictionary<int, List<Renderer>> Levels(GameObject modelInstance)
+        {
             SortedDictionary<int, List<Renderer>> levels = new SortedDictionary<int, List<Renderer>>();
+            if (modelInstance.GetComponentInChildren<LODGroup>(true) != null)
+            {
+                return levels; // the imported model has its own LODGroup
+            }
+
             foreach (Transform node in modelInstance.GetComponentsInChildren<Transform>(true))
             {
                 Match match = LodSuffix.Match(node.name);
@@ -44,29 +136,7 @@ namespace V57.Assembly.Build
                 }
             }
 
-            if (levels.Count < 2)
-            {
-                return 0;
-            }
-
-            LOD[] lods = new LOD[levels.Count];
-            int index = 0;
-            foreach (KeyValuePair<int, List<Renderer>> level in levels)
-            {
-                float height = 0.5f / (1 << index);
-                if (index == levels.Count - 1)
-                {
-                    height = Mathf.Min(0.02f, height);
-                }
-
-                lods[index] = new LOD(height, level.Value.ToArray());
-                index++;
-            }
-
-            LODGroup group = root.AddComponent<LODGroup>();
-            group.SetLODs(lods);
-            group.RecalculateBounds();
-            return levels.Count;
+            return levels;
         }
 
         #endregion

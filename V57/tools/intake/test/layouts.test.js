@@ -49,3 +49,55 @@ test('LevelMaps layout: attached to the matching TDD scene, extra level added as
   ['LAYOUT_LAYER_RENAMED', 'LAYOUT_ASSET_MISSING', 'LAYOUT_SCENE_ADDED'].forEach((c) => assert.ok(codes.includes(c), c));
   assert.ok(!r.issues.some((i) => i.code === 'DOCS_UNEXPECTED' && /LevelMaps/.test(i.where)));
 });
+
+test('unity_scene 1.1: marcadores, trayectorias, props, marker actors and static:false aliases', () => {
+  const repo = makeRepo({ files: STANDARD_FILES });
+  const fish = { ...obj('FISH_01', 'Koala', 'Eventos/Peces'), props: { trayectoria: 'PATH_Fish_01', fase: 0.25, offset_path_m: [1, 0, 2] } };
+  touch(repo, 'Docs/Design/LevelMaps/WoodlandPond/unity_scene.json', JSON.stringify({
+    contrato: 'unity_scene/1.1', level_id: 'WoodlandPond', convencion_ejes: 'Unity_Y_up_metros',
+    objetos: [fish, obj('Kelp.001', 'SM_Koala', 'Vestido')],
+    marcadores: [
+      { nombre: 'Marker_Zone_Z1', tipo: 'Zone', position: [0, 1, 0], rotation: [0, 0, 0, 1], scale: [10, 2, 5], volumen: { forma: 'BOX', tamano: [2, 2, 2] } },
+      { nombre: 'MarkerPatrol_CrabA', tipo: 'Patrol', position: [0, 0, 1], rotation: [0, 0, 0, 1], scale: [1, 1, 1], props: { path: 'PATH_Crab_A' } },
+      { nombre: 'LVL_MK_DOOR1', tipo: 'Door', id: 'door_1', position: [5, 0, 0], rotation: [0, 0, 0, 1], scale: [1, 1, 1] },
+      { nombre: 'LVL_MK_SHARK', tipo: 'Event', id: 'shark', position: [0, 0, 0], rotation: [0, 0, 0, 1], scale: [18, 1, 9], volumen: { forma: 'CIRCLE_XZ', radio: 1 } }],
+    trayectorias: [
+      { nombre: 'PATH_Crab_A', tipo: 'cangrejo', actor: 'MarkerPatrol_CrabA', ciclo: false, modo: 'ida_vuelta', velocidad_mps: 1.2, puntos: [[0, 0, 0], [0, 0, 2]] },
+      { nombre: 'PATH_Fish_01', tipo: 'pez', actor: 'Koala', ciclo: true, velocidad_mps: 0.8, puntos: [[0, 1, 0], [1, 1, 0], [1, 1, 1]], instancias: [{ nombre: 'FISH_01' }], cantidad: 1 }],
+  }));
+  touch(repo, 'Docs/V57/layout_aliases.json', JSON.stringify({
+    aliases: { SM_Koala: { static: false } },
+    marker_actors: { Patrol: { prefab: 'Assets/_Game/Prefabs/Gameplay/PRF_Crab.prefab', layer: 'Enemies', anchor: 'path' }, Door: { prefab: 'Assets/_Game/Prefabs/Gameplay/PRF_Door.prefab' } },
+  }));
+  const r = runIntake({ repo });
+  assert.equal(r.exitCode, 0);
+  const wp = readJson(repo, 'layouts').layouts.find((l) => l.level_id === 'WoodlandPond');
+  const byName = Object.fromEntries(wp.objects.map((o) => [o.name, o]));
+  // markers: names, box volume = tamano x scale, patrol marker moved to the route end, non-box shapes kept as props
+  assert.deepEqual(byName.Marker_Zone_Z1.scale, [20, 4, 10]);
+  assert.equal(byName.Marker_Zone_Z1.shape, 'box');
+  assert.deepEqual(byName.Marker_Patrol_CrabA.position, [0, 0, 2]);
+  assert.ok(byName.Marker_Door_door_1);
+  assert.equal(byName.Marker_Event_shark.shape, 'point');
+  assert.deepEqual(byName.Marker_Event_shark.scale, [18, 1, 9]);
+  assert.ok(byName.Marker_Event_shark.props.some((p) => p.key === 'volume_shape' && p.value === 'CIRCLE_XZ'));
+  // marker actors: crab named after its marker id, at the route start facing +X to the end; door at its marker
+  assert.equal(byName.CrabA.prefab, 'Assets/_Game/Prefabs/Gameplay/PRF_Crab.prefab');
+  assert.equal(byName.CrabA.layer, 'Enemies');
+  assert.deepEqual(byName.CrabA.position, [0, 0, 0]);
+  const [, qy, , qw] = byName.CrabA.rotation;
+  assert.ok(Math.abs(Math.abs(qy) - Math.SQRT1_2) < 1e-6 && Math.abs(Math.abs(qw) - Math.SQRT1_2) < 1e-6);
+  assert.equal(byName.door_1.prefab, 'Assets/_Game/Prefabs/Gameplay/PRF_Door.prefab');
+  assert.equal(byName.door_1.dynamic, true);
+  // props flattened to strings; static:false alias keeps the model and marks it dynamic
+  const fishProps = Object.fromEntries(byName.FISH_01.props.map((p) => [p.key, p.value]));
+  assert.deepEqual(fishProps, { trayectoria: 'PATH_Fish_01', fase: '0.25', offset_path_m: '1,0,2' });
+  assert.equal(byName.Kelp_01.dynamic, true);
+  assert.equal(byName.Kelp_01.model, 'Assets/_Game/Art/Props/Bumpers/Koala/Meshes/SM_Koala.fbx');
+  // paths: flattened points, instances by name, extra keys as props
+  const fishPath = wp.paths.find((p) => p.name === 'PATH_Fish_01');
+  assert.deepEqual(fishPath.points, [0, 1, 0, 1, 1, 0, 1, 1, 1]);
+  assert.deepEqual(fishPath.instances, ['FISH_01']);
+  assert.equal(fishPath.loop, true);
+  assert.ok(fishPath.props.some((p) => p.key === 'cantidad' && p.value === '1'));
+});

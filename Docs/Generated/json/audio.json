@@ -1,5 +1,48 @@
 {
-  "events": [],
+  "events": [
+    {
+      "event": "MUS_PuffAndRebellion",
+      "file": "Assets/_Game/Audio/Music/MUS_PuffAndRebellion.wav",
+      "volume": null,
+      "loop": true,
+      "source": "inventory"
+    },
+    {
+      "event": "SFX_FlyPop",
+      "file": "Assets/_Game/Audio/SFX/Flies/SFX_FlyPop.wav",
+      "volume": null,
+      "loop": false,
+      "source": "inventory"
+    },
+    {
+      "event": "SFX_FlyPopLast",
+      "file": "Assets/_Game/Audio/SFX/Flies/SFX_FlyPopLast.wav",
+      "volume": null,
+      "loop": false,
+      "source": "inventory"
+    },
+    {
+      "event": "SFX_Footstep_Steel",
+      "file": "Assets/_Game/Audio/SFX/Player/SFX_Footstep_Steel.wav",
+      "volume": null,
+      "loop": false,
+      "source": "inventory"
+    },
+    {
+      "event": "SFX_Jump",
+      "file": "Assets/_Game/Audio/SFX/Player/SFX_Jump.wav",
+      "volume": null,
+      "loop": false,
+      "source": "inventory"
+    },
+    {
+      "event": "SFX_Land",
+      "file": "Assets/_Game/Audio/SFX/Player/SFX_Land.wav",
+      "volume": null,
+      "loop": false,
+      "source": "inventory"
+    }
+  ],
   "middleware": "FMOD",
   "notes": "Music. One cue per level with two synchronised layers (base + intensity) started with AudioSource.PlayScheduled; the intensity layer fades in (0.5 s) while a crab is near (OnCrabProximity) or one fly remains, and out otherwise. Menu cue, level-end sting, key motif (1.2 s) and door-unlock cadence."
 }

@@ -70,6 +70,10 @@ namespace ProfessorSprat.Gameplay.CameraSystem
             _followCamera.Follow = target;
             _followCamera.LookAt = target;
             ResetOrbit();
+            // Start behind the Professor as spawned (D-270): the map's default camera zone may carry no yaw of its own.
+            _orbit.HorizontalAxis.Value = Mathf.Repeat(target.eulerAngles.y + 180f, 360f) - 180f;
+            // The run starts fully zoomed in (owner request, D-274); the player zooms out from there.
+            _orbit.RadialAxis.Value = _config.ZoomRange.x;
             _followCamera.PreviousStateIsValid = false;
         }
 

@@ -48,6 +48,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6746854052774402354, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6746854052774402354, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
+      propertyPath: 'm_Materials.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2100000, guid: bfa1dbcf0d6c92340a608768f1c90dc7, type: 2}
     - target: {fileID: 8277797563215950579, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
       propertyPath: m_Name
       value: PRF_Fly
@@ -88,8 +96,14 @@ MonoBehaviour:
   _config: {fileID: 11400000, guid: c01dfc17267c7ec4185d5531a644998f, type: 2}
   _animator: {fileID: 7811190397297732388}
   _idleState: HoverIdle
+  _body: {fileID: 9197789841278179950}
 --- !u!95 &7811190397297732388 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5648170773493278840, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
+  m_PrefabInstance: {fileID: 2451287658497885020}
+  m_PrefabAsset: {fileID: 0}
+--- !u!137 &9197789841278179950 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 6746854052774402354, guid: ac4de7f0910ad9348ab9e61735c8f364, type: 3}
   m_PrefabInstance: {fileID: 2451287658497885020}
   m_PrefabAsset: {fileID: 0}

@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: AST-ENV-CORALROCK-002
+      name: lambert35
     second: {fileID: 2100000, guid: 459cd103025f28049bd617aa50c4443b, type: 2}
   materials:
     materialImportMode: 2

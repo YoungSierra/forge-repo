@@ -40,6 +40,12 @@ namespace ProfessorSprat.Gameplay.Flow
             foreach (V57Marker marker in markersRoot.GetComponentsInChildren<V57Marker>(true))
             {
                 content.AddMarker(marker, patrols, exits, exitIds);
+                V57LayoutProps props = marker.GetComponent<V57LayoutProps>();
+                string zone = props != null ? props.GetString("zona") : null;
+                if (!string.IsNullOrEmpty(zone))
+                {
+                    content._zoneHints.Add(new KeyValuePair<Vector3, string>(marker.transform.position, zone));
+                }
             }
 
             content.Zones.Sort((a, b) => NaturalCompare(a.Id, b.Id));
@@ -79,6 +85,33 @@ namespace ProfessorSprat.Gameplay.Flow
         #endregion
 
         #region Private Methods
+
+        /// <summary>
+        /// Zone the map assigns to an actor (D-270: zone volumes may overlap): its own <c>zona</c> prop, else the <c>zona</c>
+        /// of the nearest map marker within <see cref="HintReach"/> (fly → Powerup marker, key → Target marker), else none.
+        /// </summary>
+        private string ZoneHint(Transform actor)
+        {
+            V57LayoutProps own = actor.GetComponent<V57LayoutProps>();
+            string zone = own != null ? own.GetString("zona") : null;
+            if (!string.IsNullOrEmpty(zone))
+            {
+                return zone;
+            }
+
+            float best = HintReach * HintReach;
+            foreach (KeyValuePair<Vector3, string> hint in _zoneHints)
+            {
+                float distance = (hint.Key - actor.position).sqrMagnitude;
+                if (distance <= best)
+                {
+                    best = distance;
+                    zone = hint.Value;
+                }
+            }
+
+            return zone;
+        }
 
         private void AddMarker(V57Marker marker, Dictionary<string, Transform> patrols, List<Collider> exits, List<string> exitIds)
         {
@@ -122,35 +155,71 @@ namespace ProfessorSprat.Gameplay.Flow
         {
             foreach (FlyController fly in actorsRoot.GetComponentsInChildren<FlyController>(true))
             {
-                ZoneFor(fly.transform.position, fly.name)?.Flies.Add(fly);
+                ZoneFor(fly.transform, fly.name)?.Flies.Add(fly);
             }
 
             foreach (CrabController crab in actorsRoot.GetComponentsInChildren<CrabController>(true))
             {
-                ZoneFor(crab.transform.position, crab.name)?.Crabs.Add(crab);
+                ZoneFor(crab.transform, crab.name)?.Crabs.Add(crab);
             }
 
             foreach (AccessKeyController key in actorsRoot.GetComponentsInChildren<AccessKeyController>(true))
             {
-                ZoneRuntime zone = ZoneFor(key.transform.position, key.name);
+                ZoneRuntime zone = ZoneFor(key.transform, key.name);
                 if (zone != null)
                 {
                     zone.Key = zone.Key == null ? key : zone.Key;
                 }
             }
 
+            List<ZoneDoorController> doors = new List<ZoneDoorController>();
             foreach (ZoneDoorController door in actorsRoot.GetComponentsInChildren<ZoneDoorController>(true))
             {
-                ZoneRuntime zone = ZoneFor(door.transform.position, door.name);
+                doors.Add(door);
+                ZoneRuntime zone = ZoneFor(door.transform, door.name);
                 if (zone != null)
                 {
                     zone.Door = zone.Door == null ? door : zone.Door;
                 }
             }
+
+            // Lab double doors (D-270): each leaf opens with the nearest zone door (its Door marker), within reach.
+            foreach (DoorLeaf leaf in actorsRoot.GetComponentsInChildren<DoorLeaf>(true))
+            {
+                ZoneDoorController nearest = null;
+                float best = LeafReach * LeafReach;
+                foreach (ZoneDoorController door in doors)
+                {
+                    float distance = (door.transform.position - leaf.transform.position).sqrMagnitude;
+                    if (distance <= best)
+                    {
+                        best = distance;
+                        nearest = door;
+                    }
+                }
+
+                if (nearest != null)
+                {
+                    nearest.AttachLeaf(leaf);
+                }
+            }
         }
 
-        private ZoneRuntime ZoneFor(Vector3 position, string actor)
+        private const float LeafReach = 3f;
+        private const float HintReach = 1.5f;
+
+        private readonly List<KeyValuePair<Vector3, string>> _zoneHints = new List<KeyValuePair<Vector3, string>>();
+
+        private ZoneRuntime ZoneFor(Transform actorTransform, string actor)
         {
+            string hint = ZoneHint(actorTransform);
+            ZoneRuntime hinted = string.IsNullOrEmpty(hint) ? null : Zones.Find(z => z.Id == hint);
+            if (hinted != null)
+            {
+                return hinted;
+            }
+
+            Vector3 position = actorTransform.position;
             foreach (ZoneRuntime zone in Zones)
             {
                 if (zone.Contains(position))

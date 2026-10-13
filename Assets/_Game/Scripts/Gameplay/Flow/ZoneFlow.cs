@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using ProfessorSprat.Core;
 using ProfessorSprat.Gameplay.CameraSystem;
 using ProfessorSprat.Gameplay.Flies;
@@ -20,8 +21,9 @@ namespace ProfessorSprat.Gameplay.Flow
 
     /// <summary>
     /// TDD §B-S ZoneFlow — world owner of every gameplay scene and session bootstrap. Init order: load save → read the
-    /// level contract from the level containers → spawn the Professor → bind camera, Sprat, respawn → start zone 1 →
-    /// enable input. A zone is cleared when its door is open and the Professor enters its exit; the last exit ends the level.
+    /// level contract from the level containers → spawn the Professor → bind camera, Sprat, respawn → start the
+    /// level run (all zones' flies, last zone's key; D-271) → enable input. The level ends when the last zone's door is open
+    /// and the Professor enters its exit.
     /// </summary>
     [DefaultExecutionOrder(-200)]
     public sealed class ZoneFlow : MonoBehaviour
@@ -113,7 +115,7 @@ namespace ProfessorSprat.Gameplay.Flow
             {
                 _respawn.Bind(_content.KillVolumes, _content.Spawn);
             }
-            BeginZone(0);
+            BeginRun();
             if (_input != null)
             {
                 _input.SetGameplayEnabled(true);
@@ -136,35 +138,44 @@ namespace ProfessorSprat.Gameplay.Flow
 
         #region Private Methods
 
-        private void BeginZone(int index)
+        /// <summary>
+        /// One collection run over the whole level (owner request, D-271): every zone's flies count toward one total, the
+        /// last zone's key materialises when all of them are collected, and earlier zone doors are passages that open on
+        /// approach. Every crab patrols from the start. The last zone's exit ends the level.
+        /// </summary>
+        private void BeginRun()
         {
-            ActiveZoneIndex = index;
-            ZoneRuntime zone = ActiveZone;
+            ActiveZoneIndex = _content.Zones.Count - 1;
+            ZoneRuntime last = ActiveZone;
             _doorOpen = false;
             _zoneStart = Time.time;
-            _flyTracker.BeginZone(zone.Id, zone.Flies);
-            foreach (Crab.CrabController crab in zone.Crabs)
+            List<FlyController> flies = new List<FlyController>();
+            foreach (ZoneRuntime zone in _content.Zones)
             {
-                crab.Init(_content.PatrolRange(crab));
+                flies.AddRange(zone.Flies);
+                foreach (Crab.CrabController crab in zone.Crabs)
+                {
+                    crab.Init(_content.PatrolRange(crab));
+                }
+
+                if (zone != last && zone.Door != null)
+                {
+                    zone.Door.Arm(zone.Id);
+                    zone.Door.SetKeyCarried(true);
+                }
             }
 
-            if (zone.Key != null)
+            _flyTracker.BeginZone(last.Id, flies);
+            if (last.Key != null)
             {
-                zone.Key.Arm(zone.Id, zone.Door);
+                last.Key.Arm(last.Id, last.Door);
             }
-            EventBus.Publish(new ZoneStartedEvent(zone.Id, _flyTracker.ZoneTotal));
+            EventBus.Publish(new ZoneStartedEvent(last.Id, _flyTracker.ZoneTotal));
         }
 
         private void ClearZone(ZoneRuntime zone)
         {
-            bool last = ActiveZoneIndex >= _content.Zones.Count - 1;
-            EventBus.Publish(new ZoneClearedEvent(_levelId, zone.Id, _flyTracker.CollectedCount, _flyTracker.ZoneTotal, Time.time - _zoneStart, last));
-            if (!last)
-            {
-                BeginZone(ActiveZoneIndex + 1);
-                return;
-            }
-
+            EventBus.Publish(new ZoneClearedEvent(_levelId, zone.Id, _flyTracker.CollectedCount, _flyTracker.ZoneTotal, Time.time - _zoneStart, true));
             State = ZoneFlowState.LevelEnd;
             if (_input != null)
             {

@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: AST-ENV-LABFLOOR-001
+      name: AST-ENV-LABFLOOR-001.001
     second: {fileID: 2100000, guid: 8f4b6715d0bd2ac42a93c5385da91328, type: 2}
   materials:
     materialImportMode: 2

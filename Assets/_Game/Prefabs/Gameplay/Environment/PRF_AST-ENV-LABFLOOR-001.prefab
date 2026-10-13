@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1010832627482410532, guid: d96e595fae706c346af036fd617d977b, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1193187384919976263, guid: d96e595fae706c346af036fd617d977b, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4217722373433599968, guid: d96e595fae706c346af036fd617d977b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -59,6 +67,14 @@ PrefabInstance:
     - target: {fileID: 7121095471169966935, guid: d96e595fae706c346af036fd617d977b, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7433494011676944679, guid: d96e595fae706c346af036fd617d977b, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8483612995919730512, guid: d96e595fae706c346af036fd617d977b, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

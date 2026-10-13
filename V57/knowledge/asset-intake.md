@@ -15,6 +15,19 @@
 ## Level layout exported from a DCC (JSON)
 - **Symptom:** the level arrived as `unity_scene.json` + `manifest.json` from Blender (175 placements, Spanish layer names, `Name.001` instance names) instead of `BLK_` + `Marker_*`.
 - **Rule:** `Docs/Design/LevelMaps/<LevelId>/unity_scene.json` (contract `unity_scene/1.x`, Unity Y-up metres) + optional `manifest.json` is a valid level source. Intake normalizes it into `layouts.json` (English PascalCase layer groups, `<Name>_NN` instance names, delivered model/texture paths) and links it to the TDD scene whose id matches `SCN_<LevelId>…` (else, when it is the only unmatched layout and there is exactly one gameplay scene without a layout, links it to that scene — `LAYOUT_LINKED_BY_ROLE`, so a renamed or new map needs no TDD change; otherwise adds `SCN_<LevelId>` as a layout scene). `BuildLevelScenes` places the Visual prefabs with the exported transforms as-is; manifest material values (flat colours, metallic, smoothness, double-sided) are provider values, not placeholders. Objects whose model is not on disk stay empty (`LAYOUT_ASSET_MISSING`). When a delivered model supersedes a layout asset_id (e.g. a rigged character replacing a static export), V57 maps it in `Docs/V57/layout_aliases.json` (`{ "aliases": { "<asset_id>": { "model": "<model stem>", "yaw_deg": 180 } } }`, logged as a D-###): those instances use the mapped model, their rotation turned by `yaw_deg` about their own up axis (`LAYOUT_ASSET_ALIASED`, fixable). Never rename or edit the provider's layout. Objects named `Marker_<Type>_<Id>` (or `asset_id: "Marker"`) are level markers, not models: same contract as `BLK_` marker nodes, volume when the type is a volume type or `shape: box` (1 m cube × scale).
+- **Rule (contract 1.1 extras):**
+  - **Markers:** a separate `marcadores` array is read as markers.
+    - Names: `Marker_*` kept; `MarkerPatrol_X` → `Marker_Patrol_X`; otherwise `Marker_<tipo>_<id>`.
+    - A `volumen` BOX scales by `tamano`. Other shapes are points, with `volume_shape` / `volume_radius` props.
+    - A Patrol marker moves to the END of its path, which is the V57 meaning of `Marker_Patrol`.
+  - **Props:** every object's and marker's `props` reach the scene as `V57LayoutProps`, flattened to strings.
+  - **Paths:** `trayectorias` become `_Environment/_Paths/<Name>` with a `V57Path` (world polyline, `Find(name)`, `Evaluate(distance)`).
+  - **`layout_aliases.json` options:**
+    - `aliases.<id>.static: false` keeps instances dynamic, e.g. vertex-animated plants. Static batching breaks object-space shaders.
+    - `marker_actors.<tipo>` = `{ prefab, layer, anchor: marker|path }` instances a gameplay prefab per marker, named after the marker id. With `anchor: path` it sits at the start of the path, with local +X towards the end.
+  - **Re-deliveries:**
+    - A remap whose source material is no longer in the FBX (renamed by the provider) is dropped and re-pointed.
+    - A material tagged `V57KeepShader=true` keeps its Lit-compatible game shader through `BuildMaterials`.
 - **Rule (non-spatial levels):** boards, waves, puzzles and other level content that is data, not geometry, arrive as `Docs/Design/LevelData/<LevelId>.json` = `{ "contract": "level_data/1.x", "level_id", "data": { … } }`. Intake checks only the envelope (`LEVEL_DATA_*`); the assembly copies the file to `Assets/_Game/Data/Levels/<LevelId>.json`; the game validates `data` against its TDD §6 level contract in its own EditMode tests. V57 never invents level data.
 - **Enforced by:** intake `lib/layouts.js`, `LayoutSceneBuilder`, `LayoutMaterialBuilder`. **Source:** PS.
 
@@ -38,6 +51,20 @@
 - **Symptom:** `ComfyUI_temp*.png`, `gpt-image-*.png`, `New Folder/`, stray `New Scene.unity` inside Assets.
 - **Rule:** junk is left where it is (V57 never moves/deletes provider files or writes `Source/`), excluded from the manifest and never referenced by materials/prefabs; listed in the provider fix list.
 - **Enforced by:** intake `fixable`. **Source:** HH `_listings/NOTES.txt`.
+
+## LODGroups on re-delivery
+- **Symptom:** console flooded with "Renderer … is registered with more than one LODGroup". Some models also drew LOD0, LOD1 and LOD3 on top of each other.
+- **Cause:**
+  - **Duplicate groups:** a re-delivered FBX imported with its own LODGroup, and the Visual prefab added a second one on its root.
+  - **Missing group:** a kept prefab was built when the FBX had no LOD nodes and was never updated.
+- **Rule:**
+  - `LodGroupBuilder` adds no LODGroup when the imported model already has one.
+  - `BuildVisualPrefabs` refreshes the LODGroup of kept prefabs to the model's current `_LOD#` nodes. Gaps such as LOD0/1/3 are valid levels.
+- **Enforced by:** `LodGroupBuilder.Refresh`, `VisualPrefabBuilder.RefreshLods`. **Source:** PS V10.
+
+## Collision-only prefabs are scenery
+- **Rule:** a gameplay prefab `PRF_<Asset>` with no game scripts carries only collision (Unity's own components such as URP light data don't count). Examples are walls, floors, crates and railings. The layout places it under `_Environment` as static scenery, not in `_Gameplay/Level`, so it keeps static batching.
+- **Enforced by:** `LayoutSceneBuilder` (`HasGameScripts`). **Source:** PS V10.
 
 ## Non-readable meshes
 - **Symptom:** 42 BoxColliders approximated from bounds because meshes were not Read/Write; ball behaviour off near rails.

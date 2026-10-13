@@ -59,6 +59,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2192404095169940243, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6282284640159955751}
+    - targetCorrespondingSourceObject: {fileID: 2192404095169940243, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6008184175355362847}
   m_SourcePrefab: {fileID: 100100000, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
 --- !u!95 &1514864875321571260 stripped
 Animator:
@@ -86,3 +89,18 @@ MonoBehaviour:
   _loopState: PassiveTransit
   _reactionState: EyeRotation
   _reactionRange: 6
+--- !u!114 &6008184175355362847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4760410372966722854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0126e629df7bb1a438a8dd12ca4af803, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Environment.SharkLoop
+  _loopMarkerId: Event_shark
+  _speed: 2.2
+  _turnRate: 2

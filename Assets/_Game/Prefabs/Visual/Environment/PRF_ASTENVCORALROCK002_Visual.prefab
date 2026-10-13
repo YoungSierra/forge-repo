@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2836661366162872510}
-  - component: {fileID: 2831450035956850601}
   m_Layer: 0
   m_Name: PRF_ASTENVCORALROCK002_Visual
   m_TagString: Untagged
@@ -33,38 +32,6 @@ Transform:
   - {fileID: 7254496427409022051}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &2831450035956850601
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4817293319243166364}
-  serializedVersion: 3
-  m_LocalReferencePoint: {x: -0.00560236, y: 5.688761, z: 0.002937317}
-  m_Size: 16.600948
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.5
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 4205379222064349314}
-  - screenRelativeHeight: 0.25
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 4872591953925535179}
-  - screenRelativeHeight: 0.125
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 263275779227352828}
-  - screenRelativeHeight: 0.02
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 2220188465428725388}
-  m_Enabled: 1
-  m_GlobalIlluminationLOD: 0
 --- !u!1001 &7144854628284464008
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -122,26 +89,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 144cf68f72c97574bab5fa5963c99f8b, type: 3}
---- !u!23 &263275779227352828 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -2269593756749789836, guid: 144cf68f72c97574bab5fa5963c99f8b, type: 3}
-  m_PrefabInstance: {fileID: 7144854628284464008}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &2220188465428725388 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -150819148388170492, guid: 144cf68f72c97574bab5fa5963c99f8b, type: 3}
-  m_PrefabInstance: {fileID: 7144854628284464008}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &4205379222064349314 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -2775592365614220534, guid: 144cf68f72c97574bab5fa5963c99f8b, type: 3}
-  m_PrefabInstance: {fileID: 7144854628284464008}
-  m_PrefabAsset: {fileID: 0}
---- !u!23 &4872591953925535179 stripped
-MeshRenderer:
-  m_CorrespondingSourceObject: {fileID: -6865328626223870397, guid: 144cf68f72c97574bab5fa5963c99f8b, type: 3}
-  m_PrefabInstance: {fileID: 7144854628284464008}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7254496427409022051 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 144cf68f72c97574bab5fa5963c99f8b, type: 3}

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2273047235668870450}
+  - component: {fileID: 270971275313137443}
   m_Layer: 0
   m_Name: PRF_AST-ENV-PIPE-002_Visual
   m_TagString: Untagged
@@ -32,6 +33,34 @@ Transform:
   - {fileID: 5934841790816217752}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &270971275313137443
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962030025270671368}
+  serializedVersion: 3
+  m_LocalReferencePoint: {x: -0.000003963709, y: 0.5169953, z: 0.00003477931}
+  m_Size: 1.0340095
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.5
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 3785451268049741789}
+  - screenRelativeHeight: 0.25
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1389391910024715057}
+  - screenRelativeHeight: 0.02
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 1765665499594847723}
+  m_Enabled: 1
+  m_GlobalIlluminationLOD: 0
 --- !u!1001 &6185256857788157299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -89,6 +118,21 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 15f6576f7c99fb7458e92d55f3d63c6f, type: 3}
+--- !u!23 &1389391910024715057 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -4134745620058466750, guid: 15f6576f7c99fb7458e92d55f3d63c6f, type: 3}
+  m_PrefabInstance: {fileID: 6185256857788157299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &1765665499594847723 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -3650566354911594344, guid: 15f6576f7c99fb7458e92d55f3d63c6f, type: 3}
+  m_PrefabInstance: {fileID: 6185256857788157299}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3785451268049741789 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: -2207065598462317906, guid: 15f6576f7c99fb7458e92d55f3d63c6f, type: 3}
+  m_PrefabInstance: {fileID: 6185256857788157299}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5934841790816217752 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 15f6576f7c99fb7458e92d55f3d63c6f, type: 3}

@@ -7,7 +7,7 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: AST-ENV-OCEANSKELETON-001
+      name: lambert5.001
     second: {fileID: 2100000, guid: 1ad39d3de999d7b4188b537d2878b8d8, type: 2}
   materials:
     materialImportMode: 2

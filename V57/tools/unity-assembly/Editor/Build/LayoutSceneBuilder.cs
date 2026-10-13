@@ -12,8 +12,10 @@ namespace V57.Assembly.Build
     /// Unity transform as-is: the asset's gameplay prefab <c>PRF_&lt;Asset&gt;</c> under <c>_Gameplay/Level/&lt;Layer&gt;</c> when
     /// it exists (collectibles, enemies, doors become functional with no manual work), else its Visual prefab under
     /// <c>_Environment/&lt;Layer&gt;</c>. Objects whose model or Visual prefab is missing are skipped (slot empty, counted in
-    /// <c>layout_missing</c>). Non-animated Visual instances are marked static. <c>Marker_*</c> objects (kind marker) become typed V57Markers under
+    /// <c>layout_missing</c>). Non-animated Visual instances are marked static unless the layout marks them dynamic. <c>Marker_*</c> objects (kind marker) become typed V57Markers under
     /// <c>_Environment/_Markers</c> via <see cref="MarkerConverter"/> (volume = 1 m cube scaled by the exported scale).
+    /// unity_scene/1.1 extras: marker actors (a named gameplay prefab, <c>prefab</c>) under <c>_Gameplay/Level/&lt;Layer&gt;</c>,
+    /// DCC <c>props</c> kept on the object (<c>V57LayoutProps</c>), and paths under <c>_Environment/_Paths</c> (<c>V57Path</c>).
     /// </summary>
     public static class LayoutSceneBuilder
     {
@@ -43,8 +45,32 @@ namespace V57.Assembly.Build
                         ToVector3(item.scale, Vector3.one), MarkerConverter.UnitVolume, sceneId, item.shape == "box"))
                     {
                         markers++;
+                        AttachProps(containers.Markers.Find(item.name), item.props);
                     }
 
+                    continue;
+                }
+
+                // Marker actors (layout_aliases marker_actors): a named gameplay prefab, no model lookup.
+                if (item != null && !string.IsNullOrEmpty(item.prefab))
+                {
+                    GameObject actorPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(item.prefab);
+                    if (actorPrefab == null)
+                    {
+                        AssemblyContext.Counts.layout_missing++;
+                        AssemblyContext.Warn(Step, $"{layout.level_id}: '{item.name}' ({item.asset_id}) prefab '{item.prefab}' not found; slot left empty");
+                        continue;
+                    }
+
+                    GameObject actor = (GameObject)PrefabUtility.InstantiatePrefab(actorPrefab, scene);
+                    actor.name = item.name;
+                    actor.transform.SetParent(Group(containers.LevelActors, actorGroups, item.layer), false);
+                    actor.transform.localPosition = ToVector3(item.position, Vector3.zero);
+                    actor.transform.localRotation = ToQuaternion(item.rotation);
+                    actor.transform.localScale = ToVector3(item.scale, Vector3.one);
+                    AttachProps(actor.transform, item.props);
+                    AssemblyContext.Counts.layout_gameplay++;
+                    placed++;
                     continue;
                 }
 
@@ -60,16 +86,24 @@ namespace V57.Assembly.Build
                 GameObject gameplay = gameplayPath != null ? AssetDatabase.LoadAssetAtPath<GameObject>(gameplayPath) : null;
                 GameObject instance = (GameObject)PrefabUtility.InstantiatePrefab(gameplay != null ? gameplay : prefab, scene);
                 instance.name = item.name;
+                // A gameplay prefab with no scripts (collision only: walls, floors, crates) is scenery: environment, static.
+                bool solid = gameplay != null && !HasGameScripts(gameplay);
+                if (solid)
+                {
+                    gameplay = null;
+                }
+
                 Transform parent = gameplay != null ? Group(containers.LevelActors, actorGroups, item.layer) : Group(environment, groups, item.layer);
                 instance.transform.SetParent(parent, false);
                 instance.transform.localPosition = ToVector3(item.position, Vector3.zero);
                 instance.transform.localRotation = ToQuaternion(item.rotation);
                 instance.transform.localScale = ToVector3(item.scale, Vector3.one);
+                AttachProps(instance.transform, item.props);
                 if (gameplay != null)
                 {
                     AssemblyContext.Counts.layout_gameplay++;
                 }
-                else if (instance.GetComponentInChildren<Animator>(true) == null)
+                else if (!item.dynamic && instance.GetComponentInChildren<Animator>(true) == null)
                 {
                     foreach (Transform child in instance.GetComponentsInChildren<Transform>(true))
                     {
@@ -80,12 +114,28 @@ namespace V57.Assembly.Build
                 placed++;
             }
 
+            PlacePaths(environment, layout);
             return placed;
         }
 
         #endregion
 
         #region Private Methods
+
+        /// <summary>Scripts other than Unity's own (e.g. URP light/camera data on a lamp in the art).</summary>
+        private static bool HasGameScripts(GameObject prefab)
+        {
+            foreach (MonoBehaviour behaviour in prefab.GetComponentsInChildren<MonoBehaviour>(true))
+            {
+                string space = behaviour != null ? behaviour.GetType().Namespace ?? string.Empty : string.Empty;
+                if (behaviour != null && !space.StartsWith("UnityEngine", System.StringComparison.Ordinal))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
 
         private static Dictionary<string, GameObject> VisualPrefabsByModel()
         {
@@ -109,6 +159,62 @@ namespace V57.Assembly.Build
             }
 
             return group;
+        }
+
+        /// <summary>DCC custom props on the scene object (<see cref="V57.GoldPath.V57LayoutProps"/>); nothing when there are none.</summary>
+        private static void AttachProps(Transform target, LayoutPropDto[] props)
+        {
+            if (target == null || props == null || props.Length == 0)
+            {
+                return;
+            }
+
+            V57.GoldPath.V57LayoutProps component = target.GetComponent<V57.GoldPath.V57LayoutProps>();
+            if (component == null)
+            {
+                component = target.gameObject.AddComponent<V57.GoldPath.V57LayoutProps>();
+            }
+
+            List<V57.GoldPath.V57LayoutProps.Entry> entries = new List<V57.GoldPath.V57LayoutProps.Entry>();
+            foreach (LayoutPropDto prop in props)
+            {
+                if (prop != null && !string.IsNullOrEmpty(prop.key))
+                {
+                    entries.Add(new V57.GoldPath.V57LayoutProps.Entry { key = prop.key, value = prop.value ?? string.Empty });
+                }
+            }
+
+            component.Configure(entries);
+        }
+
+        /// <summary>unity_scene/1.1 paths → <c>_Environment/_Paths/&lt;Name&gt;</c> with a <see cref="V57.GoldPath.V57Path"/> (world-space points).</summary>
+        private static void PlacePaths(Transform environment, LayoutDto layout)
+        {
+            if (layout.paths == null || layout.paths.Length == 0)
+            {
+                return;
+            }
+
+            Transform root = SceneContainers.CreateChild(environment, "_Paths");
+            foreach (LayoutPathDto path in layout.paths)
+            {
+                if (path == null || path.points == null || path.points.Length < 3)
+                {
+                    continue;
+                }
+
+                Vector3[] points = new Vector3[path.points.Length / 3];
+                for (int i = 0; i < points.Length; i++)
+                {
+                    points[i] = new Vector3(path.points[i * 3], path.points[i * 3 + 1], path.points[i * 3 + 2]);
+                }
+
+                Transform child = SceneContainers.CreateChild(root, path.name);
+                child.position = points[0];
+                V57.GoldPath.V57Path component = child.gameObject.AddComponent<V57.GoldPath.V57Path>();
+                component.Configure(path.kind, path.actor, path.loop, path.mode, path.speed, path.zone, points, path.instances);
+                AttachProps(child, path.props);
+            }
         }
 
         private static Vector3 ToVector3(float[] values, Vector3 fallback)

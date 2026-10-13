@@ -8,6 +8,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1701685581392197002, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2705090894277106202, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4368079153405169485, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -47,6 +55,14 @@ PrefabInstance:
     - target: {fileID: 4368079153405169485, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5258518123181221403, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8048839802298467643, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8598328557729346528, guid: e4e402edf15c95e42b82a548055983a1, type: 3}
       propertyPath: m_Name
@@ -92,5 +108,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.486138, y: 0.6715572, z: 1.481782}
-  m_Center: {x: -0.0016679168, y: 0.2796449, z: 0.0017883778}
+  m_Size: {x: 1.1310029, y: 0.51107854, z: 1.1276879}
+  m_Center: {x: -0.0012722015, y: 0.21281958, z: 0.0013888478}

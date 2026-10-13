@@ -1,33 +1,45 @@
 {
-    "generated_utc": "2026-10-13T22:42:49.0165727Z",
+    "generated_utc": "2026-10-13T23:30:22.2953677Z",
     "unity_version": "6000.6.2f1",
     "data_problems": "",
     "pass": true,
     "counts": {
         "import_log_entries": 0,
-        "materials": 0,
+        "materials": 39,
         "orm_packed_textures": 0,
-        "metallic_smoothness_packed": 0,
+        "metallic_smoothness_packed": 1,
         "skyboxes": 0,
         "atlases": 0,
         "animator_controllers": 0,
         "visual_prefabs": 0,
-        "scenes": 0,
-        "layout_instances": 0,
+        "scenes": 1,
+        "layout_instances": 1944,
         "layout_missing": 0,
-        "layout_gameplay": 0,
+        "layout_gameplay": 99,
         "gameplay_linked": 0,
         "level_data": 0,
-        "markers": 0,
+        "markers": 43,
         "dressed": 0,
         "skipped_existing": 42,
         "missing_refs": 0
     },
     "steps": [
         {
+            "name": "BuildMaterials",
+            "ok": true,
+            "duration_s": 1.1336495876312256,
+            "detail": ""
+        },
+        {
             "name": "BuildVisualPrefabs",
             "ok": true,
-            "duration_s": 1.7811803817749023,
+            "duration_s": 1.3380242586135864,
+            "detail": ""
+        },
+        {
+            "name": "RebuildLevelContent",
+            "ok": true,
+            "duration_s": 2.363908529281616,
             "detail": ""
         }
     ],
@@ -75,7 +87,8 @@
         "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-ACCESSKEY-001_Visual.prefab",
         "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-CONSOLE-001_Visual.prefab",
         "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-HATCH-001_Visual.prefab",
-        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-ZONEDOOR-001_Visual.prefab"
+        "Assets/_Game/Prefabs/Visual/Props/PRF_AST-PROP-ZONEDOOR-001_Visual.prefab",
+        "Assets/_Game/Scenes/SCN_HydroStation_Gameplay.unity"
     ],
     "missing_refs": [],
     "import_log": [
@@ -155,7 +168,7 @@
             "path": "Assets/_Game/Art/Characters/Fish/Materials/T_Fish_MS.png",
             "rule": "texture",
             "decision": "Default linear (sRGB off) mips=on",
-            "utc": "2026-10-13T22:07:45.7782533Z"
+            "utc": "2026-10-13T23:30:17.0680168Z"
         },
         {
             "path": "Assets/_Game/Art/Environment/Decoration/AST-ENV-OCEANROCKS-001/Textures/AST-ENV-OCEANROCKS-001_Albedo.jpg",

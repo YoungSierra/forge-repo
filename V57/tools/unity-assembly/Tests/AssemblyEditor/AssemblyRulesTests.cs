@@ -53,5 +53,52 @@ namespace V57.Assembly.Tests
             Assert.AreEqual(3f, data.layouts[0].objects[0].position[2]);
             Assert.IsTrue(data.layouts[0].materials[0].double_sided);
         }
+
+        [Test]
+        public void ParsesAssetRuleFields()
+        {
+            const string json = "{\"assets\":[{\"asset_id\":\"INV-Crate\",\"asset_name\":\"Crate\",\"type\":\"model\",\"collision\":\"convex\",\"ruled\":true," +
+                "\"shadows\":\"two_sided\",\"shader\":\"Game/Wobble\",\"attach\":[{\"prefab\":\"Assets/_Game/Prefabs/VFX/VFX_Spark.prefab\",\"offset\":[0,0.5,0],\"align\":\"instance\"}]}],\"orphans\":[]}";
+            AssetEntryDto entry = JsonUtility.FromJson<AssetManifestDto>(json).assets[0];
+            Assert.IsTrue(entry.ruled);
+            Assert.AreEqual("two_sided", entry.shadows);
+            Assert.AreEqual("Game/Wobble", entry.shader);
+            Assert.AreEqual("instance", entry.attach[0].align);
+            Assert.AreEqual(0.5f, entry.attach[0].offset[1]);
+        }
+
+        [Test]
+        public void RuleCollisionAndShadowsOnLod0Meshes()
+        {
+            GameObject root = new GameObject("PRF_Crate_Visual");
+            Mesh mesh = Resources.GetBuiltinResource<Mesh>("Cube.fbx");
+            foreach (string lod in new[] { "Crate_LOD0", "Crate_LOD1" })
+            {
+                GameObject node = new GameObject(lod, typeof(MeshFilter), typeof(MeshRenderer));
+                node.transform.SetParent(root.transform, false);
+                node.GetComponent<MeshFilter>().sharedMesh = mesh;
+            }
+
+            try
+            {
+                AssetEntryDto entry = new AssetEntryDto { asset_name = "Crate", type = "model", collision = "convex", shadows = "two_sided" };
+                Assert.AreEqual("convex(1)", PrefabColliderBuilder.Apply(entry, root, new Bounds(Vector3.zero, Vector3.one)));
+                MeshCollider collider = root.GetComponentInChildren<MeshCollider>();
+                Assert.AreEqual("Crate_LOD0", collider.name);
+                Assert.IsTrue(collider.convex);
+
+                Assert.IsTrue(AssetRulesApplier.ApplyShadows(entry, root));
+                foreach (Renderer renderer in root.GetComponentsInChildren<Renderer>())
+                {
+                    Assert.AreEqual(UnityEngine.Rendering.ShadowCastingMode.TwoSided, renderer.shadowCastingMode);
+                }
+
+                Assert.IsFalse(AssetRulesApplier.ApplyShadows(entry, root), "second pass changes nothing");
+            }
+            finally
+            {
+                Object.DestroyImmediate(root);
+            }
+        }
     }
 }

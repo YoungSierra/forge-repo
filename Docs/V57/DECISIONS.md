@@ -2689,3 +2689,28 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
 - **Choice:** `CameraRig.Bind` sets the orbit's radial axis to the minimum of `CameraConfig.ZoomRange` (0.6× the authored distance; the owner chose "lo más cerca"). The player zooms out from there (up to 1.6×). Respawns keep the player's zoom.
 - **Verified:** Play: radial 0.6, camera 4.35 m from the Professor at the spawn.
 - **Reversal cost:** low · **Type:** owner request
+
+### D-275 — Per-asset rules replace the hand-made collision prefabs; bubbles become layout attachments (V57 core update)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request: make the integrated work reproducible) · **Commit:** pending
+- **Context:** D-270 and D-272 were partly done with one-off scripts. Those were the collision prefabs per asset, colliders re-fitted after V10, two-sided shadows, the Algae Sway shader on two materials and bubbles placed on every algae. A fresh or re-delivered build would not repeat them.
+- **Choice:**
+  - **V57 core (genre-agnostic):**
+    - **Asset rules:** `Docs/V57/asset_rules.json` sets per asset `collision` (none, simple, exact, mesh, convex), `shadows` (on, off, two_sided), `shader` and `attach` prefabs.
+    - **Kept prefabs:** Visual prefabs of ruled assets keep their colliders and shadows in sync with the current mesh on every build.
+    - **Delivery import:** `delivery.js` places loose-folder deliveries and never deletes.
+    - **Lessons:** `asset-intake.md`, `assets-collision-builds.md`, new `lighting.md`.
+  - **This game:** 35 rules.
+    - **Box:** crates, columns, consoles, hatch, sign, hoses, pipes, railings, scaffolds, wall panels, floors.
+    - **Mesh:** arches, bulkheads, crystal panels, dome towers, rocks.
+    - **No collision:** lanterns, algae, seabed, boat, skeleton, water, key, zone door, and LABDOOR (its gameplay leaf keeps the convex collider).
+    - **Two-sided shadows:** structure pieces.
+    - **Algae Sway:** on the two algae.
+    - **Bubbles:** `VFX_SeaweedBubbles` attached to the four algae assets.
+  - **Removed:** the 22 collision-only gameplay prefabs (collision now lives on the Visual prefabs) and the hand-placed `_VFX/SeaweedBubbles` (now `_Environment/_Attachments/VFX_SeaweedBubbles`, 160).
+- **Verified:**
+  - **Rebuild:** every solid piece has its collider. Box sizes are identical to the hand-fitted ones (B17 plate 2.00 × 0.22 × 1.43). Arches and rocks use mesh colliders; algae have none.
+  - **Shadows and shader:** two-sided shadows on the structure; Algae Sway kept.
+  - **Attachments:** 160 bubble emitters.
+  - **Play:** HUD 0 / 18, doors and keys as D-271, the spawn corridor unchanged. Console: only the listed `VFX_LandSplash` warning.
+  - **Tests:** EditMode 82/82 (game + core, including new asset-rule tests). PlayMode 28/28; the gold path still fails on the V06 route (D-270). Intake 35/35.
+- **Reversal cost:** low · **Type:** absorption

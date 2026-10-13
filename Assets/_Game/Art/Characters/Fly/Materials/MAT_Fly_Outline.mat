@@ -28,13 +28,13 @@ Material:
     - _FlashBoost: 1.4
     - _FlashPeriod: 3
     - _FlashWidthBoost: 2
-    - _Intensity: 1.1
+    - _Intensity: 1.51
     - _Phase: 0
     - _PulseMin: 0.45
     - _PulseSpeed: 0.8
-    - _WidthPixels: 3
+    - _WidthPixels: 1
     - _WidthWorld: 0.006
     m_Colors:
-    - _GlowColor: {r: 0.05, g: 0.7, b: 1, a: 1}
+    - _GlowColor: {r: 0.98225087, g: 0.46778384, b: 0.10224175, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

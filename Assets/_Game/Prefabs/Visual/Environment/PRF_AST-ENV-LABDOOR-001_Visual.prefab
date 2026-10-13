@@ -80,9 +80,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8003391580413369688, guid: 137f82edb3b41ca4c98f5d35d62b46a9, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -7371227646003063522, guid: 137f82edb3b41ca4c98f5d35d62b46a9, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -4931469417331779072, guid: 137f82edb3b41ca4c98f5d35d62b46a9, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 137f82edb3b41ca4c98f5d35d62b46a9, type: 3}
       propertyPath: m_Name
       value: AST-ENV-LABDOOR-001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7177548965148600146, guid: 137f82edb3b41ca4c98f5d35d62b46a9, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

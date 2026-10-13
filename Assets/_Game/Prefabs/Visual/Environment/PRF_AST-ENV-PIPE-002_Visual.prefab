@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2273047235668870450}
   - component: {fileID: 270971275313137443}
+  - component: {fileID: 5899125299444273315}
   m_Layer: 0
   m_Name: PRF_AST-ENV-PIPE-002_Visual
   m_TagString: Untagged
@@ -61,6 +62,27 @@ LODGroup:
     - renderer: {fileID: 1765665499594847723}
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
+--- !u!65 &5899125299444273315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8962030025270671368}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5995887, y: 1.0340095, z: 1.0300362}
+  m_Center: {x: -0.000003963709, y: 0.5169953, z: 0.000034809113}
 --- !u!1001 &6185256857788157299
 PrefabInstance:
   m_ObjectHideFlags: 0

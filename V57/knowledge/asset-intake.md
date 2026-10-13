@@ -62,6 +62,32 @@
   - `BuildVisualPrefabs` refreshes the LODGroup of kept prefabs to the model's current `_LOD#` nodes. Gaps such as LOD0/1/3 are valid levels.
 - **Enforced by:** `LodGroupBuilder.Refresh`, `VisualPrefabBuilder.RefreshLods`. **Source:** PS V10.
 
+## Per-asset rules instead of one-off fixes
+- **Symptom:** in PS V10 a lot was fixed by hand or with throwaway scripts: which pieces collide and how, colliders re-fitted after a re-delivery, two-sided shadows on flipped plates, a game shader on two materials, effects placed on every plant. None of it would survive the next delivery or a rebuild.
+- **Rule:** what a delivery without ADD briefs cannot say goes into **`Docs/V57/asset_rules.json`** (V57 game data). Each rule has a `match` (asset id, `*` wildcard; case, `-` and `_` ignored) plus:
+  - `collision`: `none | simple | exact | mesh | convex`.
+  - `shadows`: `on | off | two_sided`.
+  - `shader`: a game shader the generated material keeps.
+  - `attach`: a list of `{prefab, offset, align}`.
+- **How it applies:**
+  - **Intake:** merges the rules into `asset_manifest`, later rules winning, and reports unused or invalid rules.
+  - **Visual prefabs:** get the colliders and shadows on every build. Kept prefabs of ruled assets are refreshed when the model changes, so colliders follow re-delivered meshes. UCX colliders are never touched.
+  - **Materials:** `BuildMaterials` keeps the rule's shader.
+  - **Layout:** places the `attach` prefabs at every instance, under `_Environment/_Attachments/<Prefab>`, rebuilt with the map.
+- **Scope:** genre-agnostic. The values are per game (e.g. a vertex-animated plant shader or bubbles on algae). Collision that needs behaviour (doors, moving parts) still lives on a gameplay prefab; a rule `collision: none` keeps the Visual prefab free of a second collider.
+- **Enforced by:** `intake/lib/asset-rules.js`, `PrefabColliderBuilder`, `AssetRulesApplier`, `VisualPrefabBuilder.RefreshKept`, `MaterialBuilder`, `LayoutSceneBuilder.PlaceAttachments`. **Source:** PS V10 (D-275).
+
+## Deliveries that arrive as a loose folder
+- **Symptom:** a V10 delivery came as a downloaded folder. A hand-written copy script would have deleted the earlier normal and metallic maps, which the new delivery did not resend.
+- **Rule:** place it with `node V57/tools/intake/delivery.js --from <folder> --repo . [--new-root Assets/_Game/Art/<Category>]`. It runs dry by default; `--apply` copies.
+  - **Same name:** replaced in place; `.meta` and GUID kept.
+  - **Same name ignoring `-`, `_` and case:** replaced in place and listed for the provider fix list.
+  - **New models:** go to `<new-root>/<Asset>/Meshes`, with their `<stem>_*` textures in `Textures`.
+  - **Everything else:** listed as unplaced.
+  - **Earlier files the delivery lacks:** reported as kept. Nothing is ever deleted or renamed.
+  - Run the intake afterwards.
+- **Enforced by:** `intake/lib/delivery.js` (+ test). **Source:** PS V10.
+
 ## Collision-only prefabs are scenery
 - **Rule:** a gameplay prefab `PRF_<Asset>` with no game scripts carries only collision (Unity's own components such as URP light data don't count). Examples are walls, floors, crates and railings. The layout places it under `_Environment` as static scenery, not in `_Gameplay/Level`, so it keeps static batching.
 - **Enforced by:** `LayoutSceneBuilder` (`HasGameScripts`). **Source:** PS V10.

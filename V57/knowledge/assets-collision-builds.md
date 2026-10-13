@@ -10,7 +10,8 @@
 
 ## Collision lives with its mesh
 - **Symptom:** table collision was authored as standalone `COL_*` objects copied from the dressing poses; moving a rail in the scene left its collider behind.
-- **Rule:** every collider lives on the same prefab as the mesh it represents — the gameplay prefab of that piece (root = collider + behaviour, Visual prefab nested). Static kit pieces (rails, corners, walls, deflectors) get a gameplay prefab too, instanced at their marker; never a detached collider object, never a collider "layer" rebuilt from marker poses. Moving or deleting the piece moves or deletes its collision.
+- **Rule:** every collider lives on the same prefab as the mesh it represents: the gameplay prefab of a piece with behaviour (root = collider + behaviour, Visual prefab nested), or the Visual prefab of static scenery (see below). Never a detached collider object, never a collider "layer" rebuilt from marker poses. Moving or deleting the piece moves or deletes its collision.
+- **Scenery without behaviour** (walls, floors, crates, rails, rocks): its collider is generated on the Visual prefab, the prefab that carries the mesh. The collider comes from the brief's `collision`, or from `Docs/V57/asset_rules.json` when there is no brief, and is refreshed when the mesh is re-delivered. A gameplay prefab is needed only when the piece has behaviour (a door leaf that slides, a bumper).
 - **Physics space follows the delivered art:** when the provider scene is 3D (Y-up table/level in XZ), use 3D physics (Rigidbody + constraints to the play plane) even if the TDD says "2D plane"; log the conflict `D-###`. Do not rotate the level into XY to force Physics2D — it splits colliders from meshes and puts real-scale objects outside the solver's comfortable range.
 - **Enforced by:** `/prefab`, `/physics-setup`, hierarchy review at M2. **Source:** HH run 2 (Physics2D on an XZ table: detached colliders, resting-ball jitter).
 

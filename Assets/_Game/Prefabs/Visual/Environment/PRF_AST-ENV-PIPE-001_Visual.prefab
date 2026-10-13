@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5395720830563728811}
+  - component: {fileID: 1530724804358476180}
   m_Layer: 0
   m_Name: PRF_AST-ENV-PIPE-001_Visual
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 3425840750106008681}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1530724804358476180
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7574157189142841425}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.60018826, y: 0.96306103, z: 0.59804654}
+  m_Center: {x: 0.000045835972, y: 0.48150298, z: -0.000021159649}
 --- !u!1001 &2882780398090009474
 PrefabInstance:
   m_ObjectHideFlags: 0

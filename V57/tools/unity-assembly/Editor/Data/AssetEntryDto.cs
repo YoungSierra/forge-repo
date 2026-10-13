@@ -25,5 +25,26 @@ namespace V57.Assembly.Data
         public string status;
         public string source;
         public AnimationEntryDto[] animations;
+
+        /// <summary>A Docs/V57/asset_rules.json rule matched: kept Visual prefabs follow the rules on every build.</summary>
+        public bool ruled;
+
+        /// <summary>Docs/V57/asset_rules.json: on | off | two_sided (empty = leave the import default).</summary>
+        public string shadows;
+
+        /// <summary>Docs/V57/asset_rules.json: game shader the generated material keeps (Lit-compatible properties).</summary>
+        public string shader;
+
+        /// <summary>Docs/V57/asset_rules.json: prefabs placed with every layout instance of the asset.</summary>
+        public AssetAttachDto[] attach;
+    }
+
+    /// <summary>One <c>attach</c> entry: prefab placed at the instance position + offset (metres, world or instance axes).</summary>
+    [Serializable]
+    public sealed class AssetAttachDto
+    {
+        public string prefab;
+        public float[] offset;
+        public string align;
     }
 }

@@ -18,12 +18,29 @@ node V57/tools/intake/index.js --repo <path> [--out Docs/Generated] [--json] [--
 
 **Exit codes:** `0` = continue (non-blocking issues may exist), `2` = blocking issue (A0 gate: stop the run), `1` = crash or bad usage.
 
+## Delivery import (loose folders)
+
+```bash
+node V57/tools/intake/delivery.js --from <delivery folder> --repo . [--new-root Assets/_Game/Art/<Category>] [--apply] [--json]
+```
+
+Places a delivery that arrived as a folder into the provider areas. It runs dry by default and never deletes or renames repo files.
+
+- **Same file name:** replaced in place; the `.meta` and GUID are kept.
+- **Same name ignoring `-`, `_` and case:** replaced in place and reported for the provider fix list.
+- **New models:** go to `<new-root>/<Asset>/Meshes` with their `<stem>_*` textures.
+- **Everything else:** listed as unplaced.
+- **Earlier files of a delivered asset that the delivery lacks:** listed as kept.
+
+Run the intake afterwards.
+
 ## Inputs
 
 | Input | Parsing |
 |---|---|
 | `Docs/Design/TDD.md` (TDD Standard 2.x) | Keyed by section number/title: §A fenced yaml, §0.1/§0.2 tables, §3 core-loop table, `## Mechanic: X` blocks (metadata, player inputs, levers, dependencies, ACs), §B-S table, §C fenced yaml per mechanic (`# ── C-NN Name ──`; invalid yaml is auto-quoted and retried), §8 palette prose, §9.1, §11.1, §11.3, §11.5, §11.6, §13.1, §13.2, §14.2 tables. If the file has another name in `Docs/Design/`, intake uses it and logs a `fixable`. |
 | `Docs/ArtDirection/ArtDirectionDocument.md` | `## key` sections as loose pseudo-YAML bullets (`- key: value␠␠`, `- **key:** value`, nested indented blocks) **or** fenced ```` ```yaml ```` blocks. Also handles standalone screens that are only named in prose. |
+| `Docs/V57/asset_rules.json` (V57 game data, optional) | Per-asset `collision` (none/simple/exact/mesh/convex), `shadows` (on/off/two_sided), `shader` and `attach` prefabs, matched by asset id with `*`. Merged into `asset_manifest` (later rules win, `ruled: true`); unused or invalid rules are reported. See `V57/knowledge/asset-intake.md`. |
 | `Assets/_Game/**`, `Docs/**` on disk | Structure (allowed roots), forbidden files, naming prefixes/suffixes per folder, brief-to-file cross references, orphans. |
 
 A missing section never crashes the run: it is reported as an issue and the dependent data gets defaults.

@@ -13,6 +13,7 @@ const { readLevelData } = require('./level-data');
 const { buildMechanics, buildTuning, buildAcceptance, buildEntities } = require('./build-core');
 const { buildPackage, buildCamera, buildRendering, buildAudio, buildLocalization } = require('./build-meta');
 const { buildAssets } = require('./build-assets');
+const { applyAssetRules } = require('./asset-rules');
 const { writeGenerated, writeFileIfChanged } = require('./writer');
 const { renderReport } = require('./report');
 const { appendDecisions } = require('./decisions');
@@ -118,6 +119,7 @@ function runIntake({ repo, out, unityPin: pin }) {
     const sliceScene = (model.scenes.scenes.find((s) => s.slice) || {}).id || null;
     model.acceptance = buildAcceptance(tdd, add, model.mechanics, c, issues, sliceScene);
     model.asset_manifest = buildAssets(ctx, model.ui, model.scenes.scenes);
+    applyAssetRules(root, model.asset_manifest.assets, issues);
     model.entities = buildEntities(tdd, model.asset_manifest, c);
     model.camera = buildCamera(ctx, model.scenes.scenes);
     model.rendering = buildRendering(ctx, mismatch);

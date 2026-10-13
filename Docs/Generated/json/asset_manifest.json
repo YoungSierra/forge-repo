@@ -35,7 +35,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-306 ASSET_ORPHAN"
+        "I-299 ASSET_ORPHAN"
       ]
     },
     {
@@ -84,7 +84,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-307 ASSET_ORPHAN"
+        "I-300 ASSET_ORPHAN"
       ]
     },
     {
@@ -123,7 +123,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-308 ASSET_ORPHAN"
+        "I-301 ASSET_ORPHAN"
       ]
     },
     {
@@ -166,7 +166,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-309 ASSET_ORPHAN"
+        "I-302 ASSET_ORPHAN"
       ]
     },
     {
@@ -211,7 +211,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-310 ASSET_ORPHAN"
+        "I-303 ASSET_ORPHAN"
       ]
     },
     {
@@ -251,7 +251,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-311 ASSET_ORPHAN"
+        "I-304 ASSET_ORPHAN"
       ]
     },
     {
@@ -294,7 +294,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-312 ASSET_ORPHAN"
+        "I-305 ASSET_ORPHAN"
       ]
     },
     {
@@ -325,7 +325,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-313 ASSET_ORPHAN"
+        "I-306 ASSET_ORPHAN"
       ]
     },
     {
@@ -352,7 +352,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "mesh",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -361,8 +361,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-314 ASSET_ORPHAN"
-      ]
+        "I-307 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVCORALROCK002",
@@ -388,7 +389,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "mesh",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -397,8 +398,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-315 ASSET_ORPHAN"
-      ]
+        "I-308 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVHYDRODOMETOWER001",
@@ -424,7 +426,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "mesh",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -433,8 +435,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-316 ASSET_ORPHAN"
-      ]
+        "I-309 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVOCEANBOAT001",
@@ -460,7 +464,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -469,8 +473,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-317 ASSET_ORPHAN"
-      ]
+        "I-310 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVOCEANLEAVES001",
@@ -498,7 +503,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -507,7 +512,20 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-318 ASSET_ORPHAN"
+        "I-311 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shader": "ProfessorSprat/Environment/Algae Sway",
+      "attach": [
+        {
+          "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab",
+          "offset": [
+            0,
+            0.05,
+            0
+          ],
+          "align": "world"
+        }
       ]
     },
     {
@@ -531,7 +549,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -540,7 +558,19 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-319 ASSET_ORPHAN"
+        "I-312 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "attach": [
+        {
+          "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab",
+          "offset": [
+            0,
+            0.05,
+            0
+          ],
+          "align": "world"
+        }
       ]
     },
     {
@@ -567,7 +597,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "mesh",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -576,8 +606,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-320 ASSET_ORPHAN"
-      ]
+        "I-313 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVOCEANSKELETON001",
@@ -603,7 +634,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -612,8 +643,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-321 ASSET_ORPHAN"
-      ]
+        "I-314 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVROCKVEGETATION001",
@@ -636,7 +668,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -645,7 +677,19 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-322 ASSET_ORPHAN"
+        "I-315 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "attach": [
+        {
+          "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab",
+          "offset": [
+            0,
+            0.05,
+            0
+          ],
+          "align": "world"
+        }
       ]
     },
     {
@@ -676,7 +720,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -685,8 +729,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-323 ASSET_ORPHAN"
-      ]
+        "I-316 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVVEGETATION001",
@@ -714,7 +759,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -723,7 +768,20 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-324 ASSET_ORPHAN"
+        "I-317 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shader": "ProfessorSprat/Environment/Algae Sway",
+      "attach": [
+        {
+          "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab",
+          "offset": [
+            0,
+            0.05,
+            0
+          ],
+          "align": "world"
+        }
       ]
     },
     {
@@ -743,7 +801,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -752,8 +810,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-325 ASSET_ORPHAN"
-      ]
+        "I-318 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVB17ARCH001",
@@ -779,7 +838,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "mesh",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -788,8 +847,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-326 ASSET_ORPHAN"
-      ]
+        "I-319 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVB17FLOORPLATE001",
@@ -824,8 +885,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-327 ASSET_ORPHAN"
-      ]
+        "I-320 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVBULKHEAD001",
@@ -851,7 +914,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "mesh",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -860,8 +923,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-328 ASSET_ORPHAN"
-      ]
+        "I-321 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVCRYSTALPANEL001",
@@ -887,7 +952,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "mesh",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -896,8 +961,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-329 ASSET_ORPHAN"
-      ]
+        "I-322 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVGRATEPLATFORM001",
@@ -932,8 +998,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-330 ASSET_ORPHAN"
-      ]
+        "I-323 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVHATCHPANEL001",
@@ -968,8 +1036,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-331 ASSET_ORPHAN"
-      ]
+        "I-324 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVLABDOOR001",
@@ -995,7 +1065,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -1004,8 +1074,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-332 ASSET_ORPHAN"
-      ]
+        "I-325 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVLABFLOOR001",
@@ -1040,8 +1112,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-333 ASSET_ORPHAN"
-      ]
+        "I-326 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVPIPE001",
@@ -1076,8 +1150,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-334 ASSET_ORPHAN"
-      ]
+        "I-327 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVPIPE002",
@@ -1112,8 +1187,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-335 ASSET_ORPHAN"
-      ]
+        "I-328 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTENVPLATFORMMODULE001",
@@ -1143,8 +1219,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-336 ASSET_ORPHAN"
-      ]
+        "I-329 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVSCAFFOLD001",
@@ -1179,8 +1257,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-337 ASSET_ORPHAN"
-      ]
+        "I-330 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVSTEELCOLUMN001",
@@ -1215,8 +1295,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-338 ASSET_ORPHAN"
-      ]
+        "I-331 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-Sky",
@@ -1246,7 +1327,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-339 ASSET_ORPHAN"
+        "I-332 ASSET_ORPHAN"
       ]
     },
     {
@@ -1282,8 +1363,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-340 ASSET_ORPHAN"
-      ]
+        "I-333 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPCONSOLE002",
@@ -1318,8 +1400,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-341 ASSET_ORPHAN"
-      ]
+        "I-334 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPHOSE001",
@@ -1354,8 +1437,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-342 ASSET_ORPHAN"
-      ]
+        "I-335 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPLANTERN001",
@@ -1381,7 +1465,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -1390,8 +1474,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-343 ASSET_ORPHAN"
-      ]
+        "I-336 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPRAILING001",
@@ -1426,8 +1511,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-344 ASSET_ORPHAN"
-      ]
+        "I-337 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPWARNINGSIGN001",
@@ -1462,8 +1548,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-345 ASSET_ORPHAN"
-      ]
+        "I-338 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPACCESSKEY001",
@@ -1482,7 +1569,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -1491,8 +1578,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-346 ASSET_ORPHAN"
-      ]
+        "I-339 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPCONSOLE001",
@@ -1527,8 +1615,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-347 ASSET_ORPHAN"
-      ]
+        "I-340 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPHATCH001",
@@ -1563,8 +1652,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-348 ASSET_ORPHAN"
-      ]
+        "I-341 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-ASTPROPZONEDOOR001",
@@ -1583,7 +1673,7 @@
       "size_m": null,
       "pivot": null,
       "side": null,
-      "collision": "simple",
+      "collision": "none",
       "tris_lod0": null,
       "texture_size": null,
       "bones": null,
@@ -1592,8 +1682,9 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-349 ASSET_ORPHAN"
-      ]
+        "I-342 ASSET_ORPHAN"
+      ],
+      "ruled": true
     },
     {
       "asset_id": "INV-UISpriteSheetV02",
@@ -1623,7 +1714,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-350 ASSET_ORPHAN"
+        "I-343 ASSET_ORPHAN"
       ]
     },
     {
@@ -1654,7 +1745,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-351 ASSET_ORPHAN"
+        "I-344 ASSET_ORPHAN"
       ]
     },
     {
@@ -1685,7 +1776,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-352 ASSET_ORPHAN"
+        "I-345 ASSET_ORPHAN"
       ]
     },
     {
@@ -1716,7 +1807,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-353 ASSET_ORPHAN"
+        "I-346 ASSET_ORPHAN"
       ]
     },
     {
@@ -1747,7 +1838,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-354 ASSET_ORPHAN"
+        "I-347 ASSET_ORPHAN"
       ]
     },
     {
@@ -1791,7 +1882,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-355 ASSET_ORPHAN"
+        "I-348 ASSET_ORPHAN"
       ]
     },
     {
@@ -1823,7 +1914,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-356 ASSET_ORPHAN"
+        "I-349 ASSET_ORPHAN"
       ]
     }
   ],

@@ -21,6 +21,8 @@ namespace V57.Assembly.Build
     {
         #region Fields
 
+        private const string AttachmentsGroup = "_Attachments";
+
         private const string Step = "BuildLevelScenes";
 
         #endregion
@@ -36,6 +38,8 @@ namespace V57.Assembly.Build
             Dictionary<string, string> gameplayByName = GameplayPrefabLinker.GameplayPrefabsByName();
             Dictionary<string, Transform> groups = new Dictionary<string, Transform>();
             Dictionary<string, Transform> actorGroups = new Dictionary<string, Transform>();
+            Dictionary<string, Transform> attachGroups = new Dictionary<string, Transform>();
+            Dictionary<string, AssetAttachDto[]> attachByModel = AttachmentsByModel();
             int placed = 0;
             foreach (LayoutObjectDto item in layout.objects ?? new LayoutObjectDto[0])
             {
@@ -111,6 +115,7 @@ namespace V57.Assembly.Build
                     }
                 }
 
+                PlaceAttachments(environment, attachGroups, attachByModel, item.model, instance.transform);
                 placed++;
             }
 
@@ -121,6 +126,65 @@ namespace V57.Assembly.Build
         #endregion
 
         #region Private Methods
+
+        /// <summary>Docs/V57/asset_rules.json <c>attach</c> lists by model path.</summary>
+        private static Dictionary<string, AssetAttachDto[]> AttachmentsByModel()
+        {
+            Dictionary<string, AssetAttachDto[]> byModel = new Dictionary<string, AssetAttachDto[]>();
+            foreach (AssetEntryDto entry in GeneratedData.AssetManifest?.assets ?? new AssetEntryDto[0])
+            {
+                string mesh = entry?.files?.mesh;
+                if (!string.IsNullOrEmpty(mesh) && entry.attach != null && entry.attach.Length > 0)
+                {
+                    byModel[mesh] = entry.attach;
+                }
+            }
+
+            return byModel;
+        }
+
+        /// <summary>
+        /// Companion prefabs of the instance's asset (effects, lights, sounds), placed under
+        /// <c>_Environment/_Attachments/&lt;Prefab&gt;</c> at the instance position + offset: unscaled, not static, and rebuilt with
+        /// the layout, so a new map carries them without manual work.
+        /// </summary>
+        private static void PlaceAttachments(Transform environment, Dictionary<string, Transform> groups, Dictionary<string, AssetAttachDto[]> byModel, string model, Transform instance)
+        {
+            if (string.IsNullOrEmpty(model) || !byModel.TryGetValue(model, out AssetAttachDto[] attachments))
+            {
+                return;
+            }
+
+            foreach (AssetAttachDto attach in attachments)
+            {
+                GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(attach.prefab);
+                if (prefab == null)
+                {
+                    AssemblyContext.Warn(Step, $"{instance.name}: attach prefab '{attach.prefab}' not found; nothing attached");
+                    continue;
+                }
+
+                if (!groups.TryGetValue(prefab.name, out Transform group))
+                {
+                    Transform root = environment.Find(AttachmentsGroup);
+                    if (root == null)
+                    {
+                        root = SceneContainers.CreateChild(environment, AttachmentsGroup);
+                    }
+
+                    group = SceneContainers.CreateChild(root, prefab.name);
+                    groups.Add(prefab.name, group);
+                }
+
+                bool aligned = attach.align == "instance";
+                Vector3 offset = ToVector3(attach.offset, Vector3.zero);
+                GameObject child = (GameObject)PrefabUtility.InstantiatePrefab(prefab, group.gameObject.scene);
+                child.name = $"{prefab.name}_{instance.name}";
+                child.transform.SetParent(group, false);
+                child.transform.SetPositionAndRotation(instance.position + (aligned ? instance.rotation * offset : offset), aligned ? instance.rotation : Quaternion.identity);
+                child.transform.localScale = Vector3.one;
+            }
+        }
 
         /// <summary>Scripts other than Unity's own (e.g. URP light/camera data on a lamp in the art).</summary>
         private static bool HasGameScripts(GameObject prefab)

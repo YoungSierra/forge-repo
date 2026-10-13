@@ -58,7 +58,7 @@ namespace V57.Assembly.Build
                 {
                     AssemblyContext.Counts.skipped_existing++;
                     AssemblyContext.TrackAsset(prefabPath);
-                    RefreshLods(prefabPath, modelPath);
+                    RefreshKept(entry, prefabPath, modelPath);
                     continue;
                 }
 
@@ -72,8 +72,11 @@ namespace V57.Assembly.Build
 
         #region Private Methods
 
-        /// <summary>Kept prefab, re-delivered model: its LODGroup follows the model's current <c>_LOD#</c> nodes.</summary>
-        private static void RefreshLods(string prefabPath, string modelPath)
+        /// <summary>
+        /// Kept prefab, possibly re-delivered model: its LODGroup follows the model's current <c>_LOD#</c> nodes and, for a
+        /// ruled asset (<c>Docs/V57/asset_rules.json</c>), its generated colliders and shadow casting follow the rules.
+        /// </summary>
+        private static void RefreshKept(AssetEntryDto entry, string prefabPath, string modelPath)
         {
             GameObject root = PrefabUtility.LoadPrefabContents(prefabPath);
             try
@@ -89,10 +92,13 @@ namespace V57.Assembly.Build
                     }
                 }
 
-                if (instance != null && LodGroupBuilder.Refresh(root, instance))
+                bool lods = instance != null && LodGroupBuilder.Refresh(root, instance);
+                bool colliders = entry.ruled && AssetRulesApplier.RefreshColliders(entry, root);
+                bool shadows = AssetRulesApplier.ApplyShadows(entry, root);
+                if (lods || colliders || shadows)
                 {
                     PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
-                    Debug.Log($"V57.Assembly: {prefabPath} LODGroup refreshed to the model's LOD nodes ({modelPath})");
+                    Debug.Log($"V57.Assembly: {prefabPath} refreshed (lods={lods}, colliders={colliders}, shadows={shadows}) ← {modelPath}");
                 }
             }
             finally
@@ -119,6 +125,7 @@ namespace V57.Assembly.Build
                 int lodLevels = LodGroupBuilder.Apply(root, instance);
                 Bounds bounds = RendererBounds.Compute(root);
                 string colliders = PrefabColliderBuilder.Apply(entry, root, bounds);
+                AssetRulesApplier.ApplyShadows(entry, root);
                 PrefabValidator.Validate(entry, bounds);
                 AssemblyPaths.EnsureFolder(AssemblyPaths.ParentFolder(prefabPath));
                 PrefabUtility.SaveAsPrefabAsset(root, prefabPath, out bool success);

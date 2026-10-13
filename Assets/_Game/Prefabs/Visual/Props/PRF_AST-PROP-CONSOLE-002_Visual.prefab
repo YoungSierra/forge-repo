@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6414997203970809831}
+  - component: {fileID: 1021811113262382524}
   m_Layer: 0
   m_Name: PRF_AST-PROP-CONSOLE-002_Visual
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 7476837260244009164}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1021811113262382524
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6726648789626912694}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7593881, y: 0.4900061, z: 0.91627955}
+  m_Center: {x: -0.00000023841858, y: 0.24499774, z: -0.0001578927}
 --- !u!1001 &6938277510836823847
 PrefabInstance:
   m_ObjectHideFlags: 0

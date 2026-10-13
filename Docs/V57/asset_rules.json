@@ -1,0 +1,48 @@
+{
+  "_doc": "V57 per-asset build rules (D-275). Read by the intake into asset_manifest; the assembly applies them on every build (Visual prefab colliders and shadows, kept prefabs refreshed on re-delivery; material shader; companion prefabs per layout instance). Later rules win.",
+  "rules": [
+    { "match": "AST-PROP-BEACONCRATE-001", "collision": "simple" },
+    { "match": "AST-PROP-CONSOLE-001", "collision": "simple" },
+    { "match": "AST-PROP-CONSOLE-002", "collision": "simple" },
+    { "match": "AST-PROP-HATCH-001", "collision": "simple" },
+    { "match": "AST-PROP-WARNINGSIGN-001", "collision": "simple" },
+    { "match": "AST-PROP-HOSE-001", "collision": "simple" },
+    { "match": "AST-PROP-RAILING-001", "collision": "simple" },
+    { "match": "AST-ENV-STEELCOLUMN-001", "collision": "simple" },
+    { "match": "AST-ENV-PIPE-001", "collision": "simple" },
+    { "match": "AST-ENV-PIPE-002", "collision": "simple" },
+
+    { "match": "AST-ENV-B17FLOORPLATE-001", "collision": "simple", "shadows": "two_sided" },
+    { "match": "AST-ENV-GRATEPLATFORM-001", "collision": "simple", "shadows": "two_sided" },
+    { "match": "AST-ENV-LABFLOOR-001", "collision": "simple", "shadows": "two_sided" },
+    { "match": "AST-ENV-PLATFORMMODULE-001", "collision": "simple", "shadows": "two_sided" },
+    { "match": "AST-ENV-SCAFFOLD-001", "collision": "simple", "shadows": "two_sided" },
+    { "match": "AST-ENV-HATCHPANEL-001", "collision": "simple", "shadows": "two_sided" },
+
+    { "match": "AST-ENV-B17ARCH-001", "collision": "mesh", "shadows": "two_sided" },
+    { "match": "AST-ENV-BULKHEAD-001", "collision": "mesh", "shadows": "two_sided" },
+    { "match": "AST-ENV-CRYSTALPANEL-001", "collision": "mesh" },
+    { "match": "AST-ENV-HYDRODOMETOWER-001", "collision": "mesh", "shadows": "two_sided" },
+    { "match": "AST-ENV-CORALROCK-001", "collision": "mesh" },
+    { "match": "AST-ENV-CORALROCK-002", "collision": "mesh" },
+    { "match": "AST-ENV-OCEANROCKS-001", "collision": "mesh" },
+
+    { "match": "AST-ENV-LABDOOR-001", "collision": "none", "shadows": "two_sided" },
+    { "match": "AST-PROP-LANTERN-001", "collision": "none" },
+    { "match": "AST-PROP-ACCESSKEY-001", "collision": "none" },
+    { "match": "AST-PROP-ZONEDOOR-001", "collision": "none" },
+    { "match": "AST-ENV-SEABED-001", "collision": "none" },
+    { "match": "AST-ENV-WATERSURFACE-001", "collision": "none" },
+    { "match": "AST-ENV-OCEANBOAT-001", "collision": "none" },
+    { "match": "AST-ENV-OCEANSKELETON-001", "collision": "none" },
+
+    { "match": "AST-ENV-VEGETATION-001", "collision": "none", "shader": "ProfessorSprat/Environment/Algae Sway",
+      "attach": [ { "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab", "offset": [0, 0.05, 0] } ] },
+    { "match": "AST-ENV-OCEANLEAVES-001", "collision": "none", "shader": "ProfessorSprat/Environment/Algae Sway",
+      "attach": [ { "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab", "offset": [0, 0.05, 0] } ] },
+    { "match": "AST-ENV-ROCKVEGETATION-001", "collision": "none",
+      "attach": [ { "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab", "offset": [0, 0.05, 0] } ] },
+    { "match": "AST-ENV-OCEANROCKLEAVES-001", "collision": "none",
+      "attach": [ { "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab", "offset": [0, 0.05, 0] } ] }
+  ]
+}

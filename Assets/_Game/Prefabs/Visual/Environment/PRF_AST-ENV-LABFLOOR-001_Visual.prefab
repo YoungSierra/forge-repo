@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4217722373433599968}
+  - component: {fileID: 5250854229664780254}
   m_Layer: 0
   m_Name: PRF_AST-ENV-LABFLOOR-001_Visual
   m_TagString: Untagged
@@ -32,6 +33,27 @@ Transform:
   - {fileID: 543978048717032040}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5250854229664780254
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121095471169966935}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4747467, y: 0.14325187, z: 1.4996554}
+  m_Center: {x: 0.0010290146, y: 0.041256662, z: 0.0010308027}
 --- !u!1001 &1724422018755971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80,9 +102,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8214263693900754009, guid: 435285a5e29ff2f4784c051f537fd528, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -739160675910141229, guid: 435285a5e29ff2f4784c051f537fd528, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 435285a5e29ff2f4784c051f537fd528, type: 3}
       propertyPath: m_Name
       value: AST-ENV-LABFLOOR-001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1191533881715524804, guid: 435285a5e29ff2f4784c051f537fd528, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7435217795830351012, guid: 435285a5e29ff2f4784c051f537fd528, type: 3}
+      propertyPath: m_CastShadows
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -37,6 +37,7 @@ namespace V57.Assembly.Build
                 return;
             }
 
+            Dictionary<string, string> shaders = RuleShadersByFolder();
             foreach (MaterialTextureSet set in CollectTextureSets().Values)
             {
                 if (set.BaseColor == null)
@@ -45,7 +46,18 @@ namespace V57.Assembly.Build
                     continue;
                 }
 
-                Material material = BuildMaterial(set, lit);
+                Shader shader = lit;
+                if (shaders.TryGetValue(set.AssetFolder, out string shaderName))
+                {
+                    shader = Shader.Find(shaderName);
+                    if (shader == null)
+                    {
+                        AssemblyContext.Warn(Step, $"{set.AssetName}: asset rule shader '{shaderName}' not found; URP Lit used");
+                        shader = lit;
+                    }
+                }
+
+                Material material = BuildMaterial(set, shader, shader != lit);
                 ModelMaterialRemapper.Remap(set.AssetFolder, set.AssetName, material);
             }
         }
@@ -107,18 +119,38 @@ namespace V57.Assembly.Build
             }
         }
 
-        private static Material BuildMaterial(MaterialTextureSet set, Shader lit)
+        /// <summary>Docs/V57/asset_rules.json <c>shader</c> per asset folder (the folder that holds the asset's mesh).</summary>
+        private static Dictionary<string, string> RuleShadersByFolder()
+        {
+            Dictionary<string, string> byFolder = new Dictionary<string, string>();
+            foreach (AssetEntryDto entry in GeneratedData.AssetManifest?.assets ?? new AssetEntryDto[0])
+            {
+                string mesh = entry?.files?.mesh;
+                if (string.IsNullOrEmpty(entry?.shader) || string.IsNullOrEmpty(mesh))
+                {
+                    continue;
+                }
+
+                string meshFolder = AssemblyPaths.ParentFolder(mesh);
+                string assetFolder = meshFolder.EndsWith("/Meshes") ? AssemblyPaths.ParentFolder(meshFolder) : meshFolder;
+                byFolder[assetFolder] = entry.shader;
+            }
+
+            return byFolder;
+        }
+
+        private static Material BuildMaterial(MaterialTextureSet set, Shader shader, bool ruleShader)
         {
             AssemblyPaths.EnsureFolder(set.AssetFolder + "/Materials");
             Material material = AssetDatabase.LoadAssetAtPath<Material>(set.MaterialPath);
             if (material == null)
             {
-                material = new Material(lit) { name = "MAT_" + set.AssetName };
+                material = new Material(shader) { name = "MAT_" + set.AssetName };
                 AssetDatabase.CreateAsset(material, set.MaterialPath);
             }
-            else if (material.shader != lit && material.GetTag(KeepShaderTag, false) != "true")
+            else if (material.shader != shader && (ruleShader || material.GetTag(KeepShaderTag, false) != "true"))
             {
-                material.shader = lit;
+                material.shader = shader;
             }
 
             material.SetTexture("_BaseMap", set.BaseColor);

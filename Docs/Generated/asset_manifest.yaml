@@ -32,7 +32,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-306 ASSET_ORPHAN
+      - I-299 ASSET_ORPHAN
   - asset_id: INV-Fly
     asset_name: Fly
     category: character
@@ -74,7 +74,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-307 ASSET_ORPHAN
+      - I-300 ASSET_ORPHAN
   - asset_id: INV-Jellyfish
     asset_name: Jellyfish
     category: character
@@ -106,7 +106,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-308 ASSET_ORPHAN
+      - I-301 ASSET_ORPHAN
   - asset_id: INV-MechanicalCrab
     asset_name: MechanicalCrab
     category: character
@@ -142,7 +142,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-309 ASSET_ORPHAN
+      - I-302 ASSET_ORPHAN
   - asset_id: INV-Professor
     asset_name: Professor
     category: character
@@ -180,7 +180,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-310 ASSET_ORPHAN
+      - I-303 ASSET_ORPHAN
   - asset_id: INV-Shark
     asset_name: Shark
     category: character
@@ -213,7 +213,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-311 ASSET_ORPHAN
+      - I-304 ASSET_ORPHAN
   - asset_id: INV-Sprat
     asset_name: Sprat
     category: character
@@ -249,7 +249,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-312 ASSET_ORPHAN
+      - I-305 ASSET_ORPHAN
   - asset_id: INV-CINIntro
     asset_name: CINIntro
     category: unknown
@@ -275,7 +275,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-313 ASSET_ORPHAN
+      - I-306 ASSET_ORPHAN
   - asset_id: INV-ASTENVCORALROCK001
     asset_name: ASTENVCORALROCK001
     category: model
@@ -297,7 +297,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: mesh
     tris_lod0: null
     texture_size: null
     bones: null
@@ -306,7 +306,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-314 ASSET_ORPHAN
+      - I-307 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVCORALROCK002
     asset_name: ASTENVCORALROCK002
     category: model
@@ -328,7 +329,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: mesh
     tris_lod0: null
     texture_size: null
     bones: null
@@ -337,7 +338,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-315 ASSET_ORPHAN
+      - I-308 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVHYDRODOMETOWER001
     asset_name: ASTENVHYDRODOMETOWER001
     category: model
@@ -359,7 +361,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: mesh
     tris_lod0: null
     texture_size: null
     bones: null
@@ -368,7 +370,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-316 ASSET_ORPHAN
+      - I-309 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVOCEANBOAT001
     asset_name: ASTENVOCEANBOAT001
     category: model
@@ -390,7 +394,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -399,7 +403,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-317 ASSET_ORPHAN
+      - I-310 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVOCEANLEAVES001
     asset_name: ASTENVOCEANLEAVES001
     category: model
@@ -423,7 +428,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -432,7 +437,16 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-318 ASSET_ORPHAN
+      - I-311 ASSET_ORPHAN
+    ruled: true
+    shader: ProfessorSprat/Environment/Algae Sway
+    attach:
+      - prefab: Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab
+        offset:
+          - 0
+          - 0.05
+          - 0
+        align: world
   - asset_id: INV-ASTENVOCEANROCKLEAVES001
     asset_name: ASTENVOCEANROCKLEAVES001
     category: model
@@ -451,7 +465,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -460,7 +474,15 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-319 ASSET_ORPHAN
+      - I-312 ASSET_ORPHAN
+    ruled: true
+    attach:
+      - prefab: Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab
+        offset:
+          - 0
+          - 0.05
+          - 0
+        align: world
   - asset_id: INV-ASTENVOCEANROCKS001
     asset_name: ASTENVOCEANROCKS001
     category: model
@@ -482,7 +504,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: mesh
     tris_lod0: null
     texture_size: null
     bones: null
@@ -491,7 +513,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-320 ASSET_ORPHAN
+      - I-313 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVOCEANSKELETON001
     asset_name: ASTENVOCEANSKELETON001
     category: model
@@ -513,7 +536,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -522,7 +545,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-321 ASSET_ORPHAN
+      - I-314 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVROCKVEGETATION001
     asset_name: ASTENVROCKVEGETATION001
     category: model
@@ -541,7 +565,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -550,7 +574,15 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-322 ASSET_ORPHAN
+      - I-315 ASSET_ORPHAN
+    ruled: true
+    attach:
+      - prefab: Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab
+        offset:
+          - 0
+          - 0.05
+          - 0
+        align: world
   - asset_id: INV-ASTENVSEABED001
     asset_name: ASTENVSEABED001
     category: model
@@ -576,7 +608,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -585,7 +617,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-323 ASSET_ORPHAN
+      - I-316 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVVEGETATION001
     asset_name: ASTENVVEGETATION001
     category: model
@@ -609,7 +642,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -618,7 +651,16 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-324 ASSET_ORPHAN
+      - I-317 ASSET_ORPHAN
+    ruled: true
+    shader: ProfessorSprat/Environment/Algae Sway
+    attach:
+      - prefab: Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab
+        offset:
+          - 0
+          - 0.05
+          - 0
+        align: world
   - asset_id: INV-ASTENVWATERSURFACE001
     asset_name: ASTENVWATERSURFACE001
     category: model
@@ -634,7 +676,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -643,7 +685,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-325 ASSET_ORPHAN
+      - I-318 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVB17ARCH001
     asset_name: ASTENVB17ARCH001
     category: model
@@ -665,7 +708,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: mesh
     tris_lod0: null
     texture_size: null
     bones: null
@@ -674,7 +717,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-326 ASSET_ORPHAN
+      - I-319 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVB17FLOORPLATE001
     asset_name: ASTENVB17FLOORPLATE001
     category: model
@@ -705,7 +750,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-327 ASSET_ORPHAN
+      - I-320 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVBULKHEAD001
     asset_name: ASTENVBULKHEAD001
     category: model
@@ -727,7 +774,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: mesh
     tris_lod0: null
     texture_size: null
     bones: null
@@ -736,7 +783,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-328 ASSET_ORPHAN
+      - I-321 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVCRYSTALPANEL001
     asset_name: ASTENVCRYSTALPANEL001
     category: model
@@ -758,7 +807,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: mesh
     tris_lod0: null
     texture_size: null
     bones: null
@@ -767,7 +816,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-329 ASSET_ORPHAN
+      - I-322 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVGRATEPLATFORM001
     asset_name: ASTENVGRATEPLATFORM001
     category: model
@@ -798,7 +848,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-330 ASSET_ORPHAN
+      - I-323 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVHATCHPANEL001
     asset_name: ASTENVHATCHPANEL001
     category: model
@@ -829,7 +881,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-331 ASSET_ORPHAN
+      - I-324 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVLABDOOR001
     asset_name: ASTENVLABDOOR001
     category: model
@@ -851,7 +905,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -860,7 +914,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-332 ASSET_ORPHAN
+      - I-325 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVLABFLOOR001
     asset_name: ASTENVLABFLOOR001
     category: model
@@ -891,7 +947,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-333 ASSET_ORPHAN
+      - I-326 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVPIPE001
     asset_name: ASTENVPIPE001
     category: model
@@ -922,7 +980,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-334 ASSET_ORPHAN
+      - I-327 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVPIPE002
     asset_name: ASTENVPIPE002
     category: model
@@ -953,7 +1012,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-335 ASSET_ORPHAN
+      - I-328 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTENVPLATFORMMODULE001
     asset_name: ASTENVPLATFORMMODULE001
     category: model
@@ -979,7 +1039,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-336 ASSET_ORPHAN
+      - I-329 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVSCAFFOLD001
     asset_name: ASTENVSCAFFOLD001
     category: model
@@ -1010,7 +1072,9 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-337 ASSET_ORPHAN
+      - I-330 ASSET_ORPHAN
+    ruled: true
+    shadows: two_sided
   - asset_id: INV-ASTENVSTEELCOLUMN001
     asset_name: ASTENVSTEELCOLUMN001
     category: model
@@ -1041,7 +1105,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-338 ASSET_ORPHAN
+      - I-331 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-Sky
     asset_name: Sky
     category: texture
@@ -1067,7 +1132,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-339 ASSET_ORPHAN
+      - I-332 ASSET_ORPHAN
   - asset_id: INV-ASTPROPBEACONCRATE001
     asset_name: ASTPROPBEACONCRATE001
     category: model
@@ -1098,7 +1163,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-340 ASSET_ORPHAN
+      - I-333 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPCONSOLE002
     asset_name: ASTPROPCONSOLE002
     category: model
@@ -1129,7 +1195,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-341 ASSET_ORPHAN
+      - I-334 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPHOSE001
     asset_name: ASTPROPHOSE001
     category: model
@@ -1160,7 +1227,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-342 ASSET_ORPHAN
+      - I-335 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPLANTERN001
     asset_name: ASTPROPLANTERN001
     category: model
@@ -1182,7 +1250,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -1191,7 +1259,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-343 ASSET_ORPHAN
+      - I-336 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPRAILING001
     asset_name: ASTPROPRAILING001
     category: model
@@ -1222,7 +1291,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-344 ASSET_ORPHAN
+      - I-337 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPWARNINGSIGN001
     asset_name: ASTPROPWARNINGSIGN001
     category: model
@@ -1253,7 +1323,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-345 ASSET_ORPHAN
+      - I-338 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPACCESSKEY001
     asset_name: ASTPROPACCESSKEY001
     category: model
@@ -1269,7 +1340,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -1278,7 +1349,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-346 ASSET_ORPHAN
+      - I-339 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPCONSOLE001
     asset_name: ASTPROPCONSOLE001
     category: model
@@ -1309,7 +1381,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-347 ASSET_ORPHAN
+      - I-340 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPHATCH001
     asset_name: ASTPROPHATCH001
     category: model
@@ -1340,7 +1413,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-348 ASSET_ORPHAN
+      - I-341 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-ASTPROPZONEDOOR001
     asset_name: ASTPROPZONEDOOR001
     category: model
@@ -1356,7 +1430,7 @@ assets:
     size_m: null
     pivot: null
     side: null
-    collision: simple
+    collision: none
     tris_lod0: null
     texture_size: null
     bones: null
@@ -1365,7 +1439,8 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-349 ASSET_ORPHAN
+      - I-342 ASSET_ORPHAN
+    ruled: true
   - asset_id: INV-UISpriteSheetV02
     asset_name: UISpriteSheetV02
     category: unknown
@@ -1391,7 +1466,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-350 ASSET_ORPHAN
+      - I-343 ASSET_ORPHAN
   - asset_id: INV-ICOAccessKey
     asset_name: ICOAccessKey
     category: sprite
@@ -1417,7 +1492,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-351 ASSET_ORPHAN
+      - I-344 ASSET_ORPHAN
   - asset_id: INV-ICOFly
     asset_name: ICOFly
     category: sprite
@@ -1443,7 +1518,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-352 ASSET_ORPHAN
+      - I-345 ASSET_ORPHAN
   - asset_id: INV-ICOMarker
     asset_name: ICOMarker
     category: sprite
@@ -1469,7 +1544,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-353 ASSET_ORPHAN
+      - I-346 ASSET_ORPHAN
   - asset_id: INV-ICOSkull
     asset_name: ICOSkull
     category: sprite
@@ -1495,7 +1570,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-354 ASSET_ORPHAN
+      - I-347 ASSET_ORPHAN
   - asset_id: INV-Common
     asset_name: Common
     category: sprite
@@ -1534,7 +1609,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-355 ASSET_ORPHAN
+      - I-348 ASSET_ORPHAN
   - asset_id: INV-Bubbles
     asset_name: Bubbles
     category: vfx
@@ -1561,7 +1636,7 @@ assets:
     animations: []
     source: inventory
     issues:
-      - I-356 ASSET_ORPHAN
+      - I-349 ASSET_ORPHAN
 orphans:
   - Assets/_Game/Art/Characters/Fish/Animations/ANIM_Fish_HoverIdle.fbx
   - Assets/_Game/Art/Characters/Fish/Fish_export.json

@@ -1,4 +1,5 @@
 using System;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using V57.Assembly.Data;
 using V57.Assembly.Report;
@@ -10,12 +11,15 @@ namespace V57.Assembly.Build
     /// Colliders per manifest <c>collision</c>: exact → UCX_ convex MeshColliders from import (fallback simple);
     /// simple → Box (Capsule for characters) from renderer bounds, their 2D variants when package.physics is 2d; none → nothing.
     /// Blockouts without UCX_ get non-convex MeshColliders on their visible meshes instead of one giant box.
+    /// <c>Docs/V57/asset_rules.json</c> may also ask for mesh (non-convex MeshColliders on the LOD0 meshes, static
+    /// scenery) or convex (convex MeshColliders on the LOD0 meshes; they accept mirrored instances and moving pieces).
     /// </summary>
     public static class PrefabColliderBuilder
     {
         #region Fields
 
         private const string Step = "BuildVisualPrefabs";
+        private static readonly Regex LodSuffix = new Regex(@"_LOD\d+$", RegexOptions.CultureInvariant);
 
         #endregion
 
@@ -26,6 +30,17 @@ namespace V57.Assembly.Build
             string mode = (entry.collision ?? string.Empty).ToLowerInvariant();
             int ucx = root.GetComponentsInChildren<MeshCollider>(true).Length;
             bool blockout = string.Equals(entry.type, "blockout", StringComparison.OrdinalIgnoreCase);
+            if (mode == "mesh" || mode == "convex")
+            {
+                if (AssemblyPhysics.Is2D)
+                {
+                    AssemblyContext.Warn(Step, $"{entry.asset_name}: collision {mode} needs 3D physics; no collider added — author 2D colliders");
+                    return $"none(2d {mode})";
+                }
+
+                return AddMeshColliders(root, mode == "convex", true);
+            }
+
             if (mode != "exact" && mode != "simple")
             {
                 if (ucx > 0)
@@ -57,7 +72,7 @@ namespace V57.Assembly.Build
                 return "none(2d blockout)";
             }
 
-            return blockout ? AddMeshColliders(root) : AddSimple(entry, root, bounds);
+            return blockout ? AddMeshColliders(root, false, false) : AddSimple(entry, root, bounds);
         }
 
         #endregion
@@ -113,7 +128,7 @@ namespace V57.Assembly.Build
             return "box2d";
         }
 
-        private static string AddMeshColliders(GameObject root)
+        private static string AddMeshColliders(GameObject root, bool convex, bool lod0Only)
         {
             int added = 0;
             foreach (MeshFilter filter in root.GetComponentsInChildren<MeshFilter>(true))
@@ -121,17 +136,19 @@ namespace V57.Assembly.Build
                 string nodeName = filter.gameObject.name;
                 Renderer renderer = filter.GetComponent<Renderer>();
                 bool helper = V57MarkerNaming.IsMarker(nodeName) || nodeName.StartsWith("Socket_", StringComparison.Ordinal);
-                if (helper || renderer == null || !renderer.enabled || filter.sharedMesh == null)
+                bool lowerLod = lod0Only && LodSuffix.IsMatch(nodeName) && !nodeName.EndsWith("_LOD0", StringComparison.Ordinal);
+                if (helper || lowerLod || renderer == null || !renderer.enabled || filter.sharedMesh == null)
                 {
                     continue;
                 }
 
                 MeshCollider collider = filter.gameObject.AddComponent<MeshCollider>();
                 collider.sharedMesh = filter.sharedMesh;
+                collider.convex = convex;
                 added++;
             }
 
-            return $"mesh({added})";
+            return $"{(convex ? "convex" : "mesh")}({added})";
         }
 
         #endregion

@@ -4471,7 +4471,7 @@ Transform:
   m_GameObject: {fileID: 87895110}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -19.4, y: 2.36, z: 6}
+  m_LocalPosition: {x: -40, y: 9.59, z: 7.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -45389,13 +45389,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5291101607066786256, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1108056204}
   m_SourcePrefab: {fileID: 100100000, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
 --- !u!4 &1108056202 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8404999424580394736, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
   m_PrefabInstance: {fileID: 1108056201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1108056203 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5291101607066786256, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
+  m_PrefabInstance: {fileID: 1108056201}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1108056204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1108056203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056af159db5f86f4ea15a2b8dc6a9aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Environment.ProximityDoor
+  _leaves:
+  - {fileID: 1032488325}
+  - {fileID: 1017142410}
+  _openRadius: 3.5
+  _closeMargin: 0.75
+  _heightRange: 3
+  _slideDistance: 1.6
+  _duration: 0.6
 --- !u!1001 &1111526554
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79878,13 +79906,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5291101607066786256, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2116745886}
   m_SourcePrefab: {fileID: 100100000, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
 --- !u!4 &2116745884 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8404999424580394736, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
   m_PrefabInstance: {fileID: 2116745883}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2116745885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5291101607066786256, guid: dec642faf3d4184478792bb8e6cf8c00, type: 3}
+  m_PrefabInstance: {fileID: 2116745883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2116745886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2116745885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 056af159db5f86f4ea15a2b8dc6a9aaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Environment.ProximityDoor
+  _leaves:
+  - {fileID: 1606672845}
+  - {fileID: 1381514957}
+  _openRadius: 3.5
+  _closeMargin: 0.75
+  _heightRange: 3
+  _slideDistance: 1.6
+  _duration: 0.6
 --- !u!1001 &2119714983
 PrefabInstance:
   m_ObjectHideFlags: 0

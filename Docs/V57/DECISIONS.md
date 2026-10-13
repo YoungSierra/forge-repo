@@ -1999,3 +1999,24 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **V57 core:** `GoldPathInputSimulator` remembers every control value it wrote (released ones at 0) and writes all of them into each event (`GoldPathInputWriter.Queue`). While something is held, it re-writes them before every input update (keep-alive).
   - **Gold path:** stop under the fly, hop in place, then walk to the take-off point. 5 runs in a row green.
 - **Reversal cost:** low · **Type:** other
+
+### D-260 — Lab doors slide open when the Professor is near (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** The owner asked for the double doors of the B-17 doorways (`AST-ENV-LABDOOR-001`, one leaf per instance, two mirrored leaves per `AST-ENV-B17ARCH-001`) to open, each leaf to its own side, when the character is near. The leaves are scenery: a single mesh each, no collider.
+- **Choice:**
+  - **Component:** `ProximityDoor` (Gameplay/Environment) on each arch instance (`B17ARCH_01` west, `_02` east), with the two leaves serialized.
+  - **Open direction:** each leaf slides 1.6 m (its own width) away from the arch centre along the arch's width axis. The direction comes from where the leaf sits, so mirrored instances need no setup.
+  - **Trigger:** `PlayerMovedEvent` (same pattern as `ZoneDoorController`). Opens within 3.5 m horizontally (±3 m height), closes beyond 4.25 m. Open and close take 0.6 s, smoothstep eased.
+  - **Collision:** none; the leaves have no collider. If a doorway becomes walkable, the leaf gameplay prefab gets its collider (it moves with the leaf).
+- **Verified:** Play Mode. The Professor at x −24 opens the west leaves (z 5.20/6.81 → 3.60/8.41); back at the spawn they close to the authored positions.
+- **Reversal cost:** low · **Type:** other
+
+### D-261 — The scene fog reaches the skybox (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** URP fog only affects geometry. The provider's panoramic sky (`MAT_Skybox`, `V4_Skybox.png`) stayed crisp behind fogged 3D rocks.
+- **Choice:**
+  - **Shader:** `ProfessorSprat/Skybox/Panoramic Fog` (`Settings/Rendering/Shaders/SH_SkyboxPanoramicFog.shader`). It has the same properties as Skybox/Panoramic (lat-long), so `MAT_Skybox` keeps the provider's texture, tint, exposure and rotation; only its shader changes.
+  - **Blend:** the sky has no distance, so the scene fog colour (`unity_FogColor`) is blended by view elevation: 1.0 at and below the horizon, fading to 0.35 at elevation sin 0.6. The light shafts painted up high stay visible.
+  - **Fog off:** with the scene fog off (no `FOG_*` keyword), the sky is unfogged.
+- **Verified:** offscreen render with and without fog. The painted far rocks fade into the fog like the 3D ones.
+- **Reversal cost:** low (set `MAT_Skybox` back to Skybox/Panoramic) · **Type:** other

@@ -2029,3 +2029,32 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Raised fly at x −10:** after stopping under it, the Professor sat at z ≈ 3.93, 0.45 m from the fly (z 4.36), at the edge of the pickup radius, and 1 run in 5 missed. The route now nudges to z ≥ 4.2, stops, then hops.
 - **Verified:** 11 runs in a row green after the alignment fix (last `20261013T165736Z`).
 - **Reversal cost:** low · **Type:** other
+
+### D-263 — Algae sway by vertex shader (owner request)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:**
+  - The owner added preview algae meshes for shader animation, to be re-delivered separated from the rocks in the next scenery iteration: `AST-ENV-VEGETATION-001.fbx` and `AST_ENV_OCEANLEAVES-001.fbx`, plus their maps, in the `Assets/` root.
+  - Each is one mesh of about 2.3k vertices, about 0.9–1 m tall, with the pivot at the base. They have no vertex colours, no UV2, no LODs, and only a generic material.
+- **Choice:**
+  - **Shader:** `ProfessorSprat/Environment/Algae Sway` (`Settings/Rendering/Shaders/AlgaeSway/`), generated from this URP's `Lit.shader`, so the shading is the same (shadows, caustics cookie, fog, SSAO, probes).
+    - The sway params sit in the material CBUFFER, so the SRP Batcher is kept.
+    - Each geometry pass (forward, shadow, depth, depth-normals, GBuffer) wraps URP's own vertex function and displaces in world space, so the shadows sway too.
+    - Motion-vector and 2D passes are removed.
+  - **Motion:**
+    - A slow current wave travels along `_SwayDirection`, so neighbours follow each other.
+    - A slower secondary swell is added, plus a small fast sideways flutter at the tips.
+    - The tip drops slightly as it leans, so blades bend instead of stretching.
+    - `AlgaePush` (`_Environment/AlgaePush`) sends the Professor's smoothed centre to the shader, so plants bend away within 0.9 m.
+  - **Weights:**
+    - Now: from object height (`_SwayHeight`, `_SwayStiffness`), with a per-clump phase from the world origin.
+    - When the provider adds vertex colours: material toggle `_SWAY_VERTEXCOLOR` (R bend, G phase, B flutter), listed in MISSING_ASSETS.
+  - **Materials:** `MAT_AST-ENV-VEGETATION-001_Sway`, `MAT_AST-ENV-OCEANLEAVES-001_Sway` (two-sided, GPU instancing), using the root maps.
+    - The normal maps are re-imported as normal maps and MetallicSmoothness as linear (they were Default/sRGB).
+    - Repoint the textures when the organised delivery arrives.
+  - **Inspector:** `AlgaeSwayShaderGUI` (Editor asmdef), because URP's Lit inspector is internal. It keeps the Lit keywords in sync with the maps.
+  - **Placement rule:** algae instances must not be static-batched or lightmap-static (light probes instead).
+  - **Test scenery (owner request):** `_Environment/TMP_AlgaeTest`, 8 clumps of the root preview FBX around the spawn (not static, light probes). The root preview FBX and maps stay in `Assets/` until the final delivery replaces them.
+- **Verified:**
+  - Play Mode with temporary instances (not saved): lit and shadowed; tips move between frames while the bases stay put; `_AlgaePusher` tracks the Professor.
+  - Not verified on screen: the push itself, because the camera clipped behind a wall at that spot (no camera collision, D-257).
+- **Reversal cost:** low · **Type:** other

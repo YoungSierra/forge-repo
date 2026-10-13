@@ -25,6 +25,21 @@ namespace ProfessorSprat.Core
         public bool IsStunned { get; }
     }
 
+    /// <summary>A foot of the Professor touches the ground while walking or running (animation contact, D-264).</summary>
+    public readonly struct FootstepEvent
+    {
+        public FootstepEvent(Vector3 position, float speed)
+        {
+            Position = position;
+            Speed = speed;
+        }
+
+        public Vector3 Position { get; }
+
+        /// <summary>Horizontal speed in m/s at the step.</summary>
+        public float Speed { get; }
+    }
+
     /// <summary>TDD OnGroundedChanged.</summary>
     public readonly struct GroundedChangedEvent
     {

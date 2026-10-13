@@ -23,7 +23,8 @@
     "com.unity.modules.tetgen": "1.0.0",
     "com.unity.modules.ui": "1.0.0",
     "com.unity.modules.uielements": "1.0.0",
-    "com.unity.modules.unitywebrequest": "1.0.0"
+    "com.unity.modules.unitywebrequest": "1.0.0",
+    "com.unity.modules.video": "1.0.0"
   },
   "testables": [
     "com.v57.assembly"

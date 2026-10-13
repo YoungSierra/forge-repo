@@ -11,8 +11,8 @@ namespace ProfessorSprat.Gameplay.CameraSystem
     /// TDD §11.5 in-play camera, as a Cinemachine FreeLook (owner request, D-254/D-255/D-257, overrides "Look: none"):
     /// a <see cref="CinemachineOrbitalFollow"/> sphere orbit around the Professor's body, driven by
     /// <see cref="FreeLookInput"/> (mouse / right stick orbit, wheel / d-pad zoom). The orbit's horizontal center is the
-    /// camera-zone yaw (<c>Marker_CameraZone_*</c>, blend 0.8 s) and both orbit axes recenter there after
-    /// <see cref="CameraConfig.RecenterDelay"/> without input. Distance and elevation come from the authored follow offset.
+    /// camera-zone yaw (<c>Marker_CameraZone_*</c>, blend 0.8 s). There is no auto-recentering (owner request, D-265): the
+    /// orbit stays where the player left it. Distance and elevation come from the authored follow offset.
     /// On <see cref="KeySpawnedEvent"/> a key-shot camera frames Professor + key for 1.2 s; a respawn cuts.
     /// <see cref="ActiveYaw"/> + <see cref="LookYaw"/> is the movement basis used by InputHandler.
     /// </summary>
@@ -112,7 +112,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
             float previous = _yaw;
             _yaw = Mathf.SmoothDampAngle(_yaw, ActiveYaw, ref _yawVelocity, _config.ZoneBlendDuration * 0.3f);
             // A camera-zone change turns the whole orbit (center and current value) so the player's offset is kept.
-            // Only write when the zone yaw actually moves: any write counts as input and restarts the recenter clock.
+            // Only write when the zone yaw actually moves.
             float turn = Mathf.DeltaAngle(previous, _yaw);
             if (Mathf.Abs(turn) > 0.0001f)
             {
@@ -133,24 +133,24 @@ namespace ProfessorSprat.Gameplay.CameraSystem
 
         #region Private Methods
 
-        /// <summary>Orbit radius/elevation from the authored offset; pitch, zoom and recentering from the config.</summary>
+        /// <summary>Orbit radius/elevation from the authored offset; pitch and zoom from the config; no recentering (D-265).</summary>
         private void ConfigureOrbit()
         {
             Vector3 offset = _config.FollowOffset;
             _elevation = Mathf.Asin(Mathf.Clamp(offset.y / Mathf.Max(offset.magnitude, 0.01f), -1f, 1f)) * Mathf.Rad2Deg;
-            var recenter = new InputAxis.RecenteringSettings { Enabled = true, Wait = _config.RecenterDelay, Time = _config.RecenterTime };
+            var noRecenter = new InputAxis.RecenteringSettings { Enabled = false };
             _orbit.OrbitStyle = CinemachineOrbitalFollow.OrbitStyles.Sphere;
             _orbit.Radius = offset.magnitude;
             _orbit.TrackerSettings.BindingMode = BindingMode.WorldSpace;
             _orbit.RecenteringTarget = CinemachineOrbitalFollow.ReferenceFrames.AxisCenter;
             _orbit.HorizontalAxis.Range = new Vector2(-180f, 180f);
             _orbit.HorizontalAxis.Wrap = true;
-            _orbit.HorizontalAxis.Recentering = recenter;
+            _orbit.HorizontalAxis.Recentering = noRecenter;
             _orbit.VerticalAxis.Range = new Vector2(_elevation + _config.PitchRange.x, _elevation + _config.PitchRange.y);
             _orbit.VerticalAxis.Wrap = false;
-            _orbit.VerticalAxis.Recentering = recenter;
+            _orbit.VerticalAxis.Recentering = noRecenter;
             _orbit.RadialAxis.Range = _config.ZoomRange;
-            _orbit.RadialAxis.Recentering = new InputAxis.RecenteringSettings { Enabled = false };
+            _orbit.RadialAxis.Recentering = noRecenter;
             if (_composer != null)
             {
                 _composer.TargetOffset = Vector3.up * _config.LookHeight;

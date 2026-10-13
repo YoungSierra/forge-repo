@@ -15,7 +15,7 @@ Single list of resources the game needs but the delivery lacks (TDD 1.0.0 §6, �
 | UI sprites per screen, icons `ICO_Fly`, `ICO_AccessKey`, rounded sans font | UI | TDD §9.1, §13.1 | `Assets/_Game/Art/UI/Sprites/<ScreenId>/`, `Art/UI/Icons/`, `Art/UI/Fonts/` | blocks: visual | missing |
 | Music: level base cue | Audio | TDD §10 | `Assets/_Game/Audio/Music/` | — | delivered (`MUS_PuffAndRebellion.wav`, D-258) |
 | Music: level intensity layer (synchronised with the base cue), menu cue, key motif (1.2 s), door-unlock cadence, level-end sting | Audio | TDD §10, §13.1 | `Assets/_Game/Audio/Music/` | blocks: audio | missing |
-| SFX (≈ 30: footsteps, jump/land, stomp, crab patter/contact/defeat, fly pop, key, door, UI) | Audio | TDD §10, §B feedback | `Assets/_Game/Audio/SFX/<Category>/` | blocks: audio | missing |
+| SFX (≈ 30: footsteps, jump/land, stomp, crab patter/contact/defeat, fly pop, key, door, UI) — full list + ElevenLabs prompts in `Docs/V57/SFX_PROMPTS_ELEVENLABS.md` | Audio | TDD §10, §B feedback | `Assets/_Game/Audio/SFX/<Category>/` | blocks: audio | missing (owner generating) |
 | Ambience beds (3 zone themes) | Audio | TDD §10 | `Assets/_Game/Audio/Ambience/` | blocks: audio | missing |
 | VO (≈ 22 non-verbal: Professor efforts, Sprat tonals) | Audio | TDD §10 | `Assets/_Game/Audio/Voice/` | blocks: audio | missing |
 | VFX textures (land/footstep splash, stomp impact, crab sparks, fly pop, zone ring, key materialise, door unlock, respawn fade) | VFX | TDD §13.1, §B feedback | `Assets/_Game/Art/VFX/<EffectId>/` | blocks: visual (effects stay empty) | missing |

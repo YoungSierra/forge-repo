@@ -6,16 +6,41 @@ using UnityEngine.Audio;
 
 namespace ProfessorSprat.Gameplay.Services
 {
-    /// <summary>One audio cue slot (TDD §10). The clip stays empty until delivered (no placeholder audio).</summary>
+    /// <summary>
+    /// One audio cue slot (TDD §10). The clip stays empty until delivered (no placeholder audio). Optional variations
+    /// (delivered takes <c>&lt;ID&gt;_02</c>, <c>_03</c>…) are picked at random, never the same take twice in a row.
+    /// </summary>
     [Serializable]
     public sealed class AudioCue
     {
         [SerializeField] private string _id;
         [SerializeField] private AudioClip _clip;
+        [SerializeField] private AudioClip[] _variations = new AudioClip[0];
+
+        private int _last = -1;
 
         public string Id => _id;
 
         public AudioClip Clip => _clip;
+
+        public AudioClip Pick()
+        {
+            int count = 1 + (_variations != null ? _variations.Length : 0);
+            if (count == 1)
+            {
+                return _clip;
+            }
+
+            int index = UnityEngine.Random.Range(0, count - 1);
+            if (index >= _last && _last >= 0)
+            {
+                index++;
+            }
+
+            _last = index;
+            AudioClip picked = index == 0 ? _clip : _variations[index - 1];
+            return picked != null ? picked : _clip;
+        }
     }
 
     /// <summary>
@@ -27,6 +52,13 @@ namespace ProfessorSprat.Gameplay.Services
         #region Fields
 
         [SerializeField] private AudioSource _oneShots;
+        [Tooltip("Source for footsteps only (its pitch is varied per step without touching other one-shots).")]
+        [SerializeField] private AudioSource _footsteps;
+        [Tooltip("Footstep volume at walking speed and at full run (m/s → 0..1 between 0.1 and the run speed).")]
+        [SerializeField] private Vector2 _footstepVolume = new Vector2(0.55f, 0.9f);
+        [Tooltip("Random pitch range per step.")]
+        [SerializeField] private Vector2 _footstepPitch = new Vector2(0.93f, 1.07f);
+        [SerializeField] private float _footstepRunSpeed = 5.5f;
         [SerializeField] private AudioSource _musicIntensity;
         [SerializeField] private List<AudioCue> _cues = new List<AudioCue>();
         [SerializeField] private AudioMixerSnapshot _gameplay;
@@ -57,7 +89,7 @@ namespace ProfessorSprat.Gameplay.Services
             }
 
             _oneShots.transform.position = position;
-            _oneShots.PlayOneShot(cue.Clip);
+            _oneShots.PlayOneShot(cue.Pick());
         }
 
         #endregion
@@ -66,6 +98,7 @@ namespace ProfessorSprat.Gameplay.Services
 
         private void OnEnable()
         {
+            EventBus.Subscribe<FootstepEvent>(OnFootstep);
             EventBus.Subscribe<JumpStartedEvent>(OnJumpStarted);
             EventBus.Subscribe<LandedEvent>(OnLanded);
             EventBus.Subscribe<StompLandedEvent>(OnStompLanded);
@@ -80,6 +113,7 @@ namespace ProfessorSprat.Gameplay.Services
 
         private void OnDisable()
         {
+            EventBus.Unsubscribe<FootstepEvent>(OnFootstep);
             EventBus.Unsubscribe<JumpStartedEvent>(OnJumpStarted);
             EventBus.Unsubscribe<LandedEvent>(OnLanded);
             EventBus.Unsubscribe<StompLandedEvent>(OnStompLanded);
@@ -103,6 +137,21 @@ namespace ProfessorSprat.Gameplay.Services
         #endregion
 
         #region Private Methods
+
+        private void OnFootstep(FootstepEvent step)
+        {
+            AudioCue cue = _cues.Find(c => c.Id == "SFX_Footstep_Steel");
+            if (cue == null || cue.Clip == null || _footsteps == null)
+            {
+                Play("SFX_Footstep_Steel", step.Position);
+                return;
+            }
+
+            float run01 = Mathf.InverseLerp(0.1f, _footstepRunSpeed, step.Speed);
+            _footsteps.transform.position = step.Position;
+            _footsteps.pitch = UnityEngine.Random.Range(_footstepPitch.x, _footstepPitch.y);
+            _footsteps.PlayOneShot(cue.Pick(), Mathf.Lerp(_footstepVolume.x, _footstepVolume.y, run01));
+        }
 
         private void OnJumpStarted(JumpStartedEvent started) => Play("SFX_Jump", started.Position);
 

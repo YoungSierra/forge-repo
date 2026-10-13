@@ -2058,3 +2058,60 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - Play Mode with temporary instances (not saved): lit and shadowed; tips move between frames while the bases stay put; `_AlgaePusher` tracks the Professor.
   - Not verified on screen: the push itself, because the camera clipped behind a wall at that spot (no camera collision, D-257).
 - **Reversal cost:** low · **Type:** other
+
+### D-264 — Footsteps: owner-generated SFX, steps synced to the walk/run clips
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:** The owner generated `SFX_Footstep_Steel` (#1 of `SFX_PROMPTS_ELEVENLABS.md`) with ElevenLabs: one 2 s, 48 kHz, 16-bit stereo file holding three separate footsteps (at 0.09 s, 0.89 s and 1.49 s) with silence between them.
+- **Choice:**
+  - **File:** `Assets/_Game/Audio/SFX/Player/SFX_Footstep_Steel.wav` (V57 name; owner asked to rename and place).
+    - It is the second take: the most metallic (strongest highs, 145 ms ring; the other two read as a splash).
+    - It starts 3 ms before the hit and lasts 0.4 s, with a 30 ms fade-out; no other processing.
+    - The owner chose one metallic step for the single steel surface; repetition is fine.
+    - Imported by the V57 SFX rule (DecompressOnLoad).
+  - **Trigger:** `CharacterAnimationDriver` publishes `FootstepEvent` (position, speed) while Walk or Run plays, each time the clip crosses a foot contact (~2 % left, ~52 % right). Both delivered clips plant the feet there (sampled foot heights), so steps follow the animation at any speed. Nothing is published in the air, stunned, or during a stomp.
+  - **Playback:** `AudioService` plays it on its own `Footsteps` source (same spatial settings as the one-shots), so per-step pitch does not affect other sounds.
+    - `AudioCue` still supports variations for other cues (random take, never the same twice in a row).
+    - Pitch 0.93–1.07.
+    - Volume 0.55 (walk) → 0.9 (full run).
+- **Verified:** Play Mode, walking at 2.75 m/s: steps play with varying pitch and stop once airborne.
+- **Reversal cost:** low · **Type:** absorption
+
+### D-265 — No camera auto-recentering (owner request; supersedes the recentering of D-255/D-257)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** The owner asked to remove the camera's return behind the Professor after 1.5 s without look input: the camera must stay where the player left it.
+- **Choice:**
+  - **Recentering:** `CameraRig.ConfigureOrbit` disables recentering on all three orbit axes (horizontal, vertical, zoom).
+  - **Config:** `CameraConfig.RecenterDelay` / `RecenterTime` are removed.
+  - **Kept:**
+    - A camera-zone change still turns the whole orbit and keeps the player's offset.
+    - A respawn still re-centers the zone basis without moving the player's offset.
+    - Zoom and pitch limits are unchanged.
+- **Verified:** Play Mode. The orbit was set to +60° yaw / +15° pitch from its center and held for 7 s with no mouse or gamepad input: the values did not change.
+- **Reversal cost:** low · **Type:** other
+
+### D-266 — Intro cinematic before gameplay; jump and land SFX (owner deliveries)
+- **When:** 2026-10-13 · **Stage:** post-M4 (owner deliveries) · **Commit:** pending
+- **Context:** The owner delivered:
+  - `2.wav` (#2 `SFX_Jump`) and `3.wav` (#3 `SFX_Land`) from `SFX_PROMPTS_ELEVENLABS.md`;
+  - `Video_Marketing_Final.mp4` (1280×720, 10.0 s, 24 fps, H.264, stereo 32 kHz), to play before gameplay: "the video runs, and when it ends the game starts".
+- **Choice:**
+  - **SFX files:** `Assets/_Game/Audio/SFX/Player/SFX_Jump.wav` (untouched; starts at 0 ms, peak −6.6 dBFS) and `SFX_Land.wav`.
+    - The land file peaked at −21.6 dBFS, about 15 dB under the jump and the footsteps, so it was raised by +13.6 dB to a −8 dBFS peak. No other processing; the original stays with the owner.
+    - Both are cues in `AudioService`; their events were already wired (`JumpStartedEvent`, `LandedEvent`).
+  - **Video file:** `Assets/_Game/Art/Cinematics/CIN_Intro.mp4` (owner delivery, V57 name). Native H.264 playback, no transcoding.
+    - `Packages/manifest.json` enables the built-in `com.unity.modules.video` (it was off).
+  - **Scene:** `SCN_Intro_Cinematic` (build list right after `SCN_MainMenu_Boot`).
+    - Camera with a black clear and no post; `VideoPlayer` on the camera near plane, fit inside (letterbox).
+    - Video audio goes through a 2D `AudioSource` (0.85).
+  - **`IntroCinematic`:**
+    - Prepares the video in Awake and plays it in Start.
+    - Once it is playing, it loads the level in the background at low priority with activation held.
+    - When the video ends, or any button is pressed after 0.5 s, it activates the level.
+    - If the video fails, the level starts at once.
+  - **Menu:** Start = new game → intro → level; Continue → level directly.
+  - **Direct scene loads:** the gameplay scene loaded directly (Editor Play on it, the gold path, PlayMode tests) is unchanged and has no intro.
+- **Verified:** Play Mode from `SCN_Intro_Cinematic`.
+  - The video renders full screen and plays its 10 s; then `SCN_HydroStation_Gameplay` is active and the zone is `Playing`.
+  - Publishing jump and land events plays both cues, with no missing-cue warning.
+  - In the Editor the first frame of Play stalls about 4 s (Editor overhead), then the decoder takes about 2 s to prepare.
+- **Reversal cost:** low · **Type:** other

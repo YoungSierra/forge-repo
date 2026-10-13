@@ -14,7 +14,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7150673187204867182
 Transform:
@@ -26,7 +26,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0002124, y: 1.0002124, z: 1.0002124}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2697952289344877043}
@@ -80,9 +80,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3229494644646161066, guid: 3eda2fcfa2b44b54187d08946793b520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 87122669106160681, guid: 3eda2fcfa2b44b54187d08946793b520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3eda2fcfa2b44b54187d08946793b520, type: 3}
       propertyPath: m_Name
       value: AST-ENV-BULKHEAD-001
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3eda2fcfa2b44b54187d08946793b520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 1489221621210341512, guid: 3eda2fcfa2b44b54187d08946793b520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675104026215124975, guid: 3eda2fcfa2b44b54187d08946793b520, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

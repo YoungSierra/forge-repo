@@ -1,5 +1,5 @@
 {
-  "_doc": "V57 per-asset build rules (D-275). Read by the intake into asset_manifest; the assembly applies them on every build (Visual prefab colliders and shadows, kept prefabs refreshed on re-delivery; material shader; companion prefabs per layout instance). Later rules win.",
+  "_doc": "V57 per-asset build rules (D-275). Read by the intake into asset_manifest; the assembly applies them on every build (Visual prefab colliders and shadows, kept prefabs refreshed on re-delivery; material shader; companion prefabs per layout instance; cull_below: not drawn nor animated below that screen-height fraction, D-283). Later rules win.",
   "rules": [
     { "match": "AST-PROP-BEACONCRATE-001", "collision": "simple" },
     { "match": "AST-PROP-CONSOLE-001", "collision": "simple" },
@@ -23,6 +23,7 @@
     { "match": "AST-ENV-BULKHEAD-001", "collision": "mesh", "shadows": "two_sided" },
     { "match": "AST-ENV-CRYSTALPANEL-001", "collision": "mesh" },
     { "match": "AST-ENV-HYDRODOMETOWER-001", "collision": "mesh", "shadows": "two_sided" },
+    { "match": "HydroDomeTower", "collision": "mesh", "shadows": "two_sided" },
     { "match": "AST-ENV-CORALROCK-001", "collision": "mesh" },
     { "match": "AST-ENV-CORALROCK-002", "collision": "mesh" },
     { "match": "AST-ENV-OCEANROCKS-001", "collision": "mesh" },
@@ -35,6 +36,10 @@
     { "match": "AST-ENV-WATERSURFACE-001", "collision": "none" },
     { "match": "AST-ENV-OCEANBOAT-001", "collision": "none" },
     { "match": "AST-ENV-OCEANSKELETON-001", "collision": "none" },
+
+    { "match": "Fish", "cull_below": 0.015 },
+    { "match": "Jellyfish", "cull_below": 0.015 },
+    { "match": "MechanicalCrab", "cull_below": 0.012 },
 
     { "match": "AST-ENV-VEGETATION-001", "collision": "none", "shader": "ProfessorSprat/Environment/Algae Sway",
       "attach": [ { "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab", "offset": [0, 0.05, 0] } ] },

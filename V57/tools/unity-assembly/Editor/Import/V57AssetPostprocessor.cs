@@ -13,7 +13,7 @@ namespace V57.Assembly.Import
     {
         #region Fields
 
-        private const uint RulesVersion = 1;
+        private const uint RulesVersion = 2;
 
         #endregion
 
@@ -54,6 +54,14 @@ namespace V57.Assembly.Import
             if (AssemblyPaths.IsArtPath(assetPath))
             {
                 CollisionPostprocess.Apply(root, assetPath);
+            }
+        }
+
+        private void OnPostprocessAnimation(GameObject root, AnimationClip clip)
+        {
+            if (AssemblyPaths.IsArtPath(assetPath))
+            {
+                InPlaceLoopClips.Apply(clip, assetPath, assetImporter as ModelImporter);
             }
         }
 

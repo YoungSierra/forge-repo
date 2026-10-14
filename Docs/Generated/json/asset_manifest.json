@@ -35,8 +35,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-299 ASSET_ORPHAN"
-      ]
+        "I-312 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "cull_below": 0.015
     },
     {
       "asset_id": "INV-Fly",
@@ -84,7 +86,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-300 ASSET_ORPHAN"
+        "I-313 ASSET_ORPHAN"
       ]
     },
     {
@@ -123,8 +125,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-301 ASSET_ORPHAN"
-      ]
+        "I-314 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "cull_below": 0.015
     },
     {
       "asset_id": "INV-MechanicalCrab",
@@ -166,8 +170,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-302 ASSET_ORPHAN"
-      ]
+        "I-315 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "cull_below": 0.012
     },
     {
       "asset_id": "INV-Professor",
@@ -211,7 +217,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-303 ASSET_ORPHAN"
+        "I-316 ASSET_ORPHAN"
       ]
     },
     {
@@ -230,8 +236,13 @@
           "Assets/_Game/Art/Characters/Shark/Textures/Radioactive_Shark_roughness.JPEG"
         ],
         "animations": [
+          "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_Attack.fbx",
           "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_EyeRotation.fbx",
-          "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_PassiveTransit.fbx"
+          "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_PassiveTransit.fbx",
+          "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnDown.fbx",
+          "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnLeft.fbx",
+          "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnRight.fbx",
+          "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnUp.fbx"
         ],
         "sprites": [],
         "vfx": [],
@@ -251,7 +262,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-304 ASSET_ORPHAN"
+        "I-317 ASSET_ORPHAN"
       ]
     },
     {
@@ -294,7 +305,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-305 ASSET_ORPHAN"
+        "I-318 ASSET_ORPHAN"
       ]
     },
     {
@@ -325,7 +336,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-306 ASSET_ORPHAN"
+        "I-319 ASSET_ORPHAN"
       ]
     },
     {
@@ -361,9 +372,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-307 ASSET_ORPHAN"
+        "I-320 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVCORALROCK002",
@@ -398,9 +410,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-308 ASSET_ORPHAN"
+        "I-321 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVHYDRODOMETOWER001",
@@ -435,9 +448,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-309 ASSET_ORPHAN"
+        "I-322 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -473,9 +487,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-310 ASSET_ORPHAN"
+        "I-323 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVOCEANLEAVES001",
@@ -512,9 +527,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-311 ASSET_ORPHAN"
+        "I-324 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shader": "ProfessorSprat/Environment/Algae Sway",
       "attach": [
         {
@@ -558,9 +574,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-312 ASSET_ORPHAN"
+        "I-325 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "attach": [
         {
           "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab",
@@ -606,9 +623,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-313 ASSET_ORPHAN"
+        "I-326 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVOCEANSKELETON001",
@@ -643,9 +661,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-314 ASSET_ORPHAN"
+        "I-327 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVROCKVEGETATION001",
@@ -677,9 +696,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-315 ASSET_ORPHAN"
+        "I-328 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "attach": [
         {
           "prefab": "Assets/_Game/Prefabs/VFX/VFX_SeaweedBubbles.prefab",
@@ -729,9 +749,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-316 ASSET_ORPHAN"
+        "I-329 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVVEGETATION001",
@@ -768,9 +789,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-317 ASSET_ORPHAN"
+        "I-330 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shader": "ProfessorSprat/Environment/Algae Sway",
       "attach": [
         {
@@ -810,9 +832,56 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-318 ASSET_ORPHAN"
+        "I-331 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
+    },
+    {
+      "asset_id": "INV-HydroDomeTower",
+      "asset_name": "HydroDomeTower",
+      "category": "model",
+      "type": "model",
+      "serves": [],
+      "files": {
+        "mesh": "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx",
+        "textures": [
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S Prop_MetallicSmoothness.png",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S Prop_normal.jpg",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S_Prop_albedo.jpg"
+        ],
+        "animations": [
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Animations/ANIM_HydroDomeTower_PulseIdle.fbx"
+        ],
+        "sprites": [],
+        "vfx": [],
+        "other": [
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTower_export.json",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD01_export.json",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD02_export.json",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD03_export.json",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD01.fbx",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD02.fbx",
+          "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD03.fbx"
+        ]
+      },
+      "size_m": null,
+      "pivot": null,
+      "side": null,
+      "collision": "mesh",
+      "tris_lod0": null,
+      "texture_size": null,
+      "bones": null,
+      "rig": null,
+      "status": "provisional",
+      "animations": [],
+      "source": "inventory",
+      "issues": [
+        "I-332 ASSET_ORPHAN"
+      ],
+      "ruled": true,
+      "collision_ruled": true,
+      "shadows": "two_sided"
     },
     {
       "asset_id": "INV-ASTENVB17ARCH001",
@@ -847,9 +916,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-319 ASSET_ORPHAN"
+        "I-333 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -885,9 +955,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-320 ASSET_ORPHAN"
+        "I-334 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -923,9 +994,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-321 ASSET_ORPHAN"
+        "I-335 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -961,9 +1033,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-322 ASSET_ORPHAN"
+        "I-336 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVGRATEPLATFORM001",
@@ -998,9 +1071,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-323 ASSET_ORPHAN"
+        "I-337 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -1036,9 +1110,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-324 ASSET_ORPHAN"
+        "I-338 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -1074,9 +1149,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-325 ASSET_ORPHAN"
+        "I-339 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -1112,9 +1188,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-326 ASSET_ORPHAN"
+        "I-340 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -1150,9 +1227,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-327 ASSET_ORPHAN"
+        "I-341 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVPIPE002",
@@ -1187,9 +1265,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-328 ASSET_ORPHAN"
+        "I-342 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTENVPLATFORMMODULE001",
@@ -1219,9 +1298,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-329 ASSET_ORPHAN"
+        "I-343 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -1257,9 +1337,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-330 ASSET_ORPHAN"
+        "I-344 ASSET_ORPHAN"
       ],
       "ruled": true,
+      "collision_ruled": true,
       "shadows": "two_sided"
     },
     {
@@ -1295,9 +1376,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-331 ASSET_ORPHAN"
+        "I-345 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-Sky",
@@ -1327,7 +1409,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-332 ASSET_ORPHAN"
+        "I-346 ASSET_ORPHAN"
       ]
     },
     {
@@ -1363,9 +1445,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-333 ASSET_ORPHAN"
+        "I-347 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPCONSOLE002",
@@ -1400,9 +1483,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-334 ASSET_ORPHAN"
+        "I-348 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPHOSE001",
@@ -1437,9 +1521,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-335 ASSET_ORPHAN"
+        "I-349 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPLANTERN001",
@@ -1474,9 +1559,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-336 ASSET_ORPHAN"
+        "I-350 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPRAILING001",
@@ -1511,9 +1597,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-337 ASSET_ORPHAN"
+        "I-351 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPWARNINGSIGN001",
@@ -1548,9 +1635,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-338 ASSET_ORPHAN"
+        "I-352 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPACCESSKEY001",
@@ -1578,9 +1666,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-339 ASSET_ORPHAN"
+        "I-353 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPCONSOLE001",
@@ -1615,9 +1704,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-340 ASSET_ORPHAN"
+        "I-354 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPHATCH001",
@@ -1652,9 +1742,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-341 ASSET_ORPHAN"
+        "I-355 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-ASTPROPZONEDOOR001",
@@ -1682,9 +1773,10 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-342 ASSET_ORPHAN"
+        "I-356 ASSET_ORPHAN"
       ],
-      "ruled": true
+      "ruled": true,
+      "collision_ruled": true
     },
     {
       "asset_id": "INV-UISpriteSheetV02",
@@ -1714,7 +1806,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-343 ASSET_ORPHAN"
+        "I-357 ASSET_ORPHAN"
       ]
     },
     {
@@ -1745,7 +1837,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-344 ASSET_ORPHAN"
+        "I-358 ASSET_ORPHAN"
       ]
     },
     {
@@ -1776,7 +1868,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-345 ASSET_ORPHAN"
+        "I-359 ASSET_ORPHAN"
       ]
     },
     {
@@ -1807,7 +1899,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-346 ASSET_ORPHAN"
+        "I-360 ASSET_ORPHAN"
       ]
     },
     {
@@ -1838,7 +1930,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-347 ASSET_ORPHAN"
+        "I-361 ASSET_ORPHAN"
       ]
     },
     {
@@ -1882,7 +1974,7 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-348 ASSET_ORPHAN"
+        "I-362 ASSET_ORPHAN"
       ]
     },
     {
@@ -1914,7 +2006,72 @@
       "animations": [],
       "source": "inventory",
       "issues": [
-        "I-349 ASSET_ORPHAN"
+        "I-363 ASSET_ORPHAN"
+      ]
+    },
+    {
+      "asset_id": "INV-ExplosionElectricity",
+      "asset_name": "ExplosionElectricity",
+      "category": "vfx",
+      "type": "vfx",
+      "serves": [],
+      "files": {
+        "mesh": null,
+        "textures": [],
+        "animations": [],
+        "sprites": [],
+        "vfx": [
+          "Assets/_Game/Art/VFX/ExplosionElectricity/Textures/T_ExplosionElectricity_Sheet.png"
+        ],
+        "other": []
+      },
+      "size_m": null,
+      "pivot": null,
+      "side": null,
+      "collision": "simple",
+      "tris_lod0": null,
+      "texture_size": null,
+      "bones": null,
+      "rig": null,
+      "status": "provisional",
+      "animations": [],
+      "source": "inventory",
+      "issues": [
+        "I-364 ASSET_ORPHAN"
+      ]
+    },
+    {
+      "asset_id": "INV-MiPrimerEfecto",
+      "asset_name": "MiPrimerEfecto",
+      "category": "vfx",
+      "type": "vfx",
+      "serves": [],
+      "files": {
+        "mesh": null,
+        "textures": [],
+        "animations": [],
+        "sprites": [],
+        "vfx": [
+          "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Core.png",
+          "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Flash.png",
+          "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Ring.png",
+          "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Spark.png"
+        ],
+        "other": []
+      },
+      "size_m": null,
+      "pivot": null,
+      "side": null,
+      "collision": "simple",
+      "tris_lod0": null,
+      "texture_size": null,
+      "bones": null,
+      "rig": null,
+      "status": "provisional",
+      "animations": [],
+      "source": "inventory",
+      "issues": [
+        "I-365 ASSET_ORPHAN"
       ]
     }
   ],
@@ -1978,8 +2135,13 @@
     "Assets/_Game/Art/Characters/Professor/Textures/Professor_Wort_MetallicSmoothness.png",
     "Assets/_Game/Art/Characters/Professor/Textures/Professor_Wort_normal.png",
     "Assets/_Game/Art/Characters/Professor/Textures/Professor_Wort_roughness.JPEG",
+    "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_Attack.fbx",
     "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_EyeRotation.fbx",
     "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_PassiveTransit.fbx",
+    "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnDown.fbx",
+    "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnLeft.fbx",
+    "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnRight.fbx",
+    "Assets/_Game/Art/Characters/Shark/Animations/ANIM_Shark_TurnUp.fbx",
     "Assets/_Game/Art/Characters/Shark/Meshes/SK_Shark.fbx",
     "Assets/_Game/Art/Characters/Shark/Shark_export.json",
     "Assets/_Game/Art/Characters/Shark/Textures/Radioactive_Shark_albedo.jpg",
@@ -2080,6 +2242,18 @@
     "Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Normal.jpg",
     "Assets/_Game/Art/Environment/Decoration/AST-ENV-VEGETATION-001/Textures/AST-ENV-VEGETATION-001_Roughness.jpg",
     "Assets/_Game/Art/Environment/Decoration/AST-ENV-WATERSURFACE-001/Meshes/AST-ENV-WATERSURFACE-001.fbx",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Animations/ANIM_HydroDomeTower_PulseIdle.fbx",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTower_export.json",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD01_export.json",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD02_export.json",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD03_export.json",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD01.fbx",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD02.fbx",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD03.fbx",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S Prop_MetallicSmoothness.png",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S Prop_normal.jpg",
+    "Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S_Prop_albedo.jpg",
     "Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Meshes/AST-ENV-B17ARCH-001.fbx",
     "Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_Albedo.jpg",
     "Assets/_Game/Art/Environment/Kits/AST-ENV-B17ARCH-001/Textures/AST-ENV-B17ARCH-001_AST-ENV-B17ARCH-001_Albedo.jpg",
@@ -2245,6 +2419,11 @@
     "Assets/_Game/Art/UI/Sprites/Common/UI_Panel_Skull.png",
     "Assets/_Game/Art/UI/Sprites/Common/UI_Rivet.png",
     "Assets/_Game/Art/VFX/Bubbles/Textures/T_Bubble.png",
-    "Assets/_Game/Art/VFX/Bubbles/Textures/T_BubblePopSheet.png"
+    "Assets/_Game/Art/VFX/Bubbles/Textures/T_BubblePopSheet.png",
+    "Assets/_Game/Art/VFX/ExplosionElectricity/Textures/T_ExplosionElectricity_Sheet.png",
+    "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Core.png",
+    "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Flash.png",
+    "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Ring.png",
+    "Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Spark.png"
   ]
 }

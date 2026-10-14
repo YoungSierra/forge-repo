@@ -34,6 +34,8 @@ namespace V57.Assembly.Build
             animator.runtimeAnimatorController = controller;
             animator.avatar = FindAvatar(modelPath);
             animator.applyRootMotion = false;
+            // No animation while nothing is drawn; the prefab builder fits the skinned bounds to every clip (AnimatedBounds),
+            // so a pose that leaves the rest-pose box (a swinging tail) is never judged off screen while visible.
             animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
             return true;
         }

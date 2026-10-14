@@ -186,6 +186,16 @@
           "ruled": {
             "type": "boolean",
             "description": "true when a Docs/V57/asset_rules.json rule matched; the assembly then keeps the kept Visual prefab in sync with it (colliders, shadows) on every build."
+          },
+          "collision_ruled": {
+            "type": "boolean",
+            "description": "true when an asset rule set collision; kept Visual prefabs then rebuild their generated colliders on every build."
+          },
+          "cull_below": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "exclusiveMaximum": 1,
+            "description": "asset_rules: below this screen-height fraction the asset is not drawn, so its Animator (CullUpdateTransforms) does not animate either."
           }
         },
         "required": [

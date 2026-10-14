@@ -1,12 +1,13 @@
 'use strict';
 // V57 per-asset build rules (Docs/V57/asset_rules.json, game data written by V57, never by the provider).
 // They fill what a delivery without ADD briefs cannot say, for any genre: collision, shadow casting, a game shader to
-// keep, and companion prefabs placed with every layout instance of the asset. Later rules override earlier ones.
+// keep, companion prefabs placed with every layout instance of the asset, and a draw/animate distance (cull_below). Later rules override earlier ones.
 //
 // { "rules": [ { "match": "AST-PROP-*",
 //                "collision": "none|simple|exact|mesh|convex",
 //                "shadows": "on|off|two_sided",
 //                "shader": "<shader name>",
+//                "cull_below": 0.015,   // stop drawing (and animating) below this screen-height fraction
 //                "attach": [ { "prefab": "Assets/_Game/Prefabs/...", "offset": [0, 0.05, 0], "align": "world|instance" } ] } ] }
 const fs = require('fs');
 const path = require('path');
@@ -51,6 +52,10 @@ function readRules(root, issues) {
       if (SHADOWS.includes(r.shadows)) rule.shadows = r.shadows; else bad('shadows', r.shadows, SHADOWS);
     }
     if (r.shader !== undefined) rule.shader = String(r.shader);
+    if (r.cull_below !== undefined) {
+      const v = Number(r.cull_below);
+      if (v > 0 && v < 1) rule.cull_below = v; else bad('cull_below', r.cull_below, ['a screen-height fraction between 0 and 1']);
+    }
     if (Array.isArray(r.attach)) {
       rule.attach = r.attach.filter((a) => a && a.prefab).map((a) => {
         const align = ALIGNS.includes(a.align) ? a.align : 'world';
@@ -76,10 +81,14 @@ function applyAssetRules(root, assets, issues) {
       if (!ids.some((id) => rule.test(id))) continue;
       rule.used = true;
       asset.ruled = true;
-      if (rule.collision) asset.collision = rule.collision;
+      if (rule.collision) {
+        asset.collision = rule.collision;
+        asset.collision_ruled = true;
+      }
       if (rule.shadows) asset.shadows = rule.shadows;
       if (rule.shader) asset.shader = rule.shader;
       if (rule.attach) asset.attach = rule.attach;
+      if (rule.cull_below) asset.cull_below = rule.cull_below;
     }
   }
 

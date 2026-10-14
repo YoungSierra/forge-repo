@@ -19,6 +19,8 @@ test('Docs/V57/asset_rules.json: later rules win, fields reach the manifest, unu
     { match: 'Koala', collision: 'mesh', shadows: 'two_sided', shader: 'Game/Lit Wobble',
       attach: [{ prefab: 'Assets/_Game/Prefabs/VFX/VFX_Sparkle.prefab', offset: [0, 0.5, 0] }] },
     { match: 'SM_BiolumeBloom_*', collision: 'none' },
+    { match: 'Carton', cull_below: 0.02 },
+    { match: 'Carton', cull_below: 3 },
     { match: 'Carton', collision: 'bouncy' },
     { match: 'Nothing*', collision: 'none' },
   ] }));
@@ -27,6 +29,10 @@ test('Docs/V57/asset_rules.json: later rules win, fields reach the manifest, unu
   const koala = assets.find((a) => /koala/i.test(a.asset_name));
   assert.equal(koala.collision, 'mesh');
   assert.equal(koala.ruled, true);
+  assert.equal(koala.collision_ruled, true);
+  const carton = assets.find((a) => /carton/i.test(a.asset_name));
+  assert.equal(carton.cull_below, 0.02);
+  assert.notEqual(carton.collision_ruled, true);
   assert.equal(koala.shadows, 'two_sided');
   assert.equal(koala.shader, 'Game/Lit Wobble');
   assert.deepEqual(koala.attach, [{ prefab: 'Assets/_Game/Prefabs/VFX/VFX_Sparkle.prefab', offset: [0, 0.5, 0], align: 'world' }]);

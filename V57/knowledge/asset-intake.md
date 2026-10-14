@@ -77,11 +77,26 @@
 - **Scope:** genre-agnostic. The values are per game (e.g. a vertex-animated plant shader or bubbles on algae). Collision that needs behaviour (doors, moving parts) still lives on a gameplay prefab; a rule `collision: none` keeps the Visual prefab free of a second collider.
 - **Enforced by:** `intake/lib/asset-rules.js`, `PrefabColliderBuilder`, `AssetRulesApplier`, `VisualPrefabBuilder.RefreshKept`, `MaterialBuilder`, `LayoutSceneBuilder.PlaceAttachments`. **Source:** PS V10 (D-275).
 
+## Offsets along a polyline path
+- **Symptom:** school fish, and any fish offset sideways from its path, jumped up to 7 m/s for a frame, twice per loop, in the tight ends of the ellipse.
+- **Cause:** `V57Path.Evaluate` returned the direction of the current segment, so the tangent turned in steps at every vertex, and a lateral offset jumped by offset × sin(vertex angle) each time.
+- **Rule:** `Evaluate` returns a continuous tangent: at each vertex the mean of its two segments, blended along the segment.
+- **Enforced by:** `V57Path.Evaluate`. **Source:** PS (D-283).
+
+## V57 additions to a provider map
+- **Symptom:** the owner asked for more fish and jellyfish. Placing them by hand in the scene would be lost on the next `RebuildLevelContent`, and editing the provider's `unity_scene.json` is forbidden.
+- **Rule:**
+  - **Where:** V57-placed objects go in **`Docs/V57/layout_extras/<LevelId>.json`** (`{ "objetos": [...] }`, same object format as the map).
+  - **Intake:** appends them to the level's objects (`LAYOUT_EXTRAS`), so aliases, props, prefabs and rebuilds treat them like map objects. Mark them with a prop such as `"origen": "V57"`.
+  - **Generation:** validate each placement against the scene colliders, e.g. a creature's body along its whole path or drift.
+- **Enforced by:** intake `layouts.js` (`readExtras`) + test. **Source:** PS (D-282).
+
 ## Deliveries that arrive as a loose folder
 - **Symptom:** a V10 delivery came as a downloaded folder. A hand-written copy script would have deleted the earlier normal and metallic maps, which the new delivery did not resend.
 - **Rule:** place it with `node V57/tools/intake/delivery.js --from <folder> --repo . [--new-root Assets/_Game/Art/<Category>]`. It runs dry by default; `--apply` copies.
   - **Same name:** replaced in place; `.meta` and GUID kept.
   - **Same name ignoring `-`, `_` and case:** replaced in place and listed for the provider fix list.
+  - **New file of a family already in the repo:** goes to that family's folder. A family is the name up to its last `_` with at least two parts, e.g. `ANIM_Shark_Attack` next to `ANIM_Shark_PassiveTransit`.
   - **New models:** go to `<new-root>/<Asset>/Meshes`, with their `<stem>_*` textures in `Textures`.
   - **Everything else:** listed as unplaced.
   - **Earlier files the delivery lacks:** reported as kept. Nothing is ever deleted or renamed.

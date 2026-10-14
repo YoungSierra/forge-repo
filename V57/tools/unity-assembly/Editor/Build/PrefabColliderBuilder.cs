@@ -131,19 +131,21 @@ namespace V57.Assembly.Build
         private static string AddMeshColliders(GameObject root, bool convex, bool lod0Only)
         {
             int added = 0;
-            foreach (MeshFilter filter in root.GetComponentsInChildren<MeshFilter>(true))
+            foreach (Renderer renderer in root.GetComponentsInChildren<Renderer>(true))
             {
-                string nodeName = filter.gameObject.name;
-                Renderer renderer = filter.GetComponent<Renderer>();
+                // Static meshes, and skinned meshes in their bind pose (an animated piece collides with its rest shape).
+                Mesh mesh = renderer is SkinnedMeshRenderer skinned ? skinned.sharedMesh
+                    : renderer.GetComponent<MeshFilter>() is MeshFilter filter ? filter.sharedMesh : null;
+                string nodeName = renderer.gameObject.name;
                 bool helper = V57MarkerNaming.IsMarker(nodeName) || nodeName.StartsWith("Socket_", StringComparison.Ordinal);
                 bool lowerLod = lod0Only && LodSuffix.IsMatch(nodeName) && !nodeName.EndsWith("_LOD0", StringComparison.Ordinal);
-                if (helper || lowerLod || renderer == null || !renderer.enabled || filter.sharedMesh == null)
+                if (helper || lowerLod || !renderer.enabled || mesh == null)
                 {
                     continue;
                 }
 
-                MeshCollider collider = filter.gameObject.AddComponent<MeshCollider>();
-                collider.sharedMesh = filter.sharedMesh;
+                MeshCollider collider = renderer.gameObject.AddComponent<MeshCollider>();
+                collider.sharedMesh = mesh;
                 collider.convex = convex;
                 added++;
             }

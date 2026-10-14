@@ -2714,3 +2714,319 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Play:** HUD 0 / 18, doors and keys as D-271, the spawn corridor unchanged. Console: only the listed `VFX_LandSplash` warning.
   - **Tests:** EditMode 82/82 (game + core, including new asset-rule tests). PlayMode 28/28; the gold path still fails on the V06 route (D-270). Intake 35/35.
 - **Reversal cost:** low · **Type:** absorption
+
+### D-276 — Crab scuttle loops play in place (owner report: odd clip in fish and crab animation)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner report) · **Commit:** pending
+- **Context:**
+  - **Crabs:** `ANIM_MechanicalCrab_ScuttleL/R` move the root node 20 cm over each 1 s loop and snap back every cycle. In Play the body jumped up to 50 cm per cycle relative to the crab, which `CrabController` already moves along its patrol.
+  - **Fish:** frame-by-frame capture and per-frame measurement show no jump. The only delivered fish clip is `HoverIdle`, which hovers in place, so fish travel along their paths without a swim cycle.
+- **Choice:**
+  - **V57 core:** `InPlaceLoopClips` (import postprocess). It removes the linear drift of the travelling root node from looping Generic clips, so they play in place. Only the two scuttles qualified.
+  - **Rejected:** a motion node (root motion extraction) did not remove the travel with the copied avatar.
+  - **Fish:** a swim cycle is listed in `MISSING_ASSETS.md`; no stand-in.
+- **Verified:**
+  - Scuttle loops close with zero offset (was 20 cm).
+  - Play: the crabs' root bone no longer jumps.
+  - Other clips unchanged (fish `HoverIdle`, crab `Idle`).
+- **Reversal cost:** low · **Type:** absorption
+
+### D-277 — Crab defeat VFX from the owner's electric explosion sheet (owner delivery)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:**
+  - **Delivery:** the owner delivered `explosion_electricity`, a VFX Forge package: 5 × 3 sprite sheet, 15 frames of 256 px at 25 fps (0.6 s, one shot), straight alpha, plus a 7-frame 12 fps flipbook.
+  - **Request:** use it when the Professor stomps a crab. TDD §B CrabEncounter: defeat → sparks. `VFXService` already plays `VFX_CrabDefeat` on `CrabDefeatedEvent`, but the slot was empty.
+- **Choice:**
+  - **Texture:** the 25 fps sheet as `Art/VFX/ExplosionElectricity/Textures/T_ExplosionElectricity_Sheet.png` (renamed to the T_ convention; no mips, clamp, alpha as transparency). The 12 fps flipbook and the concept image were not imported.
+  - **Material:** `M_ExplosionElectricity`, URP Particles/Unlit, transparent additive, as the package recommends for energy effects.
+  - **Prefab `Prefabs/VFX/VFX_CrabDefeat`:**
+    - **Particle:** one billboard, 1.8 m, random rotation, 0.35 m above the crab.
+    - **Animation:** texture sheet 5 × 3 over its 0.6 s life, in world space. It is one particle, well inside the INV-12 cap.
+  - **Slot:** assigned in the gameplay scene's `VFXService`. The scene was first updated to Miguel's lighting commit (`e369a85`), so only the 3-line slot change is ours.
+- **Verified:** Play, real stomp event on `CrabC3`: the crab is defeated and the explosion plays over it and fades in about 0.6 s. Captured as a frame strip.
+- **Tuning:** size (`startSize`), height (`shape.position.y`) and duration (`startLifetime`) on the prefab.
+- **Reversal cost:** low · **Type:** owner delivery
+
+### D-278 — Fly pickup VFX from the owner's "VFX_MiPrimerEfecto" package (owner delivery)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:**
+  - **Delivery:** the owner delivered `VFX_MiPrimerEfecto`, a VFX Forge package: layer sheet, Unity CLI recipe, 4 of its 7 textures. Requested use: when a fly is collected (`VFX_FlyPop`, TDD §B FlyCollection: pop VFX, 16 particles).
+  - **Delivered textures:** Flash, Core (2 × 2), Spark and Ring, greyscale.
+  - **Not delivered:** SimSmoke, Noise (distortion) and Decal.
+- **Choice:**
+  - **Textures:** the 4 delivered ones in `Art/VFX/MiPrimerEfecto/Textures/` (delivered names kept), one URP Particles/Unlit material per layer. Additive for flash, core and sparks; alpha for the ring.
+  - **Prefab `Prefabs/VFX/VFX_FlyPop`:** the recipe's layers that have textures, scaled from its 1 m design to the 0.27 m fly. 15 particles, within the TDD's 16.
+    - **Flash:** 0.08 s, 0.8 m.
+    - **Core:** 0.45 s, 0.55 m, 2 × 2 sheet, size 0 → 1.2 → 1.0, white → #7CC8FF → #9B4DFF.
+    - **Sparks:** 12, 0.3–0.4 s, 2.5–4.5 m/s, stretched.
+    - **Ring:** 0.3 s, 1.2 m, horizontal.
+  - **Layers not built:** the smoke, distortion and decal layers have no texture. No stand-in (`MISSING_ASSETS.md`).
+  - **Stop Action:** not Destroy, unlike the recipe. `VFXService` reuses one instance per effect.
+  - **Code:** `FlyCollectedEvent` now carries the fly's position. Before, the pop was spawned at the `VFXService` object. The pop is drawn 0.7 m toward the camera, because the fly is collected inside the Professor's body and the burst was hidden behind him.
+  - **Scene:** only the `VFX_FlyPop` slot was added to `VFXService`, after checking that the scene had no remote changes.
+- **Verified:**
+  - Play from the game camera: collecting a fly shows the burst in front of the Professor and the counter ticks.
+  - Close-up strip: flash → cyan core → violet fade in about 0.45 s.
+  - Tests: EditMode 82/82, PlayMode 28/28 (gold path still the known V06 failure).
+- **Reversal cost:** low · **Type:** owner delivery
+
+## D-306 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow VFX_<Name>
+- **Where:** `Assets/_Game/Art/VFX/ExplosionElectricity/Textures/T_ExplosionElectricity_Sheet.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name VFX_ExplosionElectricitySheet); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: d28ee630cba4 -->
+
+## D-307 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow VFX_<Name>
+- **Where:** `Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Core.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name VFX_MiPrimerEfectoCore); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 4bf768e9e914 -->
+
+## D-308 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow VFX_<Name>
+- **Where:** `Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Flash.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name VFX_MiPrimerEfectoFlash); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 6f4c9446809c -->
+
+## D-309 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow VFX_<Name>
+- **Where:** `Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Ring.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name VFX_MiPrimerEfectoRing); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 47f30806f150 -->
+
+## D-310 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow VFX_<Name>
+- **Where:** `Assets/_Game/Art/VFX/MiPrimerEfecto/Textures/T_MiPrimerEfecto_Spark.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name VFX_MiPrimerEfectoSpark); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 44970113330c -->
+
+### D-279 — Shark re-delivery (Export_02) and free-roaming sharks with manoeuvres (owner request)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner delivery + request) · **Commit:** pending
+- **Context:**
+  - **Delivery:** the owner delivered `Export_02`: the shark again (`SK_Shark`, textures identical to the ones in the repo) plus new clips `Attack`, `TurnLeft`, `TurnRight`, `TurnUp` and `TurnDown` (2.5 s, no loop), besides `PassiveTransit` and `EyeRotation`.
+  - **Request:** replace the fixed shark route with dynamic ones that overlap nothing in the scene, play those clips along the way, and give each shark its own behaviour.
+  - **Before:** both sharks swam one 18 × 9 m ellipse (`SharkLoop`) at their placed height, which already crossed platforms and rocks.
+  - **Size:** the shark is about 17 m long, 10 m wide and 8 m tall.
+- **Choice:**
+  - **Import:**
+    - **Delivery import:** with the V57 delivery tool. Same-name files are replaced in place (GUIDs kept), and the five new clips go to `Shark/Animations`. That placement is a core fix: new files of an existing family go to that family's folder.
+    - **Animator:** `BuildAnimators` adds the new clips as states to the kept `AC_Shark`. That is also a core fix: kept controllers gain the states of new clips.
+    - **Clip motion:** the turn and attack clips bend the body in place (no root travel or rotation), so the heading comes from code and the clip dresses the turn.
+  - **`SharkCruise`:** replaces `SharkLoop` and the shark's `AmbientCreature`. `SharkLoop.cs` is deleted.
+    - **Route network:** at start each shark samples 1800 points within 70 m and −2…+20 m of where the map placed it. It keeps the points where its whole body can turn without touching any collider: a sphere of half length 8.5 m + 1 m at its body centre.
+    - **Legs:** taken only if a sphere of the half width (4.9 m + 1 m) sweeps them clear, and if they stay 24 m from the other shark's position and target and 12 m (+ body) from the Professor.
+    - **Movement:** along the leg line; it slows to 15 % while turning, so turns happen inside the clear point. Start: the clear point nearest its map position.
+    - **Manoeuvres:**
+      - TurnLeft/TurnRight when a leg turns more than 30°, TurnUp/TurnDown when it climbs or dives more than 10°.
+      - Attack: a lunge (slow wind-up, ×2.6 burst, glide) on a leg with 15 m ahead, every 7–16 s ÷ aggression.
+      - EyeRotation: slows down to look, at some points (curiosity) and when the Professor is within 16 m (TDD AmbientCreatures reaction).
+    - **Personality:** seeded by the shark's name: speed 1.6–2.5 m/s, turn rate 16–28°/s, aggression, curiosity and preferred depth.
+- **Verified:**
+  - **60 s Play runs:** 0 body overlaps out of 300 samples per shark (body sphere plus nose and tail spheres). Sharks always ≥ 32 m apart.
+  - **Behaviours:** shark 01 has 49 clear points, shark 02 has 125. Shark 01: turns left/right and an attack. Shark 02: right turns, two attacks and two eye rotations.
+  - **Frame strip:** the shark swims among the rocks and the wreck without touching them and lunges during Attack.
+  - **Tests:** EditMode 82/82; PlayMode 28/28 (gold path: the known V06 failure).
+- **Reversal cost:** low · **Type:** owner request
+
+### D-280 — Shark clip transitions without pose jumps; ambient Animators always animate (owner report)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner report) · **Commit:** pending
+- **Context:** the owner saw frame jumps between the shark's animations. Measured in Play (per-frame bone steps):
+  - **Clip chaining:** every manoeuvre clip (Attack, the four turns, EyeRotation) starts and ends exactly on `PassiveTransit` frame 0. `SharkCruise` switched at any phase of the 8 s swim cycle, where the pose differs by up to 1.5 m.
+  - **Culling:** the Animators used `CullUpdateTransforms`. The shark's tail leaves its skinned bounds, so the bones froze while the shark was still on screen and jumped when the bounds came back. Fish, crabs and jellyfish had the same setting, which is likely what looked odd in the fish (D-276).
+  - **Authored pop:** `ANIM_Shark_Attack` itself has a tongue pop of about 44 cm in a quarter frame near frame 19.5.
+- **Choice:**
+  - **Sync phases:** `SharkCruise` samples `PassiveTransit` once and keeps the phases whose pose matches frame 0 within 10 cm: 0, 0.19, 0.40, 0.59, 0.80, one per tail beat (about 1.6 s apart).
+  - **Manoeuvres:** a manoeuvre is queued and starts at the next such phase (0.2 s blend). Transit resumes from frame 0, where the clip ended.
+  - **Culling:**
+    - `PRF_Shark`, `PRF_Fish`, `PRF_Jellyfish` and `PRF_MechanicalCrab` Animators set to `AlwaysAnimate`.
+    - The V57 core `AnimatorBinder` now generates `AlwaysAnimate`, with a lesson in `rigged-characters.md`.
+  - **Attack tongue pop:** listed in `MISSING_ASSETS.md` as a provider re-export; not hidden in code.
+- **Verified:**
+  - 50 s Play, both sharks: no bone jump outside the authored Attack tongue (median step 1.7 cm per frame).
+  - 139 fps with 73 always-animating Animators.
+  - EditMode 82/82; PlayMode 28/28 (gold path: the known V06 failure).
+- **Reversal cost:** low · **Type:** owner report
+
+## D-311 · I0 INTAKE · conflict · REPO_FOLDER
+- **Issue:** path is outside the V57 contract tree (brief §1)
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTower_export.json`
+- **Decision:** not imported by folder rules; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: 461725c50ee9 -->
+
+## D-312 · I0 INTAKE · conflict · REPO_FOLDER
+- **Issue:** path is outside the V57 contract tree (brief §1)
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD01_export.json`
+- **Decision:** not imported by folder rules; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: f4e6f2136689 -->
+
+## D-313 · I0 INTAKE · conflict · REPO_FOLDER
+- **Issue:** path is outside the V57 contract tree (brief §1)
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD02_export.json`
+- **Decision:** not imported by folder rules; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: eaffc156c807 -->
+
+## D-314 · I0 INTAKE · conflict · REPO_FOLDER
+- **Issue:** path is outside the V57 contract tree (brief §1)
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/HydroDomeTowerLOD03_export.json`
+- **Decision:** not imported by folder rules; listed as orphan
+- **Rule:** authority TDD > ADD > disk (brief §1); provider files are not edited
+<!-- v57-intake-key: bc6b6495abd3 -->
+
+## D-315 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_HydroDomeTower); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 5c9efe51baf4 -->
+
+## D-316 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD01.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_HydroDomeTower); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 392878810390 -->
+
+## D-317 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD02.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_HydroDomeTower); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 289a21d22036 -->
+
+## D-318 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow SM_<Name>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTowerLOD03.fbx`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name SM_HydroDomeTower); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 0bba04b72e9d -->
+
+## D-319 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** contains spaces; name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S Prop_MetallicSmoothness.png`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_HydroDomeTower_MS); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: dc4522654b96 -->
+
+## D-320 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** contains spaces; name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S Prop_normal.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_HydroDomeTower_N); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 261b4995284e -->
+
+## D-321 · I0 INTAKE · fixable · NAME_CONVENTION
+- **Issue:** name does not follow T_<Asset>_<BC|N|ORM|E|Mask>
+- **Where:** `Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Textures/S_Prop_albedo.jpg`
+- **Decision:** file kept as-is; V57 maps it via asset_manifest (canonical name T_HydroDomeTower_BC); provider may rename in a later delivery
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 22b4230507e2 -->
+
+## D-322 · I0 INTAKE · fixable · LAYOUT_ASSET_ALIASED
+- **Issue:** layout asset_id(s) placed with another delivered model (Docs/V57/layout_aliases.json): AST-CHAR-NEONFLY-001→Fly, AST-CHAR-RADIOACTIVESHARK-001→Shark, AST-ENV-HYDRODOMETOWER-001→HydroDomeTower, AST_ENV_OCEANBOAT-001→AST-ENV-OCEANBOAT-001, AST_ENV_OCEANLEAVES-001→AST-ENV-OCEANLEAVES-001, AST_ENV_OCEANROCKLEAVES-001→AST-ENV-OCEANROCKLEAVES-001, AST_ENV_OCEANROCKS-001→AST-ENV-OCEANROCKS-001, AST_ENV_OCEANSKELETON-001→AST-ENV-OCEANSKELETON-001, AST-CHAR-FISH-001→Fish, AST-CHAR-JELLYFISH-001→Jellyfish, marker Door→PRF_ZoneDoor_Lab.prefab, marker Patrol→PRF_MechanicalCrab.prefab
+- **Where:** `Docs/Design/LevelMaps/Level_01/unity_scene.json`
+- **Decision:** aliased instances use the mapped model and yaw; provider should export the final asset ids
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 1b449efe9bfa -->
+
+### D-281 — Animated jellyfish dome towers (HydroDomeTower) replace the static ones (owner delivery)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:**
+  - **Delivery:** the owner delivered `Export_02` with the dome towers animated: `SK_HydroDomeTower` plus three LOD files `SK_HydroDomeTowerLOD01..03`, each with its own copy of the same 53-bone rig, the looping `ANIM_HydroDomeTower_PulseIdle` (97 frames, 4 s), export sidecars and 3 textures.
+  - **Before:** the map's 13 `AST-ENV-HYDRODOMETOWER-001` instances used the static model.
+- **Validation:**
+  - **Rig:** one skeleton hash for all four files; same pivot (base) and height (13 m) as the static model, 11.2 m wide at rest because of the tentacles.
+  - **Clip:** loops cleanly.
+  - **Textures:** byte-identical to the static asset's albedo, normal and MetallicSmoothness. Two names contain spaces and none follow `T_`.
+  - **Export check:** R2 is "warn" in the sidecar, as with the shark.
+  - **Unity warning:** each level file warns "inconsistent LOD naming".
+- **Choice:**
+  - **Import:** the core delivery tool groups the asset into `Art/Environment/Decoration/HydroDomeTower/` (Meshes, Animations, Textures, sidecars). Core fixes:
+    - convention-named assets are grouped;
+    - `_export.json` sidecars are valid at any asset root.
+  - **Prefab:** a single `PRF_HydroDomeTower_Visual`:
+    - **LODs:** the core `SiblingLodFiles` merges the three level files into the main model, rebinding them to its skeleton. LODGroup 4 levels, one Animator (`AC_HydroDomeTower`, `PulseIdle`, AlwaysAnimate).
+    - **Collision:** mesh collider from the LOD0 bind pose (core: `mesh` collision now covers skinned meshes).
+    - **Shadows:** two-sided.
+  - **Layout:** alias `AST-ENV-HYDRODOMETOWER-001 → HydroDomeTower` (yaw 180°, the rigged-export rule of D-252); asset rule `HydroDomeTower: mesh, two_sided`.
+  - **Material:** `MAT_HydroDomeTower`. The map manifest's maps for the dome id point at the static asset's textures, which are byte-identical, so the look is unchanged.
+  - **Not removed:** the static asset files stay (provider-owned) and are no longer placed.
+- **Verified:**
+  - Rebuild: 13 domes on the animated prefab, all four LOD renderers on one rig, not static.
+  - Play: the domes pulse and the tentacles sway (frame strip); console only shows the listed `VFX_LandSplash`; 115 fps.
+  - Tests: intake 36/36, EditMode 82/82, PlayMode 28/28 (gold path: the known V06 failure).
+- **Provider fixes (MISSING_ASSETS):** one file with `_LOD#` nodes; `T_` texture names without spaces.
+- **Reversal cost:** low · **Type:** owner delivery
+
+## D-323 · I0 INTAKE · fixable · LAYOUT_EXTRAS
+- **Issue:** 56 V57 object(s) added to Level_01 on top of the provider map
+- **Where:** `Docs/V57/layout_extras/Level_01.json`
+- **Decision:** appended to layouts.json; the provider map is unchanged
+- **Rule:** logged fixable normalization (brief §3); provider files are not edited by intake
+<!-- v57-intake-key: 79cb22e9988c -->
+
+### D-282 — More ambient fish and small jellyfish (owner request)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:**
+  - **Request:** populate the level with more of the existing fish and small jellyfish (not the domes).
+  - **Map:** Level_01 had 46 fish (8 solo fish, one per `PATH_Fish_*`, and 38 in 4 schools) and 14 jellyfish near the seabed.
+  - **Constraint:** the scene is rebuilt from the map, so hand-placed scene objects would be lost, and the provider map is read-only.
+- **Choice:**
+  - **V57 core:** the intake appends `Docs/V57/layout_extras/<LevelId>.json` (`objetos`, map object format) to the provider map (`LAYOUT_EXTRAS`); lesson in `asset-intake.md`.
+  - **This game, `Docs/V57/layout_extras/Level_01.json`:** 56 objects marked `origen: V57`, generated in the editor against the scene colliders (seed 57).
+    - **Fish +40:**
+      - two companions trailing each solo fish (groups of 3; lateral ±0.9 m, height ±0.35 m, 0.8–2.2 m behind, scale 0.75–1.0);
+      - one fish at the opposite phase of each solo path;
+      - 4 more per school (school spread and scale).
+      - Each has its own animation offset, and every offset is accepted only if the body touches no collider at 90 points around the whole loop.
+    - **Jellyfish +16:**
+      - Placement: 4–12 m around the existing ones, y −2.8…−0.9, scale 0.7–1.1, drift 0.3–0.6 m, at least 3 m apart.
+      - Check: body grown by its drift + 20 cm touches no collider.
+- **Verified:**
+  - Rebuild: 86 fish, 30 jellyfish. The scene keeps the lighting and the VFX slots.
+  - Play: 0 contacts with the scenery in 40 samples over 20 s; fish moving.
+  - Captures show jellyfish at several heights and fish groups.
+  - About 102 fps (115 before).
+  - EditMode 82/82; PlayMode 28/28 (gold path: the known V06 failure); intake 37/37.
+- **Reversal cost:** low (delete the file and rebuild) · **Type:** owner request
+
+### D-283 — Far and off-screen creatures stop animating; school fish no longer jump (owner request + report)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:**
+  - **Request:** whatever is far away or off camera should not animate until it comes into play. D-280 had set `AlwaysAnimate`, because `CullUpdateTransforms` froze rigs that were visible but outside their rest-pose bounds.
+  - **Report (screenshot):** the fish beside the platform still "jump". Per-frame measurement found the fish offset sideways from their path (D-282 companions, provider schools) jumping up to 7 m/s for a frame, twice per loop.
+- **Choice (V57 core):**
+  - **`AnimatedBounds`:**
+    - **Bounds:** at prefab build and kept-prefab refresh, every SkinnedMeshRenderer's bounds are fitted to all poses of all clips (16 samples per clip, +5 %).
+    - **Culling:** Animators go back to `CullUpdateTransforms`. Nothing off screen animates, and nothing visible freezes.
+  - **Asset rule `cull_below`:** a screen-height fraction. It adds a one-level LODGroup (or sets the last level of an existing one), so below that size the rig is neither drawn nor animated. Intake, schema, DTO and test.
+  - **Collision refresh:** only when a rule sets collision (`collision_ruled`), so a `cull_below`-only rule never touches colliders.
+  - **`V57Path.Evaluate`:** continuous tangent (vertex = mean of its two segments, blended along the segment). Cause of the fish jump: a per-segment tangent turned in steps at every vertex, and a lateral offset jumped with it.
+- **Game:**
+  - **Rules:** `Fish` and `Jellyfish` `cull_below 0.015`, `MechanicalCrab 0.012`. Sharks, domes (own LODs) and flies (pickups) get no distance rule.
+  - **Prefabs:** the `AlwaysAnimate` overrides of D-280 on PRF_Shark/Fish/Jellyfish/MechanicalCrab were reverted.
+- **Verified:**
+  - **Fish (Play, 86 fish over 40 s):** median 0.81 m/s; the 7 m/s single-frame jumps are gone. The fastest is 3.2 m/s, held smoothly over several frames by a school fish on the outside of a tight curve.
+  - **Screen size:** from the reported spot the nearby fish fill 11–32 % of the screen, far above the 1.5 % cull.
+  - **Sharks:** with `CullUpdateTransforms`, no bone jump in view over 50 s except the Attack clip's own tail whip (authored).
+  - **Performance:** 109 fps (102 with everything always animating).
+  - **Tests:** EditMode 82/82; PlayMode 28/28 (gold path: the known V06 failure); intake 37/37.
+- **Reversal cost:** low · **Type:** owner request
+
+### D-284 — Half of the V57 jellyfish raised into the player's view (owner request)
+- **When:** 2026-10-14 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** the 16 V57 jellyfish of D-282 all floated near the seabed (y −2.8…−0.9), below the player. The owner asked for some at platform height or a little higher, in the player's view.
+- **Choice:** 8 of them (`JELLY_V57_02, 04 … 16`) moved in `Docs/V57/layout_extras/Level_01.json`, generated in the editor (seed 83).
+  - **Placement:** one per route fly spread along the level, 3–8 m out from the fly, at −0.5…+3 m of its height.
+  - **Checks:** open water (body + 0.6 m drift + 30 cm touches nothing); nothing within 5 m below, so they float beside the walkways, not over them; at least 4 m from every other jellyfish.
+  - **The other 8 stay low.**
+- **Verified:**
+  - Rebuild: raised jellyfish at y 2.5–6.6.
+  - Play: one seen from the gameplay camera between the domes; 0 contacts with the scenery for the 86 fish and 30 jellyfish over 20 s.
+- **Reversal cost:** low · **Type:** owner request

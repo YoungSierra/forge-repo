@@ -220,6 +220,23 @@ function withYaw(q, deg) {
 }
 
 /** @returns {Array<{level_id, source, manifest, objects, materials}>} */
+/**
+ * V57-owned additions to a provider map (`Docs/V57/layout_extras/<LevelId>.json`, `{ "objetos": [...] }` in the
+ * unity_scene object format): e.g. more ambient creatures placed by V57. Appended to the map's objects, so they survive
+ * every rebuild; the provider's map is never edited.
+ */
+function readExtras(root, levelId, issues) {
+  const rel = `Docs/V57/layout_extras/${levelId}.json`;
+  if (!fs.existsSync(path.join(root, rel))) return [];
+  const doc = readJson(root, rel, issues, 'LAYOUT_EXTRAS_UNREADABLE');
+  const objects = (doc && (doc.objetos || doc.objects)) || [];
+  if (objects.length) {
+    issues.add({ code: 'LAYOUT_EXTRAS', level: 'fixable', area: 'design', where: rel,
+      message: `${objects.length} V57 object(s) added to ${levelId} on top of the provider map`, fix: 'appended to layouts.json; the provider map is unchanged', refs: [rel] });
+  }
+  return objects;
+}
+
 function readLayouts(root, inv, issues) {
   const models = modelIndex(inv);
   const aliasConfig = readAliasConfig(root, issues);
@@ -239,7 +256,7 @@ function readLayouts(root, inv, issues) {
     }
     const manifestRel = rel.replace(/unity_scene\.json$/i, 'manifest.json');
     const manifest = inv.docs.includes(manifestRel) ? readJson(root, manifestRel, issues, 'LAYOUT_MANIFEST_UNREADABLE') : null;
-    const raw = (doc.objetos || doc.objects || []).map((o) => ({ ...o, _layer: englishLayer(o.capa || o.layer).name }));
+    const raw = [...(doc.objetos || doc.objects || []), ...readExtras(root, levelId, issues)].map((o) => ({ ...o, _layer: englishLayer(o.capa || o.layer).name }));
     const names = instanceNames(raw);
     const markerNames = new Set();
     const renamedLayers = new Map();

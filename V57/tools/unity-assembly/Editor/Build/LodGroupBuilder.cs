@@ -24,14 +24,25 @@ namespace V57.Assembly.Build
         public static int Apply(GameObject root, GameObject modelInstance)
         {
             SortedDictionary<int, List<Renderer>> levels = Levels(modelInstance);
+            List<Renderer[]> ordered = new List<Renderer[]>();
+            foreach (KeyValuePair<int, List<Renderer>> level in levels)
+            {
+                ordered.Add(level.Value.ToArray());
+            }
+
+            return ApplyLevels(root, ordered);
+        }
+
+        /// <summary>LODGroup on <paramref name="root"/> from renderer sets in level order (≥2 levels; else nothing).</summary>
+        public static int ApplyLevels(GameObject root, IList<Renderer[]> levels)
+        {
             if (levels.Count < 2)
             {
                 return 0;
             }
 
             LOD[] lods = new LOD[levels.Count];
-            int index = 0;
-            foreach (KeyValuePair<int, List<Renderer>> level in levels)
+            for (int index = 0; index < levels.Count; index++)
             {
                 float height = 0.5f / (1 << index);
                 if (index == levels.Count - 1)
@@ -39,8 +50,7 @@ namespace V57.Assembly.Build
                     height = Mathf.Min(0.02f, height);
                 }
 
-                lods[index] = new LOD(height, level.Value.ToArray());
-                index++;
+                lods[index] = new LOD(height, levels[index]);
             }
 
             LODGroup group = root.AddComponent<LODGroup>();

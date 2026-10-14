@@ -58,10 +58,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2192404095169940243, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6282284640159955751}
-    - targetCorrespondingSourceObject: {fileID: 2192404095169940243, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6008184175355362847}
+      addedObject: {fileID: 6604475983524232693}
   m_SourcePrefab: {fileID: 100100000, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
 --- !u!95 &1514864875321571260 stripped
 Animator:
@@ -73,7 +70,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2192404095169940243, guid: 548c7e624800ed9428918b89f9ecb944, type: 3}
   m_PrefabInstance: {fileID: 6664372984661370421}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6282284640159955751
+--- !u!114 &6604475983524232693
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -82,25 +79,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 4760410372966722854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b24ce9031bf9dc64ca5f808f88e8f2a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b7ef2a7e7533ce41b4a0994d063e2df, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Services.AmbientCreature
+  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Environment.SharkCruise
   _animator: {fileID: 1514864875321571260}
-  _loopState: PassiveTransit
-  _reactionState: EyeRotation
-  _reactionRange: 6
---- !u!114 &6008184175355362847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4760410372966722854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0126e629df7bb1a438a8dd12ca4af803, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Environment.SharkLoop
-  _loopMarkerId: Event_shark
-  _speed: 2.2
-  _turnRate: 2
+  _bodyCentre: 4
+  _halfWidth: 4.9
+  _halfLength: 8.5
+  _clearance: 1.5
+  _roamRadius: 70
+  _heightBand: {x: -2, y: 12}
+  _samples: 1800
+  _legLength: {x: 14, y: 34}
+  _sharkSpacing: 24
+  _playerSpacing: 10
+  _maxPitch: 18
+  _playerLookRange: 14

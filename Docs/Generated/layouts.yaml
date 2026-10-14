@@ -9073,7 +9073,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.001
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -27.54555320739746
@@ -9081,9 +9081,9 @@ layouts:
           - -21.592918395996094
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585622072219854
           - 0
-          - 0.1258562207221985
+          - -0.9920485019683838
         scale:
           - 1.6867879629135132
           - 1.6867882013320923
@@ -9096,7 +9096,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.002
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -4.780856609344482
@@ -9104,9 +9104,9 @@ layouts:
           - -62.374271392822266
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585620582103735
           - 0
-          - 0.1258562058210373
+          - -0.9920485019683838
         scale:
           - 2.6343719959259033
           - 2.6343719959259033
@@ -9119,7 +9119,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.003
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -25.115659713745117
@@ -9127,9 +9127,9 @@ layouts:
           - -5.305960178375244
         rotation:
           - 0
-          - 0
-          - 0
           - 1
+          - 0
+          - 6.123233995736766e-17
         scale:
           - 0.9371370077133179
           - 0.9371370077133179
@@ -9142,7 +9142,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.004
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - 10.266810417175293
@@ -9150,9 +9150,9 @@ layouts:
           - 27.389278411865234
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585622072219854
           - 0
-          - 0.1258562207221985
+          - -0.9920485019683838
         scale:
           - 1.6867879629135132
           - 1.6867882013320923
@@ -9165,7 +9165,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.005
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - 15.99654769897461
@@ -9173,9 +9173,9 @@ layouts:
           - -18.162124633789062
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585622072219854
           - 0
-          - 0.1258562207221985
+          - -0.9920485019683838
         scale:
           - 1.6867879629135132
           - 1.6867882013320923
@@ -9188,7 +9188,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.006
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -28.13483428955078
@@ -9196,9 +9196,9 @@ layouts:
           - 29.89147186279297
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585622072219854
           - 0
-          - 0.1258562207221985
+          - -0.9920485019683838
         scale:
           - 1.6867879629135132
           - 1.6867882013320923
@@ -9211,7 +9211,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.007
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -4.780856609344482
@@ -9219,9 +9219,9 @@ layouts:
           - 65.81831359863281
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585622072219854
           - 0
-          - 0.1258562207221985
+          - -0.9920485019683838
         scale:
           - 3.2327463626861572
           - 3.2327463626861572
@@ -9234,7 +9234,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.008
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -80.61455535888672
@@ -9242,9 +9242,9 @@ layouts:
           - -54.177276611328125
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585620582103735
           - 0
-          - 0.1258562058210373
+          - -0.9920485019683838
         scale:
           - 3.2591593265533447
           - 3.259159564971924
@@ -9257,7 +9257,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.009
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - 64.9378890991211
@@ -9265,9 +9265,9 @@ layouts:
           - -51.57494354248047
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585620582103735
           - 0
-          - 0.1258562058210373
+          - -0.9920485019683838
         scale:
           - 3.2591593265533447
           - 3.259159564971924
@@ -9280,7 +9280,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.010
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -70.71147918701172
@@ -9288,9 +9288,9 @@ layouts:
           - 66.00068664550781
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585620582103735
           - 0
-          - 0.1258562058210373
+          - -0.9920485019683838
         scale:
           - 3.2591593265533447
           - 3.259159564971924
@@ -9303,7 +9303,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.011
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - 83.50611114501953
@@ -9311,9 +9311,9 @@ layouts:
           - 54.39990997314453
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585620582103735
           - 0
-          - 0.1258562058210373
+          - -0.9920485019683838
         scale:
           - 3.2591593265533447
           - 3.259159564971924
@@ -9326,7 +9326,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.012
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - 82.71234893798828
@@ -9334,9 +9334,9 @@ layouts:
           - 7.8410258293151855
         rotation:
           - 0
-          - 0.9920485019683838
+          - 0.12585620582103735
           - 0
-          - 0.1258562058210373
+          - -0.9920485019683838
         scale:
           - 3.2591593265533447
           - 3.259159564971924
@@ -9349,7 +9349,7 @@ layouts:
         shape: null
         source_name: AST-ENV-HYDRODOMETOWER-001.013
         asset_id: AST-ENV-HYDRODOMETOWER-001
-        model: Assets/_Game/Art/Environment/Decoration/AST-ENV-HYDRODOMETOWER-001/Meshes/AST-ENV-HYDRODOMETOWER-001.fbx
+        model: Assets/_Game/Art/Environment/Decoration/HydroDomeTower/Meshes/SK_HydroDomeTower.fbx
         layer: Ocean
         position:
           - -2.783428192138672
@@ -9357,9 +9357,9 @@ layouts:
           - 6.10785436630249
         rotation:
           - 0
-          - 0
-          - 0
           - 1
+          - 0
+          - 6.123233995736766e-17
         scale:
           - 1.029941201210022
           - 1.029941201210022
@@ -45463,6 +45463,2238 @@ layouts:
         prefab: null
         dynamic: false
         props: []
+      - name: FISH_Fish_01_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_01_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 1.321
+          - -0.97
+          - -10.702
+        rotation:
+          - 0
+          - 1
+          - 0
+          - -0.02099999999999994
+        scale:
+          - 0.931
+          - 0.931
+          - 0.931
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_01
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "90"
+          - key: escala
+            value: "0.931"
+          - key: offset_path_m
+            value: 0.008,0.03,-1.654
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_01_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_01_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 1.461
+          - -1.038
+          - -9.848
+        rotation:
+          - 0
+          - 0.991
+          - 0
+          - 0.13600000000000007
+        scale:
+          - 0.757
+          - 0.757
+          - 0.757
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_01
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "28"
+          - key: escala
+            value: "0.757"
+          - key: offset_path_m
+            value: -0.232,-0.038,-0.853
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_01_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_01_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -4.577
+          - -0.873
+          - -14.551
+        rotation:
+          - 0
+          - 0.4050000000000001
+          - 0
+          - -0.914
+        scale:
+          - 0.881
+          - 0.881
+          - 0.881
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_01
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "84"
+          - key: escala
+            value: "0.881"
+          - key: offset_path_m
+            value: 0.374,0.127,0
+          - key: velocidad_mps
+            value: "0.771"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_02_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_02_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 2.068
+          - -1.453
+          - 15.237
+        rotation:
+          - 0.003
+          - 0.716
+          - -0.003
+          - 0.698
+        scale:
+          - 0.805
+          - 0.805
+          - 0.805
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_02
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "36"
+          - key: escala
+            value: "0.805"
+          - key: offset_path_m
+            value: 0.231,0.226,-1.269
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_02_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_02_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 2.51
+          - -1.444
+          - 15.621
+        rotation:
+          - -0.006999999999999999
+          - 0.764
+          - 0.008
+          - 0.646
+        scale:
+          - 0.986
+          - 0.986
+          - 0.986
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_02
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "27"
+          - key: escala
+            value: "0.986"
+          - key: offset_path_m
+            value: -0.197,0.233,-1.675
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_02_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_02_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 4.878
+          - -1.82
+          - 11.129
+        rotation:
+          - -0.012000000000000002
+          - 0.92
+          - -0.027
+          - -0.39199999999999996
+        scale:
+          - 0.923
+          - 0.923
+          - 0.923
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_02
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "94"
+          - key: escala
+            value: "0.923"
+          - key: offset_path_m
+            value: 0.352,-0.198,0
+          - key: velocidad_mps
+            value: "0.747"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_03_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_03_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 23.025
+          - -1.023
+          - 11.685
+        rotation:
+          - 0
+          - 0.95
+          - 0
+          - -0.31299999999999994
+        scale:
+          - 0.854
+          - 0.854
+          - 0.854
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_03
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "52"
+          - key: escala
+            value: "0.854"
+          - key: offset_path_m
+            value: -0.486,-0.023,-1.106
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_03_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_03_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 23.014
+          - -1.178
+          - 11.679
+        rotation:
+          - 0
+          - 0.95
+          - 0
+          - -0.31299999999999994
+        scale:
+          - 0.776
+          - 0.776
+          - 0.776
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_03
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "30"
+          - key: escala
+            value: "0.776"
+          - key: offset_path_m
+            value: -0.48,-0.178,-1.117
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_03_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_03_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 15.041
+          - -0.907
+          - 12.998
+        rotation:
+          - 0
+          - -0.02499999999999994
+          - 0
+          - -1
+        scale:
+          - 1.031
+          - 1.031
+          - 1.031
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_03
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "92"
+          - key: escala
+            value: "1.031"
+          - key: offset_path_m
+            value: 0.042,0.093,0
+          - key: velocidad_mps
+            value: "0.766"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_04_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_04_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -4.13
+          - -2.078
+          - 12.853
+        rotation:
+          - 0.015000000000000001
+          - 0.854
+          - 0.025
+          - -0.519
+        scale:
+          - 0.929
+          - 0.929
+          - 0.929
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_04
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "72"
+          - key: escala
+            value: "0.929"
+          - key: offset_path_m
+            value: 0.884,0.161,-1.29
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_04_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_04_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -2.846
+          - -2.323
+          - 11.645
+        rotation:
+          - 0.009000000000000001
+          - 0.9
+          - 0.019
+          - -0.43599999999999994
+        scale:
+          - 0.775
+          - 0.775
+          - 0.775
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_04
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "58"
+          - key: escala
+            value: "0.775"
+          - key: offset_path_m
+            value: -0.842,-0.064,-0.863
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_04_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_04_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -8.623
+          - -2.212
+          - 13.117
+        rotation:
+          - -0.002
+          - -0.010999999999999939
+          - 1.2246467991473531e-19
+          - -1
+        scale:
+          - 0.96
+          - 0.96
+          - 0.96
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_04
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "72"
+          - key: escala
+            value: "0.96"
+          - key: offset_path_m
+            value: 0.334,0.066,0
+          - key: velocidad_mps
+            value: "0.868"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_05_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_05_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -17.514
+          - -1.042
+          - 15.953
+        rotation:
+          - 0
+          - 0.972
+          - 0
+          - 0.23500000000000004
+        scale:
+          - 0.761
+          - 0.761
+          - 0.761
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_05
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "5"
+          - key: escala
+            value: "0.761"
+          - key: offset_path_m
+            value: -0.125,-0.042,-1.846
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_05_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_05_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -18.34
+          - -0.825
+          - 15.971
+        rotation:
+          - 0
+          - 0.95
+          - 0
+          - 0.31200000000000006
+        scale:
+          - 0.895
+          - 0.895
+          - 0.895
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_05
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "62"
+          - key: escala
+            value: "0.895"
+          - key: offset_path_m
+            value: 0.572,0.175,-1.36
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_05_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_05_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -19.005
+          - -1.108
+          - 9.077
+        rotation:
+          - 0
+          - 0.729
+          - 0
+          - -0.685
+        scale:
+          - 1.074
+          - 1.074
+          - 1.074
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_05
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "11"
+          - key: escala
+            value: "1.074"
+          - key: offset_path_m
+            value: 0.077,-0.108,0
+          - key: velocidad_mps
+            value: "0.795"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_06_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_06_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -18.086
+          - -1.879
+          - -0.555
+        rotation:
+          - 0
+          - 0.977
+          - 0
+          - 0.21500000000000005
+        scale:
+          - 0.996
+          - 0.996
+          - 0.996
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_06
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "28"
+          - key: escala
+            value: "0.996"
+          - key: offset_path_m
+            value: 0.609,-0.279,-2.062
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_06_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_06_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -17.917
+          - -1.537
+          - 0.479
+        rotation:
+          - 0
+          - 0.94
+          - 0
+          - 0.3420000000000001
+        scale:
+          - 0.884
+          - 0.884
+          - 0.884
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_06
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "91"
+          - key: escala
+            value: "0.884"
+          - key: offset_path_m
+            value: -0.076,0.063,-1.206
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_06_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_06_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -19.004
+          - -1.753
+          - -7.062
+        rotation:
+          - 0
+          - 0.685
+          - 0
+          - -0.729
+        scale:
+          - 1.052
+          - 1.052
+          - 1.052
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_06
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "83"
+          - key: escala
+            value: "1.052"
+          - key: offset_path_m
+            value: -0.062,-0.153,0
+          - key: velocidad_mps
+            value: "0.905"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_07_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_07_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -13.383
+          - -0.943
+          - 64.908
+        rotation:
+          - 0
+          - 0.847
+          - 0
+          - -0.531
+        scale:
+          - 0.838
+          - 0.838
+          - 0.838
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_07
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "85"
+          - key: escala
+            value: "0.838"
+          - key: offset_path_m
+            value: -0.331,0.057,-1.904
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_07_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_07_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -13.674
+          - -0.787
+          - 65.784
+        rotation:
+          - 0
+          - 0.856
+          - 0
+          - -0.517
+        scale:
+          - 0.915
+          - 0.915
+          - 0.915
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_07
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "13"
+          - key: escala
+            value: "0.915"
+          - key: offset_path_m
+            value: 0.583,0.213,-1.764
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_07_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_07_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -17.845
+          - -0.891
+          - 66.58
+        rotation:
+          - 0
+          - -0.0059999999999999385
+          - 0
+          - -1
+        scale:
+          - 0.867
+          - 0.867
+          - 0.867
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_07
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "35"
+          - key: escala
+            value: "0.867"
+          - key: offset_path_m
+            value: -0.136,0.109,0
+          - key: velocidad_mps
+            value: "0.76"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_08_Group_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_08_Group_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 0.319
+          - -1.226
+          - 36.558
+        rotation:
+          - 0
+          - 0.668
+          - 0
+          - 0.744
+        scale:
+          - 0.995
+          - 0.995
+          - 0.995
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_08
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "73"
+          - key: escala
+            value: "0.995"
+          - key: offset_path_m
+            value: -0.115,-0.226,-1.006
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_08_Group_02
+        kind: model
+        shape: null
+        source_name: FISH_Fish_08_Group_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 1.053
+          - -1.339
+          - 36.287
+        rotation:
+          - 0
+          - 0.762
+          - 0
+          - 0.648
+        scale:
+          - 0.786
+          - 0.786
+          - 0.786
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_08
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "28"
+          - key: escala
+            value: "0.786"
+          - key: offset_path_m
+            value: 0.128,-0.339,-1.751
+          - key: velocidad_mps
+            value: "0.8"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_Fish_08_Opposite_01
+        kind: model
+        shape: null
+        source_name: FISH_Fish_08_Opposite_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 4.579
+          - -1.116
+          - 30.842
+        rotation:
+          - 0
+          - 0.94
+          - 0
+          - -0.34099999999999997
+        scale:
+          - 0.872
+          - 0.872
+          - 0.872
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: pez
+          - key: trayectoria
+            value: PATH_Fish_08
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "23"
+          - key: escala
+            value: "0.872"
+          - key: offset_path_m
+            value: -0.28,-0.116,0
+          - key: velocidad_mps
+            value: "0.91"
+          - key: fase
+            value: "0.5"
+          - key: origen
+            value: V57
+      - name: FISH_School_01_Extra_01
+        kind: model
+        shape: null
+        source_name: FISH_School_01_Extra_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -18.633
+          - -0.877
+          - -20.133
+        rotation:
+          - 0.01
+          - 0.761
+          - -0.011
+          - 0.648
+        scale:
+          - 0.67
+          - 0.67
+          - 0.67
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_01
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "31"
+          - key: escala
+            value: "0.67"
+          - key: offset_path_m
+            value: -0.272,0.066,1.684
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_01_Extra_02
+        kind: model
+        shape: null
+        source_name: FISH_School_01_Extra_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -19.439
+          - -0.769
+          - -21.245
+        rotation:
+          - 0.003
+          - 0.562
+          - -0.002
+          - 0.827
+        scale:
+          - 0.551
+          - 0.551
+          - 0.551
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_01
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "28"
+          - key: escala
+            value: "0.551"
+          - key: offset_path_m
+            value: 0.781,0.154,2.753
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_01_Extra_03
+        kind: model
+        shape: null
+        source_name: FISH_School_01_Extra_03
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -16.841
+          - -1.031
+          - -19.791
+        rotation:
+          - 0.008999999999999998
+          - 0.87
+          - -0.015
+          - 0.49300000000000005
+        scale:
+          - 0.694
+          - 0.694
+          - 0.694
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_01
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "5"
+          - key: escala
+            value: "0.694"
+          - key: offset_path_m
+            value: -1.212,-0.044,0.387
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_01_Extra_04
+        kind: model
+        shape: null
+        source_name: FISH_School_01_Extra_04
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -16.909
+          - -0.83
+          - -20.035
+        rotation:
+          - 0.008999999999999998
+          - 0.87
+          - -0.015
+          - 0.49300000000000005
+        scale:
+          - 0.578
+          - 0.578
+          - 0.578
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_01
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "49"
+          - key: escala
+            value: "0.578"
+          - key: offset_path_m
+            value: -0.967,0.159,0.321
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_02_Extra_01
+        kind: model
+        shape: null
+        source_name: FISH_School_02_Extra_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 10.057
+          - -1.112
+          - -1.833
+        rotation:
+          - -0.015
+          - -0.44299999999999995
+          - 0.008000000000000002
+          - -0.896
+        scale:
+          - 0.557
+          - 0.557
+          - 0.557
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_02
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "29"
+          - key: escala
+            value: "0.557"
+          - key: offset_path_m
+            value: 0.374,-0.112,0.014
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_02_Extra_02
+        kind: model
+        shape: null
+        source_name: FISH_School_02_Extra_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 8.439
+          - -0.739
+          - -3.005
+        rotation:
+          - -0.011
+          - -0.13299999999999995
+          - 0.002000000000000001
+          - -0.991
+        scale:
+          - 0.56
+          - 0.56
+          - 0.56
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_02
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "4"
+          - key: escala
+            value: "0.56"
+          - key: offset_path_m
+            value: -0.518,0.201,1.887
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_02_Extra_03
+        kind: model
+        shape: null
+        source_name: FISH_School_02_Extra_03
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 9.419
+          - -0.898
+          - -3.114
+        rotation:
+          - -0.013
+          - -0.14799999999999994
+          - 0.002000000000000001
+          - -0.989
+        scale:
+          - 0.622
+          - 0.622
+          - 0.622
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_02
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "71"
+          - key: escala
+            value: "0.622"
+          - key: offset_path_m
+            value: 0.452,0.047,1.72
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_02_Extra_04
+        kind: model
+        shape: null
+        source_name: FISH_School_02_Extra_04
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 10.161
+          - -0.889
+          - -1.686
+        rotation:
+          - 0.014
+          - 0.576
+          - -0.01
+          - 0.818
+        scale:
+          - 0.675
+          - 0.675
+          - 0.675
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_02
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "54"
+          - key: escala
+            value: "0.675"
+          - key: offset_path_m
+            value: 0.285,0.12,-0.25
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_03_Extra_01
+        kind: model
+        shape: null
+        source_name: FISH_School_03_Extra_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 16.819
+          - -1.028
+          - -23.252
+        rotation:
+          - -0.0029999999999999996
+          - 0.943
+          - 0.008
+          - 0.3320000000000001
+        scale:
+          - 0.666
+          - 0.666
+          - 0.666
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_03
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "70"
+          - key: escala
+            value: "0.666"
+          - key: offset_path_m
+            value: 0.332,-0.101,0.021
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_03_Extra_02
+        kind: model
+        shape: null
+        source_name: FISH_School_03_Extra_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 15.147
+          - -0.871
+          - -20.922
+        rotation:
+          - -0.009
+          - 0.8
+          - 0.011
+          - 0.6
+        scale:
+          - 0.565
+          - 0.565
+          - 0.565
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_03
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "16"
+          - key: escala
+            value: "0.565"
+          - key: offset_path_m
+            value: -0.887,0.138,2.589
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_03_Extra_03
+        kind: model
+        shape: null
+        source_name: FISH_School_03_Extra_03
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 18.333
+          - -0.71
+          - -22.689
+        rotation:
+          - -0.0009999999999999998
+          - 0.964
+          - 0.003
+          - 0.26700000000000007
+        scale:
+          - 0.647
+          - 0.647
+          - 0.647
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_03
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "57"
+          - key: escala
+            value: "0.647"
+          - key: offset_path_m
+            value: -1.244,0.214,-0.321
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_03_Extra_04
+        kind: model
+        shape: null
+        source_name: FISH_School_03_Extra_04
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - 16.302
+          - -0.977
+          - -21.24
+        rotation:
+          - -0.009999999999999998
+          - 0.843
+          - 0.015
+          - 0.538
+        scale:
+          - 0.618
+          - 0.618
+          - 0.618
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_03
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "2"
+          - key: escala
+            value: "0.618"
+          - key: offset_path_m
+            value: -0.988,-0.003,1.535
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_04_Extra_01
+        kind: model
+        shape: null
+        source_name: FISH_School_04_Extra_01
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -7.2
+          - -1.191
+          - 30.389
+        rotation:
+          - 0.015
+          - -0.30699999999999994
+          - -0.005000000000000001
+          - -0.951
+        scale:
+          - 0.712
+          - 0.712
+          - 0.712
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_04
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "59"
+          - key: escala
+            value: "0.712"
+          - key: offset_path_m
+            value: 1.036,-0.169,2.545
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_04_Extra_02
+        kind: model
+        shape: null
+        source_name: FISH_School_04_Extra_02
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -8.157
+          - -0.866
+          - 31.098
+        rotation:
+          - 0.015
+          - -0.30699999999999994
+          - -0.005000000000000001
+          - -0.951
+        scale:
+          - 0.567
+          - 0.567
+          - 0.567
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_04
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "42"
+          - key: escala
+            value: "0.567"
+          - key: offset_path_m
+            value: -0.155,0.156,2.53
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_04_Extra_03
+        kind: model
+        shape: null
+        source_name: FISH_School_04_Extra_03
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -7.347
+          - -0.852
+          - 32.13
+        rotation:
+          - 0.018
+          - -0.45799999999999996
+          - -0.009000000000000001
+          - -0.889
+        scale:
+          - 0.65
+          - 0.65
+          - 0.65
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_04
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "85"
+          - key: escala
+            value: "0.65"
+          - key: offset_path_m
+            value: -0.291,0.126,1.294
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: FISH_School_04_Extra_04
+        kind: model
+        shape: null
+        source_name: FISH_School_04_Extra_04
+        asset_id: AST-CHAR-FISH-001
+        model: Assets/_Game/Art/Characters/Fish/Meshes/SK_Fish.fbx
+        layer: EventosPeces
+        position:
+          - -7.33
+          - -1.156
+          - 32.279
+        rotation:
+          - 0.018
+          - -0.45799999999999996
+          - -0.009000000000000001
+          - -0.889
+        scale:
+          - 0.602
+          - 0.602
+          - 0.602
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: cardumen
+          - key: trayectoria
+            value: PATH_School_04
+          - key: clip
+            value: HoverIdle
+          - key: clip_offset_frames
+            value: "13"
+          - key: escala
+            value: "0.602"
+          - key: offset_path_m
+            value: -0.402,-0.183,1.193
+          - key: velocidad_mps
+            value: "1"
+          - key: fase
+            value: "0"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_01
+        kind: model
+        shape: null
+        source_name: JELLY_V57_01
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -27.296
+          - -1.11
+          - 58.459
+        rotation:
+          - 0
+          - -0.14099999999999993
+          - 0
+          - -0.99
+        scale:
+          - 0.712
+          - 0.712
+          - 0.712
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "1"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "2"
+          - key: escala
+            value: "0.712"
+          - key: deriva_m
+            value: "0.524"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_02
+        kind: model
+        shape: null
+        source_name: JELLY_V57_02
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 10.802
+          - 6.544
+          - 6.046
+        rotation:
+          - 0
+          - 0.17700000000000005
+          - 0
+          - -0.984
+        scale:
+          - 1.012
+          - 1.012
+          - 1.012
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "2"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "44"
+          - key: escala
+            value: "1.012"
+          - key: deriva_m
+            value: "0.381"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_03
+        kind: model
+        shape: null
+        source_name: JELLY_V57_03
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -20.125
+          - -2.733
+          - 62.883
+        rotation:
+          - 0
+          - -0.017999999999999936
+          - 0
+          - -1
+        scale:
+          - 0.798
+          - 0.798
+          - 0.798
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "3"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "79"
+          - key: escala
+            value: "0.798"
+          - key: deriva_m
+            value: "0.378"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_04
+        kind: model
+        shape: null
+        source_name: JELLY_V57_04
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -21.258
+          - 2.523
+          - 12.325
+        rotation:
+          - 0
+          - -1
+          - 0
+          - -0.016000000000000063
+        scale:
+          - 1.058
+          - 1.058
+          - 1.058
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "4"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "45"
+          - key: escala
+            value: "1.058"
+          - key: deriva_m
+            value: "0.535"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_05
+        kind: model
+        shape: null
+        source_name: JELLY_V57_05
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 20.489
+          - -1.321
+          - 18.444
+        rotation:
+          - 0
+          - -0.917
+          - 0
+          - -0.3980000000000001
+        scale:
+          - 1.066
+          - 1.066
+          - 1.066
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "5"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "91"
+          - key: escala
+            value: "1.066"
+          - key: deriva_m
+            value: "0.428"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_06
+        kind: model
+        shape: null
+        source_name: JELLY_V57_06
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 3.677
+          - 3.061
+          - 10.252
+        rotation:
+          - 0
+          - -0.42699999999999994
+          - 0
+          - -0.904
+        scale:
+          - 0.84
+          - 0.84
+          - 0.84
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "6"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "7"
+          - key: escala
+            value: "0.84"
+          - key: deriva_m
+            value: "0.472"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_07
+        kind: model
+        shape: null
+        source_name: JELLY_V57_07
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 1.335
+          - -1.198
+          - -10.888
+        rotation:
+          - 0
+          - 0.679
+          - 0
+          - -0.734
+        scale:
+          - 1.043
+          - 1.043
+          - 1.043
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "7"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "17"
+          - key: escala
+            value: "1.043"
+          - key: deriva_m
+            value: "0.463"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_08
+        kind: model
+        shape: null
+        source_name: JELLY_V57_08
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 29.344
+          - 4.453
+          - 8.04
+        rotation:
+          - 0
+          - 0.836
+          - 0
+          - -0.548
+        scale:
+          - 0.827
+          - 0.827
+          - 0.827
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "8"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "63"
+          - key: escala
+            value: "0.827"
+          - key: deriva_m
+            value: "0.474"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_09
+        kind: model
+        shape: null
+        source_name: JELLY_V57_09
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -4.603
+          - -1.476
+          - -27.062
+        rotation:
+          - 0
+          - -0.23699999999999993
+          - 0
+          - -0.971
+        scale:
+          - 1.029
+          - 1.029
+          - 1.029
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "9"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "77"
+          - key: escala
+            value: "1.029"
+          - key: deriva_m
+            value: "0.349"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_10
+        kind: model
+        shape: null
+        source_name: JELLY_V57_10
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 13.738
+          - 3.799
+          - 35.02
+        rotation:
+          - 0
+          - -0.33899999999999997
+          - 0
+          - -0.941
+        scale:
+          - 0.974
+          - 0.974
+          - 0.974
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "10"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "22"
+          - key: escala
+            value: "0.974"
+          - key: deriva_m
+            value: "0.366"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_11
+        kind: model
+        shape: null
+        source_name: JELLY_V57_11
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 5.435
+          - -2.495
+          - -7.283
+        rotation:
+          - 0
+          - -0.31699999999999995
+          - 0
+          - -0.948
+        scale:
+          - 0.988
+          - 0.988
+          - 0.988
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "11"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "56"
+          - key: escala
+            value: "0.988"
+          - key: deriva_m
+            value: "0.329"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_12
+        kind: model
+        shape: null
+        source_name: JELLY_V57_12
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -52.775
+          - 6.578
+          - 48.482
+        rotation:
+          - 0
+          - 0.963
+          - 0
+          - -0.27099999999999996
+        scale:
+          - 0.83
+          - 0.83
+          - 0.83
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "12"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "45"
+          - key: escala
+            value: "0.83"
+          - key: deriva_m
+            value: "0.452"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_13
+        kind: model
+        shape: null
+        source_name: JELLY_V57_13
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -13.583
+          - -2.014
+          - 53.293
+        rotation:
+          - 0
+          - 0.506
+          - 0
+          - -0.863
+        scale:
+          - 0.95
+          - 0.95
+          - 0.95
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "13"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "41"
+          - key: escala
+            value: "0.95"
+          - key: deriva_m
+            value: "0.369"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_14
+        kind: model
+        shape: null
+        source_name: JELLY_V57_14
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - 19.551
+          - 4.719
+          - 58.704
+        rotation:
+          - 0
+          - -0.661
+          - 0
+          - -0.751
+        scale:
+          - 0.994
+          - 0.994
+          - 0.994
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "14"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "39"
+          - key: escala
+            value: "0.994"
+          - key: deriva_m
+            value: "0.394"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_15
+        kind: model
+        shape: null
+        source_name: JELLY_V57_15
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -1.582
+          - -2.667
+          - -31.757
+        rotation:
+          - 0
+          - 0.2750000000000001
+          - 0
+          - -0.961
+        scale:
+          - 0.92
+          - 0.92
+          - 0.92
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "15"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "13"
+          - key: escala
+            value: "0.92"
+          - key: deriva_m
+            value: "0.322"
+          - key: origen
+            value: V57
+      - name: JELLY_V57_16
+        kind: model
+        shape: null
+        source_name: JELLY_V57_16
+        asset_id: AST-CHAR-JELLYFISH-001
+        model: Assets/_Game/Art/Characters/Jellyfish/Meshes/SK_Jellyfish.fbx
+        layer: EventosMedusas
+        position:
+          - -11.129
+          - 2.551
+          - 55.685
+        rotation:
+          - 0
+          - 0.571
+          - 0
+          - -0.821
+        scale:
+          - 0.83
+          - 0.83
+          - 0.83
+        prefab: null
+        dynamic: false
+        props:
+          - key: tipo
+            value: medusa
+          - key: indice
+            value: "16"
+          - key: clip
+            value: PulseIdle
+          - key: clip_offset_frames
+            value: "19"
+          - key: escala
+            value: "0.83"
+          - key: deriva_m
+            value: "0.539"
+          - key: origen
+            value: V57
       - name: Marker_Door_door_1
         kind: marker
         shape: box

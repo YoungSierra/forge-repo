@@ -54,6 +54,8 @@ function classify(rel) {
   }
   if (area !== 'Art') return r('unknown', null, null);
   if (a1 === 'Environment' && a2 === 'Blockout') return at(6) === 'Textures' ? r('texture', a3, 'T_') : r('blockout', a3, 'BLK_');
+  // Blender export sidecar (<Asset>[LOD##]_export.json) at the root of any asset folder, not only characters.
+  if (/_export\.json$/i.test(file) && ((a1 === 'Environment' && (a2 === 'Kits' || a2 === 'Decoration') && seg.length === 7) || (a1 === 'Props' && seg.length === 7))) return r('sidecar', a3, null);
   if (a1 === 'Environment' && (a2 === 'Kits' || a2 === 'Decoration')) return byKind(at(6), a3);
   if (a1 === 'Environment' && a2 === 'Sky') return r('texture', 'Sky', null, false);
   if (a1 === 'Props') return byKind(at(6), a3);

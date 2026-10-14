@@ -25,6 +25,8 @@ namespace ProfessorSprat.Gameplay.Services
     {
         #region Fields
 
+        private const float FlyPopCameraOffset = 0.7f;
+
         [SerializeField] private Transform _spawnRoot;
         [SerializeField] private List<EffectSlot> _effects = new List<EffectSlot>();
 
@@ -96,7 +98,20 @@ namespace ProfessorSprat.Gameplay.Services
 
         private void OnCrabDefeated(CrabDefeatedEvent defeated) => Spawn("VFX_CrabDefeat", defeated.Position);
 
-        private void OnFlyCollected(FlyCollectedEvent collected) => Spawn("VFX_FlyPop", transform.position);
+        /// <summary>Fly pop (D-278): the fly is collected inside the Professor's body, so the pop is drawn in front of him.</summary>
+        private void OnFlyCollected(FlyCollectedEvent collected) => Spawn("VFX_FlyPop", TowardCamera(collected.Position, FlyPopCameraOffset));
+
+        private static Vector3 TowardCamera(Vector3 position, float metres)
+        {
+            Camera camera = Camera.main;
+            if (camera == null)
+            {
+                return position;
+            }
+
+            Vector3 toCamera = camera.transform.position - position;
+            return toCamera.sqrMagnitude > metres * metres ? position + toCamera.normalized * metres : position;
+        }
 
         private void OnZoneCompleted(ZoneCompletedEvent completed) => Spawn("VFX_ZoneComplete", transform.position);
 

@@ -27,3 +27,45 @@
 ## Static stand-ins are replaced when the rigged asset lands
 - **Rule:** when a rigged `SK_<Id>` supersedes a static model, swap every scene instance to `PRF_<Id>_Visual`, delete the old art folder, materials and prefab, log the mapping `D-###`, and check 0 missing prefab instances. Mind facing: Blender static exports with `export_yaw_z_deg: 180` face −Z, rigged `SK_` face +Z (add 180° yaw when swapping).
 - **Source:** PS (shark, jellyfish, neon fly).
+
+## Looping clips must play in place
+- **Symptom:** the crabs' `ScuttleL`/`ScuttleR` loops moved the whole body 20 cm sideways over one second, then snapped back on every cycle while the script moved the crab.
+- **Cause:** the clip was exported with travel on the root node. V57 gameplay moves characters from code (no root motion). Setting a motion node does not extract the travel for a Generic `ANIM_` that copies the `SK_` avatar.
+- **Rule:** at import (`OnPostprocessAnimation`), a looping Generic clip whose shallowest travelling node ends at least 5 cm from its start loses that node's linear drift. The loop closes exactly, and the sway and bob are kept. Each clip fixed is logged in the import log. Provider fix: export loops in place.
+- **Enforced by:** `Import/InPlaceLoopClips.cs` (`V57AssetPostprocessor` rules version 2). **Source:** PS (D-276).
+
+## New clips for a character that already has a controller
+- **Symptom:** a re-delivery added `ANIM_Shark_Attack` and four turn clips, but `AC_Shark` kept only its two old states, because existing controllers are kept.
+- **Rule:** `BuildAnimators` adds a state, with no transitions, for every clip that has none in a kept controller, and relinks states whose motion was lost. Existing states, transitions and the default state are never touched.
+- **Enforced by:** `AnimatorControllerBuilder.AddMissingStates`. **Source:** PS (D-279).
+
+## Animation pops: culling and clip chaining
+- **Symptom:** the sharks' animation jumped between clips and sometimes mid-clip.
+- **Cause:**
+  - **Culling:** Animators used `CullUpdateTransforms`. The 17 m shark's tail leaves its skinned bounds while it swims, so the renderer was judged off screen while still visible, the bones froze, and they jumped when the bounds came back.
+  - **Chaining:** the delivered manoeuvre clips all start and end on the transit clip's first pose, but code switched to them at any point of the swim cycle (up to 1.5 m of pose difference).
+- **Rule:**
+  - **Culling (superseded by D-283):** fit the skinned bounds to every pose of every clip (`AnimatedBounds`) and keep `CullUpdateTransforms`. Off-screen rigs then stop animating with no freeze in view. `AlwaysAnimate` hid the bug at a cost.
+  - **Chaining:** when clips are authored to chain from a loop's first pose, start them at a loop phase that matches that pose (sample the loop once and keep the phases within 10 cm). Resume the loop from its first frame.
+  - **Check:** sample a clip per quarter frame for authored pops before blaming the blend. Example: the shark `Attack` tongue moves 44 cm in a quarter frame, which is a provider fix.
+- **Enforced by:** `AnimatorBinder` + `AnimatedBounds` (culling); the game's `SharkCruise` (sync phases). **Source:** PS (D-280, D-283).
+
+## LOD levels delivered as separate rigged files
+- **Symptom:** an animated asset arrived as `SK_HydroDomeTower.fbx` plus `SK_HydroDomeTowerLOD01..03.fbx`, each with its own copy of the rig, instead of `_LOD#` nodes in one file. Unity also warns on each level file: "inconsistent LOD naming (_LOD1 found but no _LOD0)".
+- **Rule:** `SiblingLodFiles` merges the level files (`<stem>LOD##` / `<stem>_LOD##` next to the model) into the model's Visual prefab.
+  - **Renderers:** move under the main instance; skinned ones are rebound to the main skeleton by bone name. One Animator drives every level.
+  - **LODGroup:** the main model is LOD0, then the files in level order.
+  - **Limits:** the level files get no prefab of their own. A bone missing from the main rig skips that renderer with a warning. Kept prefabs with level files are rebuilt, not refreshed in place.
+  - **Provider fix:** one file with `_LOD#` nodes.
+- **Related:**
+  - **Mesh collision:** `collision: mesh` now also covers skinned meshes, using their bind pose.
+  - **Export sidecars:** `<Asset>[LOD##]_export.json` is valid at the root of any asset folder, not only characters.
+  - **Delivery import:** `delivery.js` groups a new convention-named asset (`SK_`/`SM_`/`BLK_`, LOD files, `ANIM_<Asset>_*`, export sidecars, and the loose textures of a single-asset delivery) into one asset folder.
+- **Enforced by:** `SiblingLodFiles`, `LodGroupBuilder.ApplyLevels`, `PrefabColliderBuilder`, intake `naming.js`, `delivery.js`. **Source:** PS (D-281).
+
+## Far and off-screen rigs do not animate
+- **Rule:**
+  - **Off screen:** animated Visual prefabs get skinned bounds that cover all their clips (16 samples per clip, +5 %) and `CullUpdateTransforms`. Nothing off screen is animated, and nothing visible freezes.
+  - **Far:** the asset rule `cull_below` (screen-height fraction) adds a one-level LODGroup (or sets the last level of an existing one). Below that size the rig is neither drawn nor animated.
+  - **Choosing a value:** check it from the real gameplay camera. Small ambient creatures can take about 1.5 %. Large set pieces keep their own LODs, and gameplay-critical actors (pickups) get no rule.
+- **Enforced by:** `AnimatedBounds` (build and kept-prefab refresh), asset rules `cull_below`. **Source:** PS (D-283).

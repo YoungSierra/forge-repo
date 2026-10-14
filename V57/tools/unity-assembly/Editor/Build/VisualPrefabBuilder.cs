@@ -92,13 +92,16 @@ namespace V57.Assembly.Build
                     }
                 }
 
-                bool lods = instance != null && LodGroupBuilder.Refresh(root, instance);
-                bool colliders = entry.ruled && AssetRulesApplier.RefreshColliders(entry, root);
+                // Level files merged at build (SiblingLodFiles) are not _LOD# nodes of the model: rebuild the prefab to refresh them.
+                bool lods = instance != null && SiblingLodFiles.Find(modelPath).Count == 0 && LodGroupBuilder.Refresh(root, instance);
+                bool colliders = entry.collision_ruled && AssetRulesApplier.RefreshColliders(entry, root);
                 bool shadows = AssetRulesApplier.ApplyShadows(entry, root);
-                if (lods || colliders || shadows)
+                bool bounds = instance != null && AnimatedBounds.Fit(instance);
+                bool cull = AnimatedBounds.ApplyCullRule(entry, root);
+                if (lods || colliders || shadows || bounds || cull)
                 {
                     PrefabUtility.SaveAsPrefabAsset(root, prefabPath);
-                    Debug.Log($"V57.Assembly: {prefabPath} refreshed (lods={lods}, colliders={colliders}, shadows={shadows}) ← {modelPath}");
+                    Debug.Log($"V57.Assembly: {prefabPath} refreshed (lods={lods}, colliders={colliders}, shadows={shadows}, animatedBounds={bounds}, cull={cull}) ← {modelPath}");
                 }
             }
             finally
@@ -122,7 +125,14 @@ namespace V57.Assembly.Build
 
                 instance.transform.SetParent(root.transform, false);
                 bool animated = AnimatorBinder.Bind(instance, modelPath);
-                int lodLevels = LodGroupBuilder.Apply(root, instance);
+                // LOD levels inside the model (_LOD# nodes), or delivered as separate files next to it (SK_XLOD01…).
+                int lodLevels = SiblingLodFiles.Find(modelPath).Count > 0 ? SiblingLodFiles.Attach(root, instance, modelPath) : LodGroupBuilder.Apply(root, instance);
+                if (animated)
+                {
+                    AnimatedBounds.Fit(instance);
+                }
+
+                AnimatedBounds.ApplyCullRule(entry, root);
                 Bounds bounds = RendererBounds.Compute(root);
                 string colliders = PrefabColliderBuilder.Apply(entry, root, bounds);
                 AssetRulesApplier.ApplyShadows(entry, root);

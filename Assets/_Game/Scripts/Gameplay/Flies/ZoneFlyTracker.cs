@@ -87,7 +87,7 @@ namespace ProfessorSprat.Gameplay.Flies
                 }
 
                 fly.Collect(_model.IsComplete);
-                EventBus.Publish(new FlyCollectedEvent(fly.FlyId, _model.ZoneId, _model.CollectedCount, _model.ZoneTotal));
+                EventBus.Publish(new FlyCollectedEvent(fly.FlyId, _model.ZoneId, _model.CollectedCount, _model.ZoneTotal, fly.transform.position));
                 if (_model.IsComplete)
                 {
                     EventBus.Publish(new ZoneCompletedEvent(_model.ZoneId));

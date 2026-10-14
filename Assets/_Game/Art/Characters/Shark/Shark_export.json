@@ -1,9 +1,9 @@
 {
   "character": "Shark",
-  "exported": "2026-10-06T18:55:35",
-  "blend": "Shark_AnimV03.blend",
+  "exported": "2026-10-14T12:45:49",
+  "blend": "Shark_Rigged.blend",
   "armature": "Shark_Rig",
-  "skeleton": "cfda5faa0b68",
+  "skeleton": "a021e9b6b21c",
   "root": {
     "rot_deg": [
       -90.0,
@@ -19,7 +19,7 @@
   },
   "sk": {
     "file": "SK_Shark.fbx",
-    "bytes": 607660,
+    "bytes": 613788,
     "meshes": [
       "AST-CHAR-RADIOACTIVESHARK-001"
     ],
@@ -27,15 +27,15 @@
   },
   "clips": [
     {
-      "name": "PassiveTransit",
-      "file": "ANIM_Shark_PassiveTransit.fbx",
+      "name": "Attack",
+      "file": "ANIM_Shark_Attack.fbx",
       "frames": [
         1,
-        193
+        61
       ],
-      "loop": true,
-      "curves": 171,
-      "bytes": 348412
+      "loop": false,
+      "curves": 198,
+      "bytes": 232108
     },
     {
       "name": "EyeRotation",
@@ -45,8 +45,63 @@
         97
       ],
       "loop": false,
-      "curves": 171,
-      "bytes": 242076
+      "curves": 198,
+      "bytes": 278700
+    },
+    {
+      "name": "PassiveTransit",
+      "file": "ANIM_Shark_PassiveTransit.fbx",
+      "frames": [
+        1,
+        193
+      ],
+      "loop": true,
+      "curves": 198,
+      "bytes": 401676
+    },
+    {
+      "name": "TurnDown",
+      "file": "ANIM_Shark_TurnDown.fbx",
+      "frames": [
+        1,
+        61
+      ],
+      "loop": false,
+      "curves": 198,
+      "bytes": 229804
+    },
+    {
+      "name": "TurnLeft",
+      "file": "ANIM_Shark_TurnLeft.fbx",
+      "frames": [
+        1,
+        61
+      ],
+      "loop": false,
+      "curves": 198,
+      "bytes": 232924
+    },
+    {
+      "name": "TurnRight",
+      "file": "ANIM_Shark_TurnRight.fbx",
+      "frames": [
+        1,
+        61
+      ],
+      "loop": false,
+      "curves": 198,
+      "bytes": 232812
+    },
+    {
+      "name": "TurnUp",
+      "file": "ANIM_Shark_TurnUp.fbx",
+      "frames": [
+        1,
+        61
+      ],
+      "loop": false,
+      "curves": 198,
+      "bytes": 229692
     }
   ],
   "checks": {
@@ -76,7 +131,7 @@
       ],
       "use_mesh_modifiers": false,
       "mesh_smooth_type": "FACE",
-      "path_mode": "AUTO",
+      "path_mode": "STRIP",
       "embed_textures": false,
       "bake_anim": false
     },
@@ -105,5 +160,20 @@
       "bake_anim_use_all_actions": false
     }
   },
-  "skeleton_order": "c520ccab48b6"
+  "skeleton_order": "b8b30cb76e0b",
+  "textures": [
+    {
+      "file": "Textures/Radioactive_Shark_albedo.jpg",
+      "image": "AST-CHAR-RADIOACTIVESHARK-001_ALB",
+      "how": "copy",
+      "colorspace": "sRGB",
+      "materials": [
+        "AST-CHAR-RADIOACTIVESHARK-001"
+      ],
+      "channels": [
+        "Base Color"
+      ],
+      "bytes": 2611169
+    }
+  ]
 }

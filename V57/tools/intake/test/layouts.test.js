@@ -101,3 +101,13 @@ test('unity_scene 1.1: marcadores, trayectorias, props, marker actors and static
   assert.equal(fishPath.loop, true);
   assert.ok(fishPath.props.some((p) => p.key === 'cantidad' && p.value === '1'));
 });
+
+test('layout extras: Docs/V57/layout_extras/<LevelId>.json objects are appended to the provider map', () => {
+  const repo = makeRepo({ files: STANDARD_FILES });
+  touch(repo, 'Docs/Design/LevelMaps/WoodlandPond/unity_scene.json', scene([obj('Koala.001', 'Koala', 'Vestido')]));
+  touch(repo, 'Docs/V57/layout_extras/WoodlandPond.json', JSON.stringify({ objetos: [obj('Koala.002', 'Koala', 'Vestido'), obj('Koala.003', 'Koala', 'Vestido')] }));
+  const r = runIntake({ repo });
+  const layout = readJson(repo, 'layouts').layouts.find((l) => l.level_id === 'WoodlandPond');
+  assert.equal(layout.objects.length, 3);
+  assert.ok(r.issues.some((i) => i.code === 'LAYOUT_EXTRAS'));
+});

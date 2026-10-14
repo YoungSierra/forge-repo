@@ -38,6 +38,7 @@ namespace V57.Assembly.Build
                 {
                     AssemblyContext.Counts.skipped_existing++;
                     AssemblyContext.TrackAsset(path);
+                    AddMissingStates(path, pair.Value);
                     continue;
                 }
 
@@ -62,6 +63,43 @@ namespace V57.Assembly.Build
                 AssemblyContext.Counts.animator_controllers++;
                 AssemblyContext.TrackAsset(path);
                 Debug.Log($"V57.Assembly: {path} ← {clips.Count} clips, default '{preferred.name}'");
+            }
+        }
+
+        /// <summary>
+        /// Kept controller, re-delivered clips: a clip without a state of its name gets one (no transitions); a state whose
+        /// motion was lost points at its clip again. Existing states, transitions and the default state are not touched.
+        /// </summary>
+        private static void AddMissingStates(string path, List<AnimationClip> clips)
+        {
+            AnimatorController controller = AssetDatabase.LoadAssetAtPath<AnimatorController>(path);
+            if (controller == null || controller.layers.Length == 0)
+            {
+                return;
+            }
+
+            AnimatorStateMachine machine = controller.layers[0].stateMachine;
+            List<string> added = new List<string>();
+            foreach (AnimationClip clip in clips)
+            {
+                ChildAnimatorState existing = System.Array.Find(machine.states, s => s.state.name == clip.name);
+                if (existing.state == null)
+                {
+                    AnimatorState state = machine.AddState(clip.name, new Vector3(300f, 60f * machine.states.Length, 0f));
+                    state.motion = clip;
+                    added.Add(clip.name);
+                }
+                else if (existing.state.motion == null)
+                {
+                    existing.state.motion = clip;
+                    added.Add(clip.name + " (motion relinked)");
+                }
+            }
+
+            if (added.Count > 0)
+            {
+                EditorUtility.SetDirty(controller);
+                Debug.Log($"V57.Assembly: {path} ← new states {string.Join(", ", added)}");
             }
         }
 

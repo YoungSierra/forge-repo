@@ -29,6 +29,12 @@ namespace V57.Assembly.Data
         /// <summary>A Docs/V57/asset_rules.json rule matched: kept Visual prefabs follow the rules on every build.</summary>
         public bool ruled;
 
+        /// <summary>An asset rule set <see cref="collision"/>: kept Visual prefabs rebuild their generated colliders.</summary>
+        public bool collision_ruled;
+
+        /// <summary>Docs/V57/asset_rules.json: not drawn (nor animated) below this screen-height fraction; 0 = no rule.</summary>
+        public float cull_below;
+
         /// <summary>Docs/V57/asset_rules.json: on | off | two_sided (empty = leave the import default).</summary>
         public string shadows;
 

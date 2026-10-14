@@ -123,8 +123,21 @@ namespace V57.GoldPath
             float span = _cumulative[segment + 1] - _cumulative[segment];
             float t = span > 0.0001f ? (distance - _cumulative[segment]) / span : 0f;
             position = Vector3.Lerp(a, b, t);
-            Vector3 delta = b - a;
-            tangent = delta.sqrMagnitude > 0.000001f ? delta.normalized : Vector3.forward;
+            // Continuous tangent: each vertex takes the mean of its two segments, blended along the segment. A per-segment
+            // tangent turns in steps at every vertex, and anything offset sideways from the path (a school fish) jumps.
+            Vector3 here = Direction(segment, count);
+            Vector3 start = _loop || segment > 0 ? (Direction(segment - 1, count) + here).normalized : here;
+            Vector3 end = _loop || segment < segments - 1 ? (here + Direction(segment + 1, count)).normalized : here;
+            Vector3 blended = Vector3.Lerp(start, end, t);
+            tangent = blended.sqrMagnitude > 0.000001f ? blended.normalized : here;
+        }
+
+        /// <summary>Unit direction of segment <paramref name="segment"/> (wrapped).</summary>
+        private Vector3 Direction(int segment, int count)
+        {
+            int i = ((segment % count) + count) % count;
+            Vector3 delta = _points[(i + 1) % count] - _points[i];
+            return delta.sqrMagnitude > 0.000001f ? delta.normalized : Vector3.forward;
         }
 
         #endregion

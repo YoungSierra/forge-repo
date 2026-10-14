@@ -2,16 +2,19 @@ using UnityEngine;
 
 namespace ProfessorSprat.Core
 {
-    /// <summary>TDD OnFlyCollected.</summary>
+    /// <summary>TDD OnFlyCollected (+ the fly's world position, for the pop VFX).</summary>
     public readonly struct FlyCollectedEvent
     {
-        public FlyCollectedEvent(string flyId, string zoneId, int newCount, int zoneTotal)
+        public FlyCollectedEvent(string flyId, string zoneId, int newCount, int zoneTotal, Vector3 position = default)
         {
             FlyId = flyId;
             ZoneId = zoneId;
             NewCount = newCount;
             ZoneTotal = zoneTotal;
+            Position = position;
         }
+
+        public Vector3 Position { get; }
 
         public string FlyId { get; }
 

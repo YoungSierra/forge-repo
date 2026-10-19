@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using ProfessorSprat.Core;
 using ProfessorSprat.Gameplay.Config;
+using ProfessorSprat.Gameplay.Flow;
 using Unity.Cinemachine;
 using Unity.Cinemachine.TargetTracking;
 using UnityEngine;
@@ -14,6 +15,8 @@ namespace ProfessorSprat.Gameplay.CameraSystem
     /// camera-zone yaw (<c>Marker_CameraZone_*</c>, blend 0.8 s). There is no auto-recentering (owner request, D-265): the
     /// orbit stays where the player left it. Distance and elevation come from the authored follow offset.
     /// On <see cref="KeySpawnedEvent"/> a key-shot camera frames Professor + key for 1.2 s; a respawn cuts.
+    /// After the intro video plays to its end, the level opens on <c>CM_Opening</c> (the video's last shot of the B-17 gate,
+    /// rebuilt in the level) and blends to the follow camera (brain custom blend, D-285).
     /// <see cref="ActiveYaw"/> + <see cref="LookYaw"/> is the movement basis used by InputHandler.
     /// </summary>
     public sealed class CameraRig : MonoBehaviour
@@ -21,6 +24,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         #region Fields
 
         private const int KeyShotPriority = 20;
+        private const int OpeningPriority = 30;
         private static readonly Vector3 KeyShotOffset = new Vector3(0f, 3.4f, -7.0f);
 
         [SerializeField] private CameraConfig _config;
@@ -31,6 +35,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         [SerializeField] private CinemachineCamera _keyShotCamera;
         [SerializeField] private CinemachineFollow _keyShotFollow;
         [SerializeField] private CinemachineTargetGroup _keyGroup;
+        [SerializeField] private CinemachineCamera _openingCamera;
 
         private readonly List<Collider> _zones = new List<Collider>();
         private readonly List<float> _zoneYaws = new List<float>();
@@ -40,6 +45,7 @@ namespace ProfessorSprat.Gameplay.CameraSystem
         private float _yawVelocity;
         private float _elevation;
         private float _keyShotRemaining;
+        private float _openingRemaining;
 
         #endregion
 
@@ -75,6 +81,12 @@ namespace ProfessorSprat.Gameplay.CameraSystem
             // The run starts fully zoomed in (owner request, D-274); the player zooms out from there.
             _orbit.RadialAxis.Value = _config.ZoomRange.x;
             _followCamera.PreviousStateIsValid = false;
+            if (_openingCamera != null)
+            {
+                bool handOff = IntroCinematic.ConsumeHandOff();
+                _openingCamera.Priority.Value = handOff ? OpeningPriority : 0;
+                _openingRemaining = handOff ? _config.OpeningHold : 0f;
+            }
         }
 
         #endregion
@@ -123,6 +135,15 @@ namespace ProfessorSprat.Gameplay.CameraSystem
                 _orbit.HorizontalAxis.Center = _yaw;
                 _orbit.HorizontalAxis.Value = Mathf.Repeat(_orbit.HorizontalAxis.Value + turn + 180f, 360f) - 180f;
             }
+            if (_openingRemaining > 0f)
+            {
+                _openingRemaining -= Time.deltaTime;
+                if (_openingRemaining <= 0f)
+                {
+                    _openingCamera.Priority.Value = 0;
+                }
+            }
+
             if (_keyShotRemaining > 0f)
             {
                 _keyShotRemaining -= Time.deltaTime;

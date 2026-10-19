@@ -13470,6 +13470,7 @@ Transform:
   - {fileID: 598409932}
   - {fileID: 2108008342}
   - {fileID: 450574904}
+  - {fileID: 1296075749}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &170613394
@@ -27304,6 +27305,7 @@ MonoBehaviour:
   _keyShotCamera: {fileID: 450574907}
   _keyShotFollow: {fileID: 450574906}
   _keyGroup: {fileID: 2108008343}
+  _openingCamera: {fileID: 1296075751}
 --- !u!114 &312747084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96661,12 +96663,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4785b45afd9fd9e45af33eff31734e52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: ProfessorSprat.Gameplay::ProfessorSprat.Gameplay.Services.MusicLooper
-  _clip: {fileID: 8300000, guid: 329bff060b4262b4ead2d130934ff30e, type: 3}
+  _clip: {fileID: 8300000, guid: 4d35fdf8668b9efdf4cf797dc0a26c06, type: 3}
   _sourceA: {fileID: 1059670977}
   _sourceB: {fileID: 1059670976}
   _volume: 0.35
-  _loopStart: 12
-  _crossfade: 0.3
+  _loopStart: 0
+  _crossfade: 1.5
 --- !u!82 &1059670976
 AudioSource:
   m_ObjectHideFlags: 0
@@ -118564,6 +118566,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6603815352539948825, guid: facd7e1cbbdeda44b8714ace17d6061d, type: 3}
   m_PrefabInstance: {fileID: 1292073032}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1296075748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1296075749}
+  - component: {fileID: 1296075751}
+  - component: {fileID: 1296075750}
+  m_Layer: 0
+  m_Name: CM_Opening
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1296075749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296075748}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.023531053, y: -0.7067151, z: 0.02353105, w: 0.70671517}
+  m_LocalPosition: {x: -30.699999, y: 11.92, z: 7.749998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 170147493}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1296075750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296075748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineHardLookAt
+  LookAtOffset: {x: 0, y: 1.6, z: 0}
+--- !u!114 &1296075751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1296075748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineCamera
+  Priority:
+    Enabled: 1
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 0
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 934312436}
+    CustomLookAtTarget: 1
+  Lens:
+    FieldOfView: 50
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!1001 &1298999520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -196679,7 +196770,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
+  CustomBlends: {fileID: 11400000, guid: f5e350fb7e8cfaa469c96a7352353b24, type: 2}
 --- !u!114 &2057930724
 MonoBehaviour:
   m_ObjectHideFlags: 0

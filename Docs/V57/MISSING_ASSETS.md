@@ -14,7 +14,7 @@ Single list of resources the game needs but the delivery lacks (TDD 1.0.0 §6, �
 | UI mockups (`UI_HUDCounter`, `UI_MainMenu`, `UI_PauseMenu`, `UI_Loading`, `UI_LevelEnd`) | UI | TDD §9.1 | `Docs/ArtDirection/UIMockups/<ScreenId>.png` | blocks: visual (UI built from UXML/USS + palette) | missing |
 | UI sprites per screen, icons `ICO_Fly`, `ICO_AccessKey` | UI | TDD §9.1, §13.1 | `Assets/_Game/Art/UI/Sprites/<ScreenId>/`, `Art/UI/Icons/` | — | delivered (owner UI sheet v02, sliced, D-268) |
 | Rounded sans font with tabular numerals | UI | TDD §9.1, §13.1 | `Assets/_Game/Art/UI/Fonts/` | visual: UI uses the default font (no bold weight) | missing |
-| Music: level base cue | Audio | TDD §10 | `Assets/_Game/Audio/Music/` | — | delivered (`MUS_PuffAndRebellion.wav`, D-258) |
+| Music: level base cue | Audio | TDD §10 | `Assets/_Game/Audio/Music/` | — | delivered (`MUS_Level01_Intensity.mp3`, D-286; replaces `MUS_PuffAndRebellion.wav`, D-258). WAV master pending |
 | Music: level intensity layer (synchronised with the base cue), menu cue, key motif (1.2 s), door-unlock cadence, level-end sting | Audio | TDD §10, §13.1 | `Assets/_Game/Audio/Music/` | blocks: audio | missing |
 | SFX (≈ 30: footsteps, jump/land, stomp, crab patter/contact/defeat, fly pop, key, door, UI) — full list + ElevenLabs prompts in `Docs/V57/SFX_PROMPTS_ELEVENLABS.md` | Audio | TDD §10, §B feedback | `Assets/_Game/Audio/SFX/<Category>/` | blocks: audio | missing (owner generating) |
 | Ambience beds (3 zone themes) | Audio | TDD §10 | `Assets/_Game/Audio/Ambience/` | blocks: audio | missing |

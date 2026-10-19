@@ -12,6 +12,8 @@ namespace ProfessorSprat.Gameplay.Config
         [SerializeField] private float _zoneBlendDuration = 0.8f;
         [SerializeField] private float _keyShotHold = 1.2f;
         [SerializeField] private float _keyShotBlend = 0.5f;
+        [Tooltip("Seconds the opening shot (the intro video's last frame, rebuilt in the level) holds before blending to play (D-285).")]
+        [SerializeField] private float _openingHold = 0.6f;
         [Tooltip("Stick magnitude below which a new camera-zone basis is applied immediately.")]
         [SerializeField] private float _basisSwitchStick = 0.2f;
         [Header("Player look (owner request, D-254)")]
@@ -34,6 +36,7 @@ namespace ProfessorSprat.Gameplay.Config
         public float ZoneBlendDuration => _zoneBlendDuration;
         public float KeyShotHold => _keyShotHold;
         public float KeyShotBlend => _keyShotBlend;
+        public float OpeningHold => _openingHold;
         public float BasisSwitchStick => _basisSwitchStick;
         public float MouseSensitivity => _mouseSensitivity;
         public float StickLookSpeed => _stickLookSpeed;

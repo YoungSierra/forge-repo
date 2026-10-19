@@ -12,11 +12,14 @@ namespace ProfessorSprat.Gameplay.Flow
     /// (SCN_Intro_Cinematic). The level scene starts loading in the background (low priority) only once the video is
     /// playing, so the video starts at once; the level is activated when the video ends. Any
     /// button (keyboard, gamepad, mouse) skips after <see cref="_skipDelay"/>. If the video cannot play, the level starts
-    /// right away.
+    /// right away. When the video plays to the end it stays on its last frame (the B-17 gate) until the level replaces it,
+    /// and the level opens on the same framing before blending to play (<see cref="ConsumeHandOff"/>, D-285).
     /// </summary>
     public sealed class IntroCinematic : MonoBehaviour
     {
         #region Fields
+
+        private static bool s_handOff;
 
         [SerializeField] private VideoPlayer _video;
         [SerializeField] private string _nextScene = "SCN_HydroStation_Gameplay";
@@ -34,9 +37,20 @@ namespace ProfessorSprat.Gameplay.Flow
 
         public bool IsFinished => _finished;
 
+        /// <summary>True once after the video played to its end (not skipped): the level opens on the video's last shot.</summary>
+        public static bool ConsumeHandOff()
+        {
+            bool handOff = s_handOff;
+            s_handOff = false;
+            return handOff;
+        }
+
         #endregion
 
         #region Unity Lifecycle
+
+        [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+        private static void ResetStatics() => s_handOff = false;
 
         private void Awake()
         {
@@ -91,7 +105,11 @@ namespace ProfessorSprat.Gameplay.Flow
 
         private void OnVideoStarted(VideoPlayer player) => BeginLoading(ThreadPriority.Low);
 
-        private void OnVideoEnded(VideoPlayer player) => Finish();
+        private void OnVideoEnded(VideoPlayer player)
+        {
+            s_handOff = true;
+            Finish(keepLastFrame: true);
+        }
 
         private void BeginLoading(ThreadPriority priority)
         {
@@ -117,7 +135,7 @@ namespace ProfessorSprat.Gameplay.Flow
             Finish();
         }
 
-        private void Finish()
+        private void Finish(bool keepLastFrame = false)
         {
             if (_finished)
             {
@@ -129,7 +147,15 @@ namespace ProfessorSprat.Gameplay.Flow
             _anyButton = null;
             if (_video != null)
             {
-                _video.Stop();
+                // Stop clears the picture; at the natural end the last frame stays up until the level is activated.
+                if (keepLastFrame)
+                {
+                    _video.Pause();
+                }
+                else
+                {
+                    _video.Stop();
+                }
             }
 
             Cursor.visible = true;

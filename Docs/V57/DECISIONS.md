@@ -3030,3 +3030,24 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - Rebuild: raised jellyfish at y 2.5–6.6.
   - Play: one seen from the gameplay camera between the domes; 0 contacts with the scenery for the 86 fish and 30 jellyfish over 20 s.
 - **Reversal cost:** low · **Type:** owner request
+
+### D-285 — Intro hand-off: the level opens on the video's last shot and blends to play (owner request)
+- **When:** 2026-10-19 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** the intro video (`CIN_Intro.mp4`, D-266) ends on a static wide shot of the B-17 gate with the Professor in the start tunnel; the level then cut to the follow camera. The owner asked for the middle option: keep the video and make only the ending in-engine with Cinemachine.
+- **Choice:**
+  - **Same framing:** the video's last frame matches the level's own start (`AST-ENV-BULKHEAD-001_03` gate with the "RESEARCH WING B-17" and "SECTOR 7" signs, beacon crates on the grate platform). `CM_Opening` (under `_Cameras`) sits 15 m in front of `Marker_Spawn_Player`, 2.47 m above it, FOV 50, hard look-at on the Professor (+1.6 m).
+  - **Hand-off:** when the video plays to its end, `IntroCinematic` pauses on the last frame (instead of `Stop`, which cleared it) and flags the hand-off. `CameraRig.Bind` consumes it: `CM_Opening` goes live (priority 30), holds `CameraConfig.OpeningHold` (0.6 s), then drops to 0.
+  - **Blend:** brain custom blend `Assets/_Game/Settings/Camera/CMB_CameraBlends.asset`: `CM_Opening` → any camera, ease in/out 2.5 s. Both cameras aim at the Professor, so the move is a crane through the gate and over his head to the usual follow framing. Every other camera change keeps the default 0.5 s blend.
+  - **Not triggered:** skipping the video, restarting the level, or loading the level directly start on the follow camera as before.
+- **Verified (Play):** intro scene played to the end → the level opened at `CM_Opening` (−30.70, 11.92, 7.75), blended, and settled behind the Professor (−49.60, 11.24, 7.75; pitch 13°) with the orbit axes unchanged. No new console errors.
+- **Reversal cost:** low · **Type:** owner request
+
+### D-286 — Level music replaced by the owner's new theme (MP3 for now)
+- **When:** 2026-10-19 · **Stage:** post-M4 (owner delivery) · **Commit:** pending
+- **Context:** the owner generated a new level theme with ElevenLabs Music (`music_v2_5`, 120 s, prompted as a loopable 112 BPM D-dorian piece with no intro or ending) and prefers it to `MUS_PuffAndRebellion.wav` (D-258). The API delivers MP3 on the owner's plan; a WAV master is still to be decided.
+- **Choice:**
+  - **File:** `Assets/_Game/Audio/Music/MUS_Level01_Intensity.mp3` (owner delivery, content untouched); import settings copied from the previous music (streaming, Vorbis 0.7, load in background).
+  - **Looping:** `MusicLooper` now plays it from 0 s with no intro (`_loopStart` 0) and a 1.5 s equal-power crossfade at the seam (was 12 s / 0.3 s), since a generated loop's ends are not sample-matched. Volume stays 0.35.
+  - **Kept:** `MUS_PuffAndRebellion.wav` stays in the folder, unreferenced, until the owner decides.
+- **Pending:** replace the MP3 with the WAV master when available (same name, `.wav`; re-point the looper). The TDD §10 two-layer setup (base + intensity) is still not built: this single cue plays as the level's only music layer.
+- **Reversal cost:** low · **Type:** owner delivery

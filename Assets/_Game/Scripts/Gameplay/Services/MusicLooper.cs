@@ -1,3 +1,4 @@
+using ProfessorSprat.Gameplay.Options;
 using UnityEngine;
 
 namespace ProfessorSprat.Gameplay.Services
@@ -37,6 +38,9 @@ namespace ProfessorSprat.Gameplay.Services
 
         public bool IsPlaying => _current != null && _current.isPlaying;
 
+        /// <summary>Playback volume times the player's music setting (D-287).</summary>
+        private float Volume => _volume * GameSettings.MusicVolume;
+
         #endregion
 
         #region Unity Lifecycle
@@ -63,7 +67,7 @@ namespace ProfessorSprat.Gameplay.Services
             _current = _sourceA;
             _next = _sourceB;
             _current.time = 0f;
-            _current.volume = _volume;
+            _current.volume = Volume;
             _current.PlayScheduled(start);
             _currentEndDsp = start + _clip.length;
         }
@@ -88,12 +92,13 @@ namespace ProfessorSprat.Gameplay.Services
 
             if (!_nextScheduled || now < _nextStartDsp)
             {
+                _current.volume = Volume;
                 return;
             }
 
             float t = _crossfade > 0f ? Mathf.Clamp01((float)((now - _nextStartDsp) / _crossfade)) : 1f;
-            _current.volume = _volume * Mathf.Cos(t * Mathf.PI * 0.5f);
-            _next.volume = _volume * Mathf.Sin(t * Mathf.PI * 0.5f);
+            _current.volume = Volume * Mathf.Cos(t * Mathf.PI * 0.5f);
+            _next.volume = Volume * Mathf.Sin(t * Mathf.PI * 0.5f);
             if (t >= 1f)
             {
                 _current.Stop();

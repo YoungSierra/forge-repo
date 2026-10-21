@@ -9,8 +9,11 @@
             </ui:VisualElement>
             <ui:VisualElement name="fly-icon" class="fly-icon" picking-mode="Ignore" />
         </ui:VisualElement>
-        <ui:VisualElement name="key-glyph" class="key-glyph" picking-mode="Ignore">
-            <ui:VisualElement class="key-icon" picking-mode="Ignore" />
+        <ui:VisualElement name="key-glyph" class="key-slot" picking-mode="Ignore">
+            <ui:Label text="KEY ACQUIRED" class="key-label" picking-mode="Ignore" />
+            <ui:VisualElement class="key-glyph" picking-mode="Ignore">
+                <ui:VisualElement class="key-icon" picking-mode="Ignore" />
+            </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

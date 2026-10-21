@@ -1,8 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="PS_UI.uss" />
-    <ui:VisualElement name="level-end" class="panel">
-        <ui:Label text="Level complete" class="panel-title" />
-        <ui:Label name="level-end-results" text="" class="panel-text" />
-        <ui:Button name="continue" text="Continue" class="menu-button" />
+    <ui:VisualElement name="level-end" class="screen modal-scrim">
+        <ui:VisualElement class="panel panel--wide">
+            <ui:Label text="MISSION COMPLETE" class="panel-title" />
+            <ui:Label name="level-end-sub" text="RESEARCH WING B-17 SECURED" class="panel-sub" />
+            <ui:VisualElement class="rank-row">
+                <ui:Label name="rank-letter" text="A" class="rank-letter" />
+                <ui:Label name="rank-text" text="" class="rank-text" />
+            </ui:VisualElement>
+            <ui:VisualElement name="stats-grid" class="stats-grid" />
+            <ui:Label name="level-end-results" text="" class="panel-text" />
+            <ui:Button name="again" text="PLAY AGAIN" class="menu-button" />
+            <ui:Button name="continue" text="MAIN MENU" class="menu-button" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

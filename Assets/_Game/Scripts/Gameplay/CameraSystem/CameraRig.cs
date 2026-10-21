@@ -58,6 +58,9 @@ namespace ProfessorSprat.Gameplay.CameraSystem
 
         public bool KeyShotActive => _keyShotRemaining > 0f;
 
+        /// <summary>True while the intro opening shot holds (D-285).</summary>
+        public bool OpeningActive => _openingRemaining > 0f;
+
         public CameraConfig Config => _config;
 
         /// <summary>Player orbit (degrees) relative to the camera-zone yaw.</summary>

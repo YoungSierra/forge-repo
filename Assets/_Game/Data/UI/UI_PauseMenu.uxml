@@ -1,9 +1,15 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="PS_UI.uss" />
-    <ui:VisualElement name="pause-menu" class="panel">
-        <ui:Label text="Paused" class="panel-title" />
-        <ui:Button name="resume" text="Resume" class="menu-button" />
-        <ui:Button name="restart" text="Restart zone" class="menu-button" />
-        <ui:Button name="quit" text="Quit to menu" class="menu-button" />
+    <ui:VisualElement name="pause-menu" class="screen modal-scrim">
+        <ui:VisualElement class="panel panel--wide">
+            <ui:Label text="PAUSED" class="panel-title" />
+            <ui:Label name="pause-sub" text="" class="panel-sub" />
+            <ui:Button name="resume" text="RESUME" class="menu-button" />
+            <ui:Button name="restart" text="RESTART LEVEL" class="menu-button" />
+            <ui:Button name="settings" text="SETTINGS" class="menu-button" />
+            <ui:Button name="access" text="ACCESSIBILITY" class="menu-button" />
+            <ui:Button name="controls" text="CONTROLS" class="menu-button" />
+            <ui:Button name="quit" text="ABORT MISSION" class="menu-button" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

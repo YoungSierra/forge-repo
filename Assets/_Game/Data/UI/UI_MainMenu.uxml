@@ -1,11 +1,22 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements">
     <Style src="PS_UI.uss" />
-    <ui:VisualElement name="main-menu" class="screen menu-root">
-        <ui:VisualElement class="menu-column">
+    <ui:VisualElement name="main-menu" class="screen menu-root menu-root--split">
+        <ui:VisualElement class="menu-brand">
             <ui:VisualElement name="logo" class="logo" />
-            <ui:Button name="start" text="Start" class="menu-button" />
-            <ui:Button name="continue" text="Continue" class="menu-button" />
-            <ui:Button name="quit" text="Quit" class="menu-button" />
+            <ui:Label text="SECTOR 7 HYDRO LABS — AUTHORISATION REQUIRED" class="menu-sub" />
+            <ui:VisualElement class="menu-level">
+                <ui:Label text="Level 01 · " class="menu-level-text" />
+                <ui:Label text="Research Wing B-17" class="menu-level-name" />
+            </ui:VisualElement>
         </ui:VisualElement>
+        <ui:VisualElement class="menu-column">
+            <ui:Button name="start" text="START MISSION" class="menu-button" />
+            <ui:Button name="continue" text="CONTINUE" class="menu-button" />
+            <ui:Button name="settings" text="SETTINGS" class="menu-button" />
+            <ui:Button name="access" text="ACCESSIBILITY" class="menu-button" />
+            <ui:Button name="controls" text="CONTROLS" class="menu-button" />
+            <ui:Button name="quit" text="QUIT" class="menu-button" />
+        </ui:VisualElement>
+        <ui:Label text="V57 STUDIO · FORGE" class="menu-version" />
     </ui:VisualElement>
 </ui:UXML>

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using ProfessorSprat.Core;
 using ProfessorSprat.Gameplay.CameraSystem;
@@ -43,6 +44,9 @@ namespace ProfessorSprat.Gameplay.Flow
         [SerializeField] private InputHandler _input;
         [SerializeField] private SaveService _save;
         [SerializeField] private LevelEndView _levelEnd;
+        [SerializeField] private RunStats _stats;
+        [Tooltip("Seconds between the mission-complete banner and the results screen (D-287).")]
+        [SerializeField] private float _endDelay = 1.8f;
 
         private LevelContent _content;
         private bool _doorOpen;
@@ -150,9 +154,11 @@ namespace ProfessorSprat.Gameplay.Flow
             _doorOpen = false;
             _zoneStart = Time.time;
             List<FlyController> flies = new List<FlyController>();
+            int crabs = 0;
             foreach (ZoneRuntime zone in _content.Zones)
             {
                 flies.AddRange(zone.Flies);
+                crabs += zone.Crabs.Count;
                 foreach (Crab.CrabController crab in zone.Crabs)
                 {
                     crab.Init(_content.PatrolRange(crab));
@@ -166,9 +172,11 @@ namespace ProfessorSprat.Gameplay.Flow
             }
 
             _flyTracker.BeginZone(last.Id, flies);
+            _stats?.SetCrabsTotal(crabs);
             if (last.Key != null)
             {
                 last.Key.Arm(last.Id, last.Door);
+                last.Key.SetCarrier(_professor.Body);
             }
             EventBus.Publish(new ZoneStartedEvent(last.Id, _flyTracker.ZoneTotal));
         }
@@ -183,8 +191,15 @@ namespace ProfessorSprat.Gameplay.Flow
             }
             if (_levelEnd != null && _save != null)
             {
-                _levelEnd.Show(_save.Session.completedZones);
+                StartCoroutine(ShowEnd());
             }
+        }
+
+        private IEnumerator ShowEnd()
+        {
+            // The mission-complete banner and Sprat's spin play first (D-287).
+            yield return new WaitForSeconds(_endDelay);
+            _levelEnd.Show(_save.Session.completedZones);
         }
 
         private void OnDoorUnlocked(DoorUnlockedEvent unlocked)

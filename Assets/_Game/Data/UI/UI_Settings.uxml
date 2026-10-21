@@ -1,0 +1,11 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="PS_UI.uss" />
+    <ui:VisualElement name="settings-root" class="screen modal-scrim">
+        <ui:VisualElement name="settings-panel" class="panel panel--wide">
+            <ui:Label name="settings-title" text="SETTINGS" class="panel-title" />
+            <ui:Label name="settings-sub" text="AUDIO · CAMERA · GRAPHICS" class="panel-sub" />
+            <ui:ScrollView name="settings-body" class="settings-body" />
+            <ui:Button name="settings-back" text="BACK" class="menu-button" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

@@ -1,4 +1,6 @@
 using ProfessorSprat.Core;
+using ProfessorSprat.Gameplay.Flow;
+using ProfessorSprat.Gameplay.Options;
 using ProfessorSprat.Gameplay.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -9,7 +11,8 @@ namespace ProfessorSprat.Gameplay.UI
 {
     /// <summary>
     /// TDD §B-S PauseController + §9.1 UI_PauseMenu: the Pause action toggles time scale 0, the gameplay input map and the
-    /// menu (Resume / Restart zone / Quit to menu). Restart reloads the scene: mid-zone progress is session-only (§11.4).
+    /// menu (Resume / Restart / Settings / Accessibility / Controls / Abort, D-287). Restart reloads the scene: mid-zone
+    /// progress is session-only (§11.4). Unpausing restores the player's game speed.
     /// </summary>
     [RequireComponent(typeof(UIDocument))]
     public sealed class PauseController : MonoBehaviour
@@ -19,6 +22,8 @@ namespace ProfessorSprat.Gameplay.UI
         [SerializeField] private InputActionAsset _actions;
         [SerializeField] private InputHandler _input;
         [SerializeField] private string _menuScene = "SCN_MainMenu_Boot";
+        [SerializeField] private SettingsView _settings;
+        [SerializeField] private RunStats _stats;
 
         private InputAction _pause;
         private VisualElement _panel;
@@ -37,7 +42,7 @@ namespace ProfessorSprat.Gameplay.UI
             }
 
             IsPaused = paused;
-            Time.timeScale = paused ? 0f : 1f;
+            Time.timeScale = paused ? 0f : GameSettings.GameSpeed;
             if (_input != null)
             {
                 _input.SetGameplayEnabled(!paused);
@@ -47,7 +52,17 @@ namespace ProfessorSprat.Gameplay.UI
                 _panel.style.display = paused ? DisplayStyle.Flex : DisplayStyle.None;
                 if (paused)
                 {
+                    Label sub = _panel.Q<Label>("pause-sub");
+                    if (sub != null && _stats != null)
+                    {
+                        sub.text = $"{_stats.FliesCollected} / {_stats.FliesTotal} FLIES · {PresentationView.FormatTime(_stats.Elapsed)}";
+                    }
+
                     _panel.Q<Button>("resume")?.Focus();
+                }
+                else if (_settings != null && _settings.IsOpen)
+                {
+                    _settings.Close();
                 }
             }
 
@@ -72,6 +87,9 @@ namespace ProfessorSprat.Gameplay.UI
                 Bind("resume", () => SetPaused(false));
                 Bind("restart", Restart);
                 Bind("quit", Quit);
+                Bind("settings", () => OpenPage(SettingsPage.Settings));
+                Bind("access", () => OpenPage(SettingsPage.Accessibility));
+                Bind("controls", () => OpenPage(SettingsPage.Controls));
             }
 
             _pause?.Enable();
@@ -89,6 +107,12 @@ namespace ProfessorSprat.Gameplay.UI
         {
             if (_pause != null && _pause.WasPressedThisFrame())
             {
+                if (_settings != null && _settings.IsOpen)
+                {
+                    _settings.Close();
+                    return;
+                }
+
                 SetPaused(!IsPaused);
             }
         }
@@ -104,6 +128,24 @@ namespace ProfessorSprat.Gameplay.UI
             {
                 button.clicked += action;
             }
+        }
+
+        private void OpenPage(SettingsPage page)
+        {
+            if (_settings == null)
+            {
+                return;
+            }
+
+            _panel.style.display = DisplayStyle.None;
+            _settings.Open(page, () =>
+            {
+                if (IsPaused)
+                {
+                    _panel.style.display = DisplayStyle.Flex;
+                    _panel.Q<Button>("resume")?.Focus();
+                }
+            });
         }
 
         private void Restart()

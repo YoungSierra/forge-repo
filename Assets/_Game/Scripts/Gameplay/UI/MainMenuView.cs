@@ -6,8 +6,9 @@ using UnityEngine.UIElements;
 namespace ProfessorSprat.Gameplay.UI
 {
     /// <summary>
-    /// TDD §9.1 UI_MainMenu (standalone, SCN_MainMenu_Boot): Start, Continue (when a save exists), Quit. Start plays the
-    /// intro cinematic first (D-266), which then loads the level; Continue goes straight to the level.
+    /// TDD §9.1 UI_MainMenu (standalone, SCN_MainMenu_Boot): Start, Continue (when a save exists), Settings, Accessibility,
+    /// Controls (D-287), Quit. Start plays the intro cinematic first (D-266), which then loads the level; Continue goes
+    /// straight to the level.
     /// </summary>
     [RequireComponent(typeof(UIDocument))]
     public sealed class MainMenuView : MonoBehaviour
@@ -17,6 +18,9 @@ namespace ProfessorSprat.Gameplay.UI
         [SerializeField] private SaveService _save;
         [SerializeField] private string _firstLevelScene = "SCN_HydroStation_Gameplay";
         [SerializeField] private string _introScene = "SCN_Intro_Cinematic";
+        [SerializeField] private SettingsView _settings;
+
+        private VisualElement _menu;
 
         #endregion
 
@@ -30,6 +34,10 @@ namespace ProfessorSprat.Gameplay.UI
                 return;
             }
 
+            _menu = root.Q<VisualElement>("main-menu");
+            BindPage(root, "settings", SettingsPage.Settings);
+            BindPage(root, "access", SettingsPage.Accessibility);
+            BindPage(root, "controls", SettingsPage.Controls);
             Button start = root.Q<Button>("start");
             Button resume = root.Q<Button>("continue");
             Button quit = root.Q<Button>("quit");
@@ -54,6 +62,26 @@ namespace ProfessorSprat.Gameplay.UI
         #endregion
 
         #region Private Methods
+
+        private void BindPage(VisualElement root, string buttonName, SettingsPage page)
+        {
+            Button button = root.Q<Button>(buttonName);
+            if (button == null)
+            {
+                return;
+            }
+
+            button.style.display = _settings != null ? DisplayStyle.Flex : DisplayStyle.None;
+            button.clicked += () =>
+            {
+                _menu.style.display = DisplayStyle.None;
+                _settings.Open(page, () =>
+                {
+                    _menu.style.display = DisplayStyle.Flex;
+                    button.Focus();
+                });
+            };
+        }
 
         private void StartNewGame()
         {

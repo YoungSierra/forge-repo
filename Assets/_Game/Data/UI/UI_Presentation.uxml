@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements">
+    <Style src="PS_UI.uss" />
+    <ui:VisualElement name="presentation" class="screen" picking-mode="Ignore">
+        <ui:VisualElement name="bubbles" class="screen" picking-mode="Ignore" />
+        <ui:VisualElement name="world-marker" class="world-marker" picking-mode="Ignore" />
+        <ui:Label name="run-timer" text="0:00.0" class="run-timer" picking-mode="Ignore" />
+        <ui:Label name="fps" text="" class="fps-meter" picking-mode="Ignore" />
+        <ui:VisualElement name="banner" class="banner" picking-mode="Ignore">
+            <ui:Label name="banner-title" text="" class="banner-title" picking-mode="Ignore" />
+            <ui:Label name="banner-sub" text="" class="banner-sub" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="caption" class="caption" picking-mode="Ignore">
+            <ui:Label name="caption-kicker" text="" class="caption-kicker" picking-mode="Ignore" />
+            <ui:Label name="caption-title" text="" class="caption-title" picking-mode="Ignore" />
+            <ui:Label name="caption-text" text="" class="caption-text" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="tutorial" class="tutorial" picking-mode="Ignore">
+            <ui:VisualElement class="tutorial-accent" picking-mode="Ignore" />
+            <ui:VisualElement class="tutorial-top" picking-mode="Ignore">
+                <ui:Label name="tut-step" text="TRAINING" class="tutorial-step" picking-mode="Ignore" />
+                <ui:VisualElement name="tut-dots" class="tutorial-dots" picking-mode="Ignore" />
+            </ui:VisualElement>
+            <ui:Label name="tut-title" text="" class="tutorial-title" picking-mode="Ignore" />
+            <ui:Label name="tut-text" text="" class="tutorial-text" picking-mode="Ignore" />
+            <ui:Label name="tut-skip" text="" class="tutorial-skip" picking-mode="Ignore" />
+            <ui:Label name="tut-check" text="✓" class="tutorial-check" picking-mode="Ignore" />
+        </ui:VisualElement>
+        <ui:VisualElement name="flash" class="screen flash" picking-mode="Ignore" />
+    </ui:VisualElement>
+</ui:UXML>

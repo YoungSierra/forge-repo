@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MAT_FX_LightShaft
+  m_Shader: {fileID: 4800000, guid: da68150bd57ba9148bfbb3a4d2a1ba25, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs: []
+    m_Ints: []
+    m_Floats:
+    - _BottomPower: 1.4
+    - _EdgePower: 2.6
+    - _HeightPower: 1.3
+    - _Intensity: 0.22
+    - _PulseSpeed: 0.7
+    - _Speed: 0.12
+    - _StreakAmount: 0.65
+    - _Streaks: 9
+    - _TopFade: 0.18
+    m_Colors:
+    - _Color: {r: 0.55, g: 0.88, b: 1, a: 1}
+    - _NearFade: {r: 2, g: 9, b: 0, a: 0}
+  m_BuildTextureStacks: []
+  m_AllowLocking: 1

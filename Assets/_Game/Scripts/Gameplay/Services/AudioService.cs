@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using ProfessorSprat.Core;
+using ProfessorSprat.Gameplay.Options;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -128,6 +129,17 @@ namespace ProfessorSprat.Gameplay.Services
 
         private void Update()
         {
+            // Player SFX volume (D-287); one-shot volume scales multiply the source volume.
+            float sfx = GameSettings.SfxVolume;
+            if (_oneShots != null)
+            {
+                _oneShots.volume = sfx;
+            }
+            if (_footsteps != null)
+            {
+                _footsteps.volume = sfx;
+            }
+
             if (_musicIntensity != null)
             {
                 _musicIntensity.volume = Mathf.MoveTowards(_musicIntensity.volume, MusicIntensityTarget, Time.unscaledDeltaTime / 0.5f);

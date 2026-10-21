@@ -32,3 +32,5 @@ Single list of resources the game needs but the delivery lacks (TDD 1.0.0 §6, �
 | Algae vertex colours (R bend, G phase, B flutter) for per-strand sway | Environment | owner request (D-263) | `AST-ENV-VEGETATION-001`, `AST_ENV_OCEANLEAVES-001` FBX | sway from height (whole clump in phase) | missing (meshes delivered separated in V10) |
 | Door consoles (`Switch` markers) — intended mechanic? | Level | not in the TDD | design answer | markers only; doors open with the key | question |
 | Hyphen naming for `AST_ENV_OCEANBOAT/OCEANROCKS/OCEANSKELETON/OCEANLEAVES/OCEANROCKLEAVES-001` | Naming | asset naming | provider re-export | — (absorbed by `layout_aliases.json`) | fixable |
+| Speech-bubble portraits (Professor, Sprat) | UI | owner request (D-287) | `Assets/_Game/Art/UI/Icons/` | visual: bubbles show a coloured initial instead | missing |
+| SFX for the D-287 cues: banner sting, bark blip, door locked clunk, key pickup, UI navigate/confirm | Audio | owner request (D-287), TDD §B | `Assets/_Game/Audio/SFX/` | silent cues | missing |

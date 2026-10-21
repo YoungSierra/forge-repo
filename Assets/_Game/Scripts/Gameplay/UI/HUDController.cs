@@ -53,6 +53,7 @@ namespace ProfessorSprat.Gameplay.UI
             EventBus.Subscribe<ZoneStartedEvent>(OnZoneStarted);
             EventBus.Subscribe<FlyCollectedEvent>(OnFlyCollected);
             EventBus.Subscribe<KeyCollectedEvent>(OnKeyCollected);
+            EventBus.Subscribe<KeySocketedEvent>(OnKeySocketed);
         }
 
         private void OnDisable()
@@ -60,6 +61,7 @@ namespace ProfessorSprat.Gameplay.UI
             EventBus.Unsubscribe<ZoneStartedEvent>(OnZoneStarted);
             EventBus.Unsubscribe<FlyCollectedEvent>(OnFlyCollected);
             EventBus.Unsubscribe<KeyCollectedEvent>(OnKeyCollected);
+            EventBus.Unsubscribe<KeySocketedEvent>(OnKeySocketed);
         }
 
         private void Update()
@@ -111,6 +113,11 @@ namespace ProfessorSprat.Gameplay.UI
         private void OnKeyCollected(KeyCollectedEvent collected)
         {
             ShowKey(true);
+        }
+
+        private void OnKeySocketed(KeySocketedEvent socketed)
+        {
+            ShowKey(false);
         }
 
         private void Refresh()

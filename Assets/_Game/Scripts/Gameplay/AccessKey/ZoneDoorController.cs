@@ -109,7 +109,8 @@ namespace ProfessorSprat.Gameplay.AccessKey
             {
                 if (!_lockedNoticeShown)
                 {
-                    Debug.Log($"{name}: locked — the zone key is required.", this);
+                    // TDD §B "door without key → shake + locked clunk": the feedback layer reacts (D-287).
+                    EventBus.Publish(new DoorLockedEvent(_zoneId, closest));
                     _lockedNoticeShown = true;
                 }
 

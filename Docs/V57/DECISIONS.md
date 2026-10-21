@@ -3051,3 +3051,64 @@ Authority order used for every decision: **TDD > ADD > V57 defaults**.
   - **Kept:** `MUS_PuffAndRebellion.wav` stays in the folder, unreferenced, until the owner decides.
 - **Pending:** replace the MP3 with the WAV master when available (same name, `.wav`; re-point the looper). The TDD §10 two-layer setup (base + intensity) is still not built: this single cue plays as the level's only music layer.
 - **Reversal cost:** low · **Type:** owner delivery
+
+### D-287 — Reference-build parity: presentation, feedback, training, menus and FX (owner request)
+- **When:** 2026-10-20 · **Stage:** post-M4 (owner request) · **Commit:** pending
+- **Context:** the owner shared a three.js build of the same game (artifact "Wort Adventures B-17", built from the V57 assets) and set it as the minimum quality bar: replicate it in the engine and improve on it where Unity can. Core V57 is not touched; only this game.
+- **TDD overrides (owner's call, as with D-254):** §9 "nothing on screen during the first 90 s beyond the counter" and the HUD-only rule give way to the reference build's run timer, banners, speech bubbles, level caption and training card. Bloom and vignette were already in the volume. Audio stays as delivered: the reference build's synthesized SFX are not copied (no generated audio, AGENTS).
+- **Choice:**
+  - **Presentation (`UI_Presentation`, `PresentationView`):**
+    - run timer, amber while training;
+    - centre banners: ACCESS KEY MATERIALISED, KEY ACQUIRED, DOOR UNLOCKED, MISSION COMPLETE, TRAINING COMPLETE;
+    - speech bubbles over the Professor or Sprat, clamped to the screen edge when off-screen;
+    - level caption with the objective;
+    - training card with a world marker (`ICO_Marker`);
+    - white and blue screen flashes;
+    - optional FPS meter.
+  - **Mission script (`MissionCues`):** the reference build's lines, adapted to this level (18 flies): crab warning, first hit, halfway, last fly, key appears, door locked, fall quips. Flashes and camera shakes (Cinemachine impulse, `CameraShake`) on hits, stomps, falls, the key and a locked door.
+  - **Training (`TutorialService`, `RunOpening`):**
+    - five steps (move, look, jump, catch a fly, stomp), each completed from real play;
+    - the run clock waits until the opening shot and training end;
+    - Tab or Select skips;
+    - a "training on next start" option.
+  - **Run stats (`RunStats`):** time, hits, splashes, stomps (of all crabs), jumps, best time. The mission-complete screen shows rank S/A/B/C against a 240 s reference time (`LevelEndView._designTime`, tune after play-testing), the stats, Play again and Main menu. It appears 1.8 s after the banner.
+  - **Sprat:**
+    - keeps to the camera-facing shoulder (TDD rule 1);
+    - looks at the waiting key, else a near crab, else the camera;
+    - drifts a quarter of the way toward the waiting key;
+    - spins on door unlock and level clear, and gets excited on key pickup.
+  - **Key:**
+    - grows in spinning (ease-out to 1.25×, then settles) with the amber ramp;
+    - hovers gently;
+    - once collected, orbits behind the Professor's head at 0.7×;
+    - on unlock, flies into the door and shrinks away (`KeySocketedEvent` hides the HUD slot).
+    - The door now publishes `DoorLockedEvent` instead of a log line.
+  - **Fly trail (`FlyTrail`):** one subtle arc of small cyan dots from the Professor to the nearest fly still to catch, mostly dim with a travelling pulse. It is rebuilt on each catch and every 2 m, so it leads fly by fly (owner review: the whole route at once was too much).
+  - **Fly beacons (`FlyBeacons`, accessibility option):** a soft cyan light cone rising from each fly still to catch. It is drawn instanced with the shaft shader, not as dots, so it never reads as the trail.
+  - **Feedback FX (`FeedbackFX`, `FX_Feedback`):** sparks, glow flares and expanding rings for:
+    - fly catch, stomp, landing dust, run dust, crab hit;
+    - key spawn and pickup, door unlock, falls, zone complete.
+    - Rings use the delivered `T_Bubble` texture; sparks use Unity's default particle.
+  - **Atmosphere:**
+    - ambient motes around the Professor (`FX_Motes`, `FollowSnap`);
+    - ten fake light shafts (`SH_LightShaft` on `MESH_FX_ShaftCone`, an open cone without caps) over flies with open water above. They are soft at the silhouette and at both ends and broken into slow streaks; after owner review, Unity's capped cylinder read as a solid tube.
+    - Grading is unchanged: the level's existing bloom, split toning and saturation are already richer than the reference build.
+  - **Menus:**
+    - pause: Resume / Restart / Settings / Accessibility / Controls / Abort, with flies and time;
+    - shared `SettingsView` (`UI_Settings`):
+      - settings: music, SFX, camera sensitivity, invert Y, quality, FPS;
+      - accessibility: training, shake, flashes, fly beacons, game speed;
+      - controls;
+    - all settings persist in PlayerPrefs (`GameSettings`).
+    - The title screen is split like the reference: logo, subtitle and level card on the left, buttons on the right, and the intro video looping muted behind it.
+- **Verified (Play):**
+  - intro → opening shot with the caption and trail → training card (clock held) → skip;
+  - 18 flies caught (trail rebuilds, bubbles) → key ceremony banner → key carried behind the head → door unlocked → mission complete → results with rank and new best;
+  - pause, settings and accessibility panels; title screen.
+  - No game errors in the console. Test-run settings were reset (training on, no best time).
+- **Pending:**
+  - a rounded display font (the reference uses Lilita One and Nunito, OFL);
+  - bubble portraits (Professor and Sprat);
+  - SFX for the new cues.
+  - All are listed in MISSING_ASSETS.
+- **Reversal cost:** medium · **Type:** owner request

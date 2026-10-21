@@ -1,6 +1,7 @@
 using System;
 using ProfessorSprat.Gameplay.Config;
 using Unity.Cinemachine;
+using ProfessorSprat.Gameplay.Options;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -82,6 +83,18 @@ namespace ProfessorSprat.Gameplay.CameraSystem
 
         #region Unity Lifecycle
 
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+            GameSettings.Changed += ApplyConfig;
+        }
+
+        protected override void OnDisable()
+        {
+            GameSettings.Changed -= ApplyConfig;
+            base.OnDisable();
+        }
+
         private void Update()
         {
             if (Application.isPlaying)
@@ -113,14 +126,15 @@ namespace ProfessorSprat.Gameplay.CameraSystem
             {
                 case "Look Orbit X":
                     controller.Input.Action = _look;
-                    controller.Input.MouseGain = _config.MouseSensitivity;
-                    controller.Input.GamepadGain = _config.StickLookSpeed;
+                    controller.Input.MouseGain = _config.MouseSensitivity * GameSettings.LookSensitivity;
+                    controller.Input.GamepadGain = _config.StickLookSpeed * GameSettings.LookSensitivity;
                     break;
                 case "Look Orbit Y":
-                    // Mouse/stick up looks up: the camera goes down (lower elevation).
+                    // Mouse/stick up looks up: the camera goes down (lower elevation); the player can invert it (D-287).
+                    float invert = GameSettings.InvertY ? -1f : 1f;
                     controller.Input.Action = _look;
-                    controller.Input.MouseGain = -_config.MouseSensitivity;
-                    controller.Input.GamepadGain = -_config.StickLookSpeed;
+                    controller.Input.MouseGain = -_config.MouseSensitivity * GameSettings.LookSensitivity * invert;
+                    controller.Input.GamepadGain = -_config.StickLookSpeed * GameSettings.LookSensitivity * invert;
                     break;
                 case "Orbit Scale":
                     // Wheel forward / d-pad up brings the camera closer (smaller distance scale).
